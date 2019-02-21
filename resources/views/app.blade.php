@@ -19,15 +19,15 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
 
-    <title>Elfsight DOCS</title>
+    <title>Elfsight Features</title>
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
     <div class="container" ng-app="app">
         <header class="header">
-            <h1 class="header-title">Elfsight Docs</h1>
-            <p class="header-caption">DB of customizations and hacks</p>
+            <h1 class="header-title">Elfsight Features</h1>
+            <p class="header-caption">Garbage of Features</p>
         </header>
 
         <main class="main" ng-view></main>

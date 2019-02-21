@@ -1,16 +1,10 @@
-export default /** @ngInject */ function (itemsObj, productsObj, typesObj, tagsObj, $scope, $filter, $window) {
+export default /** @ngInject */ function (itemsObj, productsObj, typesObj, $scope, $filter, $window) {
     $scope.items = itemsObj.data;
     $scope.products = productsObj.data;
     $scope.types = typesObj.data;
-    $scope.tags = tagsObj.data;
 
     $scope.items.forEach((item) => {
-        item.tags = item.tags || [];
 
-        item.type && item.tags.unshift(item.type);
-        item.products.length > 3 ?
-            item.tags.push({alias: 'many', name: 'Many Apps'}) :
-            item.tags = [...item.tags, ...item.products];
     });
 
     $scope.sortType = 'id';
@@ -129,6 +123,5 @@ export default /** @ngInject */ function (itemsObj, productsObj, typesObj, tagsO
     $scope.cleanFilters = () => {
         $scope.current = {};
         $scope.filterTags = new Set();
-
     }
 }

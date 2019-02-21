@@ -86,9 +86,7 @@ class ProductsTableSeeder extends Seeder
         ];
 
         foreach ($products_data as $product) {
-            Product::updateOrCreate(
-                $product
-            );
+            Product::updateOrCreate($product);
         }
     }
 }

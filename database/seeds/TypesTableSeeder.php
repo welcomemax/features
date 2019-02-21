@@ -14,20 +14,12 @@ class TypesTableSeeder extends Seeder
     {
         $types_data = [
             [
-                'alias' => 'css',
-                'name' => 'CSS'
+                'alias' => 'feature',
+                'name' => 'Feature'
             ],
             [
-                'alias' => 'js',
-                'name' => 'JS'
-            ],
-            [
-                'alias' => 'other',
-                'name' => 'Other'
-            ],
-            [
-                'alias' => 'doc',
-                'name' => 'Docs'
+                'alias' => 'issue',
+                'name' => 'Issue'
             ],
             [
                 'alias' => 'change',
@@ -36,9 +28,7 @@ class TypesTableSeeder extends Seeder
         ];
 
         foreach ($types_data as $index => $type) {
-            Type::updateOrCreate(
-                $type
-            );
+            Type::updateOrCreate($type);
         }
     }
 }

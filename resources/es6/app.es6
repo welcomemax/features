@@ -1,7 +1,6 @@
 // vendors
 import 'angular';
 import 'angular-route';
-import 'ngclipboard';
 
 // filters
 import trustHtmlFilter from './filters/trust-html.es6';
@@ -18,11 +17,7 @@ import editController from './controllers/edit.es6';
 
 // directives
 import tagsDirective from './directives/tags.es6';
-import editorDirective from './directives/editor.es6';
 import previewDirective from './directives/preview.es6';
-import controlDirective from './directives/control.es6';
-import controlSelectDirective from './directives/controls/select.es6';
-import controlInputDirective from './directives/controls/input.es6';
 
 // templates
 import listTemplate from './../html/list.html';
@@ -35,11 +30,7 @@ angular.module('app', ['ngRoute', 'ngclipboard'])
     .controller('detailController', detailController)
     .controller('editController', editController)
     .directive('tags', tagsDirective)
-    .directive('editor', editorDirective)
     .directive('preview', previewDirective)
-    .directive('control', controlDirective)
-    .directive('controlSelect', controlSelectDirective)
-    .directive('controlInput', controlInputDirective)
     .filter('startFromFilter', startFromFilter)
     .filter('trustHtmlFilter', trustHtmlFilter)
     .filter('trustResourceFilter', trustResourceFilter)
@@ -58,9 +49,6 @@ angular.module('app', ['ngRoute', 'ngclipboard'])
                     },
                     typesObj: function (api) {
                         return api.call('types/used');
-                    },
-                    tagsObj: function (api) {
-                        return api.call('tags/used');
                     }
                 }
             })

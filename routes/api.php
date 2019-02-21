@@ -16,3 +16,30 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+Route::group(
+    [
+        'prefix' => '/items',
+        // 'middleware' => '' // @TODO middleware for private methods
+    ],
+    function () {
+        Route::post('/{id?}/', 'ItemController@save');
+        Route::delete('/{id}/', 'ItemController@destroy');
+    }
+);
+
+Route::group(['prefix' => '/items'], function () {
+    Route::get('/{id?}', 'ItemController@index');
+});
+
+Route::group(['prefix' => '/types'], function () {
+    Route::get('/used', 'TypeController@used');
+    Route::get('/{id?}', 'TypeController@index');
+});
+
+Route::group(['prefix' => '/products'], function () {
+    Route::get('/used', 'ProductController@used');
+    Route::get('/{id?}', 'ProductController@index');
+});
