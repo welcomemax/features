@@ -1,0 +1,108 @@
+<div class="content">
+    <div class="list">
+        <div class="item" ng-repeat="item in filterItems | startFromFilter: startingItem() | limitTo: itemsPerPage | filter: search | orderBy:sortType:sortReverse">
+            <a class="item-open" href="#/detail/{{ item.id }}" title="Open detail"><i class="icon icon-arrow icon-arrow-right"></i></a>
+
+            <div class="item-header">
+                <div class="item-header-info">
+                    <h3 ng-if="item.title">{{ item.title }}</h3>
+                    <p ng-if="item.caption">{{ item.caption }}</p>
+                </div>
+            </div>
+
+            <div class="item-body" >
+                <editor ng-model="item" mode="'preview'"></editor>
+            </div>
+
+            <div class="item-footer">
+                <tags class="item-header-tags" icon="true" ng-model="item.tags"></tags>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pagination">
+    <button class="pagination-button pagination-button-prev" ng-disabled="firstPage()" ng-click="pageBack()"><i class="icon icon-arrow icon-arrow-left"></i></button>
+    <span class="pagination-pages"><b>{{ currentPage+1 }}</b>/<b>{{ numberOfPages() }}</b></span>
+    <button class="pagination-button pagination-button-next" ng-disabled="lastPage()" ng-click="pageForward()"><i class="icon icon-arrow icon-arrow-right"></i></button>
+</div>
+
+<div class="sidebar">
+    <div class="sidebar-header"></div>
+    <div class="sidebar-body">
+        <div class="sidebar-group sidebar-group-active sidebar-group-search">
+            <div class="sidebar-group-header">Search</div>
+            <div class="sidebar-group-body">
+                <div class="search">
+                    <input class="search-input" ng-model="search" type="text" placeholder="whatever">
+                    <label class="search-icon"><i class="icon icon-search"></i></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar-group sidebar-group-active sidebar-group-apps">
+            <div class="sidebar-group-header">Apps</div>
+            <div class="sidebar-group-body">
+                <ul class="tags">
+                    <li class="tags-item" ng-repeat="product in products">
+                        <a ng-click="filterTag($event, product, 'product')">
+                            {{ product.name }}
+                            <i class="icon icon-cross tags-item-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar-group sidebar-group-active sidebar-group-types">
+            <div class="sidebar-group-header">Types</div>
+            <div class="sidebar-group-body">
+                <ul class="tags">
+                    <li class="tags-item" ng-repeat="type in types">
+                        <a ng-click="filterTag($event, type, 'type')">
+                            {{ type.name }}
+                            <i class="icon icon-cross tags-item-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="sidebar-group sidebar-group-active">
+            <div class="sidebar-group-header">Tags</div>
+            <div class="sidebar-group-body">
+                <ul class="tags">
+                    <li class="tags-item" ng-repeat="tag in tags">
+                        <a ng-click="filterTag($event, tag)">
+                            {{ tag.name }}
+                            <i class="icon icon-cross tags-item-icon"></i>
+                        </a>
+                    </li>
+                </ul>
+                <!--<tags class="sidebar-tags" icon="true" ng-model="tags"></tags>-->
+            </div>
+        </div>
+
+        <div class="sidebar-group sidebar-group-top" ng-if="false">
+            <div class="sidebar-group-header">Top</div>
+            <div class="sidebar-group-body">
+                <div class="">
+            </div>
+        </div>
+
+        <div class="sidebar-group sidebar-group-view">
+            <div class="sidebar-group-header">Controls</div>
+            <div class="sidebar-group-body">
+                <a class="button button-new" href="/#/edit/">Cards</a>
+            </div>
+        </div>
+
+        <div class="sidebar-group sidebar-group-controls">
+            <div class="sidebar-group-header">Controls</div>
+            <div class="sidebar-group-body">
+                <a class="button button-new" href="/#/edit/">Add new</a>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-footer"></div>
+</div>

@@ -1,0 +1,43 @@
+<div class="content">
+    <div class="detail">
+        <div class="item">
+            <a class="item-close" href="/#" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
+
+            <div class="item-header">
+                <div class="item-header-info">
+                    <h2>{{ item.title }}</h2>
+                    <p>{{ item.caption }}</p>
+                </div>
+                <div class="item-header-tags">
+                    <span ng-repeat="tag in item.tags"></span>
+                </div>
+            </div>
+
+            <div class="item-body">
+                <editor ng-model="item" mode="'editor'"></editor>
+            </div>
+
+            <div class="item-preview" ng-if="!!item.app.public_id">
+                <preview app="item.currentProduct"></preview>
+            </div>
+
+            <div class="item-footer">
+                <tags class="item-header-tags" icon="true" ng-model="item.tags"></tags>
+                <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar">
+    <div class="sidebar-header"></div>
+    <div class="sidebar-body">
+        <div class="sidebar-group sidebar-group-active sidebar-group-controls">
+            <div class="sidebar-group-header">Controls</div>
+            <div class="sidebar-group-body">
+                <a class="button button-edit" href="/#/edit/{{ item.id }}">Edit</a>
+                <a class="button button-new" href="/#/edit/">Add new</a>
+            </div>
+        </div>
+    </div>
+</div>

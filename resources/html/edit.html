@@ -1,0 +1,41 @@
+<div class="content">
+    <div class="edit">
+        <div class="item">
+            <a class="item-close" href="/#/detail/{{ item.id }}"><i class="icon icon-arrow icon-arrow-up"></i></a>
+
+            <div class="item-header">
+                <div class="item-header-info">
+                    <label><input ng-model="item.title">{{ item.title }}</label>
+                    <label><input ng-model="item.caption">{{ item.caption }}</label>
+                </div>
+                <div class="item-header-tags">
+                    <span ng-repeat="tag in item.tags"></span>
+                </div>
+            </div>
+
+            <div class="item-body">
+                <editor ng-model="item.data" type="item.type"></editor>
+                <button class="item-body-clipboard" ngclipboard data-clipboard-text="{{ item.data }}" ngclipboard-success="copied(e)">Copy</button>
+            </div>
+
+            <div class="item-footer">
+                <tags class="item-header-tags" icon="true" ng-model="item.tags"></tags>
+                <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar">
+    <div class="sidebar-header"></div>
+    <div class="sidebar-body">
+        <div class="sidebar-group sidebar-group-active sidebar-group-controls">
+            <div class="sidebar-group-header">Controls</div>
+            <div class="sidebar-group-body">
+                <button class="button button-save" href="/#/detail/{{ item.id }}">Save</button>
+                <button class="button button-save-new" href="/#/edit/">Save and add new</button>
+                <button class="button button-delete" href="/">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
