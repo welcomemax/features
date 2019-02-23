@@ -11,7 +11,7 @@ class ItemController extends Controller
     public function index($id = null)
     {
         $itemsQuery = $id ? Item::where('id', $id) : Item::orderBy('id', 'asc');
-        $items = $itemsQuery->with(['type', 'products', 'tags', 'params.values'])->withCount('views')->get();
+        $items = $itemsQuery->with(['type', 'product'])->get();
 
         return [
             'status' => 1,

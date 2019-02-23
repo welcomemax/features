@@ -19,10 +19,10 @@ class Item extends Model
     ];
 
     public function type() {
-        return $this->belongsTo('App\Type');
+        return $this->belongsToMany('App\Type');
     }
 
-    public function products() {
-        return $this->belongsTo('App\Product');
+    public function product() {
+        return $this->belongsToMany('App\Product');
     }
 }

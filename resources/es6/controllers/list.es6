@@ -4,7 +4,7 @@ export default /** @ngInject */ function (itemsObj, productsObj, typesObj, $scop
     $scope.types = typesObj.data;
 
     $scope.items.forEach((item) => {
-
+        item.tags = [item.type[0], item.product[0]];
     });
 
     $scope.sortType = 'id';

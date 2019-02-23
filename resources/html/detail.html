@@ -6,7 +6,6 @@
             <div class="item-header">
                 <div class="item-header-info">
                     <h2>{{ item.title }}</h2>
-                    <p>{{ item.caption }}</p>
                 </div>
                 <div class="item-header-tags">
                     <span ng-repeat="tag in item.tags"></span>
@@ -14,7 +13,7 @@
             </div>
 
             <div class="item-body">
-                <editor ng-model="item" mode="'editor'"></editor>
+                <p>{{ item.text }}</p>
             </div>
 
             <div class="item-preview" ng-if="!!item.app.public_id">

@@ -24,7 +24,7 @@ import listTemplate from './../html/list.html';
 import detailTemplate from './../html/detail.html';
 import editTemplate from './../html/edit.html';
 
-angular.module('app', ['ngRoute', 'ngclipboard'])
+angular.module('app', ['ngRoute'])
     .factory('api', apiService)
     .controller('listController', listController)
     .controller('detailController', detailController)

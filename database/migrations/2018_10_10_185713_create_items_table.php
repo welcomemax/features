@@ -17,9 +17,7 @@ class CreateItemsTable extends Migration
             $table->increments('id');
 
             $table->string('title')->nullable();
-            $table->string('caption')->nullable();
-            $table->integer('type_id')->unsigned();
-            $table->mediumText('data');
+            $table->mediumText('text')->nullable();
 
             $table->timestamps();
         });

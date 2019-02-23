@@ -6,12 +6,11 @@
             <div class="item-header">
                 <div class="item-header-info">
                     <h3 ng-if="item.title">{{ item.title }}</h3>
-                    <p ng-if="item.caption">{{ item.caption }}</p>
                 </div>
             </div>
 
-            <div class="item-body" >
-                <editor ng-model="item" mode="'preview'"></editor>
+            <div class="item-body">
+                {{ item.text }}
             </div>
 
             <div class="item-footer">

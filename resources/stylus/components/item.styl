@@ -1,12 +1,11 @@
-@import '~jodit/build/jodit.min.css'
-
 .item
     position relative
     display flex
     flex-direction column
     padding 20px
     box-sizing border-box
-    border-radius 3px 3px 0 0
+    border-radius 10px
+    transition background .3s
 
     &:after
         content ""
@@ -26,7 +25,6 @@
         position absolute
         z-index 1
         color #38393a
-        background linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,0.05) 100%)
 
         &:hover .icon
             transform translateX(2px)

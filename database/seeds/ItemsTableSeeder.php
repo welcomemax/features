@@ -25,52 +25,37 @@ class ItemsTableSeeder extends Seeder
                 'title' => 'Title',
                 'text' => 'Feature test',
                 'type' => 'feature',
-                'products' => 'instagram-feed'
+                'product' => 'instagram-feed'
             ]
         ];
 
         foreach ($items_data as $data) {
             $item_data = [
                 'title' => $data['title'],
-                'caption' => $data['caption'],
-                'data' => $data['data']
+                'text' => $data['text']
             ];
-
-            $type = Type::where('alias', $data['type'])->first();
-            !empty($type) && $item_data['type_id'] = $type->id;
 
             $item = Item::updateOrCreate($item_data);
 
-            if (!empty($type)) {
-                ItemType::updateOrCreate([
-                    'item_id' => $item->id,
-                    'type_id' => $type->id
-                ]);
-            }
-
-            if (!empty($data['product'])) {
-                $product = Product::where('alias', $data['product'])->first();
-
-                if (!empty($product)) {
-                    ItemProduct::updateOrCreate([
+            if (!empty($data['type'])) {
+                $type = Type::where('alias', $data['type'])->first();
+                
+                if (!empty($type)) {
+                    ItemType::create([
                         'item_id' => $item->id,
-                        'product_id' => $product->id
+                        'type_id' => $type->id
                     ]);
                 }
             }
 
-            preg_match_all('#\[\[(.*?)\]\]#m', $data['data'], $matches);
-
-            if (!empty($matches) && $matches[1]) {
-                foreach ($matches[1] as $match) {
-                    $param = Param::where('alias', $match)->first();
-
-                    if (!empty($param)) {
-                        ItemParam::updateOrCreate([
-                            'item_id' => $item->id,
-                            'param_id' => $param->id
-                        ]);
-                    }
+            if (!empty($data['product'])) {
+                $product = Product::where('alias', $data['product'])->first();
+               
+                if (!empty($product)) {
+                    ItemProduct::create([
+                        'item_id' => $item->id,
+                        'product_id' => $product->id
+                    ]);
                 }
             }
         }
