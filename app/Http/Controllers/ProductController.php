@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function index($id = null)
     {
-        $productsQuery = Product::withCount('items')->orderBy('items_count');
+        $productsQuery = Product::withCount('features')->orderBy('features_count');
         $id && $productsQuery = $productsQuery->where('id', $id);
 
         return [
@@ -21,7 +21,7 @@ class ProductController extends Controller
 
     public function used()
     {
-        $productsQuery = Product::withCount('items')->havingRaw('items_count')->orderBy('items_count');
+        $productsQuery = Product::withCount('features')->havingRaw('features_count')->orderBy('features_count');
 
         return [
             'status' => 1,

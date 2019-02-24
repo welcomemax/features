@@ -9,21 +9,11 @@ body
     background #fafafa
     overflow hidden
 
-.container
-    display flex
-    flex-direction column
-    justify-content space-between
-    position relative
-    width 100%
-    height 100%
-    max-width 800px
+main
+    max-width 960px
     box-sizing border-box
     margin 0 auto
-    background #fff
-    box-shadow 0 0 1px 1px rgba(0,0,0,.05)
-
-main
-    height 100%
+    margin-top 72px
     display flex
     justify-content space-between
     position relative
@@ -36,6 +26,9 @@ main
     overflow-x visible
     overflow-y auto
     transition opacity .3s, visibility .3s
+    background #fff
+    border-radius 4px
+    box-shadow 0 0 1px 1px rgba(0,0,0,.05)
 
     &::-webkit-scrollbar-track
         background-color #f0f0f0
@@ -80,20 +73,27 @@ main
             background #dedede
 
 .header
-    padding 20px
+    position absolute
+    left 0
+    top 0
+    width 100%
+    padding 12px 20px
+    box-sizing border-box
+    height 50px
+    background #fff
+    box-shadow 0 0 1px 1px rgba(0,0,0,.05)
+
+    &-inner
+        max-width 960px
+        margin 0 auto
+        display flex
+        align-items center
+        justify-content space-between
 
     h1&-title
         margin 0
-        margin-bottom 8px
         font-size 20px
-
-    p&-caption
-        margin 0
-        font-size 14px
-
-.footer
-    padding 12px 20px
-
+    
     &-nav
         ul
             list-style none
@@ -107,10 +107,15 @@ main
                     font-size 13px
                     text-decoration none
                     display block
-                    color dodgerblue
 
                     &:hover
                         text-decoration underline
+
+
+.footer
+    padding 12px 20px
+    display flex
+    justify-content space-between
 
 .hidden
     visibility hidden

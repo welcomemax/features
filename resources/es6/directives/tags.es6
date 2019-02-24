@@ -1,4 +1,4 @@
-import template from '../../html/tags.html';
+import template from '../../html/directives/tags.html';
 
 export default /** @ngInject */  function() {
     return {

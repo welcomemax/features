@@ -1,10 +1,10 @@
-export default /** @ngInject */ function (itemsObj, productsObj, typesObj, $scope, $filter, $window) {
-    $scope.items = itemsObj.data;
+export default /** @ngInject */ function (releasesObj, productsObj, typesObj, $scope, $filter, $window) {
+    $scope.items = releasesObj.data;
     $scope.products = productsObj.data;
     $scope.types = typesObj.data;
 
     $scope.items.forEach((item) => {
-        item.tags = [item.type[0], item.product[0]];
+        item.tags = [item.type, item.product];
     });
 
     $scope.sortType = 'id';

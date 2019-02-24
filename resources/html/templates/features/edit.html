@@ -6,7 +6,6 @@
             <div class="item-header">
                 <div class="item-header-info">
                     <label><input ng-model="item.title">{{ item.title }}</label>
-                    <label><input ng-model="item.caption">{{ item.caption }}</label>
                 </div>
                 <div class="item-header-tags">
                     <span ng-repeat="tag in item.tags"></span>
@@ -14,8 +13,7 @@
             </div>
 
             <div class="item-body">
-                <editor ng-model="item.data" type="item.type"></editor>
-                <button class="item-body-clipboard" ngclipboard data-clipboard-text="{{ item.data }}" ngclipboard-success="copied(e)">Copy</button>
+                <textarea>{{ item.text }}</textarea>
             </div>
 
             <div class="item-footer">
@@ -32,9 +30,8 @@
         <div class="sidebar-group sidebar-group-active sidebar-group-controls">
             <div class="sidebar-group-header">Controls</div>
             <div class="sidebar-group-body">
-                <button class="button button-save" href="/#/detail/{{ item.id }}">Save</button>
-                <button class="button button-save-new" href="/#/edit/">Save and add new</button>
-                <button class="button button-delete" href="/">Delete</button>
+                <a class="button button-save" href="/#/detail/{{ item.id }}">Save</button>\
+                <a class="button button-delete">Delete</button>
             </div>
         </div>
     </div>

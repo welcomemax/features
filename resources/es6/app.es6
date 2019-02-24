@@ -11,24 +11,33 @@ import startFromFilter from './filters/start-from.es6';
 import apiService from './services/api.es6';
 
 // controllers
-import listController from './controllers/list.es6';
-import detailController from './controllers/detail.es6';
-import editController from './controllers/edit.es6';
+import homeController from './controllers/home.es6';
+import featuresListController from './controllers/features/list.es6';
+import featuresDetailController from './controllers/features/detail.es6';
+import featuresEditController from './controllers/features/edit.es6';
+import releasesListController from './controllers/releases/list.es6';
+import releasesDetailController from './controllers/releases/detail.es6';
 
 // directives
 import tagsDirective from './directives/tags.es6';
 import previewDirective from './directives/preview.es6';
 
 // templates
-import listTemplate from './../html/list.html';
-import detailTemplate from './../html/detail.html';
-import editTemplate from './../html/edit.html';
+import homeTemplate from './../html/templates/home.html';
+import featuresListTemplate from './../html/templates/features/list.html';
+import featuresDetailTemplate from './../html/templates/features/detail.html';
+import featuresEditTemplate from './../html/templates/features/edit.html';
+import releasesListTemplate from './../html/templates/releases/list.html';
+import releasesDetailTemplate from './../html/templates/releases/detail.html';
 
 angular.module('app', ['ngRoute'])
     .factory('api', apiService)
-    .controller('listController', listController)
-    .controller('detailController', detailController)
-    .controller('editController', editController)
+    .controller('homeController', homeController)
+    .controller('featuresListController', featuresListController)
+    .controller('featuresDetailController', featuresDetailController)
+    .controller('featuresEditController', featuresEditController)
+    .controller('releasesListController', releasesListController)
+    .controller('releasesDetailController', releasesDetailController)
     .directive('tags', tagsDirective)
     .directive('preview', previewDirective)
     .filter('startFromFilter', startFromFilter)
@@ -37,12 +46,15 @@ angular.module('app', ['ngRoute'])
     .config(function($routeProvider) {
         $routeProvider
             .when('/', {
-                controller: 'listController',
-                template: listTemplate,
+                controller: 'homeController',
+                template: homeTemplate,
                 reloadOnSearch: false,
                 resolve: {
-                    itemsObj: function (api) {
-                        return api.call('items');
+                    releasesObj: function (api) {
+                        return api.call('releases');
+                    },
+                    featuresObj: function (api) {
+                        return api.call('features');
                     },
                     productsObj: function (api) {
                         return api.call('products/used');
@@ -52,25 +64,62 @@ angular.module('app', ['ngRoute'])
                     }
                 }
             })
-            .when('/detail/:id', {
-                controller: 'detailController',
-                template: detailTemplate,
+            .when('/features/', {
+                controller: 'featuresListController',
+                template: featuresListTemplate,
                 reloadOnSearch: false,
                 resolve: {
-                    itemObj: function ($route, api) {
-                        let id = $route.current.params.id;
-                        return api.call(`items/${id}`);
+                    featuresObj: function (api) {
+                        return api.call('features');
+                    },
+                    productsObj: function (api) {
+                        return api.call('products/used');
+                    },
+                    typesObj: function (api) {
+                        return api.call('types/used');
                     }
                 }
             })
-            .when('/edit/:id', {
-                controller: 'editController',
-                template: editTemplate,
+            .when('/features/:id', {
+                controller: 'featuresDetailController',
+                template: featuresDetailTemplate,
                 reloadOnSearch: false,
                 resolve: {
-                    itemObj: function ($route, api) {
+                    featureObj: function ($route, api) {
                         let id = $route.current.params.id;
-                        return id ? api.call(`items/${id}`) : null
+                        return api.call(`features/${id}`);
+                    }
+                }
+            })
+            .when('/features/:id/edit', {
+                controller: 'featuresEditController',
+                template: featuresEditTemplate,
+                reloadOnSearch: false,
+                resolve: {
+                    featureObj: function ($route, api) {
+                        let id = $route.current.params.id;
+                        return id ? api.call(`features/${id}`) : null
+                    }
+                }
+            })
+            .when('/releases/', {
+                controller: 'releasesListController',
+                template: releasesListTemplate,
+                reloadOnSearch: false,
+                resolve: {
+                    releasesObj: function (api) {
+                        return api.call('releases');
+                    }
+                }
+            })
+            .when('/releases/:id', {
+                controller: 'releasesDetailController',
+                template: releasesDetailTemplate,
+                reloadOnSearch: false,
+                resolve: {
+                    releaseObj: function ($route, api) {
+                        let id = $route.current.params.id;
+                        return api.call(`releases/${id}`);
                     }
                 }
             })

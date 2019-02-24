@@ -17,22 +17,23 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
-
 Route::group(
-    [
-        'prefix' => '/items',
-        // 'middleware' => '' // @TODO middleware for private methods
-    ],
+    ['prefix' => '/features'],
     function () {
-        Route::post('/{id?}/', 'ItemController@save');
-        Route::delete('/{id}/', 'ItemController@destroy');
+        Route::get('/{id?}', 'FeatureController@index');
+        Route::post('/{id?}/', 'FeatureController@save');
+        Route::delete('/{id}/', 'FeatureController@destroy');
     }
 );
 
-Route::group(['prefix' => '/items'], function () {
-    Route::get('/{id?}', 'ItemController@index');
-});
+Route::group(
+    ['prefix' => '/releases'],
+    function () {
+        Route::get('/{id?}', 'ReleaseController@index');
+        Route::post('/{id?}/', 'ReleaseController@save');
+        Route::delete('/{id}/', 'ReleaseController@destroy');
+    }
+);
 
 Route::group(['prefix' => '/types'], function () {
     Route::get('/used', 'TypeController@used');

@@ -14,13 +14,12 @@ class Type extends Model
     ];
 
     protected $hidden = [
-        'id',
-        'pivot'
+        'id'
     ];
 
     public $timestamps = false;
 
-    public function items() {
-        return $this->belongsToMany('App\Item');
+    public function features() {
+        return $this->hasMany('App\Feature');
     }
 }

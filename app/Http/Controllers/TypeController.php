@@ -10,7 +10,7 @@ class TypeController extends Controller
 {
     public function index($id = null)
     {
-        $typesQuery = Type::withCount('items')->orderBy('items_count');
+        $typesQuery = Type::withCount('features')->orderBy('features_count');
         $id && $typesQuery = $typesQuery->where('id', $id);
 
         return [
@@ -21,7 +21,7 @@ class TypeController extends Controller
 
     public function used()
     {
-        $typesQuery = Type::withCount('items')->havingRaw('items_count')->orderBy('items_count');
+        $typesQuery = Type::withCount('features')->havingRaw('features_count')->orderBy('features_count');
 
         return [
             'status' => 1,

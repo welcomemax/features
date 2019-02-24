@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Item;
+use App\Release;
 use Illuminate\Http\Request;
 
-// @TODO ItemController extends ApiController extends Controller
-class ItemController extends Controller
+// @TODO ReleaseController extends ApiController extends Controller
+class ReleaseController extends Controller
 {
     public function index($id = null)
     {
-        $itemsQuery = $id ? Item::where('id', $id) : Item::orderBy('id', 'asc');
-        $items = $itemsQuery->with(['type', 'product'])->get();
+        $itemsQuery = $id ? Release::where('id', $id) : Release::orderBy('id', 'asc');
+        $items = $itemsQuery->with(['features', 'product'])->get();
 
         return [
             'status' => 1,
@@ -24,7 +24,7 @@ class ItemController extends Controller
         $data = $request->input();
         $data->id = $id;
 
-        Item::updateOrCreate($data);
+        Release::updateOrCreate($data);
 
         return [
             'status' => 1,

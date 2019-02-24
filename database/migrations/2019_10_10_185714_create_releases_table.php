@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateItemTagTable extends Migration
+class CreateReleasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateItemTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('item_tag', function (Blueprint $table) {
+        Schema::create('releases', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('item_id')->unsigned();
-            $table->integer('tag_id')->unsigned();
+            $table->string('version')->nullable();
+            $table->integer('product_id')->unsigned();
+
+            $table->timestamps();
         });
     }
 
@@ -28,6 +30,6 @@ class CreateItemTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('item_tag');
+        Schema::dropIfExists('releases');
     }
 }

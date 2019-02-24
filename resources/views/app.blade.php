@@ -23,23 +23,23 @@
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
-<body>
-    <div class="container" ng-app="app">
-        <header class="header">
+<body ng-app="app">
+    <header class="header">
+        <div class="header-inner">
             <h1 class="header-title">Elfsight Features</h1>
-            <p class="header-caption">Garbage of Features</p>
-        </header>
-
-        <main class="main" ng-view></main>
-
-        <footer class="footer">
-            <nav class="footer-nav">
+            <nav class="header-nav">
                 <ul>
-                    <li><a href="https://elfsight.com" target="_blank">elfsight.com</a></li>
+                    <li><a href="/#/">Home</a></li>
+                    <li><a href="/#/features/">Features</a></li>
+                    <li><a href="/#/features/new/">New Feature</a></li>
+                    <li><a href="/#/releases/">Releases</a></li>
+                    <li><a href="https://elfsight.com" target="_blank">Elfsight Apps</a></li>
                 </ul>
             </nav>
-        </footer>
-    </div>
+        </div>
+    </header>
+
+    <main class="main" ng-view></main>
 
     <script src="{{asset('js/app.js')}}"></script>
 </body>
