@@ -1,12 +1,20 @@
 .timeline
     padding 0 100px 0 0
-    margin-top -24px
-    margin-bottom -24px
+    margin -24px 0
 
+    &-horizontal
+        padding 48px 0 24px 0
+        margin 0 -24px
+        width calc(100% + 24px)
+    
     &-bar
         width 2px
         height 100%
         background #dedede
+
+        .timeline-horizontal &
+            height 2px
+            width 100% 
 
     &-item
         position absolute

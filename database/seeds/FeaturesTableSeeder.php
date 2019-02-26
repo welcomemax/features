@@ -16,9 +16,57 @@ class FeaturesTableSeeder extends Seeder
     {
         $items_data = [
             [
-                'title' => 'Title',
-                'text' => 'Feature test',
+                'title' => 'Feature 1',
+                'text' => 'Feature description',
                 'type' => 'feature',
+                'product' => 'instagram-feed'
+            ], 
+            [
+                'title' => 'Feature 2',
+                'text' => 'Feature description',
+                'type' => 'feature',
+                'product' => 'instagram-feed'
+            ], 
+            [
+                'title' => 'Feature 3',
+                'text' => 'Feature description',
+                'type' => 'feature',
+                'product' => 'instagram-feed'
+            ], 
+            [
+                'title' => 'Feature 4',
+                'text' => 'Feature description',
+                'type' => 'feature',
+                'product' => 'instagram-feed'
+            ], 
+            [
+                'title' => 'Feature 5',
+                'text' => 'Feature description',
+                'type' => 'feature',
+                'product' => 'instagram-feed'
+            ], 
+            [
+                'title' => 'Feature 6',
+                'text' => 'Feature description',
+                'type' => 'feature',
+                'product' => 'instagram-feed'
+            ], 
+            [
+                'title' => 'Feature 7',
+                'text' => 'Feature description',
+                'type' => 'feature',
+                'product' => 'instagram-feed'
+            ], 
+            [
+                'title' => 'Issue 1',
+                'text' => 'Feature description',
+                'type' => 'issue',
+                'product' => 'instagram-feed'
+            ], 
+            [
+                'title' => 'Issue 2',
+                'text' => 'Feature description',
+                'type' => 'issue',
                 'product' => 'instagram-feed'
             ]
         ];

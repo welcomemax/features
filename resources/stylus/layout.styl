@@ -33,6 +33,9 @@ article
         & section
             background #fafafa
 
+        & .list .item
+            background #fff
+
     &:first-child
         padding-top 24px
 
@@ -81,7 +84,7 @@ section
 .list
     display grid
     grid-template-columns repeat(auto-fill, 100%)
-    grid-template-rows repeat(auto-fit, minmax(100px, max-content))
+    grid-template-rows repeat(auto-fit, max-content)
     grid-gap 12px
 
     &-half

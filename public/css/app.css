@@ -328,6 +328,9 @@ article:nth-child(even) {
 article:nth-child(even) section {
   background: #fafafa;
 }
+article:nth-child(even) .list .item {
+  background: #fff;
+}
 article:first-child {
   padding-top: 24px;
 }
@@ -375,8 +378,8 @@ section,
 .list {
   display: grid;
   grid-template-columns: repeat(auto-fill, 100%);
-  grid-template-rows: repeat(auto-fit, minmax(100px, -webkit-max-content));
-  grid-template-rows: repeat(auto-fit, minmax(100px, max-content));
+  grid-template-rows: repeat(auto-fit, -webkit-max-content);
+  grid-template-rows: repeat(auto-fit, max-content);
   grid-gap: 12px;
 }
 .list-half {
@@ -597,12 +600,6 @@ h1.header-title a {
   border-radius: 4px;
   transition: background 0.3s;
 }
-.item-half {
-  width: calc(50%);
-}
-.item-third {
-  width: calc(33%);
-}
 .item-type-feature:after {
   background: #0079bf;
 }
@@ -665,13 +662,17 @@ h1.header-title a {
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
-.item-header-info h2,
-.item-header-info h3,
-.item-header-info h4 {
+.item-header h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: normal;
+}
+.item-header h4 {
   margin: 0;
   font-size: 18px;
+  font-weight: normal;
 }
-.item-header-info p {
+.item-header p {
   margin: 0;
   font-size: 14px;
   color: #868686;
@@ -684,7 +685,7 @@ h1.header-title a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: auto;
+  margin-top: 12px;
 }
 .item-footer-date {
   font-size: 13px;
@@ -852,13 +853,21 @@ h1.header-title a {
 }
 .timeline {
   padding: 0 100px 0 0;
-  margin-top: -24px;
-  margin-bottom: -24px;
+  margin: -24px 0;
+}
+.timeline-horizontal {
+  padding: 48px 0 24px 0;
+  margin: 0 -24px;
+  width: calc(100% + 24px);
 }
 .timeline-bar {
   width: 2px;
   height: 100%;
   background: #dedede;
+}
+.timeline-horizontal .timeline-bar {
+  height: 2px;
+  width: 100%;
 }
 .timeline-item {
   position: absolute;

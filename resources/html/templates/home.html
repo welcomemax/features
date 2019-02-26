@@ -2,38 +2,11 @@
     <div class="container">
         <section class="home-list">
             <h3 class="section-title">Top features</h3>
-            <div class="list">
-                <div class="item" ng-repeat="item in features">
-                    <a class="item-open" href="#/releases/{{ item.id }}" title="Open detail"><i class="icon icon-arrow icon-arrow-right"></i></a>
-        
-                    <div class="item-header">
-                        <div class="item-header-info">
-                            <h4>{{ item.title }}</h4>
-                        </div>
-                    </div>
-        
-                    <div class="item-body">
-                    </div>
-                </div>
-            </div>
+            <list items="features" limit="5" show="tags, !body" type="feature"></list>
         </section>
         <section class="home-list">
             <h3 class="section-title">Latest releases</h3>
-            <div class="list">
-                <div class="item" ng-repeat="item in releases">
-                    <a class="item-open" href="#/releases/{{ item.id }}" title="Open detail"><i class="icon icon-arrow icon-arrow-right"></i></a>
-        
-                    <div class="item-header">
-                        <div class="item-header-info">
-                            <h4>{{ item.product.name }} {{ item.version }}</h4>
-                        </div>
-                    </div>
-        
-                    <div class="item-body">
-                       
-                    </div>
-                </div>
-            </div>
+            <list items="releases" limit="5" show="date, !body" type="release"></list>
         </section>
     </div>
 </article>
@@ -49,6 +22,24 @@
         <section>
             {{ features.length }} Features 
         </section>
+        <section>
+            {{ customs.length }} customizations 
+        </section>
+    </div>
+</article>
+
+<article>
+    <div class="timeline timeline-horizontal">
+        <div class="timeline-bar"></div>
+    </div>
+</article>
+
+<article>
+    <div class="container">
+        <section>
+            <h3 class="section-title">Customs</h3>
+            <list items="customs" type="custom" show="!body" size="half"></list>
+        </section>
     </div>
 </article>
 
@@ -56,17 +47,7 @@
     <div class="container">
         <section>
             <h3 class="section-title">Apps</h3>
-            <div class="list list-third">
-                <div class="item" ng-repeat="item in products">
-                    <a class="item-open" href="#/releases/{{ item.id }}" title="Open detail"><i class="icon icon-arrow icon-arrow-right"></i></a>
-
-                    <div class="item-header">
-                        <div class="item-header-info">
-                            <h4>{{ item.name }} {{ item.version }}</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <list items="products" per-page="20" type="app" show="icon, !body" size="third"></list>
         </section>
     </div>
 </article>

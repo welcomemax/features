@@ -4,41 +4,13 @@
     </div>
 
     <section>
-        <div class="list">
-            <div class="item" ng-repeat="item in filterItems | startFromFilter: startingItem() | limitTo: itemsPerPage | filter: search | orderBy:sortType:sortReverse">
-                <a class="item-open" href="#/releases/{{ item.id }}" title="Open detail"><i class="icon icon-arrow icon-arrow-right"></i></a>
-
-                <div class="item-header">
-                    <div class="item-header-info">
-                        <h3>{{ item.product.name }} {{ item.version }}</h3>
-                    </div>
-                </div>
-
-                <div class="item-body">
-                    <ul class="release-features">
-                        <li class="release-features-item" ng-repeat="feature in item.features">
-                            <span>{{ feature.title }}</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="timeline-item">
-                    <span class="timeline-item-date">{{ item.updated_at }}</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="pagination">
-            <button class="pagination-button pagination-button-prev" ng-disabled="firstPage()" ng-click="pageBack()"><i class="icon icon-arrow icon-arrow-left"></i></button>
-            <span class="pagination-pages"><b>{{ currentPage+1 }}</b>/<b>{{ numberOfPages() }}</b></span>
-            <button class="pagination-button pagination-button-next" ng-disabled="lastPage()" ng-click="pageForward()"><i class="icon icon-arrow icon-arrow-right"></i></button>
-        </div>
+        <list items="releases" type="release" show="timeline" search="search"></list>
     </section>
     
     <aside class="sidebar">
         <div class="sidebar-header"></div>
         <div class="sidebar-body">
-            <div class="sidebar-group sidebar-group-active sidebar-group-search">
+            <div class="sidebar-group">
                 <div class="sidebar-group-header">Search</div>
                 <div class="sidebar-group-body">
                     <div class="search">
@@ -48,17 +20,10 @@
                 </div>
             </div>
     
-            <div class="sidebar-group sidebar-group-active sidebar-group-apps">
+            <div class="sidebar-group">
                 <div class="sidebar-group-header">Apps</div>
                 <div class="sidebar-group-body">
-                    <ul class="tags">
-                        <li class="tags-item" ng-repeat="product in products">
-                            <a ng-click="filterTag($event, product, 'product')">
-                                {{ product.name }}
-                                <i class="icon icon-cross tags-item-icon"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    <tags icon="false" active="true" search="search" items="products"></tags>
                 </div>
             </div>
         </div>

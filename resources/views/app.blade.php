@@ -37,7 +37,14 @@
                         <a href="/#/features/">Features</a>
                     </li>
                     <li class="header-nav-item">
+                        <a class="header-nav-button" href="/#/css/new/" title="Add a new customization">+</a>
+                        <a href="/#/css/">Customs</a>
+                    </li>
+                    <li class="header-nav-item">
                         <a href="/#/releases/">Releases</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="/#/apps/">Apps</a>
                     </li>
                 </ul>
             </nav>

@@ -1,4 +1,10 @@
 <ul class="tags">
     <i class="icon icon-tag" ng-if="icon"></i>
-    <li class="tags-item" ng-repeat="tag in ngModel"><span>{{ tag.name }}</span></li>
+    <li class="tags-item" ng-repeat="item in items">
+        <span ng-if="!active">{{ item.name }}</span>
+        <a ng-if="active" ng-click="filterTag($event, item)">
+            {{ item.name }}
+            <i class="icon icon-cross tags-item-icon"></i>
+        </a>
+    </li>
 </ul>

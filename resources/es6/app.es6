@@ -21,6 +21,8 @@ import releasesDetailController from './controllers/releases/detail.es6';
 // directives
 import tagsDirective from './directives/tags.es6';
 import previewDirective from './directives/preview.es6';
+import listDirective from './directives/list.es6';
+import listItemDirective from './directives/list-item.es6';
 
 // templates
 import homeTemplate from './../html/templates/home.html';
@@ -40,6 +42,8 @@ angular.module('app', ['ngRoute'])
     .controller('releasesDetailController', releasesDetailController)
     .directive('tags', tagsDirective)
     .directive('preview', previewDirective)
+    .directive('list', listDirective)
+    .directive('listItem', listItemDirective)
     .filter('startFromFilter', startFromFilter)
     .filter('trustHtmlFilter', trustHtmlFilter)
     .filter('trustResourceFilter', trustResourceFilter)

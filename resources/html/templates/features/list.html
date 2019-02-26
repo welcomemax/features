@@ -1,30 +1,6 @@
 <article class="container container-sidebar">
     <section>
-        <div class="list list-half">
-            <div class="item item-type-{{item.type.alias}}" ng-repeat="item in filterItems | startFromFilter: startingItem() | limitTo: itemsPerPage | filter: search | orderBy:sortType:sortReverse">
-                <a class="item-open" href="#/features/{{ item.id }}" title="Open detail"><i class="icon icon-arrow icon-arrow-right"></i></a>
-
-                <div class="item-header">
-                    <div class="item-header-info">
-                        <h3 ng-if="item.title">{{ item.title }}</h3>
-                    </div>
-                </div>
-
-                <div class="item-body">
-                    {{ item.text }}
-                </div>
-
-                <div class="item-footer">
-                    <tags class="item-header-tags" icon="true" ng-model="item.tags"></tags>
-                </div>
-            </div>
-        </div>
-
-        <div class="pagination">
-            <button class="pagination-button pagination-button-prev" ng-disabled="firstPage()" ng-click="pageBack()"><i class="icon icon-arrow icon-arrow-left"></i></button>
-            <span class="pagination-pages"><b>{{ currentPage+1 }}</b>/<b>{{ numberOfPages() }}</b></span>
-            <button class="pagination-button pagination-button-next" ng-disabled="lastPage()" ng-click="pageForward()"><i class="icon icon-arrow icon-arrow-right"></i></button>
-        </div>
+        <list items="features" show="tags" type="feature" search="search" size="half"></list>
     </section>
 
     <aside class="sidebar">
@@ -40,31 +16,17 @@
                 </div>
             </div>
     
-            <div class="sidebar-group sidebar-group-active sidebar-group-apps">
+            <div class="sidebar-group">
                 <div class="sidebar-group-header">Apps</div>
                 <div class="sidebar-group-body">
-                    <ul class="tags">
-                        <li class="tags-item" ng-repeat="product in products">
-                            <a ng-click="filterTag($event, product, 'product')">
-                                {{ product.name }}
-                                <i class="icon icon-cross tags-item-icon"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    <tags icon="false" active="true" search="search" items="products"></tags>
                 </div>
             </div>
     
-            <div class="sidebar-group sidebar-group-active sidebar-group-types">
+            <div class="sidebar-group">
                 <div class="sidebar-group-header">Types</div>
                 <div class="sidebar-group-body">
-                    <ul class="tags">
-                        <li class="tags-item" ng-repeat="type in types">
-                            <a ng-click="filterTag($event, type, 'type')">
-                                {{ type.name }}
-                                <i class="icon icon-cross tags-item-icon"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    <tags icon="false" active="true" search="search" items="types"></tags>
                 </div>
             </div>
         </div>

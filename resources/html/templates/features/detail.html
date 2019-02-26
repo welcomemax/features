@@ -3,9 +3,7 @@
         <a class="item-close" href="/#/features/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
 
         <div class="item-header">
-            <div class="item-header-info">
-                <h2>{{ item.title }}</h2>
-            </div>
+            <h1>{{ item.title }}</h1>
             <div class="item-header-tags">
                 <span ng-repeat="tag in item.tags"></span>
             </div>
@@ -20,7 +18,7 @@
         </div>
 
         <div class="item-footer">
-            <tags class="item-header-tags" icon="true" ng-model="item.tags"></tags>
+            <tags class="item-footer-tags" icon="true" items="item.tags"></tags>
             <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
         </div>
     </section>

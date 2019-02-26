@@ -37853,18 +37853,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _controllers_releases_detail_es6__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./controllers/releases/detail.es6 */ "./resources/es6/controllers/releases/detail.es6");
 /* harmony import */ var _directives_tags_es6__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./directives/tags.es6 */ "./resources/es6/directives/tags.es6");
 /* harmony import */ var _directives_preview_es6__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./directives/preview.es6 */ "./resources/es6/directives/preview.es6");
-/* harmony import */ var _html_templates_home_html__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./../html/templates/home.html */ "./resources/html/templates/home.html");
-/* harmony import */ var _html_templates_home_html__WEBPACK_IMPORTED_MODULE_14___default = /*#__PURE__*/__webpack_require__.n(_html_templates_home_html__WEBPACK_IMPORTED_MODULE_14__);
-/* harmony import */ var _html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./../html/templates/features/list.html */ "./resources/html/templates/features/list.html");
-/* harmony import */ var _html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_15__);
-/* harmony import */ var _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../html/templates/features/detail.html */ "./resources/html/templates/features/detail.html");
-/* harmony import */ var _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./../html/templates/features/edit.html */ "./resources/html/templates/features/edit.html");
-/* harmony import */ var _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var _html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./../html/templates/releases/list.html */ "./resources/html/templates/releases/list.html");
-/* harmony import */ var _html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var _html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./../html/templates/releases/detail.html */ "./resources/html/templates/releases/detail.html");
-/* harmony import */ var _html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _directives_list_es6__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./directives/list.es6 */ "./resources/es6/directives/list.es6");
+/* harmony import */ var _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./directives/list-item.es6 */ "./resources/es6/directives/list-item.es6");
+/* harmony import */ var _html_templates_home_html__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../html/templates/home.html */ "./resources/html/templates/home.html");
+/* harmony import */ var _html_templates_home_html__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_html_templates_home_html__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./../html/templates/features/list.html */ "./resources/html/templates/features/list.html");
+/* harmony import */ var _html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./../html/templates/features/detail.html */ "./resources/html/templates/features/detail.html");
+/* harmony import */ var _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./../html/templates/features/edit.html */ "./resources/html/templates/features/edit.html");
+/* harmony import */ var _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./../html/templates/releases/list.html */ "./resources/html/templates/releases/list.html");
+/* harmony import */ var _html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./../html/templates/releases/detail.html */ "./resources/html/templates/releases/detail.html");
+/* harmony import */ var _html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_21__);
 // vendors
 
 
@@ -37889,6 +37891,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
 // templates
 
 
@@ -37907,6 +37911,8 @@ angular.module('app', ['ngRoute'])
     .controller('releasesDetailController', _controllers_releases_detail_es6__WEBPACK_IMPORTED_MODULE_11__["default"])
     .directive('tags', _directives_tags_es6__WEBPACK_IMPORTED_MODULE_12__["default"])
     .directive('preview', _directives_preview_es6__WEBPACK_IMPORTED_MODULE_13__["default"])
+    .directive('list', _directives_list_es6__WEBPACK_IMPORTED_MODULE_14__["default"])
+    .directive('listItem', _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_15__["default"])
     .filter('startFromFilter', _filters_start_from_es6__WEBPACK_IMPORTED_MODULE_4__["default"])
     .filter('trustHtmlFilter', _filters_trust_html_es6__WEBPACK_IMPORTED_MODULE_2__["default"])
     .filter('trustResourceFilter', _filters_trust_resource_es6__WEBPACK_IMPORTED_MODULE_3__["default"])
@@ -37914,7 +37920,7 @@ angular.module('app', ['ngRoute'])
         $routeProvider
             .when('/', {
                 controller: 'homeController',
-                template: _html_templates_home_html__WEBPACK_IMPORTED_MODULE_14___default.a,
+                template: _html_templates_home_html__WEBPACK_IMPORTED_MODULE_16___default.a,
                 reloadOnSearch: false,
                 resolve: {
                     releasesObj: function (api) {
@@ -37933,7 +37939,7 @@ angular.module('app', ['ngRoute'])
             })
             .when('/features/', {
                 controller: 'featuresListController',
-                template: _html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_15___default.a,
+                template: _html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_17___default.a,
                 reloadOnSearch: false,
                 resolve: {
                     featuresObj: function (api) {
@@ -37949,11 +37955,11 @@ angular.module('app', ['ngRoute'])
             })
             .when('/features/new', {
                 controller: 'featuresEditController',
-                template: _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_17___default.a
+                template: _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_19___default.a
             })
             .when('/features/:id/edit', {
                 controller: 'featuresEditController',
-                template: _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_17___default.a,
+                template: _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_19___default.a,
                 reloadOnSearch: false,
                 resolve: {
                     featureObj: function ($route, api) {
@@ -37964,7 +37970,7 @@ angular.module('app', ['ngRoute'])
             })
             .when('/features/:id', {
                 controller: 'featuresDetailController',
-                template: _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_16___default.a,
+                template: _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_18___default.a,
                 reloadOnSearch: false,
                 resolve: {
                     featureObj: function ($route, api) {
@@ -37975,7 +37981,7 @@ angular.module('app', ['ngRoute'])
             })
             .when('/releases/', {
                 controller: 'releasesListController',
-                template: _html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_18___default.a,
+                template: _html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_20___default.a,
                 reloadOnSearch: false,
                 resolve: {
                     releasesObj: function (api) {
@@ -37988,7 +37994,7 @@ angular.module('app', ['ngRoute'])
             })
             .when('/releases/:id', {
                 controller: 'releasesDetailController',
-                template: _html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_19___default.a,
+                template: _html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_21___default.a,
                 reloadOnSearch: false,
                 resolve: {
                     releaseObj: function ($route, api) {
@@ -38075,132 +38081,21 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (featuresObj, productsObj, typesObj, $scope, $filter, $window) {
-    $scope.items = featuresObj.data;
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (featuresObj, productsObj, typesObj, $scope, $document) {
+    $scope.features = featuresObj.data;
     $scope.products = productsObj.data;
     $scope.types = typesObj.data;
-
-    $scope.items.forEach((item) => {
-        item.tags = [item.type, item.product];
-    });
-
-    $scope.sortType = 'id';
-    $scope.sortReverse = false;
-
-    $scope.current = {};
-    $scope.filterTags = new Set();
-    $scope.filterItems = $scope.items;
-    $scope.currentPage = 0;
-    $scope.itemsPerPage = 5;
+    
     $scope.search = '';
-
-    // @TODO render sorter (rating, views)
-    $scope.toggleSort = ($event) => {
-        $scope.sortType = angular.element($event.currentTarget).attr("data-sort");
-        $scope.sortReverse = !$scope.sortReverse;
-
-        angular.element(document.querySelectorAll('.sort')).removeClass('asc desc');
-
-        angular.element($event.currentTarget)
-            .addClass(['asc','desc'][+ $scope.sortReverse])
-            .removeClass(['asc','desc'][+ !$scope.sortReverse]);
-
-        $scope.filterItems = $filter('orderBy')($scope.items, $scope.sortType, $scope.sortReverse);
-    };
-
-    // its used somewhere?
-    $scope.getFilterItems = () => {
-        return $filter('filter')($scope.filterItems, $scope.search)
-    };
-
-    // @TODO make smart object or factory for paginate
-    $scope.paginate = () => {
-        this.page = 0;
-    };
-
-    $scope.firstPage = () => {
-        return $scope.currentPage == 0;
-    };
-
-    $scope.lastPage = () => {
-        let lastPageNum = Math.ceil($scope.filterItems.length / $scope.itemsPerPage - 1);
-        return $scope.currentPage == lastPageNum;
-    };
-
-    $scope.numberOfPages = () => {
-        return Math.ceil($scope.getFilterItems().length / $scope.itemsPerPage);
-    };
-
-    $scope.startingItem = () => {
-        return $scope.currentPage * $scope.itemsPerPage;
-    };
-
-    $scope.pageBack = () => {
-        $scope.currentPage -= $scope.currentPage;
-    };
-
-    $scope.pageForward = () => {
-        $scope.currentPage += $scope.currentPage;
-    };
 
     $scope.filterTag = ($event, tag, type) => {
         let $tagItem = angular.element($event.currentTarget).parent();
 
-        if (type === 'product' || type === 'type') {
-            if (type in $scope.current && $scope.current[type] !== tag && $scope.filterTags.has($scope.current[type])) {
-                $scope.filterTags.delete($scope.current[type]);
-            }
-
-            $tagItem.parent().find('li').removeClass('tags-item-active');
-        }
-
-        $scope.filterTags.has(tag) ? $scope.filterTags.delete(tag) : $scope.filterTags.add(tag);
-
-        if (type === 'product' || type === 'type') {
-            if ($scope.current[type] !== tag) {
-                $scope.current[type] = tag;
-                $tagItem.addClass('tags-item-active');
-            } else {
-                delete $scope.current[type];
-            }
-        } else {
-            $tagItem.toggleClass('tags-item-active');
-        }
-
-        let filterTagsArray = Array.from($scope.filterTags);
-
-        return $scope.filterItems = $scope.items.filter((item) => {
-            return filterTagsArray.every((filterTag) => {
-                return !!filterTag ? item.tags.includes(filterTag) : false;
-            });
-        })
+        $scope.search = !$tagItem.hasClass('tags-item-active') ? tag.name : '';             
+        
+        $document.find('li').removeClass('tags-item-active');
+        $tagItem.toggleClass('tags-item-active');
     };
-
-    $scope.$watch('search', (newValue, oldValue) => {
-        if (oldValue !== newValue) {
-            $scope.currentPage = 0;
-
-            if ($scope.search === '') {
-                return $scope.filterItems = $scope.items;
-            }
-
-            // @FIXME drop filters or attach filterTag
-            // $scope.cleanFilters();
-
-            return $scope.filterItems = $scope.items.filter((item) => {
-                // @FIXME separate words search (any order)
-                return $scope.search.split(' ').some((word) => {
-                    // @TODO replace with Array.includes
-                    return !![item.title, item.caption, item.data].indexOf(word);
-                })
-            });
-        }
-    }, true);
-
-    $scope.cleanFilters = () => {
-        $scope.current = {};
-        $scope.filterTags = new Set();
-    }
 });
 
 
@@ -38249,129 +38144,179 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (releasesObj, productsObj, $scope, $filter, $window) {
-    $scope.items = releasesObj.data;
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (releasesObj, productsObj, $scope, $document) {
+    $scope.releases = releasesObj.data;
     $scope.products = productsObj.data;
-
-    $scope.sortType = 'id';
-    $scope.sortReverse = false;
-
-    $scope.current = {};
-    $scope.filterTags = new Set();
-    $scope.filterItems = $scope.items;
-    $scope.currentPage = 0;
-    $scope.itemsPerPage = 5;
-    $scope.search = '';
-
-    // @TODO render sorter (rating, views)
-    $scope.toggleSort = ($event) => {
-        $scope.sortType = angular.element($event.currentTarget).attr("data-sort");
-        $scope.sortReverse = !$scope.sortReverse;
-
-        angular.element(document.querySelectorAll('.sort')).removeClass('asc desc');
-
-        angular.element($event.currentTarget)
-            .addClass(['asc','desc'][+ $scope.sortReverse])
-            .removeClass(['asc','desc'][+ !$scope.sortReverse]);
-
-        $scope.filterItems = $filter('orderBy')($scope.items, $scope.sortType, $scope.sortReverse);
-    };
-
-    // its used somewhere?
-    $scope.getFilterItems = () => {
-        return $filter('filter')($scope.filterItems, $scope.search)
-    };
-
-    // @TODO make smart object or factory for paginate
-    $scope.paginate = () => {
-        this.page = 0;
-    };
-
-    $scope.firstPage = () => {
-        return $scope.currentPage == 0;
-    };
-
-    $scope.lastPage = () => {
-        let lastPageNum = Math.ceil($scope.filterItems.length / $scope.itemsPerPage - 1);
-        return $scope.currentPage == lastPageNum;
-    };
-
-    $scope.numberOfPages = () => {
-        return Math.ceil($scope.getFilterItems().length / $scope.itemsPerPage);
-    };
-
-    $scope.startingItem = () => {
-        return $scope.currentPage * $scope.itemsPerPage;
-    };
-
-    $scope.pageBack = () => {
-        $scope.currentPage -= $scope.currentPage;
-    };
-
-    $scope.pageForward = () => {
-        $scope.currentPage += $scope.currentPage;
-    };
-
-    $scope.filterTag = ($event, tag, type) => {
-        let $tagItem = angular.element($event.currentTarget).parent();
-
-        if (type === 'product' || type === 'type') {
-            if (type in $scope.current && $scope.current[type] !== tag && $scope.filterTags.has($scope.current[type])) {
-                $scope.filterTags.delete($scope.current[type]);
-            }
-
-            $tagItem.parent().find('li').removeClass('tags-item-active');
-        }
-
-        $scope.filterTags.has(tag) ? $scope.filterTags.delete(tag) : $scope.filterTags.add(tag);
-
-        if (type === 'product' || type === 'type') {
-            if ($scope.current[type] !== tag) {
-                $scope.current[type] = tag;
-                $tagItem.addClass('tags-item-active');
-            } else {
-                delete $scope.current[type];
-            }
-        } else {
-            $tagItem.toggleClass('tags-item-active');
-        }
-
-        let filterTagsArray = Array.from($scope.filterTags);
-
-        return $scope.filterItems = $scope.items.filter((item) => {
-            return filterTagsArray.every((filterTag) => {
-                return !!filterTag ? item.tags.includes(filterTag) : false;
-            });
-        })
-    };
-
-    $scope.$watch('search', (newValue, oldValue) => {
-        if (oldValue !== newValue) {
-            $scope.currentPage = 0;
-
-            if ($scope.search === '') {
-                return $scope.filterItems = $scope.items;
-            }
-
-            // @FIXME drop filters or attach filterTag
-            // $scope.cleanFilters();
-
-            return $scope.filterItems = $scope.items.filter((item) => {
-                // @FIXME separate words search (any order)
-                return $scope.search.split(' ').some((word) => {
-                    // @TODO replace with Array.includes
-                    return !![item.title, item.caption, item.data].indexOf(word);
-                })
-            });
-        }
-    }, true);
-
-    $scope.cleanFilters = () => {
-        $scope.current = {};
-        $scope.filterTags = new Set();
-    }
 });
 
+
+/***/ }),
+
+/***/ "./resources/es6/directives/list-item.es6":
+/*!************************************************!*\
+  !*** ./resources/es6/directives/list-item.es6 ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return itemDirective; });
+/* harmony import */ var _html_directives_list_item_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../html/directives/list-item.html */ "./resources/html/directives/list-item.html");
+/* harmony import */ var _html_directives_list_item_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_html_directives_list_item_html__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function itemDirective() {
+    return {
+        restrict: 'E',
+        replace: true,
+        transclude: true,
+        template: _html_directives_list_item_html__WEBPACK_IMPORTED_MODULE_0___default.a,
+        scope: {
+            item: '=',
+            type: '=',
+            show: '=',
+            detail: '='
+        },
+        controller: ($scope) => {
+            let getParts = (show) => {
+                if (!show) {
+                    return {};
+                }
+
+                let show_arr = show.split(',');
+                let parts = {};
+                
+                show_arr.forEach(element => {
+                    element = element.trim();
+                    let value = element.substring(0, 1) !== '!';
+                    let key = !value ? element.substring(1, element.length) : element;
+
+                    parts[key] = value;
+                });
+
+                return parts;
+            }
+
+            $scope.parts = getParts($scope.show);
+
+            $scope.item.tags = [$scope.item.type, $scope.item.product];
+        }
+    };
+}
+
+/***/ }),
+
+/***/ "./resources/es6/directives/list.es6":
+/*!*******************************************!*\
+  !*** ./resources/es6/directives/list.es6 ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return listDirective; });
+/* harmony import */ var _html_directives_list_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../html/directives/list.html */ "./resources/html/directives/list.html");
+/* harmony import */ var _html_directives_list_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_html_directives_list_html__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function listDirective() {
+    return {
+        restrict: 'E',
+        replace: false,
+        transclude: true,
+        template: _html_directives_list_html__WEBPACK_IMPORTED_MODULE_0___default.a,
+        scope: {
+            items: '=',
+            search: '=',
+            type: '@',
+            show: '@',
+            perPage: '@',
+            size: '@',
+            limit: '@'
+        },
+        controller: /** @ngInject */ function listController($scope) {
+            $scope.page = 0;
+            $scope.perPage = $scope.limit || $scope.perPage || 8;
+            
+            $scope.sortType = 'id';
+            $scope.sortReverse = false;
+
+            $scope.filterItems = $scope.items;
+            
+            $scope.paginationEnabled = () => {
+                return $scope.filterItems && $scope.filterItems.length;
+            }
+
+            $scope.isFirstPage = () => {
+                return $scope.page == 0;
+            };
+        
+            $scope.isLastPage = () => {
+                return $scope.page == Math.ceil($scope.items.length / $scope.perPage - 1);
+            };
+        
+            $scope.totalPages = () => {
+                return Math.ceil($scope.items.length / $scope.perPage);
+            };
+        
+            $scope.startingItem = () => {
+                return $scope.page * $scope.perPage;
+            };
+        
+            $scope.pageBack = () => {
+                $scope.page--;
+            };
+        
+            $scope.pageForward = () => {
+                $scope.page++;
+            };
+
+
+
+            $scope.$watch('search', (newValue, oldValue) => {
+                if (oldValue !== newValue) {
+                    $scope.currentPage = 0;
+        
+                    if ($scope.search === '') {
+                        return $scope.filterItems = $scope.items;
+                    }
+        
+                    // @FIXME drop filters or attach filterTag
+                    // $scope.cleanFilters();
+
+                    $scope.filterItems = $scope.items.filter((item) => {
+                        // @FIXME separate words search (any order)
+                        return $scope.search.split(' ').some((word) => {
+                            // @TODO replace with Array.includes
+                            return !![item.title, item.caption, item.data].indexOf(word);
+                        })
+                    })
+
+                    console.log($scope.filterItems)
+        
+                    return $scope.filterItems;
+                }
+            }, true);
+
+
+            // @TODO render sorter (rating, views)
+            $scope.toggleSort = ($event) => {
+                $scope.sortType = angular.element($event.currentTarget).attr("data-sort");
+                $scope.sortReverse = !$scope.sortReverse;
+
+                angular.element(document.querySelectorAll('.sort')).removeClass('asc desc');
+
+                angular.element($event.currentTarget)
+                    .addClass(['asc','desc'][+ $scope.sortReverse])
+                    .removeClass(['asc','desc'][+ !$scope.sortReverse]);
+
+                $scope.filterItems = $filter('orderBy')($scope.items, $scope.sortType, $scope.sortReverse);
+            };
+        }
+    };
+}
 
 /***/ }),
 
@@ -38459,16 +38404,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function() {
     return {
         scope: {
-            ngModel: '=',
-            icon: '='
+            items: '=',
+            search: '=',
+            icon: '=',
+            active: '='
         },
         template: _html_directives_tags_html__WEBPACK_IMPORTED_MODULE_0___default.a,
-        replace: false,
-        link: function(scope, element) {
-
-        },
+        replace: true,
         controller: /** @ngInject */ function($scope) {
+            $scope.filterTag = ($event, tag) => {
+                let $tagItem = angular.element($event.currentTarget).parent();
 
+                $scope.search = !$tagItem.hasClass('tags-item-active') ? tag.name : '';             
+                
+                $document.find('li').removeClass('tags-item-active');
+                $tagItem.toggleClass('tags-item-active');
+            };
         }
     }
 });
@@ -38639,6 +38590,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/html/directives/list-item.html":
+/*!**************************************************!*\
+  !*** ./resources/html/directives/list-item.html ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"item item-type-{{item.type.alias}}\">\r\n    <a class=\"item-open\" href=\"#/{{ type }}s/{{ item.id }}\">\r\n        <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n    </a>\r\n\r\n    <div class=\"item-header\">\r\n        <div ng-switch on=\"type\">\r\n            <h4 ng-switch-when=\"feature\">{{ item.title }}</h4>\r\n            <h4 ng-switch-when=\"release\">{{ item.product.name + ' ' + item.version }}</h4>\r\n            <h4 ng-switch-default>{{ item.name }}</h4>\r\n        </div>\r\n    </div>\r\n\r\n    <div ng-if=\"parts.body !== false\" class=\"item-body\" ng-transclude>\r\n        <div ng-switch on=\"type\">\r\n            <div ng-switch-when=\"feature\">{{ item.text }}</div>\r\n            <ul ng-switch-when=\"release\" class=\"release-features\">\r\n                <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                    <span>{{ feature.title }}</span>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n    </div>\r\n\r\n    <div ng-if=\"parts.timeline\" class=\"timeline-item\">\r\n        <span class=\"timeline-item-date\">{{ item.updated_at }}</span>\r\n    </div>\r\n\r\n    <div ng-if=\"parts.tags || parts.date\" class=\"item-footer\">\r\n        <tags ng-if=\"parts.tags\" class=\"item-footer-tags\" icon=\"true\" items=\"item.tags\"></tags>\r\n        <span ng-if=\"parts.date && item.updated_at\" class=\"item-footer-date\"><b>{{ item.updated_at }}</b></span>\r\n    </div>\r\n</div>";
+
+/***/ }),
+
+/***/ "./resources/html/directives/list.html":
+/*!*********************************************!*\
+  !*** ./resources/html/directives/list.html ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div>\r\n    <div class=\"list\" ng-class=\"{\r\n            'list-half': size == 'half',\r\n            'list-third': size == 'third'\r\n        }\">\r\n        <list-item ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: perPage | filter: search | orderBy:sortType:sortReverse\"\r\n            item=\"item\" show=\"show\" type=\"type\"></item>    \r\n    </div>\r\n\r\n    <div class=\"pagination\" ng-if=\"paginationEnabled()\">\r\n        <button class=\"pagination-button pagination-button-prev\" \r\n            ng-disabled=\"isFirstPage()\" ng-click=\"pageBack()\">\r\n            <i class=\"icon icon-arrow icon-arrow-left\"></i>\r\n        </button>\r\n\r\n        <span class=\"pagination-pages\">\r\n            <b>{{ page + 1 }}</b>/<b>{{ totalPages() }}</b>\r\n        </span>\r\n\r\n        <button class=\"pagination-button pagination-button-next\" \r\n            ng-disabled=\"isLastPage()\" ng-click=\"pageForward()\">\r\n            <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n        </button>\r\n    </div>\r\n</div>";
+
+/***/ }),
+
 /***/ "./resources/html/directives/preview.html":
 /*!************************************************!*\
   !*** ./resources/html/directives/preview.html ***!
@@ -38657,7 +38630,7 @@ module.exports = "<div class=\"preview\" ng-class=\"{'preview-active': show}\">\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"tags\">\r\n    <i class=\"icon icon-tag\" ng-if=\"icon\"></i>\r\n    <li class=\"tags-item\" ng-repeat=\"tag in ngModel\"><span>{{ tag.name }}</span></li>\r\n</ul>\r\n";
+module.exports = "<ul class=\"tags\">\r\n    <i class=\"icon icon-tag\" ng-if=\"icon\"></i>\r\n    <li class=\"tags-item\" ng-repeat=\"item in items\">\r\n        <span ng-if=\"!active\">{{ item.name }}</span>\r\n        <a ng-if=\"active\" ng-click=\"filterTag($event, item)\">\r\n            {{ item.name }}\r\n            <i class=\"icon icon-cross tags-item-icon\"></i>\r\n        </a>\r\n    </li>\r\n</ul>\r\n";
 
 /***/ }),
 
@@ -38668,7 +38641,7 @@ module.exports = "<ul class=\"tags\">\r\n    <i class=\"icon icon-tag\" ng-if=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<article class=\"container container-sidebar\">\r\n    <section class=\"detail item\">\r\n        <a class=\"item-close\" href=\"/#/features/\" title=\"Back to list\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n        <div class=\"item-header\">\r\n            <div class=\"item-header-info\">\r\n                <h2>{{ item.title }}</h2>\r\n            </div>\r\n            <div class=\"item-header-tags\">\r\n                <span ng-repeat=\"tag in item.tags\"></span>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"item-body\">\r\n            <p>{{ item.text }}</p>\r\n        </div>\r\n\r\n        <div class=\"item-preview\" ng-if=\"!!item.app.public_id\">\r\n            <preview app=\"item.currentProduct\"></preview>\r\n        </div>\r\n\r\n        <div class=\"item-footer\">\r\n            <tags class=\"item-header-tags\" icon=\"true\" ng-model=\"item.tags\"></tags>\r\n            <span class=\"item-footer-date\">Last update: <b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </section>\r\n    \r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-controls\">\r\n                <div class=\"sidebar-group-header\">Controls</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <a class=\"button button-edit\" href=\"/#/edit/{{ item.id }}\">Edit</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </aside>\r\n</article>\r\n\r\n";
+module.exports = "<article class=\"container container-sidebar\">\r\n    <section class=\"detail item\">\r\n        <a class=\"item-close\" href=\"/#/features/\" title=\"Back to list\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n        <div class=\"item-header\">\r\n            <h1>{{ item.title }}</h1>\r\n            <div class=\"item-header-tags\">\r\n                <span ng-repeat=\"tag in item.tags\"></span>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"item-body\">\r\n            <p>{{ item.text }}</p>\r\n        </div>\r\n\r\n        <div class=\"item-preview\" ng-if=\"!!item.app.public_id\">\r\n            <preview app=\"item.currentProduct\"></preview>\r\n        </div>\r\n\r\n        <div class=\"item-footer\">\r\n            <tags class=\"item-footer-tags\" icon=\"true\" items=\"item.tags\"></tags>\r\n            <span class=\"item-footer-date\">Last update: <b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </section>\r\n    \r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-controls\">\r\n                <div class=\"sidebar-group-header\">Controls</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <a class=\"button button-edit\" href=\"/#/edit/{{ item.id }}\">Edit</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </aside>\r\n</article>\r\n\r\n";
 
 /***/ }),
 
@@ -38679,7 +38652,7 @@ module.exports = "<article class=\"container container-sidebar\">\r\n    <sectio
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<article class=\"container container-sidebar\">\r\n    <section class=\"edit item\">\r\n        <a class=\"item-close\" href=\"/#/features/{{ item.id }}\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n        <div class=\"item-header\">\r\n            <div class=\"item-header-info\">\r\n                <label><input ng-model=\"item.title\" ng-model=\"item.title\"></label>\r\n            </div>\r\n            <div class=\"item-header-tags\">\r\n                <span ng-repeat=\"tag in item.tags\"></span>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"item-body\">\r\n            <textarea ng-model=\"item.text\"></textarea>\r\n        </div>\r\n\r\n        <div class=\"item-footer\">\r\n            <tags class=\"item-header-tags\" icon=\"true\" ng-model=\"item.tags\"></tags>\r\n            <span class=\"item-footer-date\">Last update: <b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </section>\r\n\r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-controls\">\r\n                <div class=\"sidebar-group-header\">Controls</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <a class=\"button button-save\" href=\"/#/features/{{ item.id }}\">Save</a>\r\n                    <a class=\"button button-delete\">Delete</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </aside>\r\n</article>\r\n\r\n\r\n";
+module.exports = "<article class=\"container container-sidebar\">\r\n    <section class=\"edit item\">\r\n        <a class=\"item-close\" href=\"/#/features/{{ item.id }}\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n        <div class=\"item-header\">\r\n            <div class=\"item-header-info\">\r\n                <label><input ng-model=\"item.title\" ng-model=\"item.title\"></label>\r\n            </div>\r\n            <div class=\"item-header-tags\">\r\n                <span ng-repeat=\"tag in item.tags\"></span>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"item-body\">\r\n            <textarea ng-model=\"item.text\"></textarea>\r\n        </div>\r\n\r\n        <div class=\"item-footer\">\r\n            <tags class=\"item-footer-tags\" icon=\"true\" items=\"item.tags\"></tags>\r\n            <span class=\"item-footer-date\">Last update: <b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </section>\r\n\r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-controls\">\r\n                <div class=\"sidebar-group-header\">Controls</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <a class=\"button button-save\" href=\"/#/features/{{ item.id }}\">Save</a>\r\n                    <a class=\"button button-delete\">Delete</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </aside>\r\n</article>\r\n\r\n\r\n";
 
 /***/ }),
 
@@ -38690,7 +38663,7 @@ module.exports = "<article class=\"container container-sidebar\">\r\n    <sectio
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<article class=\"container container-sidebar\">\r\n    <section>\r\n        <div class=\"list list-half\">\r\n            <div class=\"item item-type-{{item.type.alias}}\" ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: itemsPerPage | filter: search | orderBy:sortType:sortReverse\">\r\n                <a class=\"item-open\" href=\"#/features/{{ item.id }}\" title=\"Open detail\"><i class=\"icon icon-arrow icon-arrow-right\"></i></a>\r\n\r\n                <div class=\"item-header\">\r\n                    <div class=\"item-header-info\">\r\n                        <h3 ng-if=\"item.title\">{{ item.title }}</h3>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class=\"item-body\">\r\n                    {{ item.text }}\r\n                </div>\r\n\r\n                <div class=\"item-footer\">\r\n                    <tags class=\"item-header-tags\" icon=\"true\" ng-model=\"item.tags\"></tags>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagination\">\r\n            <button class=\"pagination-button pagination-button-prev\" ng-disabled=\"firstPage()\" ng-click=\"pageBack()\"><i class=\"icon icon-arrow icon-arrow-left\"></i></button>\r\n            <span class=\"pagination-pages\"><b>{{ currentPage+1 }}</b>/<b>{{ numberOfPages() }}</b></span>\r\n            <button class=\"pagination-button pagination-button-next\" ng-disabled=\"lastPage()\" ng-click=\"pageForward()\"><i class=\"icon icon-arrow icon-arrow-right\"></i></button>\r\n        </div>\r\n    </section>\r\n\r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-search\">\r\n                <div class=\"sidebar-group-header\">Search</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <div class=\"search\">\r\n                        <input class=\"search-input\" ng-model=\"search\" type=\"text\" placeholder=\"whatever\">\r\n                        <label class=\"search-icon\"><i class=\"icon icon-search\"></i></label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n    \r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-apps\">\r\n                <div class=\"sidebar-group-header\">Apps</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <ul class=\"tags\">\r\n                        <li class=\"tags-item\" ng-repeat=\"product in products\">\r\n                            <a ng-click=\"filterTag($event, product, 'product')\">\r\n                                {{ product.name }}\r\n                                <i class=\"icon icon-cross tags-item-icon\"></i>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n    \r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-types\">\r\n                <div class=\"sidebar-group-header\">Types</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <ul class=\"tags\">\r\n                        <li class=\"tags-item\" ng-repeat=\"type in types\">\r\n                            <a ng-click=\"filterTag($event, type, 'type')\">\r\n                                {{ type.name }}\r\n                                <i class=\"icon icon-cross tags-item-icon\"></i>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"sidebar-footer\"></div>\r\n    </aside>        \r\n</article>";
+module.exports = "<article class=\"container container-sidebar\">\r\n    <section>\r\n        <list items=\"features\" show=\"tags\" type=\"feature\" search=\"search\" size=\"half\"></list>\r\n    </section>\r\n\r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-search\">\r\n                <div class=\"sidebar-group-header\">Search</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <div class=\"search\">\r\n                        <input class=\"search-input\" ng-model=\"search\" type=\"text\" placeholder=\"whatever\">\r\n                        <label class=\"search-icon\"><i class=\"icon icon-search\"></i></label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n    \r\n            <div class=\"sidebar-group\">\r\n                <div class=\"sidebar-group-header\">Apps</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <tags icon=\"false\" active=\"true\" search=\"search\" items=\"products\"></tags>\r\n                </div>\r\n            </div>\r\n    \r\n            <div class=\"sidebar-group\">\r\n                <div class=\"sidebar-group-header\">Types</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <tags icon=\"false\" active=\"true\" search=\"search\" items=\"types\"></tags>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"sidebar-footer\"></div>\r\n    </aside>        \r\n</article>";
 
 /***/ }),
 
@@ -38701,7 +38674,7 @@ module.exports = "<article class=\"container container-sidebar\">\r\n    <sectio
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<article>\r\n    <div class=\"container\">\r\n        <section class=\"home-list\">\r\n            <h3 class=\"section-title\">Top features</h3>\r\n            <div class=\"list\">\r\n                <div class=\"item\" ng-repeat=\"item in features\">\r\n                    <a class=\"item-open\" href=\"#/releases/{{ item.id }}\" title=\"Open detail\"><i class=\"icon icon-arrow icon-arrow-right\"></i></a>\r\n        \r\n                    <div class=\"item-header\">\r\n                        <div class=\"item-header-info\">\r\n                            <h4>{{ item.title }}</h4>\r\n                        </div>\r\n                    </div>\r\n        \r\n                    <div class=\"item-body\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </section>\r\n        <section class=\"home-list\">\r\n            <h3 class=\"section-title\">Latest releases</h3>\r\n            <div class=\"list\">\r\n                <div class=\"item\" ng-repeat=\"item in releases\">\r\n                    <a class=\"item-open\" href=\"#/releases/{{ item.id }}\" title=\"Open detail\"><i class=\"icon icon-arrow icon-arrow-right\"></i></a>\r\n        \r\n                    <div class=\"item-header\">\r\n                        <div class=\"item-header-info\">\r\n                            <h4>{{ item.product.name }} {{ item.version }}</h4>\r\n                        </div>\r\n                    </div>\r\n        \r\n                    <div class=\"item-body\">\r\n                       \r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </section>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"container\">\r\n        <section>\r\n            {{ products.length }} Apps\r\n        </section>\r\n        <section>\r\n            {{ releases.length }} Releases\r\n        </section>\r\n        <section>\r\n            {{ features.length }} Features \r\n        </section>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"container\">\r\n        <section>\r\n            <h3 class=\"section-title\">Apps</h3>\r\n            <div class=\"list list-third\">\r\n                <div class=\"item\" ng-repeat=\"item in products\">\r\n                    <a class=\"item-open\" href=\"#/releases/{{ item.id }}\" title=\"Open detail\"><i class=\"icon icon-arrow icon-arrow-right\"></i></a>\r\n\r\n                    <div class=\"item-header\">\r\n                        <div class=\"item-header-info\">\r\n                            <h4>{{ item.name }} {{ item.version }}</h4>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </section>\r\n    </div>\r\n</article>";
+module.exports = "<article>\r\n    <div class=\"container\">\r\n        <section class=\"home-list\">\r\n            <h3 class=\"section-title\">Top features</h3>\r\n            <list items=\"features\" limit=\"5\" show=\"tags, !body\" type=\"feature\"></list>\r\n        </section>\r\n        <section class=\"home-list\">\r\n            <h3 class=\"section-title\">Latest releases</h3>\r\n            <list items=\"releases\" limit=\"5\" show=\"date, !body\" type=\"release\"></list>\r\n        </section>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"container\">\r\n        <section>\r\n            {{ products.length }} Apps\r\n        </section>\r\n        <section>\r\n            {{ releases.length }} Releases\r\n        </section>\r\n        <section>\r\n            {{ features.length }} Features \r\n        </section>\r\n        <section>\r\n            {{ customs.length }} customizations \r\n        </section>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"timeline timeline-horizontal\">\r\n        <div class=\"timeline-bar\"></div>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"container\">\r\n        <section>\r\n            <h3 class=\"section-title\">Customs</h3>\r\n            <list items=\"customs\" type=\"custom\" show=\"!body\" size=\"half\"></list>\r\n        </section>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"container\">\r\n        <section>\r\n            <h3 class=\"section-title\">Apps</h3>\r\n            <list items=\"products\" per-page=\"20\" type=\"app\" show=\"icon, !body\" size=\"third\"></list>\r\n        </section>\r\n    </div>\r\n</article>";
 
 /***/ }),
 
@@ -38723,7 +38696,7 @@ module.exports = "<article class=\"container\">\r\n    <section class=\"detail r
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<article class=\"container container-sidebar\">\r\n    <div class=\"timeline\">\r\n        <div class=\"timeline-bar\"></div>\r\n    </div>\r\n\r\n    <section>\r\n        <div class=\"list\">\r\n            <div class=\"item\" ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: itemsPerPage | filter: search | orderBy:sortType:sortReverse\">\r\n                <a class=\"item-open\" href=\"#/releases/{{ item.id }}\" title=\"Open detail\"><i class=\"icon icon-arrow icon-arrow-right\"></i></a>\r\n\r\n                <div class=\"item-header\">\r\n                    <div class=\"item-header-info\">\r\n                        <h3>{{ item.product.name }} {{ item.version }}</h3>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class=\"item-body\">\r\n                    <ul class=\"release-features\">\r\n                        <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                            <span>{{ feature.title }}</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n\r\n                <div class=\"timeline-item\">\r\n                    <span class=\"timeline-item-date\">{{ item.updated_at }}</span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagination\">\r\n            <button class=\"pagination-button pagination-button-prev\" ng-disabled=\"firstPage()\" ng-click=\"pageBack()\"><i class=\"icon icon-arrow icon-arrow-left\"></i></button>\r\n            <span class=\"pagination-pages\"><b>{{ currentPage+1 }}</b>/<b>{{ numberOfPages() }}</b></span>\r\n            <button class=\"pagination-button pagination-button-next\" ng-disabled=\"lastPage()\" ng-click=\"pageForward()\"><i class=\"icon icon-arrow icon-arrow-right\"></i></button>\r\n        </div>\r\n    </section>\r\n    \r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-search\">\r\n                <div class=\"sidebar-group-header\">Search</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <div class=\"search\">\r\n                        <input class=\"search-input\" ng-model=\"search\" type=\"text\" placeholder=\"whatever\">\r\n                        <label class=\"search-icon\"><i class=\"icon icon-search\"></i></label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n    \r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-apps\">\r\n                <div class=\"sidebar-group-header\">Apps</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <ul class=\"tags\">\r\n                        <li class=\"tags-item\" ng-repeat=\"product in products\">\r\n                            <a ng-click=\"filterTag($event, product, 'product')\">\r\n                                {{ product.name }}\r\n                                <i class=\"icon icon-cross tags-item-icon\"></i>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"sidebar-footer\"></div>\r\n    </aside>    \r\n</article>";
+module.exports = "<article class=\"container container-sidebar\">\r\n    <div class=\"timeline\">\r\n        <div class=\"timeline-bar\"></div>\r\n    </div>\r\n\r\n    <section>\r\n        <list items=\"releases\" type=\"release\" show=\"timeline\" search=\"search\"></list>\r\n    </section>\r\n    \r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group\">\r\n                <div class=\"sidebar-group-header\">Search</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <div class=\"search\">\r\n                        <input class=\"search-input\" ng-model=\"search\" type=\"text\" placeholder=\"whatever\">\r\n                        <label class=\"search-icon\"><i class=\"icon icon-search\"></i></label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n    \r\n            <div class=\"sidebar-group\">\r\n                <div class=\"sidebar-group-header\">Apps</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <tags icon=\"false\" active=\"true\" search=\"search\" items=\"products\"></tags>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"sidebar-footer\"></div>\r\n    </aside>    \r\n</article>";
 
 /***/ }),
 
