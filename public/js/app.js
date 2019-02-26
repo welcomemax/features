@@ -37924,10 +37924,10 @@ angular.module('app', ['ngRoute'])
                         return api.call('features');
                     },
                     productsObj: function (api) {
-                        return api.call('products/used');
+                        return api.call('products');
                     },
                     typesObj: function (api) {
-                        return api.call('types/used');
+                        return api.call('types');
                     }
                 }
             })
@@ -37947,16 +37947,9 @@ angular.module('app', ['ngRoute'])
                     }
                 }
             })
-            .when('/features/:id', {
-                controller: 'featuresDetailController',
-                template: _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_16___default.a,
-                reloadOnSearch: false,
-                resolve: {
-                    featureObj: function ($route, api) {
-                        let id = $route.current.params.id;
-                        return api.call(`features/${id}`);
-                    }
-                }
+            .when('/features/new', {
+                controller: 'featuresEditController',
+                template: _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_17___default.a
             })
             .when('/features/:id/edit', {
                 controller: 'featuresEditController',
@@ -37969,6 +37962,17 @@ angular.module('app', ['ngRoute'])
                     }
                 }
             })
+            .when('/features/:id', {
+                controller: 'featuresDetailController',
+                template: _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_16___default.a,
+                reloadOnSearch: false,
+                resolve: {
+                    featureObj: function ($route, api) {
+                        let id = $route.current.params.id;
+                        return api.call(`features/${id}`);
+                    }
+                }
+            })
             .when('/releases/', {
                 controller: 'releasesListController',
                 template: _html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_18___default.a,
@@ -37976,7 +37980,10 @@ angular.module('app', ['ngRoute'])
                 resolve: {
                     releasesObj: function (api) {
                         return api.call('releases');
-                    }
+                    },
+                    productsObj: function (api) {
+                        return api.call('products/used');
+                    },
                 }
             })
             .when('/releases/:id', {
@@ -38208,8 +38215,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function () {
-
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (releasesObj, featuresObj, productsObj, $scope) {
+    $scope.releases = releasesObj.data;
+    $scope.features = featuresObj.data;
+    $scope.products = productsObj.data;
 });
 
 
@@ -38240,14 +38249,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (releasesObj, productsObj, typesObj, $scope, $filter, $window) {
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (releasesObj, productsObj, $scope, $filter, $window) {
     $scope.items = releasesObj.data;
     $scope.products = productsObj.data;
-    $scope.types = typesObj.data;
-
-    $scope.items.forEach((item) => {
-        item.tags = [item.type, item.product];
-    });
 
     $scope.sortType = 'id';
     $scope.sortReverse = false;
@@ -38395,7 +38399,7 @@ __webpack_require__.r(__webpack_exports__);
             scope.show = false;
             scope.params = $httpParamSerializer({
                 'product': scope.app.name,
-                'platform': 'docs',
+                'platform': 'features',
                 'templatesHide': true,
                 'installHide': true
             });
@@ -38642,7 +38646,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"preview\" ng-class=\"{'preview-active': show}\">\r\n    <div class=\"preview-button\"\r\n         ng-click=\"show = !show\"\r\n         title=\"Open {{ app.name }} preview\">\r\n        <i class=\"icon icon-eye\"></i>\r\n    </div>\r\n\r\n    <div class=\"preview-icon\" ng-include=\"icon\"></div>\r\n    <div class=\"preview-loader loader\"><div class=\"loader-inner\"></div></div>\r\n</div>\r\n";
+module.exports = "<div class=\"preview\" ng-class=\"{'preview-active': show}\">\r\n    <div class=\"preview-button\"\r\n         ng-click=\"show = !show\">\r\n        <span class=\"preview-button-open\" ng-if=\"!show\">Try the new awesome {{ app.name }} features</span>\r\n        <span ng-if=\"show\">X</span>\r\n    </div>\r\n\r\n    <div class=\"preview-icon\" ng-include=\"icon\"></div>\r\n    <div class=\"preview-loader loader\"><div class=\"loader-inner\"></div></div>\r\n</div>\r\n";
 
 /***/ }),
 
@@ -38664,7 +38668,7 @@ module.exports = "<ul class=\"tags\">\r\n    <i class=\"icon icon-tag\" ng-if=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content\">\r\n    <div class=\"detail\">\r\n        <div class=\"item\">\r\n            <a class=\"item-close\" href=\"/#\" title=\"Back to list\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n            <div class=\"item-header\">\r\n                <div class=\"item-header-info\">\r\n                    <h2>{{ item.title }}</h2>\r\n                </div>\r\n                <div class=\"item-header-tags\">\r\n                    <span ng-repeat=\"tag in item.tags\"></span>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"item-body\">\r\n                <p>{{ item.text }}</p>\r\n            </div>\r\n\r\n            <div class=\"item-preview\" ng-if=\"!!item.app.public_id\">\r\n                <preview app=\"item.currentProduct\"></preview>\r\n            </div>\r\n\r\n            <div class=\"item-footer\">\r\n                <tags class=\"item-header-tags\" icon=\"true\" ng-model=\"item.tags\"></tags>\r\n                <span class=\"item-footer-date\">Last update: <b>{{ item.updated_at }}</b></span>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"sidebar\">\r\n    <div class=\"sidebar-header\"></div>\r\n    <div class=\"sidebar-body\">\r\n        <div class=\"sidebar-group sidebar-group-active sidebar-group-controls\">\r\n            <div class=\"sidebar-group-header\">Controls</div>\r\n            <div class=\"sidebar-group-body\">\r\n                <a class=\"button button-edit\" href=\"/#/edit/{{ item.id }}\">Edit</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
+module.exports = "<article class=\"container container-sidebar\">\r\n    <section class=\"detail item\">\r\n        <a class=\"item-close\" href=\"/#/features/\" title=\"Back to list\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n        <div class=\"item-header\">\r\n            <div class=\"item-header-info\">\r\n                <h2>{{ item.title }}</h2>\r\n            </div>\r\n            <div class=\"item-header-tags\">\r\n                <span ng-repeat=\"tag in item.tags\"></span>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"item-body\">\r\n            <p>{{ item.text }}</p>\r\n        </div>\r\n\r\n        <div class=\"item-preview\" ng-if=\"!!item.app.public_id\">\r\n            <preview app=\"item.currentProduct\"></preview>\r\n        </div>\r\n\r\n        <div class=\"item-footer\">\r\n            <tags class=\"item-header-tags\" icon=\"true\" ng-model=\"item.tags\"></tags>\r\n            <span class=\"item-footer-date\">Last update: <b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </section>\r\n    \r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-controls\">\r\n                <div class=\"sidebar-group-header\">Controls</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <a class=\"button button-edit\" href=\"/#/edit/{{ item.id }}\">Edit</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </aside>\r\n</article>\r\n\r\n";
 
 /***/ }),
 
@@ -38675,7 +38679,7 @@ module.exports = "<div class=\"content\">\r\n    <div class=\"detail\">\r\n     
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content\">\r\n    <div class=\"edit\">\r\n        <div class=\"item\">\r\n            <a class=\"item-close\" href=\"/#/detail/{{ item.id }}\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n            <div class=\"item-header\">\r\n                <div class=\"item-header-info\">\r\n                    <label><input ng-model=\"item.title\">{{ item.title }}</label>\r\n                </div>\r\n                <div class=\"item-header-tags\">\r\n                    <span ng-repeat=\"tag in item.tags\"></span>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"item-body\">\r\n                <textarea>{{ item.text }}</textarea>\r\n            </div>\r\n\r\n            <div class=\"item-footer\">\r\n                <tags class=\"item-header-tags\" icon=\"true\" ng-model=\"item.tags\"></tags>\r\n                <span class=\"item-footer-date\">Last update: <b>{{ item.updated_at }}</b></span>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"sidebar\">\r\n    <div class=\"sidebar-header\"></div>\r\n    <div class=\"sidebar-body\">\r\n        <div class=\"sidebar-group sidebar-group-active sidebar-group-controls\">\r\n            <div class=\"sidebar-group-header\">Controls</div>\r\n            <div class=\"sidebar-group-body\">\r\n                <a class=\"button button-save\" href=\"/#/detail/{{ item.id }}\">Save</button>\\\r\n                <a class=\"button button-delete\">Delete</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
+module.exports = "<article class=\"container container-sidebar\">\r\n    <section class=\"edit item\">\r\n        <a class=\"item-close\" href=\"/#/features/{{ item.id }}\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n        <div class=\"item-header\">\r\n            <div class=\"item-header-info\">\r\n                <label><input ng-model=\"item.title\" ng-model=\"item.title\"></label>\r\n            </div>\r\n            <div class=\"item-header-tags\">\r\n                <span ng-repeat=\"tag in item.tags\"></span>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"item-body\">\r\n            <textarea ng-model=\"item.text\"></textarea>\r\n        </div>\r\n\r\n        <div class=\"item-footer\">\r\n            <tags class=\"item-header-tags\" icon=\"true\" ng-model=\"item.tags\"></tags>\r\n            <span class=\"item-footer-date\">Last update: <b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </section>\r\n\r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-controls\">\r\n                <div class=\"sidebar-group-header\">Controls</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <a class=\"button button-save\" href=\"/#/features/{{ item.id }}\">Save</a>\r\n                    <a class=\"button button-delete\">Delete</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </aside>\r\n</article>\r\n\r\n\r\n";
 
 /***/ }),
 
@@ -38686,7 +38690,7 @@ module.exports = "<div class=\"content\">\r\n    <div class=\"edit\">\r\n       
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content\">\r\n    <div class=\"list\">\r\n        <div class=\"item\" ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: itemsPerPage | filter: search | orderBy:sortType:sortReverse\">\r\n            <a class=\"item-open\" href=\"#/features/{{ item.id }}\" title=\"Open detail\"><i class=\"icon icon-arrow icon-arrow-right\"></i></a>\r\n\r\n            <div class=\"item-header\">\r\n                <div class=\"item-header-info\">\r\n                    <h3 ng-if=\"item.title\">{{ item.title }}</h3>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"item-body\">\r\n                {{ item.text }}\r\n            </div>\r\n\r\n            <div class=\"item-footer\">\r\n                <tags class=\"item-header-tags\" icon=\"true\" ng-model=\"item.tags\"></tags>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"pagination\">\r\n    <button class=\"pagination-button pagination-button-prev\" ng-disabled=\"firstPage()\" ng-click=\"pageBack()\"><i class=\"icon icon-arrow icon-arrow-left\"></i></button>\r\n    <span class=\"pagination-pages\"><b>{{ currentPage+1 }}</b>/<b>{{ numberOfPages() }}</b></span>\r\n    <button class=\"pagination-button pagination-button-next\" ng-disabled=\"lastPage()\" ng-click=\"pageForward()\"><i class=\"icon icon-arrow icon-arrow-right\"></i></button>\r\n</div>\r\n\r\n<div class=\"sidebar\">\r\n    <div class=\"sidebar-header\"></div>\r\n    <div class=\"sidebar-body\">\r\n        <div class=\"sidebar-group sidebar-group-active sidebar-group-search\">\r\n            <div class=\"sidebar-group-header\">Search</div>\r\n            <div class=\"sidebar-group-body\">\r\n                <div class=\"search\">\r\n                    <input class=\"search-input\" ng-model=\"search\" type=\"text\" placeholder=\"whatever\">\r\n                    <label class=\"search-icon\"><i class=\"icon icon-search\"></i></label>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"sidebar-group sidebar-group-active sidebar-group-apps\">\r\n            <div class=\"sidebar-group-header\">Apps</div>\r\n            <div class=\"sidebar-group-body\">\r\n                <ul class=\"tags\">\r\n                    <li class=\"tags-item\" ng-repeat=\"product in products\">\r\n                        <a ng-click=\"filterTag($event, product, 'product')\">\r\n                            {{ product.name }}\r\n                            <i class=\"icon icon-cross tags-item-icon\"></i>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"sidebar-group sidebar-group-active sidebar-group-types\">\r\n            <div class=\"sidebar-group-header\">Types</div>\r\n            <div class=\"sidebar-group-body\">\r\n                <ul class=\"tags\">\r\n                    <li class=\"tags-item\" ng-repeat=\"type in types\">\r\n                        <a ng-click=\"filterTag($event, type, 'type')\">\r\n                            {{ type.name }}\r\n                            <i class=\"icon icon-cross tags-item-icon\"></i>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"sidebar-footer\"></div>\r\n</div>\r\n";
+module.exports = "<article class=\"container container-sidebar\">\r\n    <section>\r\n        <div class=\"list list-half\">\r\n            <div class=\"item item-type-{{item.type.alias}}\" ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: itemsPerPage | filter: search | orderBy:sortType:sortReverse\">\r\n                <a class=\"item-open\" href=\"#/features/{{ item.id }}\" title=\"Open detail\"><i class=\"icon icon-arrow icon-arrow-right\"></i></a>\r\n\r\n                <div class=\"item-header\">\r\n                    <div class=\"item-header-info\">\r\n                        <h3 ng-if=\"item.title\">{{ item.title }}</h3>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class=\"item-body\">\r\n                    {{ item.text }}\r\n                </div>\r\n\r\n                <div class=\"item-footer\">\r\n                    <tags class=\"item-header-tags\" icon=\"true\" ng-model=\"item.tags\"></tags>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagination\">\r\n            <button class=\"pagination-button pagination-button-prev\" ng-disabled=\"firstPage()\" ng-click=\"pageBack()\"><i class=\"icon icon-arrow icon-arrow-left\"></i></button>\r\n            <span class=\"pagination-pages\"><b>{{ currentPage+1 }}</b>/<b>{{ numberOfPages() }}</b></span>\r\n            <button class=\"pagination-button pagination-button-next\" ng-disabled=\"lastPage()\" ng-click=\"pageForward()\"><i class=\"icon icon-arrow icon-arrow-right\"></i></button>\r\n        </div>\r\n    </section>\r\n\r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-search\">\r\n                <div class=\"sidebar-group-header\">Search</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <div class=\"search\">\r\n                        <input class=\"search-input\" ng-model=\"search\" type=\"text\" placeholder=\"whatever\">\r\n                        <label class=\"search-icon\"><i class=\"icon icon-search\"></i></label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n    \r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-apps\">\r\n                <div class=\"sidebar-group-header\">Apps</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <ul class=\"tags\">\r\n                        <li class=\"tags-item\" ng-repeat=\"product in products\">\r\n                            <a ng-click=\"filterTag($event, product, 'product')\">\r\n                                {{ product.name }}\r\n                                <i class=\"icon icon-cross tags-item-icon\"></i>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n    \r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-types\">\r\n                <div class=\"sidebar-group-header\">Types</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <ul class=\"tags\">\r\n                        <li class=\"tags-item\" ng-repeat=\"type in types\">\r\n                            <a ng-click=\"filterTag($event, type, 'type')\">\r\n                                {{ type.name }}\r\n                                <i class=\"icon icon-cross tags-item-icon\"></i>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"sidebar-footer\"></div>\r\n    </aside>        \r\n</article>";
 
 /***/ }),
 
@@ -38697,7 +38701,7 @@ module.exports = "<div class=\"content\">\r\n    <div class=\"list\">\r\n       
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content\">\r\n    HOME\r\n</div>";
+module.exports = "<article>\r\n    <div class=\"container\">\r\n        <section class=\"home-list\">\r\n            <h3 class=\"section-title\">Top features</h3>\r\n            <div class=\"list\">\r\n                <div class=\"item\" ng-repeat=\"item in features\">\r\n                    <a class=\"item-open\" href=\"#/releases/{{ item.id }}\" title=\"Open detail\"><i class=\"icon icon-arrow icon-arrow-right\"></i></a>\r\n        \r\n                    <div class=\"item-header\">\r\n                        <div class=\"item-header-info\">\r\n                            <h4>{{ item.title }}</h4>\r\n                        </div>\r\n                    </div>\r\n        \r\n                    <div class=\"item-body\">\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </section>\r\n        <section class=\"home-list\">\r\n            <h3 class=\"section-title\">Latest releases</h3>\r\n            <div class=\"list\">\r\n                <div class=\"item\" ng-repeat=\"item in releases\">\r\n                    <a class=\"item-open\" href=\"#/releases/{{ item.id }}\" title=\"Open detail\"><i class=\"icon icon-arrow icon-arrow-right\"></i></a>\r\n        \r\n                    <div class=\"item-header\">\r\n                        <div class=\"item-header-info\">\r\n                            <h4>{{ item.product.name }} {{ item.version }}</h4>\r\n                        </div>\r\n                    </div>\r\n        \r\n                    <div class=\"item-body\">\r\n                       \r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </section>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"container\">\r\n        <section>\r\n            {{ products.length }} Apps\r\n        </section>\r\n        <section>\r\n            {{ releases.length }} Releases\r\n        </section>\r\n        <section>\r\n            {{ features.length }} Features \r\n        </section>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"container\">\r\n        <section>\r\n            <h3 class=\"section-title\">Apps</h3>\r\n            <div class=\"list list-third\">\r\n                <div class=\"item\" ng-repeat=\"item in products\">\r\n                    <a class=\"item-open\" href=\"#/releases/{{ item.id }}\" title=\"Open detail\"><i class=\"icon icon-arrow icon-arrow-right\"></i></a>\r\n\r\n                    <div class=\"item-header\">\r\n                        <div class=\"item-header-info\">\r\n                            <h4>{{ item.name }} {{ item.version }}</h4>\r\n                        </div>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n        </section>\r\n    </div>\r\n</article>";
 
 /***/ }),
 
@@ -38708,7 +38712,7 @@ module.exports = "<div class=\"content\">\r\n    HOME\r\n</div>";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content\">\r\n    <div class=\"detail\">\r\n        <div class=\"item\">\r\n            <a class=\"item-close\" href=\"/#\" title=\"Back to list\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n            <div class=\"item-header\">\r\n                <div class=\"item-header-info\">\r\n                    <h2>{{ item.title }}</h2>\r\n                </div>\r\n                <div class=\"item-header-tags\">\r\n                    <span ng-repeat=\"tag in item.tags\"></span>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"item-body\">\r\n                <p>{{ item.text }}</p>\r\n            </div>\r\n\r\n            <div class=\"item-preview\" ng-if=\"!!item.app.public_id\">\r\n                <preview app=\"item.currentProduct\"></preview>\r\n            </div>\r\n\r\n            <div class=\"item-footer\">\r\n                <tags class=\"item-header-tags\" icon=\"true\" ng-model=\"item.tags\"></tags>\r\n                <span class=\"item-footer-date\">Last update: <b>{{ item.updated_at }}</b></span>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"sidebar\">\r\n    <div class=\"sidebar-header\"></div>\r\n    <div class=\"sidebar-body\">\r\n        <div class=\"sidebar-group sidebar-group-active sidebar-group-controls\">\r\n            <div class=\"sidebar-group-header\">Controls</div>\r\n            <div class=\"sidebar-group-body\">\r\n                <a class=\"button button-edit\" href=\"/#/edit/{{ item.id }}\">Edit</a>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
+module.exports = "<article class=\"container\">\r\n    <section class=\"detail release-detail item\">\r\n        <a class=\"item-close\" href=\"/#/releases/\" title=\"Back to list\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n        <div class=\"item-header\">\r\n            <div class=\"item-header-info\">\r\n                <h2>{{ item.product.name }} {{ item.version }}</h2>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"item-body\">\r\n            <p>Features in this release:</p>\r\n            <ul>\r\n                <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                    <span class=\"release-features-item-title\">{{ feature.title }}</span>\r\n                    <a class=\"release-features-item-link\" href=\"/#/features/{{ feature.id }}\">More ></a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n\r\n        <div class=\"item-footer\">\r\n            <span class=\"item-footer-date\">Released at: <b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </section>\r\n</article>\r\n\r\n<article ng-if=\"!!item.product.public_id\">\r\n    <preview app=\"item.product\"></preview>\r\n</article>\r\n";
 
 /***/ }),
 
@@ -38719,7 +38723,7 @@ module.exports = "<div class=\"content\">\r\n    <div class=\"detail\">\r\n     
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"content\">\r\n    <div class=\"list\">\r\n        <div class=\"item\" ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: itemsPerPage | filter: search | orderBy:sortType:sortReverse\">\r\n            <a class=\"item-open\" href=\"#/detail/{{ item.id }}\" title=\"Open detail\"><i class=\"icon icon-arrow icon-arrow-right\"></i></a>\r\n\r\n            <div class=\"item-header\">\r\n                <div class=\"item-header-info\">\r\n                    <h3 ng-if=\"item.title\">{{ item.title }}</h3>\r\n                </div>\r\n            </div>\r\n\r\n            <div class=\"item-body\">\r\n                {{ item.text }}\r\n            </div>\r\n\r\n            <div class=\"item-footer\">\r\n                <tags class=\"item-header-tags\" icon=\"true\" ng-model=\"item.tags\"></tags>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n\r\n<div class=\"pagination\">\r\n    <button class=\"pagination-button pagination-button-prev\" ng-disabled=\"firstPage()\" ng-click=\"pageBack()\"><i class=\"icon icon-arrow icon-arrow-left\"></i></button>\r\n    <span class=\"pagination-pages\"><b>{{ currentPage+1 }}</b>/<b>{{ numberOfPages() }}</b></span>\r\n    <button class=\"pagination-button pagination-button-next\" ng-disabled=\"lastPage()\" ng-click=\"pageForward()\"><i class=\"icon icon-arrow icon-arrow-right\"></i></button>\r\n</div>\r\n\r\n<div class=\"sidebar\">\r\n    <div class=\"sidebar-header\"></div>\r\n    <div class=\"sidebar-body\">\r\n        <div class=\"sidebar-group sidebar-group-active sidebar-group-search\">\r\n            <div class=\"sidebar-group-header\">Search</div>\r\n            <div class=\"sidebar-group-body\">\r\n                <div class=\"search\">\r\n                    <input class=\"search-input\" ng-model=\"search\" type=\"text\" placeholder=\"whatever\">\r\n                    <label class=\"search-icon\"><i class=\"icon icon-search\"></i></label>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"sidebar-group sidebar-group-active sidebar-group-apps\">\r\n            <div class=\"sidebar-group-header\">Apps</div>\r\n            <div class=\"sidebar-group-body\">\r\n                <ul class=\"tags\">\r\n                    <li class=\"tags-item\" ng-repeat=\"product in products\">\r\n                        <a ng-click=\"filterTag($event, product, 'product')\">\r\n                            {{ product.name }}\r\n                            <i class=\"icon icon-cross tags-item-icon\"></i>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"sidebar-group sidebar-group-active sidebar-group-types\">\r\n            <div class=\"sidebar-group-header\">Types</div>\r\n            <div class=\"sidebar-group-body\">\r\n                <ul class=\"tags\">\r\n                    <li class=\"tags-item\" ng-repeat=\"type in types\">\r\n                        <a ng-click=\"filterTag($event, type, 'type')\">\r\n                            {{ type.name }}\r\n                            <i class=\"icon icon-cross tags-item-icon\"></i>\r\n                        </a>\r\n                    </li>\r\n                </ul>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"sidebar-footer\"></div>\r\n</div>\r\n";
+module.exports = "<article class=\"container container-sidebar\">\r\n    <div class=\"timeline\">\r\n        <div class=\"timeline-bar\"></div>\r\n    </div>\r\n\r\n    <section>\r\n        <div class=\"list\">\r\n            <div class=\"item\" ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: itemsPerPage | filter: search | orderBy:sortType:sortReverse\">\r\n                <a class=\"item-open\" href=\"#/releases/{{ item.id }}\" title=\"Open detail\"><i class=\"icon icon-arrow icon-arrow-right\"></i></a>\r\n\r\n                <div class=\"item-header\">\r\n                    <div class=\"item-header-info\">\r\n                        <h3>{{ item.product.name }} {{ item.version }}</h3>\r\n                    </div>\r\n                </div>\r\n\r\n                <div class=\"item-body\">\r\n                    <ul class=\"release-features\">\r\n                        <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                            <span>{{ feature.title }}</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n\r\n                <div class=\"timeline-item\">\r\n                    <span class=\"timeline-item-date\">{{ item.updated_at }}</span>\r\n                </div>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"pagination\">\r\n            <button class=\"pagination-button pagination-button-prev\" ng-disabled=\"firstPage()\" ng-click=\"pageBack()\"><i class=\"icon icon-arrow icon-arrow-left\"></i></button>\r\n            <span class=\"pagination-pages\"><b>{{ currentPage+1 }}</b>/<b>{{ numberOfPages() }}</b></span>\r\n            <button class=\"pagination-button pagination-button-next\" ng-disabled=\"lastPage()\" ng-click=\"pageForward()\"><i class=\"icon icon-arrow icon-arrow-right\"></i></button>\r\n        </div>\r\n    </section>\r\n    \r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-search\">\r\n                <div class=\"sidebar-group-header\">Search</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <div class=\"search\">\r\n                        <input class=\"search-input\" ng-model=\"search\" type=\"text\" placeholder=\"whatever\">\r\n                        <label class=\"search-icon\"><i class=\"icon icon-search\"></i></label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n    \r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-apps\">\r\n                <div class=\"sidebar-group-header\">Apps</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <ul class=\"tags\">\r\n                        <li class=\"tags-item\" ng-repeat=\"product in products\">\r\n                            <a ng-click=\"filterTag($event, product, 'product')\">\r\n                                {{ product.name }}\r\n                                <i class=\"icon icon-cross tags-item-icon\"></i>\r\n                            </a>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n        <div class=\"sidebar-footer\"></div>\r\n    </aside>    \r\n</article>";
 
 /***/ }),
 

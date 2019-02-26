@@ -57,10 +57,10 @@ angular.module('app', ['ngRoute'])
                         return api.call('features');
                     },
                     productsObj: function (api) {
-                        return api.call('products/used');
+                        return api.call('products');
                     },
                     typesObj: function (api) {
-                        return api.call('types/used');
+                        return api.call('types');
                     }
                 }
             })
@@ -80,16 +80,9 @@ angular.module('app', ['ngRoute'])
                     }
                 }
             })
-            .when('/features/:id', {
-                controller: 'featuresDetailController',
-                template: featuresDetailTemplate,
-                reloadOnSearch: false,
-                resolve: {
-                    featureObj: function ($route, api) {
-                        let id = $route.current.params.id;
-                        return api.call(`features/${id}`);
-                    }
-                }
+            .when('/features/new', {
+                controller: 'featuresEditController',
+                template: featuresEditTemplate
             })
             .when('/features/:id/edit', {
                 controller: 'featuresEditController',
@@ -102,6 +95,17 @@ angular.module('app', ['ngRoute'])
                     }
                 }
             })
+            .when('/features/:id', {
+                controller: 'featuresDetailController',
+                template: featuresDetailTemplate,
+                reloadOnSearch: false,
+                resolve: {
+                    featureObj: function ($route, api) {
+                        let id = $route.current.params.id;
+                        return api.call(`features/${id}`);
+                    }
+                }
+            })
             .when('/releases/', {
                 controller: 'releasesListController',
                 template: releasesListTemplate,
@@ -109,7 +113,10 @@ angular.module('app', ['ngRoute'])
                 resolve: {
                     releasesObj: function (api) {
                         return api.call('releases');
-                    }
+                    },
+                    productsObj: function (api) {
+                        return api.call('products/used');
+                    },
                 }
             })
             .when('/releases/:id', {

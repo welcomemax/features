@@ -11,7 +11,7 @@ export default /** @ngInject */  function($httpParamSerializer) {
             scope.show = false;
             scope.params = $httpParamSerializer({
                 'product': scope.app.name,
-                'platform': 'docs',
+                'platform': 'features',
                 'templatesHide': true,
                 'installHide': true
             });

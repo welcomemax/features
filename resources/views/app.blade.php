@@ -26,20 +26,32 @@
 <body ng-app="app">
     <header class="header">
         <div class="header-inner">
-            <h1 class="header-title">Elfsight Features</h1>
+            <h1 class="header-title"><a href="/#/">Elfsight Features</a></h1>
             <nav class="header-nav">
                 <ul>
-                    <li><a href="/#/">Home</a></li>
-                    <li><a href="/#/features/">Features</a></li>
-                    <li><a href="/#/features/new/">New Feature</a></li>
-                    <li><a href="/#/releases/">Releases</a></li>
-                    <li><a href="https://elfsight.com" target="_blank">Elfsight Apps</a></li>
+                    <li class="header-nav-item header-nav-item-active">
+                        <a href="/#/">Home</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a class="header-nav-button" href="/#/features/new/" title="Add a new feature">+</a>
+                        <a href="/#/features/">Features</a>
+                    </li>
+                    <li class="header-nav-item">
+                        <a href="/#/releases/">Releases</a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="main" ng-view></main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <span>2019 © Elfsight</span>
+            <a href="https://elfsight.com" target="_blank">More powerfull Apps at elfsight.com</a>
+        </div>
+    </footer>
 
     <script src="{{asset('js/app.js')}}"></script>
 </body>

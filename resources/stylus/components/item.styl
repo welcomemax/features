@@ -4,8 +4,23 @@
     flex-direction column
     padding 20px
     box-sizing border-box
-    border-radius 10px
+    border-radius 4px
     transition background .3s
+
+    &-half
+        width calc(50%)
+
+    &-third
+        width calc(33%)
+
+    &-type-feature:after
+        background #0079bf
+
+    &-type-change:after
+        background #61bd4f
+        
+    &-type-issue:after
+        background #eb5a46
 
     &:after
         content ""
@@ -58,8 +73,8 @@
         &-info
             h2
             h3
+            h4
                 margin 0
-                margin-bottom 8px
                 font-size 18px
             p
                 margin 0

@@ -7,28 +7,6 @@ body
     color #212121
     margin 0
     background #fafafa
-    overflow hidden
-
-main
-    max-width 960px
-    box-sizing border-box
-    margin 0 auto
-    margin-top 72px
-    display flex
-    justify-content space-between
-    position relative
-
-.content
-    width 100%
-    height 100%
-    display flex
-    flex-direction column
-    overflow-x visible
-    overflow-y auto
-    transition opacity .3s, visibility .3s
-    background #fff
-    border-radius 4px
-    box-shadow 0 0 1px 1px rgba(0,0,0,.05)
 
     &::-webkit-scrollbar-track
         background-color #f0f0f0
@@ -39,26 +17,87 @@ main
     &::-webkit-scrollbar-thumb
         background-color #888
 
-.list
-    height 100%
+main
+    padding-top 48px
+    min-height 100vh
+    box-sizing border-box
+
+article
+    padding 24px 0
+    display flex
+    justify-content space-between
+
+    &:nth-child(even)
+        background #fff
+
+        & section
+            background #fafafa
+
+    &:first-child
+        padding-top 24px
+
+    &:last-child
+        padding-bottom 24px
+
+    & section
+        margin 0 8px
+
+        &:only-of-type
+            margin 0 0
+
+        &:first-child
+            margin-left 0
+
+        &:last-child
+            margin-right 0
+
+.container
+    max-width 960px
+    width 100%
+    margin-left auto
+    margin-right auto
+    position relative
+    display flex
+    justify-content space-between
+    
+.container-sidebar
+    padding-right 220px
+    box-sizing border-box
+
+section
+.section
+    width 100%
+    display flex
+    flex-direction column
+    transition opacity .3s, visibility .3s
+    background #fff
+    border-radius 4px
     padding 20px
 
+.section
+    &-title
+        margin 0 0 24px 0
+
+.list
+    display grid
+    grid-template-columns repeat(auto-fill, 100%)
+    grid-template-rows repeat(auto-fit, minmax(100px, max-content))
+    grid-gap 12px
+
+    &-half
+        grid-template-columns repeat(auto-fill, calc(50% - 12px))
+
+    &-third
+        grid-template-columns repeat(auto-fill, calc(33% - 8px))
+
     .item
-        margin 20px 0
         background #fafafa
-        width calc(50%)
 
         &:first-child
             margin-top 0
             
         &:last-child
             margin-bottom 0
-
-            &:after
-                background transparent
-
-        &:after
-            background #dedede
 
         &:hover
             background #f7f7f7
@@ -69,19 +108,16 @@ main
     .item
         min-height 100%
 
-        &:after
-            background #dedede
-
 .header
     position absolute
     left 0
     top 0
     width 100%
-    padding 12px 20px
     box-sizing border-box
-    height 50px
+    height 48px
     background #fff
     box-shadow 0 0 1px 1px rgba(0,0,0,.05)
+    z-index 1
 
     &-inner
         max-width 960px
@@ -93,29 +129,71 @@ main
     h1&-title
         margin 0
         font-size 20px
+
+        & a
+            color #212121
+            text-decoration none
     
     &-nav
         ul
             list-style none
             margin 0
             padding 0
+            font-size 0
 
-            li
-                display inline-block
+        &-item
+            display inline-block
+            position relative
 
-                a
-                    font-size 13px
-                    text-decoration none
-                    display block
+            &-active
+            &:hover
+                background #fafafa
 
-                    &:hover
-                        text-decoration underline
+            &-active:after
+                content ""
+                position relative
+                height 2px
+                width 100%
+                display block
 
+            a
+                font-size 13px
+                text-decoration none
+                height 48px
+                box-sizing border-box
+                display block
+                padding 16px 16px
+
+        &-button ~ a
+            padding-right 48px !important
+
+        &-button
+            position absolute
+            right 12px
+            top 12px
+            padding 4px !important
+            box-sizing border-box
+            height 24px !important
+            width 24px
+            background rgba(0,0,0,.05)
+            border-radius 2px
+            color #212121
+            font-size 18px !important
+            line-height 1
+            text-align center
+            z-index 1
+
+            &:hover
+                transform scale(1.1)
 
 .footer
-    padding 12px 20px
-    display flex
-    justify-content space-between
+    &-inner
+        max-width 960px
+        margin 0 auto
+        display flex
+        align-items center
+        justify-content space-between
+        font-size 13px
 
 .hidden
     visibility hidden

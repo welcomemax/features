@@ -1,38 +1,38 @@
-<div class="content">
-    <div class="edit">
-        <div class="item">
-            <a class="item-close" href="/#/detail/{{ item.id }}"><i class="icon icon-arrow icon-arrow-up"></i></a>
+<article class="container container-sidebar">
+    <section class="edit item">
+        <a class="item-close" href="/#/features/{{ item.id }}"><i class="icon icon-arrow icon-arrow-up"></i></a>
 
-            <div class="item-header">
-                <div class="item-header-info">
-                    <label><input ng-model="item.title">{{ item.title }}</label>
-                </div>
-                <div class="item-header-tags">
-                    <span ng-repeat="tag in item.tags"></span>
-                </div>
+        <div class="item-header">
+            <div class="item-header-info">
+                <label><input ng-model="item.title" ng-model="item.title"></label>
             </div>
-
-            <div class="item-body">
-                <textarea>{{ item.text }}</textarea>
-            </div>
-
-            <div class="item-footer">
-                <tags class="item-header-tags" icon="true" ng-model="item.tags"></tags>
-                <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
+            <div class="item-header-tags">
+                <span ng-repeat="tag in item.tags"></span>
             </div>
         </div>
-    </div>
-</div>
 
-<div class="sidebar">
-    <div class="sidebar-header"></div>
-    <div class="sidebar-body">
-        <div class="sidebar-group sidebar-group-active sidebar-group-controls">
-            <div class="sidebar-group-header">Controls</div>
-            <div class="sidebar-group-body">
-                <a class="button button-save" href="/#/detail/{{ item.id }}">Save</button>\
-                <a class="button button-delete">Delete</button>
+        <div class="item-body">
+            <textarea ng-model="item.text"></textarea>
+        </div>
+
+        <div class="item-footer">
+            <tags class="item-header-tags" icon="true" ng-model="item.tags"></tags>
+            <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
+        </div>
+    </section>
+
+    <aside class="sidebar">
+        <div class="sidebar-header"></div>
+        <div class="sidebar-body">
+            <div class="sidebar-group sidebar-group-active sidebar-group-controls">
+                <div class="sidebar-group-header">Controls</div>
+                <div class="sidebar-group-body">
+                    <a class="button button-save" href="/#/features/{{ item.id }}">Save</a>
+                    <a class="button button-delete">Delete</a>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </aside>
+</article>
+
+
