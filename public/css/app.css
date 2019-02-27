@@ -374,6 +374,8 @@ section,
 }
 .section-title {
   margin: 0 0 24px 0;
+  font-size: 20px;
+  font-weight: normal;
 }
 .list {
   display: grid;
@@ -427,6 +429,7 @@ section,
 h1.header-title {
   margin: 0;
   font-size: 20px;
+  font-weight: normal;
 }
 h1.header-title a {
   color: #212121;

@@ -37845,28 +37845,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _filters_trust_resource_es6__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filters/trust-resource.es6 */ "./resources/es6/filters/trust-resource.es6");
 /* harmony import */ var _filters_start_from_es6__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./filters/start-from.es6 */ "./resources/es6/filters/start-from.es6");
 /* harmony import */ var _services_api_es6__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/api.es6 */ "./resources/es6/services/api.es6");
-/* harmony import */ var _controllers_home_es6__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./controllers/home.es6 */ "./resources/es6/controllers/home.es6");
-/* harmony import */ var _controllers_features_list_es6__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./controllers/features/list.es6 */ "./resources/es6/controllers/features/list.es6");
-/* harmony import */ var _controllers_features_detail_es6__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./controllers/features/detail.es6 */ "./resources/es6/controllers/features/detail.es6");
-/* harmony import */ var _controllers_features_edit_es6__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./controllers/features/edit.es6 */ "./resources/es6/controllers/features/edit.es6");
-/* harmony import */ var _controllers_releases_list_es6__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./controllers/releases/list.es6 */ "./resources/es6/controllers/releases/list.es6");
-/* harmony import */ var _controllers_releases_detail_es6__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./controllers/releases/detail.es6 */ "./resources/es6/controllers/releases/detail.es6");
-/* harmony import */ var _directives_tags_es6__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./directives/tags.es6 */ "./resources/es6/directives/tags.es6");
-/* harmony import */ var _directives_preview_es6__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./directives/preview.es6 */ "./resources/es6/directives/preview.es6");
-/* harmony import */ var _directives_list_es6__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./directives/list.es6 */ "./resources/es6/directives/list.es6");
-/* harmony import */ var _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./directives/list-item.es6 */ "./resources/es6/directives/list-item.es6");
-/* harmony import */ var _html_templates_home_html__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../html/templates/home.html */ "./resources/html/templates/home.html");
-/* harmony import */ var _html_templates_home_html__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_html_templates_home_html__WEBPACK_IMPORTED_MODULE_16__);
-/* harmony import */ var _html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./../html/templates/features/list.html */ "./resources/html/templates/features/list.html");
-/* harmony import */ var _html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_17__);
-/* harmony import */ var _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./../html/templates/features/detail.html */ "./resources/html/templates/features/detail.html");
-/* harmony import */ var _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_18__);
-/* harmony import */ var _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./../html/templates/features/edit.html */ "./resources/html/templates/features/edit.html");
-/* harmony import */ var _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_19__);
-/* harmony import */ var _html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./../html/templates/releases/list.html */ "./resources/html/templates/releases/list.html");
-/* harmony import */ var _html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_20__);
-/* harmony import */ var _html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./../html/templates/releases/detail.html */ "./resources/html/templates/releases/detail.html");
-/* harmony import */ var _html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var _services_loader_es6__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/loader.es6 */ "./resources/es6/services/loader.es6");
+/* harmony import */ var _controllers_home_es6__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./controllers/home.es6 */ "./resources/es6/controllers/home.es6");
+/* harmony import */ var _controllers_list_es6__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./controllers/list.es6 */ "./resources/es6/controllers/list.es6");
+/* harmony import */ var _controllers_detail_es6__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./controllers/detail.es6 */ "./resources/es6/controllers/detail.es6");
+/* harmony import */ var _controllers_edit_es6__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./controllers/edit.es6 */ "./resources/es6/controllers/edit.es6");
+/* harmony import */ var _directives_tags_es6__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./directives/tags.es6 */ "./resources/es6/directives/tags.es6");
+/* harmony import */ var _directives_preview_es6__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./directives/preview.es6 */ "./resources/es6/directives/preview.es6");
+/* harmony import */ var _directives_list_es6__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./directives/list.es6 */ "./resources/es6/directives/list.es6");
+/* harmony import */ var _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./directives/list-item.es6 */ "./resources/es6/directives/list-item.es6");
+/* harmony import */ var _html_templates_home_html__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./../html/templates/home.html */ "./resources/html/templates/home.html");
+/* harmony import */ var _html_templates_home_html__WEBPACK_IMPORTED_MODULE_15___default = /*#__PURE__*/__webpack_require__.n(_html_templates_home_html__WEBPACK_IMPORTED_MODULE_15__);
+/* harmony import */ var _html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./../html/templates/features/list.html */ "./resources/html/templates/features/list.html");
+/* harmony import */ var _html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_16___default = /*#__PURE__*/__webpack_require__.n(_html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_16__);
+/* harmony import */ var _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./../html/templates/features/detail.html */ "./resources/html/templates/features/detail.html");
+/* harmony import */ var _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_17___default = /*#__PURE__*/__webpack_require__.n(_html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_17__);
+/* harmony import */ var _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./../html/templates/features/edit.html */ "./resources/html/templates/features/edit.html");
+/* harmony import */ var _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_18___default = /*#__PURE__*/__webpack_require__.n(_html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_18__);
+/* harmony import */ var _html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./../html/templates/releases/list.html */ "./resources/html/templates/releases/list.html");
+/* harmony import */ var _html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_19___default = /*#__PURE__*/__webpack_require__.n(_html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_19__);
+/* harmony import */ var _html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./../html/templates/releases/detail.html */ "./resources/html/templates/releases/detail.html");
+/* harmony import */ var _html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_20___default = /*#__PURE__*/__webpack_require__.n(_html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_20__);
+/* harmony import */ var _html_templates_apps_list_html__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./../html/templates/apps/list.html */ "./resources/html/templates/apps/list.html");
+/* harmony import */ var _html_templates_apps_list_html__WEBPACK_IMPORTED_MODULE_21___default = /*#__PURE__*/__webpack_require__.n(_html_templates_apps_list_html__WEBPACK_IMPORTED_MODULE_21__);
+/* harmony import */ var _html_templates_apps_detail_html__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./../html/templates/apps/detail.html */ "./resources/html/templates/apps/detail.html");
+/* harmony import */ var _html_templates_apps_detail_html__WEBPACK_IMPORTED_MODULE_22___default = /*#__PURE__*/__webpack_require__.n(_html_templates_apps_detail_html__WEBPACK_IMPORTED_MODULE_22__);
+/* harmony import */ var _html_templates_customs_list_html__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./../html/templates/customs/list.html */ "./resources/html/templates/customs/list.html");
+/* harmony import */ var _html_templates_customs_list_html__WEBPACK_IMPORTED_MODULE_23___default = /*#__PURE__*/__webpack_require__.n(_html_templates_customs_list_html__WEBPACK_IMPORTED_MODULE_23__);
+/* harmony import */ var _html_templates_customs_detail_html__WEBPACK_IMPORTED_MODULE_24__ = __webpack_require__(/*! ./../html/templates/customs/detail.html */ "./resources/html/templates/customs/detail.html");
+/* harmony import */ var _html_templates_customs_detail_html__WEBPACK_IMPORTED_MODULE_24___default = /*#__PURE__*/__webpack_require__.n(_html_templates_customs_detail_html__WEBPACK_IMPORTED_MODULE_24__);
 // vendors
 
 
@@ -37879,9 +37886,8 @@ __webpack_require__.r(__webpack_exports__);
 // services
 
 
+
 // controllers
-
-
 
 
 
@@ -37901,18 +37907,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
 angular.module('app', ['ngRoute'])
     .factory('api', _services_api_es6__WEBPACK_IMPORTED_MODULE_5__["default"])
-    .controller('homeController', _controllers_home_es6__WEBPACK_IMPORTED_MODULE_6__["default"])
-    .controller('featuresListController', _controllers_features_list_es6__WEBPACK_IMPORTED_MODULE_7__["default"])
-    .controller('featuresDetailController', _controllers_features_detail_es6__WEBPACK_IMPORTED_MODULE_8__["default"])
-    .controller('featuresEditController', _controllers_features_edit_es6__WEBPACK_IMPORTED_MODULE_9__["default"])
-    .controller('releasesListController', _controllers_releases_list_es6__WEBPACK_IMPORTED_MODULE_10__["default"])
-    .controller('releasesDetailController', _controllers_releases_detail_es6__WEBPACK_IMPORTED_MODULE_11__["default"])
-    .directive('tags', _directives_tags_es6__WEBPACK_IMPORTED_MODULE_12__["default"])
-    .directive('preview', _directives_preview_es6__WEBPACK_IMPORTED_MODULE_13__["default"])
-    .directive('list', _directives_list_es6__WEBPACK_IMPORTED_MODULE_14__["default"])
-    .directive('listItem', _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_15__["default"])
+    .factory('loader', _services_loader_es6__WEBPACK_IMPORTED_MODULE_6__["default"])
+    .controller('homeController', _controllers_home_es6__WEBPACK_IMPORTED_MODULE_7__["default"])
+    .controller('listController', _controllers_list_es6__WEBPACK_IMPORTED_MODULE_8__["default"])
+    .controller('detailController', _controllers_detail_es6__WEBPACK_IMPORTED_MODULE_9__["default"])
+    .controller('editController', _controllers_edit_es6__WEBPACK_IMPORTED_MODULE_10__["default"])
+    .directive('tags', _directives_tags_es6__WEBPACK_IMPORTED_MODULE_11__["default"])
+    .directive('preview', _directives_preview_es6__WEBPACK_IMPORTED_MODULE_12__["default"])
+    .directive('list', _directives_list_es6__WEBPACK_IMPORTED_MODULE_13__["default"])
+    .directive('listItem', _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_14__["default"])
     .filter('startFromFilter', _filters_start_from_es6__WEBPACK_IMPORTED_MODULE_4__["default"])
     .filter('trustHtmlFilter', _filters_trust_html_es6__WEBPACK_IMPORTED_MODULE_2__["default"])
     .filter('trustResourceFilter', _filters_trust_resource_es6__WEBPACK_IMPORTED_MODULE_3__["default"])
@@ -37920,86 +37929,84 @@ angular.module('app', ['ngRoute'])
         $routeProvider
             .when('/', {
                 controller: 'homeController',
-                template: _html_templates_home_html__WEBPACK_IMPORTED_MODULE_16___default.a,
-                reloadOnSearch: false,
-                resolve: {
-                    releasesObj: function (api) {
-                        return api.call('releases');
-                    },
-                    featuresObj: function (api) {
-                        return api.call('features');
-                    },
-                    productsObj: function (api) {
-                        return api.call('products');
-                    },
-                    typesObj: function (api) {
-                        return api.call('types');
-                    }
-                }
+                template: _html_templates_home_html__WEBPACK_IMPORTED_MODULE_15___default.a
             })
             .when('/features/', {
-                controller: 'featuresListController',
-                template: _html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_17___default.a,
-                reloadOnSearch: false,
-                resolve: {
-                    featuresObj: function (api) {
-                        return api.call('features');
-                    },
-                    productsObj: function (api) {
-                        return api.call('products/used');
-                    },
-                    typesObj: function (api) {
-                        return api.call('types/used');
-                    }
-                }
+                controller: 'listController',
+                template: _html_templates_features_list_html__WEBPACK_IMPORTED_MODULE_16___default.a,
+                reloadOnSearch: false
             })
-            .when('/features/new', {
-                controller: 'featuresEditController',
-                template: _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_19___default.a
-            })
-            .when('/features/:id/edit', {
-                controller: 'featuresEditController',
-                template: _html_templates_features_edit_html__WEBPACK_IMPORTED_MODULE_19___default.a,
-                reloadOnSearch: false,
-                resolve: {
-                    featureObj: function ($route, api) {
-                        let id = $route.current.params.id;
-                        return id ? api.call(`features/${id}`) : null
-                    }
-                }
-            })
+            // .when('/features/new', {
+            //     controller: 'editController',
+            //     template: featuresEditTemplate
+            // })
+            // .when('/features/:id/edit', {
+            //     controller: 'editController',
+            //     template: featuresEditTemplate,
+            //     reloadOnSearch: false,
+            //     resolve: {
+            //         editObj: function ($route, api) {
+            //             let id = $route.current.params.id;
+            //             return id ? api.call(`features/${id}`) : null
+            //         }
+            //     }
+            // })
             .when('/features/:id', {
-                controller: 'featuresDetailController',
-                template: _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_18___default.a,
+                controller: 'detailController',
+                template: _html_templates_features_detail_html__WEBPACK_IMPORTED_MODULE_17___default.a,
                 reloadOnSearch: false,
                 resolve: {
-                    featureObj: function ($route, api) {
+                    detailObj: function ($route, api) {
                         let id = $route.current.params.id;
                         return api.call(`features/${id}`);
                     }
                 }
             })
             .when('/releases/', {
-                controller: 'releasesListController',
-                template: _html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_20___default.a,
-                reloadOnSearch: false,
-                resolve: {
-                    releasesObj: function (api) {
-                        return api.call('releases');
-                    },
-                    productsObj: function (api) {
-                        return api.call('products/used');
-                    },
-                }
+                controller: 'listController',
+                template: _html_templates_releases_list_html__WEBPACK_IMPORTED_MODULE_19___default.a,
+                reloadOnSearch: false
             })
             .when('/releases/:id', {
-                controller: 'releasesDetailController',
-                template: _html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_21___default.a,
+                controller: 'detailController',
+                template: _html_templates_releases_detail_html__WEBPACK_IMPORTED_MODULE_20___default.a,
                 reloadOnSearch: false,
                 resolve: {
-                    releaseObj: function ($route, api) {
+                    detailObj: function ($route, api) {
                         let id = $route.current.params.id;
                         return api.call(`releases/${id}`);
+                    }
+                }
+            })
+            .when('/apps/', {
+                controller: 'listController',
+                template: _html_templates_apps_list_html__WEBPACK_IMPORTED_MODULE_21___default.a,
+                reloadOnSearch: false
+            })
+            .when('/apps/:id', {
+                controller: 'detailController',
+                template: _html_templates_apps_detail_html__WEBPACK_IMPORTED_MODULE_22___default.a,
+                reloadOnSearch: false,
+                resolve: {
+                    detailObj: function ($route, api) {
+                        let id = $route.current.params.id;
+                        return api.call(`products/${id}`);
+                    }
+                }
+            })
+            .when('/customs/', {
+                controller: 'listController',
+                template: _html_templates_customs_list_html__WEBPACK_IMPORTED_MODULE_23___default.a,
+                reloadOnSearch: false
+            })
+            .when('/customs/:id', {
+                controller: 'detailController',
+                template: _html_templates_customs_detail_html__WEBPACK_IMPORTED_MODULE_24___default.a,
+                reloadOnSearch: false,
+                resolve: {
+                    detailObj: function ($route, api) {
+                        let id = $route.current.params.id;
+                        return api.call(`customs/${id}`);
                     }
                 }
             })
@@ -38015,42 +38022,43 @@ angular.module('app', ['ngRoute'])
             $qProvider.errorOnUnhandledRejections(false);
         }]
     )
-    .run(/** @ngInject */ function($rootScope) {
-        $rootScope.loaded = true;
+    .run(/** @ngInject */ function(loader, $rootScope) {
+        $rootScope.$on('loader:loaded', function() {
+            $rootScope.loaded = true;    
+        });
     });
 
 
 /***/ }),
 
-/***/ "./resources/es6/controllers/features/detail.es6":
-/*!*******************************************************!*\
-  !*** ./resources/es6/controllers/features/detail.es6 ***!
-  \*******************************************************/
+/***/ "./resources/es6/controllers/detail.es6":
+/*!**********************************************!*\
+  !*** ./resources/es6/controllers/detail.es6 ***!
+  \**********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (featureObj, $scope) {
-    $scope.item = featureObj.data[0];
-    $scope.item.tags = [$scope.item.type, $scope.item.product];
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (detailObj, $scope) {
+    $scope.item = detailObj.data[0];
 });
 
 
 /***/ }),
 
-/***/ "./resources/es6/controllers/features/edit.es6":
-/*!*****************************************************!*\
-  !*** ./resources/es6/controllers/features/edit.es6 ***!
-  \*****************************************************/
+/***/ "./resources/es6/controllers/edit.es6":
+/*!********************************************!*\
+  !*** ./resources/es6/controllers/edit.es6 ***!
+  \********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (featureObj, api, $scope, $routeParams, $location) {
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (editObj, api, $scope, $routeParams, $location) {
     $scope.id = $routeParams.id;
-    $scope.item = id ? featureObj.data[0] : {};
+    $scope.item = id ? editObj.data[0] : {};
 
     $scope.save = function() {
         api(`items/${id}`, 'post', $scope.item).then(function(response) {
@@ -38072,35 +38080,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/es6/controllers/features/list.es6":
-/*!*****************************************************!*\
-  !*** ./resources/es6/controllers/features/list.es6 ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (featuresObj, productsObj, typesObj, $scope, $document) {
-    $scope.features = featuresObj.data;
-    $scope.products = productsObj.data;
-    $scope.types = typesObj.data;
-    
-    $scope.search = '';
-
-    $scope.filterTag = ($event, tag, type) => {
-        let $tagItem = angular.element($event.currentTarget).parent();
-
-        $scope.search = !$tagItem.hasClass('tags-item-active') ? tag.name : '';             
-        
-        $document.find('li').removeClass('tags-item-active');
-        $tagItem.toggleClass('tags-item-active');
-    };
-});
-
-
-/***/ }),
-
 /***/ "./resources/es6/controllers/home.es6":
 /*!********************************************!*\
   !*** ./resources/es6/controllers/home.es6 ***!
@@ -38110,43 +38089,24 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (releasesObj, featuresObj, productsObj, $scope) {
-    $scope.releases = releasesObj.data;
-    $scope.features = featuresObj.data;
-    $scope.products = productsObj.data;
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function ($scope) {
+    
 });
 
 
 /***/ }),
 
-/***/ "./resources/es6/controllers/releases/detail.es6":
-/*!*******************************************************!*\
-  !*** ./resources/es6/controllers/releases/detail.es6 ***!
-  \*******************************************************/
+/***/ "./resources/es6/controllers/list.es6":
+/*!********************************************!*\
+  !*** ./resources/es6/controllers/list.es6 ***!
+  \********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (releaseObj, $scope) {
-    $scope.item = releaseObj.data[0];
-});
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function ($rootScope, $scope) {
 
-
-/***/ }),
-
-/***/ "./resources/es6/controllers/releases/list.es6":
-/*!*****************************************************!*\
-  !*** ./resources/es6/controllers/releases/list.es6 ***!
-  \*****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (releasesObj, productsObj, $scope, $document) {
-    $scope.releases = releasesObj.data;
-    $scope.products = productsObj.data;
 });
 
 
@@ -38590,6 +38550,53 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/es6/services/loader.es6":
+/*!*******************************************!*\
+  !*** ./resources/es6/services/loader.es6 ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function($injector) {
+    class Loader {
+        constructor($injector) {
+            this.$rootScope = $injector.get('$rootScope');
+            this.$q = $injector.get('$q');
+            this.$route = $injector.get('$route');
+            this.api = $injector.get('api');
+
+            this.loadApiData();
+        }
+
+        loadApiData() {
+            return this.$q.all([
+                this.api.call('features'),
+                this.api.call('releases'),
+                this.api.call('products'),
+                this.api.call('types'),
+                // this.api.call('customs')
+            ]).then((results) => {
+                angular.extend(this.$rootScope, {
+                    features: results[0]['data'],
+                    releases: results[1]['data'],
+                    products: results[2]['data'],
+                    types: results[3]['data'],
+                    // customs: results[4]['data']
+                });
+
+                this.$rootScope.$broadcast('DataLoader:loaded');
+                this.$route.reload();
+            });
+        }
+    }
+
+    return new Loader($injector);
+});
+
+/***/ }),
+
 /***/ "./resources/html/directives/list-item.html":
 /*!**************************************************!*\
   !*** ./resources/html/directives/list-item.html ***!
@@ -38634,6 +38641,50 @@ module.exports = "<ul class=\"tags\">\r\n    <i class=\"icon icon-tag\" ng-if=\"
 
 /***/ }),
 
+/***/ "./resources/html/templates/apps/detail.html":
+/*!***************************************************!*\
+  !*** ./resources/html/templates/apps/detail.html ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<article class=\"container\">\r\n    <section class=\"item\">\r\n        <a class=\"item-close\" href=\"/#/apps/\" title=\"Back to list\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n        <div class=\"item-header\">\r\n            <h2>{{ item.name }} {{ item.release.version }}</h2>\r\n        </div>\r\n    </section>\r\n</article>\r\n\r\n<preview app=\"item\"></preview>\r\n";
+
+/***/ }),
+
+/***/ "./resources/html/templates/apps/list.html":
+/*!*************************************************!*\
+  !*** ./resources/html/templates/apps/list.html ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<article class=\"container\">\r\n    <section>\r\n        <list items=\"products\" show=\"icon, !body\" type=\"app\" per-page=\"20\" size=\"third\"></list>\r\n    </section>\r\n</article>";
+
+/***/ }),
+
+/***/ "./resources/html/templates/customs/detail.html":
+/*!******************************************************!*\
+  !*** ./resources/html/templates/customs/detail.html ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<article class=\"container container-sidebar\">\r\n    <section class=\"detail item\">\r\n        <a class=\"item-close\" href=\"/#/customs/\" title=\"Back to list\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n        <div class=\"item-header\">\r\n            <h1>{{ item.title }}</h1>\r\n        </div>\r\n\r\n        <div class=\"item-body\">\r\n            <p>{{ item.data }}</p>\r\n        </div>\r\n\r\n        <div class=\"item-footer\">\r\n            <tags class=\"item-footer-tags\" icon=\"true\" items=\"item.tags\"></tags>\r\n            <span class=\"item-footer-date\">Last update: <b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </section>\r\n    \r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-controls\">\r\n                <div class=\"sidebar-group-header\">Controls</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <a class=\"button button-edit\" href=\"/#/edit/{{ item.id }}\">Edit</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </aside>\r\n</article>\r\n\r\n";
+
+/***/ }),
+
+/***/ "./resources/html/templates/customs/list.html":
+/*!****************************************************!*\
+  !*** ./resources/html/templates/customs/list.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<article class=\"container container-sidebar\">\r\n    <section>\r\n        <list items=\"customs\" type=\"custom\" search=\"search\" size=\"half\"></list>\r\n    </section>\r\n\r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-search\">\r\n                <div class=\"sidebar-group-header\">Search</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <div class=\"search\">\r\n                        <input class=\"search-input\" ng-model=\"search\" type=\"text\" placeholder=\"whatever\">\r\n                        <label class=\"search-icon\"><i class=\"icon icon-search\"></i></label>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n    \r\n            <div class=\"sidebar-group\">\r\n                <div class=\"sidebar-group-header\">Apps</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <tags icon=\"false\" active=\"true\" search=\"search\" items=\"products\"></tags>\r\n                </div>\r\n            </div>\r\n    \r\n            <div class=\"sidebar-group\">\r\n                <div class=\"sidebar-group-header\">Types</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <tags icon=\"false\" active=\"true\" search=\"search\" items=\"types\"></tags>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </aside>        \r\n</article>";
+
+/***/ }),
+
 /***/ "./resources/html/templates/features/detail.html":
 /*!*******************************************************!*\
   !*** ./resources/html/templates/features/detail.html ***!
@@ -38641,7 +38692,7 @@ module.exports = "<ul class=\"tags\">\r\n    <i class=\"icon icon-tag\" ng-if=\"
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<article class=\"container container-sidebar\">\r\n    <section class=\"detail item\">\r\n        <a class=\"item-close\" href=\"/#/features/\" title=\"Back to list\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n        <div class=\"item-header\">\r\n            <h1>{{ item.title }}</h1>\r\n            <div class=\"item-header-tags\">\r\n                <span ng-repeat=\"tag in item.tags\"></span>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"item-body\">\r\n            <p>{{ item.text }}</p>\r\n        </div>\r\n\r\n        <div class=\"item-preview\" ng-if=\"!!item.app.public_id\">\r\n            <preview app=\"item.currentProduct\"></preview>\r\n        </div>\r\n\r\n        <div class=\"item-footer\">\r\n            <tags class=\"item-footer-tags\" icon=\"true\" items=\"item.tags\"></tags>\r\n            <span class=\"item-footer-date\">Last update: <b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </section>\r\n    \r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-controls\">\r\n                <div class=\"sidebar-group-header\">Controls</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <a class=\"button button-edit\" href=\"/#/edit/{{ item.id }}\">Edit</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </aside>\r\n</article>\r\n\r\n";
+module.exports = "<article class=\"container container-sidebar\">\r\n    <section class=\"detail item\">\r\n        <a class=\"item-close\" href=\"/#/features/\" title=\"Back to list\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n        <div class=\"item-header\">\r\n            <h1>{{ item.title }}</h1>\r\n            <div class=\"item-header-tags\">\r\n                <span ng-repeat=\"tag in item.tags\"></span>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"item-body\">\r\n            <p>{{ item.text }}</p>\r\n        </div>\r\n\r\n        <div class=\"item-footer\">\r\n            <tags class=\"item-footer-tags\" icon=\"true\" items=\"item.tags\"></tags>\r\n            <span class=\"item-footer-date\">Last update: <b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </section>\r\n    \r\n    <aside class=\"sidebar\">\r\n        <div class=\"sidebar-header\"></div>\r\n        <div class=\"sidebar-body\">\r\n            <div class=\"sidebar-group sidebar-group-active sidebar-group-controls\">\r\n                <div class=\"sidebar-group-header\">Controls</div>\r\n                <div class=\"sidebar-group-body\">\r\n                    <a class=\"button button-edit\" href=\"/#/edit/{{ item.id }}\">Edit</a>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    </aside>\r\n</article>\r\n\r\n";
 
 /***/ }),
 
@@ -38674,7 +38725,7 @@ module.exports = "<article class=\"container container-sidebar\">\r\n    <sectio
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<article>\r\n    <div class=\"container\">\r\n        <section class=\"home-list\">\r\n            <h3 class=\"section-title\">Top features</h3>\r\n            <list items=\"features\" limit=\"5\" show=\"tags, !body\" type=\"feature\"></list>\r\n        </section>\r\n        <section class=\"home-list\">\r\n            <h3 class=\"section-title\">Latest releases</h3>\r\n            <list items=\"releases\" limit=\"5\" show=\"date, !body\" type=\"release\"></list>\r\n        </section>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"container\">\r\n        <section>\r\n            {{ products.length }} Apps\r\n        </section>\r\n        <section>\r\n            {{ releases.length }} Releases\r\n        </section>\r\n        <section>\r\n            {{ features.length }} Features \r\n        </section>\r\n        <section>\r\n            {{ customs.length }} customizations \r\n        </section>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"timeline timeline-horizontal\">\r\n        <div class=\"timeline-bar\"></div>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"container\">\r\n        <section>\r\n            <h3 class=\"section-title\">Customs</h3>\r\n            <list items=\"customs\" type=\"custom\" show=\"!body\" size=\"half\"></list>\r\n        </section>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"container\">\r\n        <section>\r\n            <h3 class=\"section-title\">Apps</h3>\r\n            <list items=\"products\" per-page=\"20\" type=\"app\" show=\"icon, !body\" size=\"third\"></list>\r\n        </section>\r\n    </div>\r\n</article>";
+module.exports = "<article>\r\n    <div class=\"container\">\r\n        <section class=\"home-list\">\r\n            <h3 class=\"section-title\">Top features</h3>\r\n            <list items=\"features\" limit=\"5\" show=\"tags, !body\" type=\"feature\"></list>\r\n        </section>\r\n        <section class=\"home-list\">\r\n            <h3 class=\"section-title\">Latest releases</h3>\r\n            <list items=\"releases\" limit=\"5\" show=\"date, !body\" type=\"release\"></list>\r\n        </section>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"container\">\r\n        <section>\r\n            {{ products.length }} Apps\r\n        </section>\r\n        <section>\r\n            {{ releases.length }} Releases\r\n        </section>\r\n        <section>\r\n            {{ features.length }} Features \r\n        </section>\r\n        <section>\r\n            {{ customs.length }} customizations \r\n        </section>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <section>\r\n        <div class=\"timeline timeline-horizontal\">\r\n            <div class=\"timeline-bar\"></div>\r\n        </div>\r\n    </section>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"container\">\r\n        <section>\r\n            <h3 class=\"section-title\">Customs</h3>\r\n            <list items=\"customs\" type=\"custom\" show=\"!body\" size=\"half\"></list>\r\n        </section>\r\n    </div>\r\n</article>\r\n\r\n<article>\r\n    <div class=\"container\">\r\n        <section>\r\n            <h3 class=\"section-title\">Apps</h3>\r\n            <list items=\"products\" per-page=\"20\" type=\"app\" show=\"icon, !body\" size=\"third\"></list>\r\n        </section>\r\n    </div>\r\n</article>";
 
 /***/ }),
 
@@ -38685,7 +38736,7 @@ module.exports = "<article>\r\n    <div class=\"container\">\r\n        <section
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<article class=\"container\">\r\n    <section class=\"detail release-detail item\">\r\n        <a class=\"item-close\" href=\"/#/releases/\" title=\"Back to list\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n        <div class=\"item-header\">\r\n            <div class=\"item-header-info\">\r\n                <h2>{{ item.product.name }} {{ item.version }}</h2>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"item-body\">\r\n            <p>Features in this release:</p>\r\n            <ul>\r\n                <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                    <span class=\"release-features-item-title\">{{ feature.title }}</span>\r\n                    <a class=\"release-features-item-link\" href=\"/#/features/{{ feature.id }}\">More ></a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n\r\n        <div class=\"item-footer\">\r\n            <span class=\"item-footer-date\">Released at: <b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </section>\r\n</article>\r\n\r\n<article ng-if=\"!!item.product.public_id\">\r\n    <preview app=\"item.product\"></preview>\r\n</article>\r\n";
+module.exports = "<article class=\"container\">\r\n    <section class=\"detail release-detail item\">\r\n        <a class=\"item-close\" href=\"/#/releases/\" title=\"Back to list\"><i class=\"icon icon-arrow icon-arrow-up\"></i></a>\r\n\r\n        <div class=\"item-header\">\r\n            <h2>{{ item.product.name }} {{ item.version }}</h2>\r\n        </div>\r\n\r\n        <div class=\"item-body\">\r\n            <p>Features in this release:</p>\r\n            <ul class=\"release-features\">\r\n                <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                    <span class=\"release-features-item-title\">{{ feature.title }}</span>\r\n                    <a class=\"release-features-item-link\" href=\"/#/features/{{ feature.id }}\">More ></a>\r\n                </li>\r\n            </ul>\r\n        </div>\r\n\r\n        <div class=\"item-footer\">\r\n            <span class=\"item-footer-date\">Released at: <b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </section>\r\n</article>\r\n\r\n<preview app=\"item.product\"></preview>\r\n";
 
 /***/ }),
 

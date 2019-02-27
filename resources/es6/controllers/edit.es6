@@ -1,6 +1,6 @@
-export default /** @ngInject */ function (featureObj, api, $scope, $routeParams, $location) {
+export default /** @ngInject */ function (editObj, api, $scope, $routeParams, $location) {
     $scope.id = $routeParams.id;
-    $scope.item = id ? featureObj.data[0] : {};
+    $scope.item = id ? editObj.data[0] : {};
 
     $scope.save = function() {
         api(`items/${id}`, 'post', $scope.item).then(function(response) {

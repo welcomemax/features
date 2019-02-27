@@ -15,7 +15,7 @@ class Product extends Model
     ];
 
     protected $hidden = [
-        'id'
+        
     ];
 
     public $timestamps = false;

@@ -9,14 +9,13 @@ import startFromFilter from './filters/start-from.es6';
 
 // services
 import apiService from './services/api.es6';
+import loaderService from './services/loader.es6';
 
 // controllers
 import homeController from './controllers/home.es6';
-import featuresListController from './controllers/features/list.es6';
-import featuresDetailController from './controllers/features/detail.es6';
-import featuresEditController from './controllers/features/edit.es6';
-import releasesListController from './controllers/releases/list.es6';
-import releasesDetailController from './controllers/releases/detail.es6';
+import listController from './controllers/list.es6';
+import detailController from './controllers/detail.es6';
+import editController from './controllers/edit.es6';
 
 // directives
 import tagsDirective from './directives/tags.es6';
@@ -31,15 +30,18 @@ import featuresDetailTemplate from './../html/templates/features/detail.html';
 import featuresEditTemplate from './../html/templates/features/edit.html';
 import releasesListTemplate from './../html/templates/releases/list.html';
 import releasesDetailTemplate from './../html/templates/releases/detail.html';
+import appsListTemplate from './../html/templates/apps/list.html';
+import appsDetailTemplate from './../html/templates/apps/detail.html';
+import customsListTemplate from './../html/templates/customs/list.html';
+import customsDetailTemplate from './../html/templates/customs/detail.html';
 
 angular.module('app', ['ngRoute'])
     .factory('api', apiService)
+    .factory('loader', loaderService)
     .controller('homeController', homeController)
-    .controller('featuresListController', featuresListController)
-    .controller('featuresDetailController', featuresDetailController)
-    .controller('featuresEditController', featuresEditController)
-    .controller('releasesListController', releasesListController)
-    .controller('releasesDetailController', releasesDetailController)
+    .controller('listController', listController)
+    .controller('detailController', detailController)
+    .controller('editController', editController)
     .directive('tags', tagsDirective)
     .directive('preview', previewDirective)
     .directive('list', listDirective)
@@ -51,86 +53,84 @@ angular.module('app', ['ngRoute'])
         $routeProvider
             .when('/', {
                 controller: 'homeController',
-                template: homeTemplate,
-                reloadOnSearch: false,
-                resolve: {
-                    releasesObj: function (api) {
-                        return api.call('releases');
-                    },
-                    featuresObj: function (api) {
-                        return api.call('features');
-                    },
-                    productsObj: function (api) {
-                        return api.call('products');
-                    },
-                    typesObj: function (api) {
-                        return api.call('types');
-                    }
-                }
+                template: homeTemplate
             })
             .when('/features/', {
-                controller: 'featuresListController',
+                controller: 'listController',
                 template: featuresListTemplate,
-                reloadOnSearch: false,
-                resolve: {
-                    featuresObj: function (api) {
-                        return api.call('features');
-                    },
-                    productsObj: function (api) {
-                        return api.call('products/used');
-                    },
-                    typesObj: function (api) {
-                        return api.call('types/used');
-                    }
-                }
+                reloadOnSearch: false
             })
-            .when('/features/new', {
-                controller: 'featuresEditController',
-                template: featuresEditTemplate
-            })
-            .when('/features/:id/edit', {
-                controller: 'featuresEditController',
-                template: featuresEditTemplate,
-                reloadOnSearch: false,
-                resolve: {
-                    featureObj: function ($route, api) {
-                        let id = $route.current.params.id;
-                        return id ? api.call(`features/${id}`) : null
-                    }
-                }
-            })
+            // .when('/features/new', {
+            //     controller: 'editController',
+            //     template: featuresEditTemplate
+            // })
+            // .when('/features/:id/edit', {
+            //     controller: 'editController',
+            //     template: featuresEditTemplate,
+            //     reloadOnSearch: false,
+            //     resolve: {
+            //         editObj: function ($route, api) {
+            //             let id = $route.current.params.id;
+            //             return id ? api.call(`features/${id}`) : null
+            //         }
+            //     }
+            // })
             .when('/features/:id', {
-                controller: 'featuresDetailController',
+                controller: 'detailController',
                 template: featuresDetailTemplate,
                 reloadOnSearch: false,
                 resolve: {
-                    featureObj: function ($route, api) {
+                    detailObj: function ($route, api) {
                         let id = $route.current.params.id;
                         return api.call(`features/${id}`);
                     }
                 }
             })
             .when('/releases/', {
-                controller: 'releasesListController',
+                controller: 'listController',
                 template: releasesListTemplate,
-                reloadOnSearch: false,
-                resolve: {
-                    releasesObj: function (api) {
-                        return api.call('releases');
-                    },
-                    productsObj: function (api) {
-                        return api.call('products/used');
-                    },
-                }
+                reloadOnSearch: false
             })
             .when('/releases/:id', {
-                controller: 'releasesDetailController',
+                controller: 'detailController',
                 template: releasesDetailTemplate,
                 reloadOnSearch: false,
                 resolve: {
-                    releaseObj: function ($route, api) {
+                    detailObj: function ($route, api) {
                         let id = $route.current.params.id;
                         return api.call(`releases/${id}`);
+                    }
+                }
+            })
+            .when('/apps/', {
+                controller: 'listController',
+                template: appsListTemplate,
+                reloadOnSearch: false
+            })
+            .when('/apps/:id', {
+                controller: 'detailController',
+                template: appsDetailTemplate,
+                reloadOnSearch: false,
+                resolve: {
+                    detailObj: function ($route, api) {
+                        let id = $route.current.params.id;
+                        return api.call(`products/${id}`);
+                    }
+                }
+            })
+            .when('/customs/', {
+                controller: 'listController',
+                template: customsListTemplate,
+                reloadOnSearch: false
+            })
+            .when('/customs/:id', {
+                controller: 'detailController',
+                template: customsDetailTemplate,
+                reloadOnSearch: false,
+                resolve: {
+                    detailObj: function ($route, api) {
+                        let id = $route.current.params.id;
+                        return api.call(`customs/${id}`);
                     }
                 }
             })
@@ -146,6 +146,8 @@ angular.module('app', ['ngRoute'])
             $qProvider.errorOnUnhandledRejections(false);
         }]
     )
-    .run(/** @ngInject */ function($rootScope) {
-        $rootScope.loaded = true;
+    .run(/** @ngInject */ function(loader, $rootScope) {
+        $rootScope.$on('loader:loaded', function() {
+            $rootScope.loaded = true;    
+        });
     });

@@ -3,14 +3,12 @@
         <a class="item-close" href="/#/releases/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
 
         <div class="item-header">
-            <div class="item-header-info">
-                <h2>{{ item.product.name }} {{ item.version }}</h2>
-            </div>
+            <h2>{{ item.product.name }} {{ item.version }}</h2>
         </div>
 
         <div class="item-body">
             <p>Features in this release:</p>
-            <ul>
+            <ul class="release-features">
                 <li class="release-features-item" ng-repeat="feature in item.features">
                     <span class="release-features-item-title">{{ feature.title }}</span>
                     <a class="release-features-item-link" href="/#/features/{{ feature.id }}">More ></a>
@@ -24,6 +22,4 @@
     </section>
 </article>
 
-<article ng-if="!!item.product.public_id">
-    <preview app="item.product"></preview>
-</article>
+<preview app="item.product"></preview>
