@@ -10,14 +10,16 @@ export default /** @ngInject */  function() {
         },
         template: template,
         replace: true,
-        controller: /** @ngInject */ function($scope) {
+        controller: /** @ngInject */ function($scope, $document) {
             $scope.filterTag = ($event, tag) => {
-                let $tagItem = angular.element($event.currentTarget).parent();
+                let $tagItem = angular.element($event.currentTarget);
 
                 $scope.search = !$tagItem.hasClass('tags-item-active') ? tag.name : '';             
                 
+                console.log($scope.search)
+
                 $document.find('li').removeClass('tags-item-active');
-                $tagItem.toggleClass('tags-item-active');
+                $tagItem.parent().toggleClass('tags-item-active');
             };
         }
     }

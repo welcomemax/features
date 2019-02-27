@@ -97,6 +97,7 @@ section
 
     .item
         background #fafafa
+        padding-right 80px
 
         &:first-child
             margin-top 0
@@ -131,7 +132,7 @@ section
         align-items center
         justify-content space-between
 
-    h1&-title
+    &-title
         margin 0
         font-size 20px
         font-weight normal
@@ -139,58 +140,6 @@ section
         & a
             color #212121
             text-decoration none
-    
-    &-nav
-        ul
-            list-style none
-            margin 0
-            padding 0
-            font-size 0
-
-        &-item
-            display inline-block
-            position relative
-
-            &-active
-            &:hover
-                background #fafafa
-
-            &-active:after
-                content ""
-                position relative
-                height 2px
-                width 100%
-                display block
-
-            a
-                font-size 13px
-                text-decoration none
-                height 48px
-                box-sizing border-box
-                display block
-                padding 16px 16px
-
-        &-button ~ a
-            padding-right 48px !important
-
-        &-button
-            position absolute
-            right 12px
-            top 12px
-            padding 4px !important
-            box-sizing border-box
-            height 24px !important
-            width 24px
-            background rgba(0,0,0,.05)
-            border-radius 2px
-            color #212121
-            font-size 18px !important
-            line-height 1
-            text-align center
-            z-index 1
-
-            &:hover
-                transform scale(1.1)
 
 .footer
     &-inner

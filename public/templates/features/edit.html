@@ -20,19 +20,13 @@
             <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
         </div>
     </section>
-
-    <aside class="sidebar">
-        <div class="sidebar-header"></div>
-        <div class="sidebar-body">
-            <div class="sidebar-group sidebar-group-active sidebar-group-controls">
-                <div class="sidebar-group-header">Controls</div>
-                <div class="sidebar-group-body">
-                    <a class="button button-save" href="/#/features/{{ item.id }}">Save</a>
-                    <a class="button button-delete">Delete</a>
-                </div>
-            </div>
-        </div>
-    </aside>
+    
+    <sidebar>
+        <sidebar-group header="Controls">
+            <a class="button button-edit" href="/#/features/{{ item.id }}">Save</a>
+            <a class="button button-edit" href="/#/features/{{ item.id }}">Approve</a>
+        </sidebar-group>
+    </sidebar>
 </article>
 
 

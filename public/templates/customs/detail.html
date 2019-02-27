@@ -1,0 +1,25 @@
+<article class="container container-sidebar">
+    <section class="detail item">
+        <a class="item-close" href="/#/customs/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
+
+        <div class="item-header">
+            <h1>{{ item.title }}</h1>
+        </div>
+
+        <div class="item-body">
+            <p>{{ item.data }}</p>
+        </div>
+
+        <div class="item-footer">
+            <tags class="item-footer-tags" icon="true" items="item.tags"></tags>
+            <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
+        </div>
+    </section>
+    
+    <sidebar>
+        <sidebar-group header="Controls">
+            <a class="button button-edit" href="/#/customs/{{ item.id }}/edit">Edit</a>
+        </sidebar-group>
+    </sidebar>
+</article>
+

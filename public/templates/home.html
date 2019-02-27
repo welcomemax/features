@@ -1,35 +1,40 @@
 <article>
     <div class="container">
-        <section class="home-list">
+        <section>
             <h3 class="section-title">Top features</h3>
             <list items="features" limit="5" show="tags, !body" type="feature"></list>
         </section>
-        <section class="home-list">
+        <section>
             <h3 class="section-title">Latest releases</h3>
             <list items="releases" limit="5" show="date, !body" type="release"></list>
         </section>
     </div>
 </article>
 
-<article>
+<article class="home-counters">
     <div class="container">
-        <section>
-            {{ products.length }} Apps
-        </section>
-        <section>
-            {{ releases.length }} Releases
-        </section>
-        <section>
-            {{ features.length }} Features 
-        </section>
-        <section>
-            {{ customs.length }} customizations 
-        </section>
+        <div class="counter">
+            <span data-value="{{ products.length }}" class="counter-value">0</span>
+            <span class="counter-label">apps</span>
+        </div>
+        <div class="counter">
+            <span data-value="{{ releases.length }}" class="counter-value">0</span>
+            <span class="counter-label">releases</span>
+        </div>
+        <div class="counter">
+            <span data-value="{{ features.length }}" class="counter-value">0</span>
+            <span class="counter-label">features</span>
+        </div>
+        <div class="counter">
+            <span data-value="{{ customs.length }}" class="counter-value">0</span>
+            <span class="counter-label">customizations</span>
+        </div>
     </div>
 </article>
 
-<article>
-    <section>
+<article class="home-timeline">
+    <section class="fullwidth">
+        <h3 class="section-title">Releases timeline</h3>
         <div class="timeline timeline-horizontal">
             <div class="timeline-bar"></div>
         </div>

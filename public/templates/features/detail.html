@@ -1,17 +1,17 @@
 <article class="container container-sidebar">
     <section class="detail item">
-        <a class="item-close" href="/#/customs/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
+        <a class="item-close" href="/#/features/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
 
         <div class="item-header">
             <h1>{{ item.title }}</h1>
         </div>
 
         <div class="item-body">
-            <p>{{ item.data }}</p>
+            <p>{{ item.text }}</p>
         </div>
 
         <div class="item-footer">
-            <tags class="item-footer-tags" icon="true" items="item.tags"></tags>
+            <tags class="item-footer-tags" icon="true" items="[item.type, item.product]"></tags>
             <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
         </div>
     </section>
@@ -22,10 +22,16 @@
             <div class="sidebar-group sidebar-group-active sidebar-group-controls">
                 <div class="sidebar-group-header">Controls</div>
                 <div class="sidebar-group-body">
-                    <a class="button button-edit" href="/#/edit/{{ item.id }}">Edit</a>
+                    
                 </div>
             </div>
         </div>
     </aside>
+    
+    <sidebar>
+        <sidebar-group header="Controls">
+            <a class="button button-edit" href="/#/features/{{ item.id }}/edit">Edit</a>
+        </sidebar-group>
+    </sidebar>
 </article>
 

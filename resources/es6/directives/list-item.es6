@@ -12,14 +12,15 @@ export default /** @ngInject */ function itemDirective() {
             show: '=',
             detail: '='
         },
-        controller: ($scope) => {
-            let getParts = (show) => {
+        link: (scope) => {
+            const product_alias = scope.item.product ? scope.item.product.alias : scope.item.alias;
+            const getParts = (show) => {
                 if (!show) {
                     return {};
                 }
 
-                let show_arr = show.split(',');
-                let parts = {};
+                const show_arr = show.split(',');
+                const parts = {};
                 
                 show_arr.forEach(element => {
                     element = element.trim();
@@ -32,9 +33,12 @@ export default /** @ngInject */ function itemDirective() {
                 return parts;
             }
 
-            $scope.parts = getParts($scope.show);
-
-            $scope.item.tags = [$scope.item.type, $scope.item.product];
+            scope.parts = getParts(scope.show);
+            scope.item.tags = [scope.item.type, scope.item.product];
+            scope.icon = `/img/icons/apps/${product_alias}.svg`;
+        },
+        controller: ($scope) => {
+           
         }
     };
 }

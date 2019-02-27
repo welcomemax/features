@@ -1,6 +1,16 @@
 a {
   color: #1e90ff;
 }
+.counter-value {
+  font-size: 56px;
+  font-weight: 700;
+  display: inline-block;
+  width: 100%;
+}
+.counter-label {
+  font-size: 18px;
+  font-weight: normal;
+}
 .button {
   text-decoration: none;
   font-size: 14px;
@@ -392,6 +402,7 @@ section,
 }
 .list .item {
   background: #fafafa;
+  padding-right: 80px;
 }
 .list .item:first-child {
   margin-top: 0;
@@ -426,66 +437,14 @@ section,
   align-items: center;
   justify-content: space-between;
 }
-h1.header-title {
+.header-title {
   margin: 0;
   font-size: 20px;
   font-weight: normal;
 }
-h1.header-title a {
+.header-title a {
   color: #212121;
   text-decoration: none;
-}
-.header-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  font-size: 0;
-}
-.header-nav-item {
-  display: inline-block;
-  position: relative;
-}
-.header-nav-item-active,
-.header-nav-item:hover {
-  background: #fafafa;
-}
-.header-nav-item-active:after {
-  content: "";
-  position: relative;
-  height: 2px;
-  width: 100%;
-  display: block;
-}
-.header-nav-item a {
-  font-size: 13px;
-  text-decoration: none;
-  height: 48px;
-  box-sizing: border-box;
-  display: block;
-  padding: 16px 16px;
-}
-.header-nav-button ~ a {
-  padding-right: 48px !important;
-}
-.header-nav-button {
-  position: absolute;
-  right: 12px;
-  top: 12px;
-  padding: 4px !important;
-  box-sizing: border-box;
-  height: 24px !important;
-  width: 24px;
-  background: rgba(0,0,0,0.05);
-  border-radius: 2px;
-  color: #212121;
-  font-size: 18px !important;
-  line-height: 1;
-  text-align: center;
-  z-index: 1;
-}
-.header-nav-button:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
 }
 .footer-inner {
   max-width: 960px;
@@ -498,6 +457,62 @@ h1.header-title a {
 .hidden {
   visibility: hidden;
   opacity: 0;
+}
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+.nav-menu-item {
+  display: inline-block;
+  position: relative;
+}
+.nav-menu-item-active,
+.nav-menu-item:hover {
+  background: #fafafa;
+}
+.nav-menu-item-active:after {
+  content: "";
+  position: relative;
+  height: 2px;
+  width: 100%;
+  display: block;
+}
+.nav-menu-item-link {
+  font-size: 13px;
+  text-decoration: none;
+  height: 48px;
+  box-sizing: border-box;
+  display: block;
+  padding: 16px 16px;
+  color: #212121;
+}
+.nav-menu-item-button ~ a {
+  padding-right: 48px !important;
+}
+.nav-menu-item-button {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  padding: 4px;
+  box-sizing: border-box;
+  height: 24px;
+  width: 24px;
+  background: rgba(0,0,0,0.05);
+  border-radius: 2px;
+  color: #212121;
+  font-size: 18px;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  z-index: 1;
+  transition: all 0.3s;
+}
+.nav-menu-item-button:hover {
+  background: rgba(0,0,0,0.08);
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
 }
 .sidebar {
   position: absolute;
@@ -597,11 +612,14 @@ h1.header-title a {
 .item {
   position: relative;
   display: flex;
-  flex-direction: column;
   padding: 20px;
   box-sizing: border-box;
   border-radius: 4px;
   transition: background 0.3s;
+}
+.item-inner {
+  display: flex;
+  flex-direction: column;
 }
 .item-type-feature:after {
   background: #0079bf;
@@ -665,7 +683,7 @@ h1.header-title a {
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
-.item-header h2 {
+.item-header h1 {
   margin: 0;
   font-size: 22px;
   font-weight: normal;
@@ -675,14 +693,21 @@ h1.header-title a {
   font-size: 18px;
   font-weight: normal;
 }
-.item-header p {
+.item-body {
+  margin: 12px 0;
+  height: 100%;
+  position: relative;
+}
+.item-body p {
   margin: 0;
   font-size: 14px;
   color: #868686;
 }
-.item-body {
-  margin: 12px 0;
-  position: relative;
+.item-body ul {
+  margin: 8px 0;
+  padding: 0 16px;
+  font-size: 14px;
+  color: #868686;
 }
 .item-footer {
   display: flex;
@@ -693,6 +718,20 @@ h1.header-title a {
 .item-footer-date {
   font-size: 13px;
   color: #868686;
+}
+.item-icon {
+  width: 48px;
+  height: 48px;
+}
+.item-icon svg {
+  width: 48px;
+  height: 48px;
+}
+.item-icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
 }
 .pagination {
   display: flex;

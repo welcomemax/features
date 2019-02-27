@@ -1,11 +1,14 @@
 .item
     position relative
     display flex
-    flex-direction column
     padding 20px
     box-sizing border-box
     border-radius 4px
     transition background .3s
+
+    &-inner
+        display flex
+        flex-direction column
 
     &-type-feature:after
         background #0079bf
@@ -64,7 +67,7 @@
             transition transform .3s
 
     &-header
-        h2
+        h1
             margin 0
             font-size 22px
             font-weight normal
@@ -73,14 +76,22 @@
             margin 0
             font-size 18px
             font-weight normal
+
+    &-body
+        margin 12px 0
+        height 100%
+        position relative
+        
         p
             margin 0
             font-size 14px
             color #868686
 
-    &-body
-        margin 12px 0
-        position relative
+        ul
+            margin 8px 0
+            padding 0 16px
+            font-size 14px
+            color #868686
 
     &-footer
         display flex
@@ -91,3 +102,17 @@
         &-date
             font-size 13px
             color #868686
+
+    &-icon
+        width 48px
+        height 48px
+
+        & svg
+            width 48px
+            height 48px
+
+        &-container
+            display flex
+            align-items center
+            justify-content center
+            margin-right 12px

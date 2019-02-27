@@ -1,0 +1,24 @@
+<article class="container">
+    <section class="item">
+        <a class="item-close" href="/#/apps/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
+
+        <div class="item-header">
+            <h1>{{ item.name }} {{ item.release.version }}</h1>
+        </div>
+    </section>
+</article>
+
+<preview app="item"></preview>
+
+<article>
+    <div class="container">
+        <section class="home-list">
+            <h3 class="section-title">Top {{ item.name }} features</h3>
+            <list items="features" limit="5" show="tags, !body" type="feature"></list>
+        </section>
+        <section class="home-list">
+            <h3 class="section-title">Latest {{ item.name }} releases</h3>
+            <list items="releases" limit="5" show="date, !body" type="release"></list>
+        </section>
+    </div>
+</article>

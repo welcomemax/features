@@ -12,6 +12,7 @@ import apiService from './services/api.es6';
 import loaderService from './services/loader.es6';
 
 // controllers
+import appController from './controllers/app.es6';
 import homeController from './controllers/home.es6';
 import listController from './controllers/list.es6';
 import detailController from './controllers/detail.es6';
@@ -22,22 +23,13 @@ import tagsDirective from './directives/tags.es6';
 import previewDirective from './directives/preview.es6';
 import listDirective from './directives/list.es6';
 import listItemDirective from './directives/list-item.es6';
-
-// templates
-import homeTemplate from './../html/templates/home.html';
-import featuresListTemplate from './../html/templates/features/list.html';
-import featuresDetailTemplate from './../html/templates/features/detail.html';
-import featuresEditTemplate from './../html/templates/features/edit.html';
-import releasesListTemplate from './../html/templates/releases/list.html';
-import releasesDetailTemplate from './../html/templates/releases/detail.html';
-import appsListTemplate from './../html/templates/apps/list.html';
-import appsDetailTemplate from './../html/templates/apps/detail.html';
-import customsListTemplate from './../html/templates/customs/list.html';
-import customsDetailTemplate from './../html/templates/customs/detail.html';
+import {menuDirective, menuItemDirective} from './directives/menu.es6';
+import {sidebarDirective, sidebarGroupDirective} from './directives/sidebar.es6';
 
 angular.module('app', ['ngRoute'])
     .factory('api', apiService)
     .factory('loader', loaderService)
+    .controller('appController', appController)
     .controller('homeController', homeController)
     .controller('listController', listController)
     .controller('detailController', detailController)
@@ -46,6 +38,10 @@ angular.module('app', ['ngRoute'])
     .directive('preview', previewDirective)
     .directive('list', listDirective)
     .directive('listItem', listItemDirective)
+    .directive('menu', menuDirective)
+    .directive('menuItem', menuItemDirective)
+    .directive('sidebar', sidebarDirective)
+    .directive('sidebarGroup', sidebarGroupDirective)
     .filter('startFromFilter', startFromFilter)
     .filter('trustHtmlFilter', trustHtmlFilter)
     .filter('trustResourceFilter', trustResourceFilter)
@@ -53,32 +49,29 @@ angular.module('app', ['ngRoute'])
         $routeProvider
             .when('/', {
                 controller: 'homeController',
-                template: homeTemplate
+                templateUrl: '/templates/home.html'
             })
             .when('/features/', {
                 controller: 'listController',
-                template: featuresListTemplate,
-                reloadOnSearch: false
+                templateUrl: '/templates/features/list.html'
             })
-            // .when('/features/new', {
-            //     controller: 'editController',
-            //     template: featuresEditTemplate
-            // })
-            // .when('/features/:id/edit', {
-            //     controller: 'editController',
-            //     template: featuresEditTemplate,
-            //     reloadOnSearch: false,
-            //     resolve: {
-            //         editObj: function ($route, api) {
-            //             let id = $route.current.params.id;
-            //             return id ? api.call(`features/${id}`) : null
-            //         }
-            //     }
-            // })
+            .when('/features/new', {
+                controller: 'editController',
+                templateUrl: '/templates/features/edit.html',
+            })
+            .when('/features/:id/edit', {
+                controller: 'editController',
+                templateUrl: '/templates/features/edit.html',
+                resolve: {
+                    editObj: function ($route, api) {
+                        let id = $route.current.params.id;
+                        return id ? api.call(`features/${id}`) : null
+                    }
+                }
+            })
             .when('/features/:id', {
                 controller: 'detailController',
-                template: featuresDetailTemplate,
-                reloadOnSearch: false,
+                templateUrl: '/templates/features/detail.html',
                 resolve: {
                     detailObj: function ($route, api) {
                         let id = $route.current.params.id;
@@ -88,13 +81,11 @@ angular.module('app', ['ngRoute'])
             })
             .when('/releases/', {
                 controller: 'listController',
-                template: releasesListTemplate,
-                reloadOnSearch: false
+                templateUrl: '/templates/releases/list.html'
             })
             .when('/releases/:id', {
                 controller: 'detailController',
-                template: releasesDetailTemplate,
-                reloadOnSearch: false,
+                templateUrl: '/templates/releases/detail.html',
                 resolve: {
                     detailObj: function ($route, api) {
                         let id = $route.current.params.id;
@@ -104,13 +95,11 @@ angular.module('app', ['ngRoute'])
             })
             .when('/apps/', {
                 controller: 'listController',
-                template: appsListTemplate,
-                reloadOnSearch: false
+                templateUrl: '/templates/apps/list.html'
             })
             .when('/apps/:id', {
                 controller: 'detailController',
-                template: appsDetailTemplate,
-                reloadOnSearch: false,
+                templateUrl: '/templates/apps/detail.html',
                 resolve: {
                     detailObj: function ($route, api) {
                         let id = $route.current.params.id;
@@ -120,13 +109,25 @@ angular.module('app', ['ngRoute'])
             })
             .when('/customs/', {
                 controller: 'listController',
-                template: customsListTemplate,
-                reloadOnSearch: false
+                templateUrl: '/templates/cusoms/list.html'
+            })
+            .when('/customs/new', {
+                controller: 'editController',
+                templateUrl: '/templates/customs/edit.html',
+            })
+            .when('/customs/:id/edit', {
+                controller: 'editController',
+                templateUrl: '/templates/customs/edit.html',
+                resolve: {
+                    editObj: function ($route, api) {
+                        let id = $route.current.params.id;
+                        return id ? api.call(`customs/${id}`) : null
+                    }
+                }
             })
             .when('/customs/:id', {
                 controller: 'detailController',
-                template: customsDetailTemplate,
-                reloadOnSearch: false,
+                templateUrl: '/templates/customs/detail.html',
                 resolve: {
                     detailObj: function ($route, api) {
                         let id = $route.current.params.id;
@@ -147,7 +148,4 @@ angular.module('app', ['ngRoute'])
         }]
     )
     .run(/** @ngInject */ function(loader, $rootScope) {
-        $rootScope.$on('loader:loaded', function() {
-            $rootScope.loaded = true;    
-        });
     });

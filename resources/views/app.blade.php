@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+    <base href="/">
+    <style>[ng\:cloak],[ng-cloak],.ng-cloak{display: none;}</style>
+
     <link rel="apple-touch-icon" sizes="57x57" href="/img/favicon/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/img/favicon/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/img/favicon/apple-icon-72x72.png">
@@ -23,35 +26,25 @@
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
-<body ng-app="app">
+<body ng-app="app" ng-controller="appController as app" ng-cloak>
     <header class="header">
         <div class="header-inner">
-            <h1 class="header-title"><a href="/#/">Elfsight Features</a></h1>
-            <nav class="header-nav">
-                <ul>
-                    <li class="header-nav-item header-nav-item-active">
-                        <a href="/#/">Home</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a class="header-nav-button" href="/#/features/new/" title="Add a new feature">+</a>
-                        <a href="/#/features/">Features</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a class="header-nav-button" href="/#/css/new/" title="Add a new customization">+</a>
-                        <a href="/#/css/">Customs</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a href="/#/releases/">Releases</a>
-                    </li>
-                    <li class="header-nav-item">
-                        <a href="/#/apps/">Apps</a>
-                    </li>
-                </ul>
-            </nav>
+            <div class="header-title"><a href="/#/">Elfsight Features</a></div>
+            <menu class="header-nav">
+                <menu-item link="/">Home</menu-item>
+                <menu-item link="/features/" button-new="true">Features</menu-item>
+                <menu-item link="/customs/" button-new="true">Customs</menu-item>
+                <menu-item link="/releases/">Releases</menu-item>
+                <menu-item link="/apps/">Apps</menu-item>
+            </menu>
         </div>
     </header>
 
     <main class="main" ng-view></main>
+
+
+    <div class="notifications"></div>
+    <div class="loader" ng-class="{ 'loader-visible': isLoading }"></div>
 
     <footer class="footer">
         <div class="footer-inner">

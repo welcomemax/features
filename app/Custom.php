@@ -4,16 +4,15 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Feature extends Model
+class Custom extends Model
 {
-    protected $table = 'features';
+    protected $table = 'customs';
 
     protected $fillable = [
         'title',
         'data',
         'product_id',
-        'type_id',
-        'release_id'
+        'type_id'
     ];
 
     protected $dates = [
@@ -32,9 +31,5 @@ class Feature extends Model
 
     public function product() {
         return $this->belongsTo('App\Product');
-    }
-
-    public function release() {
-        return $this->belongsTo('App\Release');
     }
 }

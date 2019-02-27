@@ -25,7 +25,7 @@ export default /** @ngInject */ function($injector) {
                     // customs: results[4]['data']
                 });
 
-                this.$rootScope.$broadcast('DataLoader:loaded');
+                this.$rootScope.$broadcast('loader:loaded');
                 this.$route.reload();
             });
         }
