@@ -11,7 +11,18 @@ class Product extends Model
     protected $fillable = [
         'alias',
         'name',
+        'caption',
         'public_id'
+    ];
+    
+    protected $dates = [
+        'created_at',
+        'updated_at'
+    ];
+
+    protected $casts = [
+        'created_at' => 'datetime:Y-m-d',
+        'updated_at' => 'datetime:Y-m-d',
     ];
 
     protected $hidden = [
