@@ -3,7 +3,9 @@ import template from '../../html/directives/preview.html';
 export default /** @ngInject */  function($httpParamSerializer) {
     return {
         scope: {
-            app: '='
+            app: '=',
+            show: '=',
+            title: '@' 
         },
         template: template,
         replace: true,

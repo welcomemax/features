@@ -1,7 +1,7 @@
 <div class="preview" ng-class="{'preview-active': show}">
     <div class="preview-button"
          ng-click="show = !show">
-        <span class="preview-button-open" ng-if="!show">Try the new awesome {{ app.name }} features</span>
+        <span class="preview-button-open" ng-if="!show">{{ title }}</span>
         <span ng-if="show">X</span>
     </div>
 

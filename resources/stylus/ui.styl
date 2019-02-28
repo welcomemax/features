@@ -1,16 +1,9 @@
 a
     color dodgerblue
 
-.counter
-    &-value
-        font-size 56px
-        font-weight 700
-        display inline-block
-        width 100%
-
-    &-label
-        font-size 18px
-        font-weight normal
+.hidden
+    visibility hidden
+    opacity 0
 
 .button
     text-decoration none
@@ -37,13 +30,19 @@ a
     margin auto
     width 64px
     height 64px
-    color #232526
+    color #f93262
+    visibility hidden
+    opacity 0
     transition opacity .3s, visibility .3s
     animation loader-1 4.8s linear infinite
-
+    
     &-visible
         visibility visible
         opacity 1
+
+    &-small
+        width 32px
+        height 32px
 
     &-inner
     &-inner:after
@@ -63,10 +62,16 @@ a
         clip rect(0, 64px, 64px, 32px)
         animation loader-2 1.2s linear infinite
 
+        .loader-small &
+            clip rect(0, 32px, 32px, 16px)
+
         &:after
             clip rect(0, 64px, 64px, 32px)
             border 3px solid currentColor
             animation loader-3 1.2s cubic-bezier(0.770, 0.000, 0.175, 1.000) infinite
+
+            .loader-small &
+                clip rect(0, 32px, 32px, 16px)
 
 @keyframes loader-1
     0%

@@ -1,4 +1,4 @@
-<div>
+<div class="list-container">
     <div class="list" ng-class="{
             'list-half': size == 'half',
             'list-third': size == 'third'
@@ -22,4 +22,6 @@
             <i class="icon icon-arrow icon-arrow-right"></i>
         </button>
     </div>
+
+    <div class="loader loader-small" ng-class="{ 'loader-visible': !filterItems }"><div class="loader-inner"></div></div>
 </div>

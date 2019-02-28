@@ -2,31 +2,21 @@
     <section class="detail item">
         <a class="item-close" href="/#/features/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
 
-        <div class="item-header">
-            <h1>{{ item.title }}</h1>
-        </div>
+        <div class="item-inner">
+            <div class="item-header">
+                <h1>{{ item.title }}</h1>
+            </div>
 
-        <div class="item-body">
-            <p>{{ item.text }}</p>
-        </div>
+            <div class="item-body">
+                <p>{{ item.data }}</p>
+            </div>
 
-        <div class="item-footer">
-            <tags class="item-footer-tags" icon="true" items="[item.type, item.product]"></tags>
-            <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
-        </div>
-    </section>
-    
-    <aside class="sidebar">
-        <div class="sidebar-header"></div>
-        <div class="sidebar-body">
-            <div class="sidebar-group sidebar-group-active sidebar-group-controls">
-                <div class="sidebar-group-header">Controls</div>
-                <div class="sidebar-group-body">
-                    
-                </div>
+            <div class="item-footer">
+                <tags class="item-footer-tags" icon="true" items="[item.type, item.product]"></tags>
+                <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
             </div>
         </div>
-    </aside>
+    </section>
     
     <sidebar>
         <sidebar-group header="Controls">

@@ -22,14 +22,18 @@
     <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon/favicon-16x16.png">
 
-    <title>Elfsight Features</title>
+    <title>Elfsight Dashboard</title>
 
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body ng-app="app" ng-controller="appController as app" ng-cloak>
+    @verbatim
     <header class="header">
         <div class="header-inner">
-            <div class="header-title"><a href="/#/">Elfsight Features</a></div>
+            <div class="header-title">
+                <a class="header-title-logo" href="/#/"><img src="/img/logo.svg"></a>
+                <span class="header-title-section" ng-if="section"> > {{ section }}</span>
+            </div>
             <menu class="header-nav">
                 <menu-item link="/">Home</menu-item>
                 <menu-item link="/features/" button-new="true">Features</menu-item>
@@ -42,17 +46,33 @@
 
     <main class="main" ng-view></main>
 
-
     <div class="notifications"></div>
-    <div class="loader" ng-class="{ 'loader-visible': isLoading }"></div>
+    <div class="loader" ng-class="{ 'loader-visible': isLoading }"><div class="loader-inner"></div></div>
 
-    <footer class="footer">
+    <footer class="footer" ng-show="!isLoading">
         <div class="footer-inner">
-            <span>2019 © Elfsight</span>
-            <a href="https://elfsight.com" target="_blank">More powerfull Apps at elfsight.com</a>
+            <div class="footer-copyright">
+                <p>2019 © Elfsight</p>
+                <a href="https://elfsight.com" target="_blank">Elfsight Apps</a>
+            </div>
+            <ul class="footer-links">
+                <li><a href="https://elfsight.com/help" target="_blank">Help Center</a></li>
+                <li><a href="https://elfsight.zendesk.com/hc/en-us/requests/new" target="_blank">Elfsight Apps support</a></li>
+            </ul>
+            <div class="footer-user">
+                <label>
+                    Members login
+                    <input ng-model="loginEmail" placeholder="E-mail">
+                </label>
+                <div class="user">
+                    <div class="user-avatar"><img src="{{ user.avatar }}"></div>
+                    <div class="user-name">{{ user.name }}</div>
+                </div>
+            </div>
         </div>
     </footer>
 
+    @endverbatim
     <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>

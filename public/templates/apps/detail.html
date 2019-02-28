@@ -2,13 +2,23 @@
     <section class="item">
         <a class="item-close" href="/#/apps/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
 
-        <div class="item-header">
-            <h1>{{ item.name }} {{ item.release.version }}</h1>
+        <div class="item-icon-container">
+            <div class="item-icon" ng-include="'/img/icons/apps/' + item.alias + '.svg'"></div>
+        </div>
+
+        <div class="item-inner">
+            <div class="item-header">
+                <h1>{{ item.name }} {{ item.release.version }}</h1>
+            </div>
+
+            <div class="item-body">
+                <p>{{ item.cation }}</h1>
+            </div>
         </div>
     </section>
 </article>
 
-<preview app="item"></preview>
+<preview app="item" show="true" title="{{ item.name }} Preview"></preview>
 
 <article>
     <div class="container">

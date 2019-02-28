@@ -2,24 +2,26 @@
     <section class="detail release-detail item">
         <a class="item-close" href="/#/releases/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
 
-        <div class="item-header">
-            <h1>{{ item.product.name }} {{ item.version }}</h1>
-        </div>
+        <div class="item-inner">
+            <div class="item-header">
+                <h1>{{ item.product.name }} {{ item.version }}</h1>
+            </div>
 
-        <div class="item-body">
-            <p>Features in this release:</p>
-            <ul class="release-features">
-                <li class="release-features-item" ng-repeat="feature in item.features">
-                    <span class="release-features-item-title">{{ feature.title }}</span>
-                    <a class="release-features-item-link" href="/#/features/{{ feature.id }}">More ></a>
-                </li>
-            </ul>
-        </div>
+            <div class="item-body">
+                <p>Features in this release:</p>
+                <ul class="release-features">
+                    <li class="release-features-item" ng-repeat="feature in item.features">
+                        <span class="release-features-item-title">{{ feature.title }}</span>
+                        <a class="release-features-item-link" href="/#/features/{{ feature.id }}">more ></a>
+                    </li>
+                </ul>
+            </div>
 
-        <div class="item-footer">
-            <span class="item-footer-date">Released at: <b>{{ item.updated_at }}</b></span>
+            <div class="item-footer">
+                <span class="item-footer-date">Released at: <b>{{ item.updated_at }}</b></span>
+            </div>
         </div>
     </section>
 </article>
 
-<preview app="item.product"></preview>
+<preview app="item.product" show="false" title="Try a new {{ item.product.name }} features"></preview>

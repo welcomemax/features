@@ -148,4 +148,5 @@ angular.module('app', ['ngRoute'])
         }]
     )
     .run(/** @ngInject */ function(loader, $rootScope) {
+        
     });

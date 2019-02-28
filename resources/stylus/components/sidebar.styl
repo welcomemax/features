@@ -9,9 +9,22 @@
     flex 0 0 200px
     box-sizing border-box
     padding 20px 0
-    margin 24px 0
+    margin 40px 0
     background #fff
     border-radius 4px
+
+    &-fixed
+        position fixed
+        right 20px
+        top 48px
+        width auto
+        flex 0 0 auto
+        z-index 1000
+        opacity .8
+        transition width .3s
+
+        &:hover
+            opacity 1
 
     &-group
         padding 0 20px
@@ -33,9 +46,16 @@
 
 .search
     position relative
+    transition width .3s
+
+    .sidebar-fixed &
+        width 20px
+
+    .sidebar-fixed:hover &
+        width 200px
 
     &-icon
-        transition transform .3s, opacity .3s
+        transition all .3s
         opacity .6
         position absolute
         right 4px
@@ -52,6 +72,15 @@
         font-size 13px
         background transparent
         width 100%
+        transition all .3s
+        
+        .sidebar-fixed &
+            transition all 0s
+            opacity 0
+
+        .sidebar-fixed:hover &
+            transition all .3s .3s
+            opacity 1
 
         &::placeholder
             opacity .8

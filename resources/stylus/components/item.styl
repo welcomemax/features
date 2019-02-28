@@ -1,6 +1,8 @@
 .item
     position relative
     display flex
+    flex-direction row
+    align-items center
     padding 20px
     box-sizing border-box
     border-radius 4px
@@ -9,6 +11,7 @@
     &-inner
         display flex
         flex-direction column
+        width 100%
 
     &-type-feature:after
         background #0079bf
@@ -75,7 +78,11 @@
         h4
             margin 0
             font-size 18px
+            padding-right 20px
             font-weight normal
+            white-space nowrap
+            text-overflow ellipsis
+            overflow hidden
 
     &-body
         margin 12px 0
@@ -86,6 +93,10 @@
             margin 0
             font-size 14px
             color #868686
+
+            .list &
+                max-height 50px
+                overflow hidden
 
         ul
             margin 8px 0
@@ -115,4 +126,7 @@
             display flex
             align-items center
             justify-content center
-            margin-right 12px
+            margin-right 20px
+
+            .list &
+                margin-right 12px
