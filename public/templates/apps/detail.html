@@ -1,5 +1,5 @@
-<article class="container">
-    <section class="item">
+<section class="container">
+    <div class="detail item">
         <a class="item-close" href="/#/apps/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
 
         <div class="item-icon-container">
@@ -15,20 +15,12 @@
                 <p>{{ item.cation }}</h1>
             </div>
         </div>
-    </section>
-</article>
+    </div>
+</section>
 
 <preview app="item" show="true" title="{{ item.name }} Preview"></preview>
 
-<article>
-    <div class="container">
-        <section class="home-list">
-            <h3 class="section-title">Top {{ item.name }} features</h3>
-            <list items="features" limit="5" show="tags, !body" type="feature"></list>
-        </section>
-        <section class="home-list">
-            <h3 class="section-title">Latest {{ item.name }} releases</h3>
-            <list items="releases" limit="5" show="date, !body" type="release"></list>
-        </section>
-    </div>
-</article>
+<section class="container row">
+    <list items="features" title="{{ item.name }} features" limit="5" show="tags, !body" type="feature"></list>
+    <list items="releases" title="{{ item.name }} releases" limit="5" show="date, !body" type="release"></list>
+</section>

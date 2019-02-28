@@ -1,22 +1,22 @@
-<article class="container container-sidebar">
-    <div class="timeline">
-        <div class="timeline-bar"></div>
+<section class="container container-sidebar">
+    <div class="row">
+        <div class="timeline">
+            <div class="timeline-bar"></div>
+        </div>
+
+        <list items="releases" type="release" show="timeline"></list>
     </div>
 
-    <section>
-        <list items="releases" type="release" show="timeline" search="search"></list>
-    </section>
-    
     <sidebar>
         <sidebar-group header="Search">
             <div class="search">
-                <input class="search-input" ng-model="search" type="text" placeholder="whatever">
+                <input class="search-input" ng-model="$root.search" type="text" placeholder="whatever">
                 <label class="search-icon"><i class="icon icon-search"></i></label>
             </div>
         </sidebar-group>
         
         <sidebar-group header="Apps">
-            <tags icon="false" active="true" search="search" items="products"></tags> 
+            <tags icon="false" active="true" items="products"></tags> 
         </sidebar-group>
     </sidebar>
-</article>
+</section>

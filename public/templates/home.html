@@ -1,59 +1,55 @@
-<article class="home-hero">
+<section class="home-hero">
     <h1>Elfsight Dashboard</h1>
     <p>DB of features, releases & customizations for Elfsight applications</p>
-</article>
+</section>
 
-<article>
+<section>
     <div class="container">
-        <section>
+        <div class="row">
             <list items="features" title="Top features" limit="5" show="tags, !body" type="feature"></list>
-        </section>
-        <section>
             <list items="releases" title="Latest releases" limit="5" show="date, !body" type="release"></list>
-        </section>
+        </div>
     </div>
-</article>
+</section>
 
-<article class="home-counters">
+<section class="home-counters">
     <div class="container">
-        <div class="counter">
-            <span data-value="{{ products.length }}" class="counter-value">0</span>
-            <span class="counter-label">apps</span>
-        </div>
-        <div class="counter">
-            <span data-value="{{ releases.length }}" class="counter-value">0</span>
-            <span class="counter-label">releases</span>
-        </div>
-        <div class="counter">
-            <span data-value="{{ features.length }}" class="counter-value">0</span>
-            <span class="counter-label">features</span>
-        </div>
-        <div class="counter">
-            <span data-value="{{ customs.length }}" class="counter-value">0</span>
-            <span class="counter-label">customizations</span>
+        <div class="row">
+            <div class="counter">
+                <span data-value="{{ products.length }}" class="counter-value">0</span>
+                <span class="counter-label">apps</span>
+            </div>
+            <div class="counter">
+                <span data-value="{{ releases.length }}" class="counter-value">0</span>
+                <span class="counter-label">releases</span>
+            </div>
+            <div class="counter">
+                <span data-value="{{ features.length }}" class="counter-value">0</span>
+                <span class="counter-label">features</span>
+            </div>
+            <div class="counter">
+                <span data-value="{{ customs.length }}" class="counter-value">0</span>
+                <span class="counter-label">customizations</span>
+            </div>
         </div>
     </div>
-</article>
+</section>
 
 <section class="home-timeline">
-    <h3 class="section-title">Releases timeline</h3>
+    <h3 class="home-timeline-title">Releases timeline</h3>
     <div class="timeline timeline-horizontal">
         <div class="timeline-bar"></div>
     </div>
 </section>
 
-<article>
+<section>
     <div class="container">
-        <section>
-            <list items="customs" title="Customizations" type="custom" show="!body" size="half"></list>
-        </section>
+        <list items="customs" title="Customizations" type="custom" show="!body" size="half"></list>
     </div>
-</article>
+</section>
 
-<article>
+<section>
     <div class="container">
-        <section>
-            <list items="products" title="Applications" per-page="20" type="app" show="icon, !body" size="third"></list>
-        </section>
+        <list items="products" title="Applications" per-page="20" type="app" show="icon, !body" size="third"></list>
     </div>
-</article>
+</section>

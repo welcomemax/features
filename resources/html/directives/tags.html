@@ -1,6 +1,6 @@
 <ul class="tags">
     <i class="icon icon-tag" ng-if="icon"></i>
-    <li class="tags-item" ng-repeat="item in items">
+    <li class="tags-item tags-item-{{ item.alias }}" ng-repeat="item in items">
         <span ng-if="!active">{{ item.name }}</span>
         <a ng-if="active" ng-click="filterTag($event, item)">
             {{ item.name }}

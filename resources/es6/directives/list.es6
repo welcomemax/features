@@ -3,12 +3,11 @@ import template from '../../html/directives/list.html';
 export default /** @ngInject */ function listDirective() {
     return {
         restrict: 'E',
-        replace: false,
+        replace: true,
         transclude: true,
         template: template,
         scope: {
             items: '=',
-            search: '=',
             type: '@',
             title: '@',
             show: '@',
@@ -16,22 +15,23 @@ export default /** @ngInject */ function listDirective() {
             size: '@',
             limit: '@'
         },
-        controller: /** @ngInject */ function listController($scope, $location) {
+        controller: /** @ngInject */ function listController($rootScope, $scope, $location) {
             $scope.currentSection = !!~$location.$$url.search($scope.type);
+            const strictSearch = true;
             
             $scope.page = 0;
             $scope.perPage = $scope.limit || $scope.perPage || 8;
+
+            $scope.sortType = 'id';
+            $scope.sortReverse = false;
             
             if ($scope.limit && $scope.items) {
                 $scope.items = $scope.items.slice(0, $scope.limit);
             }
 
-            $scope.sortType = 'id';
-            $scope.sortReverse = false;
-
             $scope.filterItems = $scope.items;
-            
-            $scope.paginationEnabled = () => {
+
+            const checkPagination = () => {
                 return $scope.filterItems && $scope.filterItems.length && $scope.totalPages() > 1;
             }
 
@@ -40,11 +40,11 @@ export default /** @ngInject */ function listDirective() {
             };
         
             $scope.isLastPage = () => {
-                return $scope.page == Math.ceil($scope.items.length / $scope.perPage - 1);
+                return $scope.page == Math.ceil($scope.filterItems.length / $scope.perPage - 1);
             };
         
             $scope.totalPages = () => {
-                return Math.ceil($scope.items.length / $scope.perPage);
+                return Math.ceil($scope.filterItems.length / $scope.perPage);
             };
         
             $scope.startingItem = () => {
@@ -59,33 +59,43 @@ export default /** @ngInject */ function listDirective() {
                 $scope.page++;
             };
 
+            $scope.paginationEnabled = checkPagination();
 
-
-            $scope.$watch('search', (newValue, oldValue) => {
-                if (oldValue !== newValue) {
+            $rootScope.$watch('search', (newValue, oldValue) => {
+                if (oldValue !== newValue && $scope.items) {
                     $scope.currentPage = 0;
-        
-                    if ($scope.search === '') {
-                        return $scope.filterItems = $scope.items;
-                    }
-        
-                    // @FIXME drop filters or attach filterTag
-                    // $scope.cleanFilters();
 
-                    $scope.filterItems = $scope.items.filter((item) => {
-                        // @FIXME separate words search (any order)
-                        return $scope.search.split(' ').some((word) => {
-                            // @TODO replace with Array.includes
-                            return !![item.title, item.caption, item.data].indexOf(word);
+                    const searchValue = newValue.toLowerCase();
+
+                    if (searchValue === '') {
+                        $scope.filterItems = $scope.items;
+                    } else {
+                        $scope.filterItems = $scope.items.filter((item) => {
+                            const strData = [
+                                item.title, 
+                                item.caption, 
+                                item.data, 
+                                item.type.name, 
+                                item.product.name
+                            ].join(' ').toLowerCase();
+
+                            if (strictSearch) {
+                                return !!~strData.indexOf(searchValue);
+                            } else {
+                                return searchValue.split(' ').some((word) => {
+                                    return !!~strData.indexOf(word);
+                                })
+                            }
                         })
-                    })
+                    }
+                    
+                    $scope.paginationEnabled = checkPagination();
 
-                    console.log($scope.filterItems)
-        
-                    return $scope.filterItems;
+                    if (!$scope.filterItems) {
+                        // @TODO empty result
+                    }
                 }
             }, true);
-
 
             // @TODO render sorter (rating, views)
             $scope.toggleSort = ($event) => {

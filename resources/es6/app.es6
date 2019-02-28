@@ -109,7 +109,7 @@ angular.module('app', ['ngRoute'])
             })
             .when('/customs/', {
                 controller: 'listController',
-                templateUrl: '/templates/cusoms/list.html'
+                templateUrl: '/templates/customs/list.html'
             })
             .when('/customs/new', {
                 controller: 'editController',

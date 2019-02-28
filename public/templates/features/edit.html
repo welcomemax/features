@@ -1,5 +1,5 @@
-<article class="container container-sidebar">
-    <section class="edit item">
+<section class="container container-sidebar">
+    <div class="edit item">
         <a class="item-close" href="/#/features/{{ item.id }}"><i class="icon icon-arrow icon-arrow-up"></i></a>
 
         <div class="item-header">
@@ -19,7 +19,7 @@
             <tags class="item-footer-tags" icon="true" items="item.tags"></tags>
             <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
         </div>
-    </section>
+    </div>
     
     <sidebar>
         <sidebar-group header="Controls">
@@ -27,6 +27,5 @@
             <a class="button button-edit" href="/#/features/{{ item.id }}">Approve</a>
         </sidebar-group>
     </sidebar>
-</article>
-
+</section>
 

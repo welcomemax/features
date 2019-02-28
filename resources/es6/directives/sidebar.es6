@@ -3,7 +3,7 @@
         restrict: 'E',
         replace: true,
         transclude: true,
-        controller: /** @ngInject */ function menuController($scope, $location) {
+        controller: /** @ngInject */ function sidebarController($scope, $location) {
             let items = [];
 
             this.addItem = (item) => {
@@ -27,12 +27,10 @@
         restrict: 'E',
         transclude: true,
         scope: {
-            header: '@',
-            search: '='
+            header: '@'
         },
-        link: function (scope, element, attrs, menuController) {
-            menuController.addItem(scope);
-            console.log(scope);
+        link: function (scope, element, attrs, sidebarController) {
+            sidebarController.addItem(scope);
         },
         template: `
             <div class="sidebar-group">

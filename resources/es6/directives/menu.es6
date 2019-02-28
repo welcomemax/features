@@ -12,8 +12,6 @@
             };
 
             $scope.$on('$locationChangeSuccess', function() {
-                console.log($location.$$url)
-
                 angular.forEach(items, (item) => {
                     if (item.link === '/') {
                         item.active = $location.$$url === item.link;

@@ -37968,7 +37968,7 @@ angular.module('app', ['ngRoute'])
             })
             .when('/customs/', {
                 controller: 'listController',
-                templateUrl: '/templates/cusoms/list.html'
+                templateUrl: '/templates/customs/list.html'
             })
             .when('/customs/new', {
                 controller: 'editController',
@@ -38236,12 +38236,11 @@ __webpack_require__.r(__webpack_exports__);
 function listDirective() {
     return {
         restrict: 'E',
-        replace: false,
+        replace: true,
         transclude: true,
         template: _html_directives_list_html__WEBPACK_IMPORTED_MODULE_0___default.a,
         scope: {
             items: '=',
-            search: '=',
             type: '@',
             title: '@',
             show: '@',
@@ -38249,22 +38248,23 @@ function listDirective() {
             size: '@',
             limit: '@'
         },
-        controller: /** @ngInject */ function listController($scope, $location) {
+        controller: /** @ngInject */ function listController($rootScope, $scope, $location) {
             $scope.currentSection = !!~$location.$$url.search($scope.type);
+            const strictSearch = true;
             
             $scope.page = 0;
             $scope.perPage = $scope.limit || $scope.perPage || 8;
+
+            $scope.sortType = 'id';
+            $scope.sortReverse = false;
             
             if ($scope.limit && $scope.items) {
                 $scope.items = $scope.items.slice(0, $scope.limit);
             }
 
-            $scope.sortType = 'id';
-            $scope.sortReverse = false;
-
             $scope.filterItems = $scope.items;
-            
-            $scope.paginationEnabled = () => {
+
+            const checkPagination = () => {
                 return $scope.filterItems && $scope.filterItems.length && $scope.totalPages() > 1;
             }
 
@@ -38273,11 +38273,11 @@ function listDirective() {
             };
         
             $scope.isLastPage = () => {
-                return $scope.page == Math.ceil($scope.items.length / $scope.perPage - 1);
+                return $scope.page == Math.ceil($scope.filterItems.length / $scope.perPage - 1);
             };
         
             $scope.totalPages = () => {
-                return Math.ceil($scope.items.length / $scope.perPage);
+                return Math.ceil($scope.filterItems.length / $scope.perPage);
             };
         
             $scope.startingItem = () => {
@@ -38292,33 +38292,43 @@ function listDirective() {
                 $scope.page++;
             };
 
+            $scope.paginationEnabled = checkPagination();
 
-
-            $scope.$watch('search', (newValue, oldValue) => {
-                if (oldValue !== newValue) {
+            $rootScope.$watch('search', (newValue, oldValue) => {
+                if (oldValue !== newValue && $scope.items) {
                     $scope.currentPage = 0;
-        
-                    if ($scope.search === '') {
-                        return $scope.filterItems = $scope.items;
-                    }
-        
-                    // @FIXME drop filters or attach filterTag
-                    // $scope.cleanFilters();
 
-                    $scope.filterItems = $scope.items.filter((item) => {
-                        // @FIXME separate words search (any order)
-                        return $scope.search.split(' ').some((word) => {
-                            // @TODO replace with Array.includes
-                            return !![item.title, item.caption, item.data].indexOf(word);
+                    const searchValue = newValue.toLowerCase();
+
+                    if (searchValue === '') {
+                        $scope.filterItems = $scope.items;
+                    } else {
+                        $scope.filterItems = $scope.items.filter((item) => {
+                            const strData = [
+                                item.title, 
+                                item.caption, 
+                                item.data, 
+                                item.type.name, 
+                                item.product.name
+                            ].join(' ').toLowerCase();
+
+                            if (strictSearch) {
+                                return !!~strData.indexOf(searchValue);
+                            } else {
+                                return searchValue.split(' ').some((word) => {
+                                    return !!~strData.indexOf(word);
+                                })
+                            }
                         })
-                    })
+                    }
+                    
+                    $scope.paginationEnabled = checkPagination();
 
-                    console.log($scope.filterItems)
-        
-                    return $scope.filterItems;
+                    if (!$scope.filterItems) {
+                        // @TODO empty result
+                    }
                 }
             }, true);
-
 
             // @TODO render sorter (rating, views)
             $scope.toggleSort = ($event) => {
@@ -38364,8 +38374,6 @@ __webpack_require__.r(__webpack_exports__);
             };
 
             $scope.$on('$locationChangeSuccess', function() {
-                console.log($location.$$url)
-
                 angular.forEach(items, (item) => {
                     if (item.link === '/') {
                         item.active = $location.$$url === item.link;
@@ -38500,7 +38508,7 @@ __webpack_require__.r(__webpack_exports__);
         restrict: 'E',
         replace: true,
         transclude: true,
-        controller: /** @ngInject */ function menuController($scope, $location) {
+        controller: /** @ngInject */ function sidebarController($scope, $location) {
             let items = [];
 
             this.addItem = (item) => {
@@ -38524,12 +38532,10 @@ __webpack_require__.r(__webpack_exports__);
         restrict: 'E',
         transclude: true,
         scope: {
-            header: '@',
-            search: '='
+            header: '@'
         },
-        link: function (scope, element, attrs, menuController) {
-            menuController.addItem(scope);
-            console.log(scope);
+        link: function (scope, element, attrs, sidebarController) {
+            sidebarController.addItem(scope);
         },
         template: `
             <div class="sidebar-group">
@@ -38561,23 +38567,42 @@ __webpack_require__.r(__webpack_exports__);
     return {
         scope: {
             items: '=',
-            search: '=',
             icon: '=',
             active: '='
         },
         template: _html_directives_tags_html__WEBPACK_IMPORTED_MODULE_0___default.a,
         replace: true,
-        controller: /** @ngInject */ function($scope, $document) {
+        controller: /** @ngInject */ function($rootScope, $scope) {
             $scope.filterTag = ($event, tag) => {
                 let $tagItem = angular.element($event.currentTarget);
 
-                $scope.search = !$tagItem.hasClass('tags-item-active') ? tag.name : '';             
-                
-                console.log($scope.search)
+                $rootScope.search = !$tagItem.hasClass('tags-item-active') ? tag.name : '';
 
-                $document.find('li').removeClass('tags-item-active');
+                angular.element(document.querySelectorAll('.tags-item')).removeClass('tags-item-active');
                 $tagItem.parent().toggleClass('tags-item-active');
             };
+
+            $rootScope.$watch('search', (newValue, oldValue) => {
+                if (typeof newValue === 'undefined' && newValue !== oldValue) {
+                    return;
+                }
+
+                const activeItem = document.querySelectorAll('.tags-item-active');
+
+                if (!activeItem.length) {
+                    return;
+                }
+
+                const $activeItem = angular.element(activeItem);
+
+                if ($activeItem) {
+                    const activeTagValue = $activeItem.text().trim();
+
+                    if (activeTagValue !== newValue) {
+                        $activeItem.removeClass('tags-item-active');
+                    }
+                }
+            }) 
         }
     }
 });
@@ -38813,7 +38838,7 @@ module.exports = "<div class=\"item item-type-{{item.type.alias}}\">\r\n    <a c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"list-container\">\r\n    <div class=\"list-header\" ng-if=\"title || !currentSection\">\r\n        <h3 class=\"list-header-title\">{{ title }}</h3>\r\n\r\n        <a ng-if=\"!currentSection\" class=\"list-header-all\" href=\"#/{{ type }}s/\">\r\n            All {{ type }}s >\r\n        </a>\r\n    </div>\r\n\r\n    <div class=\"list\" ng-class=\"{\r\n            'list-half': size == 'half',\r\n            'list-third': size == 'third'\r\n        }\">\r\n        <list-item ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: perPage | filter: search | orderBy:sortType:sortReverse\"\r\n            item=\"item\" show=\"show\" type=\"type\"></item>    \r\n    </div>\r\n\r\n    <div class=\"pagination\" ng-if=\"paginationEnabled()\">\r\n        <button class=\"pagination-button pagination-button-prev\" \r\n            ng-disabled=\"isFirstPage()\" ng-click=\"pageBack()\">\r\n            <i class=\"icon icon-arrow icon-arrow-left\"></i>\r\n        </button>\r\n\r\n        <span class=\"pagination-pages\">\r\n            <b>{{ page + 1 }}</b>/<b>{{ totalPages() }}</b>\r\n        </span>\r\n\r\n        <button class=\"pagination-button pagination-button-next\" \r\n            ng-disabled=\"isLastPage()\" ng-click=\"pageForward()\">\r\n            <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n        </button>\r\n    </div>\r\n\r\n    <div class=\"loader loader-small\" ng-class=\"{ 'loader-visible': !filterItems }\"><div class=\"loader-inner\"></div></div>\r\n</div>";
+module.exports = "<div class=\"list-container\">\r\n    <div class=\"list-header\" ng-if=\"title || !currentSection\">\r\n        <h3 class=\"list-header-title\">{{ title }}</h3>\r\n\r\n        <a ng-if=\"!currentSection\" class=\"list-header-all\" href=\"#/{{ type }}s/\">\r\n            All {{ type }}s >\r\n        </a>\r\n    </div>\r\n\r\n    <div class=\"list\" ng-class=\"{\r\n            'list-half': size == 'half',\r\n            'list-third': size == 'third'\r\n        }\">\r\n        <list-item ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: perPage | filter: search | orderBy:sortType:sortReverse\"\r\n            item=\"item\" show=\"show\" type=\"type\"></item>    \r\n    </div>\r\n\r\n    <div class=\"pagination\" ng-if=\"paginationEnabled\">\r\n        <button class=\"pagination-button pagination-button-prev\" \r\n            ng-disabled=\"isFirstPage()\" ng-click=\"pageBack()\">\r\n            <i class=\"icon icon-arrow icon-arrow-left\"></i>\r\n        </button>\r\n\r\n        <span class=\"pagination-pages\">\r\n            <b>{{ page + 1 }}</b>/<b>{{ totalPages() }}</b>\r\n        </span>\r\n\r\n        <button class=\"pagination-button pagination-button-next\" \r\n            ng-disabled=\"isLastPage()\" ng-click=\"pageForward()\">\r\n            <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n        </button>\r\n    </div>\r\n\r\n    <div class=\"loader loader-small\" ng-class=\"{ 'loader-visible': !filterItems }\"><div class=\"loader-inner\"></div></div>\r\n</div>";
 
 /***/ }),
 
@@ -38835,7 +38860,7 @@ module.exports = "<div class=\"preview\" ng-class=\"{'preview-active': show}\">\
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<ul class=\"tags\">\r\n    <i class=\"icon icon-tag\" ng-if=\"icon\"></i>\r\n    <li class=\"tags-item\" ng-repeat=\"item in items\">\r\n        <span ng-if=\"!active\">{{ item.name }}</span>\r\n        <a ng-if=\"active\" ng-click=\"filterTag($event, item)\">\r\n            {{ item.name }}\r\n            <i class=\"icon icon-cross tags-item-icon\"></i>\r\n        </a>\r\n    </li>\r\n</ul>\r\n";
+module.exports = "<ul class=\"tags\">\r\n    <i class=\"icon icon-tag\" ng-if=\"icon\"></i>\r\n    <li class=\"tags-item tags-item-{{ item.alias }}\" ng-repeat=\"item in items\">\r\n        <span ng-if=\"!active\">{{ item.name }}</span>\r\n        <a ng-if=\"active\" ng-click=\"filterTag($event, item)\">\r\n            {{ item.name }}\r\n            <i class=\"icon icon-cross tags-item-icon\"></i>\r\n        </a>\r\n    </li>\r\n</ul>\r\n";
 
 /***/ }),
 

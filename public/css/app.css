@@ -3,7 +3,7 @@ a {
   text-decoration: none;
 }
 input {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 .hidden {
   visibility: hidden;
@@ -318,7 +318,7 @@ html {
   height: 100%;
 }
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: #212121;
   margin: 0;
   background: #fafafa;
@@ -338,31 +338,17 @@ main {
   min-height: 100vh;
   box-sizing: border-box;
 }
-article {
+section {
   padding: 40px 0;
-  display: flex;
-  justify-content: space-between;
 }
-article:nth-child(even) {
+section:nth-child(even) {
   background: #fff;
 }
-article:nth-child(even) section {
+section:nth-child(even) .list-container {
   background: #fafafa;
 }
-article:nth-child(even) .list .item {
+section:nth-child(even) .list-container .item {
   background: #fff;
-}
-article section {
-  margin: 0 8px;
-}
-article section:only-of-type {
-  margin: 0 0;
-}
-article section:first-child {
-  margin-left: 0;
-}
-article section:last-child {
-  margin-right: 0;
 }
 .container {
   max-width: 960px;
@@ -370,34 +356,31 @@ article section:last-child {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  display: flex;
-  justify-content: space-between;
 }
 .container-sidebar {
   padding-right: 220px;
   box-sizing: border-box;
 }
-section,
-.section {
-  width: 100%;
+.row {
   display: flex;
-  flex-direction: column;
-  transition: opacity 0.3s, visibility 0.3s;
-  background: #fff;
-  border-radius: 4px;
-  padding: 20px;
-  box-sizing: border-box;
+  justify-content: space-between;
 }
-.section-title {
-  margin: 0 0 24px 0;
-  font-size: 20px;
-  font-weight: normal;
+@media only screen and (max-width: 599px) {
+  .row {
+    flex-direction: column;
+  }
 }
-.detail {
-  height: 100%;
+.row > div {
+  margin: 0 8px;
 }
-.detail .item {
-  min-height: 100%;
+.row > div:only-of-type {
+  margin: 0 0;
+}
+.row > div:first-child {
+  margin-left: 0;
+}
+.row > div:last-child {
+  margin-right: 0;
 }
 .header {
   position: absolute;
@@ -533,12 +516,15 @@ section,
   color: #111;
   padding: 100px 20px;
 }
-.home-timeline .section-title {
+.home-timeline-title {
   max-width: 960px;
   width: 100%;
   padding: 0 20px;
+  margin: 0;
   margin-left: auto;
   margin-right: auto;
+  font-size: 20px;
+  font-weight: normal;
 }
 .home-counters {
   background: #111;
@@ -592,8 +578,8 @@ section,
   top: 12px;
   padding: 4px;
   box-sizing: border-box;
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
   background: #f93262;
   border-radius: 2px;
   color: #fff;
@@ -602,10 +588,10 @@ section,
   transition: all 0.3s;
 }
 .nav-menu-item-button .icon {
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
   color: #fff;
-  top: -3px;
+  top: -5px;
   left: -4px;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -646,10 +632,16 @@ section,
 .list-container {
   position: relative;
   min-height: 100px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  flex-grow: 1;
 }
 .list-header {
   margin-bottom: 24px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 .list-header-title {
@@ -794,6 +786,7 @@ section,
   padding: 20px;
   box-sizing: border-box;
   border-radius: 4px;
+  background: #fff;
   transition: background 0.3s;
 }
 .item-inner {
@@ -973,6 +966,15 @@ section,
   color: #fff;
   opacity: 0.8;
   transition: opacity 0.3s;
+}
+.tags-item-feature {
+  background: #0079bf;
+}
+.tags-item-change {
+  background: #61bd4f;
+}
+.tags-item-issue {
+  background: #eb5a46;
 }
 .tags-item-active,
 .tags-item:hover {

@@ -1,22 +1,20 @@
-<article class="container container-sidebar">
-    <section>
-        <list items="features" show="tags" type="feature" search="search" size="half"></list>
-    </section>
-
-    <sidebar search="search">
-        <sidebar-group header="Search" search="search">
+<section class="container container-sidebar">
+    <list items="features" show="tags" type="feature" size="half"></list>
+    
+    <sidebar>
+        <sidebar-group header="Search">
             <div class="search">
-                <input class="search-input" ng-model="search" type="text" placeholder="whatever">
+                <input class="search-input" ng-model="$root.search" type="text" placeholder="whatever">
                 <label class="search-icon"><i class="icon icon-search"></i></label>
             </div>
         </sidebar-group>
         
         <sidebar-group header="Apps">
-            <tags icon="false" active="true" search="search" items="products"></tags> 
+            <tags icon="false" active="true" items="products"></tags> 
         </sidebar-group>
 
         <sidebar-group header="Types">
-            <tags icon="false" active="true" search="search" items="types"></tags> 
+            <tags icon="false" active="true" items="types"></tags> 
         </sidebar-group>
     </sidebar>
 </article>
