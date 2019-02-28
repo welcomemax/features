@@ -38024,9 +38024,17 @@ angular.module('app', ['ngRoute'])
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (loader, $rootScope, $scope) {
     $rootScope.isLoading = true;
+    setTimeout(() => {
+        $rootScope.loaderShow = true;
+    }, 500)
     
     $rootScope.toggleLoader = (value) => {
         $rootScope.isLoading = value;
+        if (!value) {
+            setTimeout(() => {
+                $rootScope.loaderShow = value;
+            }, 500)
+        }
     };
     
     $rootScope.$on('$routeChangeStart', () => {
@@ -38235,22 +38243,29 @@ function listDirective() {
             items: '=',
             search: '=',
             type: '@',
+            title: '@',
             show: '@',
             perPage: '@',
             size: '@',
             limit: '@'
         },
-        controller: /** @ngInject */ function listController($scope) {
+        controller: /** @ngInject */ function listController($scope, $location) {
+            $scope.currentSection = !!~$location.$$url.search($scope.type);
+            
             $scope.page = 0;
             $scope.perPage = $scope.limit || $scope.perPage || 8;
             
+            if ($scope.limit && $scope.items) {
+                $scope.items = $scope.items.slice(0, $scope.limit);
+            }
+
             $scope.sortType = 'id';
             $scope.sortReverse = false;
 
             $scope.filterItems = $scope.items;
             
             $scope.paginationEnabled = () => {
-                return $scope.filterItems && $scope.filterItems.length;
+                return $scope.filterItems && $scope.filterItems.length && $scope.totalPages() > 1;
             }
 
             $scope.isFirstPage = () => {
@@ -38383,7 +38398,9 @@ __webpack_require__.r(__webpack_exports__);
         },
         template: `
             <li class="nav-menu-item" ng-class="{ 'nav-menu-item-active': active }">
-                <a ng-if="buttonNew" class="nav-menu-item-button" href="/#{{ link }}new/" title="Add a new one">+</a>
+                <a ng-if="buttonNew" class="nav-menu-item-button" href="/#{{ link }}new/" title="Add a new one">
+                    <i class="icon icon-cross"></i>
+                </a>
                 <a class="nav-menu-item-link" ng-href="/#{{ link }}">
                     <span class="nav-menu-item-notification" ng-if="notify"></span>
                     <span class="nav-menu-item-label" ng-transclude></span>
@@ -38796,7 +38813,7 @@ module.exports = "<div class=\"item item-type-{{item.type.alias}}\">\r\n    <a c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"list-container\">\r\n    <div class=\"list\" ng-class=\"{\r\n            'list-half': size == 'half',\r\n            'list-third': size == 'third'\r\n        }\">\r\n        <list-item ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: perPage | filter: search | orderBy:sortType:sortReverse\"\r\n            item=\"item\" show=\"show\" type=\"type\"></item>    \r\n    </div>\r\n\r\n    <div class=\"pagination\" ng-if=\"paginationEnabled()\">\r\n        <button class=\"pagination-button pagination-button-prev\" \r\n            ng-disabled=\"isFirstPage()\" ng-click=\"pageBack()\">\r\n            <i class=\"icon icon-arrow icon-arrow-left\"></i>\r\n        </button>\r\n\r\n        <span class=\"pagination-pages\">\r\n            <b>{{ page + 1 }}</b>/<b>{{ totalPages() }}</b>\r\n        </span>\r\n\r\n        <button class=\"pagination-button pagination-button-next\" \r\n            ng-disabled=\"isLastPage()\" ng-click=\"pageForward()\">\r\n            <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n        </button>\r\n    </div>\r\n\r\n    <div class=\"loader loader-small\" ng-class=\"{ 'loader-visible': !filterItems }\"><div class=\"loader-inner\"></div></div>\r\n</div>";
+module.exports = "<div class=\"list-container\">\r\n    <div class=\"list-header\" ng-if=\"title || !currentSection\">\r\n        <h3 class=\"list-header-title\">{{ title }}</h3>\r\n\r\n        <a ng-if=\"!currentSection\" class=\"list-header-all\" href=\"#/{{ type }}s/\">\r\n            All {{ type }}s >\r\n        </a>\r\n    </div>\r\n\r\n    <div class=\"list\" ng-class=\"{\r\n            'list-half': size == 'half',\r\n            'list-third': size == 'third'\r\n        }\">\r\n        <list-item ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: perPage | filter: search | orderBy:sortType:sortReverse\"\r\n            item=\"item\" show=\"show\" type=\"type\"></item>    \r\n    </div>\r\n\r\n    <div class=\"pagination\" ng-if=\"paginationEnabled()\">\r\n        <button class=\"pagination-button pagination-button-prev\" \r\n            ng-disabled=\"isFirstPage()\" ng-click=\"pageBack()\">\r\n            <i class=\"icon icon-arrow icon-arrow-left\"></i>\r\n        </button>\r\n\r\n        <span class=\"pagination-pages\">\r\n            <b>{{ page + 1 }}</b>/<b>{{ totalPages() }}</b>\r\n        </span>\r\n\r\n        <button class=\"pagination-button pagination-button-next\" \r\n            ng-disabled=\"isLastPage()\" ng-click=\"pageForward()\">\r\n            <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n        </button>\r\n    </div>\r\n\r\n    <div class=\"loader loader-small\" ng-class=\"{ 'loader-visible': !filterItems }\"><div class=\"loader-inner\"></div></div>\r\n</div>";
 
 /***/ }),
 

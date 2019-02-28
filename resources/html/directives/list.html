@@ -1,4 +1,12 @@
 <div class="list-container">
+    <div class="list-header" ng-if="title || !currentSection">
+        <h3 class="list-header-title">{{ title }}</h3>
+
+        <a ng-if="!currentSection" class="list-header-all" href="#/{{ type }}s/">
+            All {{ type }}s >
+        </a>
+    </div>
+
     <div class="list" ng-class="{
             'list-half': size == 'half',
             'list-third': size == 'third'

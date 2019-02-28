@@ -13,21 +13,16 @@
             &:hover
                 background #fafafa
 
-            // &-active:after
-            //     content ""
-            //     position relative
-            //     height 2px
-            //     width 100%
-            //     display block
-
             &-link
-                font-size 13px
+                font-size 14px
                 text-decoration none
                 height 48px
                 box-sizing border-box
                 display block
-                padding 16px 16px
+                padding 0 16px
                 color #212121
+                display flex
+                align-items center
 
             &-button ~ a
                 padding-right 48px !important
@@ -43,13 +38,18 @@
                 background #f93262
                 border-radius 2px
                 color #fff
-                font-size 18px
-                line-height 1
                 text-align center
-                text-decoration none
                 z-index 1
                 transition all .3s
 
+                & .icon
+                    width 13px
+                    height 13px
+                    color #fff
+                    top -3px
+                    left -4px
+                    transform rotate(45deg)
+                    
                 &:hover
                     background #fa4772
-                    transform translateY(-1px)
+                    transform scale(1.05)

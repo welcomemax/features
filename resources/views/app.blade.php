@@ -47,7 +47,7 @@
     <main class="main" ng-view></main>
 
     <div class="notifications"></div>
-    <div class="loader" ng-class="{ 'loader-visible': isLoading }"><div class="loader-inner"></div></div>
+    <div class="loader" ng-show="loaderShow" ng-class="{ 'loader-visible': isLoading }"><div class="loader-inner"></div></div>
 
     <footer class="footer" ng-show="!isLoading">
         <div class="footer-inner">
@@ -60,11 +60,13 @@
                 <li><a href="https://elfsight.zendesk.com/hc/en-us/requests/new" target="_blank">Elfsight Apps support</a></li>
             </ul>
             <div class="footer-user">
-                <label>
-                    Members login
-                    <input ng-model="loginEmail" placeholder="E-mail">
-                </label>
-                <div class="user">
+                <div ng-if="!user" class="user-login">
+                    <p>Members login:</p>
+                    <input class="user-login-input" ng-model="loginEmail" placeholder="E-mail">
+                    <input class="user-login-input" ng-model="loginPass" placeholder="Password">
+                    <button class="button user-login-button">Login</button>
+                </div>
+                <div ng-if="user" class="user">
                     <div class="user-avatar"><img src="{{ user.avatar }}"></div>
                     <div class="user-name">{{ user.name }}</div>
                 </div>

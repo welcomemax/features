@@ -1,5 +1,9 @@
 a {
   color: #1e90ff;
+  text-decoration: none;
+}
+input {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 .hidden {
   visibility: hidden;
@@ -314,10 +318,11 @@ html {
   height: 100%;
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: #212121;
   margin: 0;
   background: #fafafa;
+  overflow-x: hidden;
 }
 body::-webkit-scrollbar-track {
   background-color: #f0f0f0;
@@ -413,20 +418,20 @@ section,
   justify-content: space-between;
 }
 .header-title {
-  margin: 0;
-  font-size: 20px;
-  font-weight: normal;
   margin-left: 20px;
 }
 .header-title-logo img {
-  height: 20px;
+  height: 24px;
 }
 .header-title-section {
+  font-size: 18px;
+  font-weight: normal;
   color: #868686;
 }
 .footer {
   background: #111;
   color: #b7b7b7;
+  font-size: 14px;
 }
 .footer-inner {
   padding: 24px 20px;
@@ -436,12 +441,18 @@ section,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 13px;
+}
+.footer p {
+  margin: 0;
+  margin-bottom: 8px;
 }
 .footer ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+.footer ul li {
+  margin-bottom: 8px;
 }
 .footer a {
   color: #fff;
@@ -449,6 +460,24 @@ section,
 }
 .footer a:hover {
   text-decoration: underline;
+}
+.footer-user .user-login {
+  position: relative;
+}
+.footer-user .user-login-label {
+  display: block;
+}
+.footer-user .user-login-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+.footer-user .user-login-button {
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 .home-hero {
   padding: 100px 20px !important;
@@ -544,13 +573,15 @@ section,
   background: #fafafa;
 }
 .nav-menu-item-link {
-  font-size: 13px;
+  font-size: 14px;
   text-decoration: none;
   height: 48px;
   box-sizing: border-box;
   display: block;
-  padding: 16px 16px;
+  padding: 0 16px;
   color: #212121;
+  display: flex;
+  align-items: center;
 }
 .nav-menu-item-button ~ a {
   padding-right: 48px !important;
@@ -566,17 +597,23 @@ section,
   background: #f93262;
   border-radius: 2px;
   color: #fff;
-  font-size: 18px;
-  line-height: 1;
   text-align: center;
-  text-decoration: none;
   z-index: 1;
   transition: all 0.3s;
 }
+.nav-menu-item-button .icon {
+  width: 13px;
+  height: 13px;
+  color: #fff;
+  top: -3px;
+  left: -4px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
 .nav-menu-item-button:hover {
   background: #fa4772;
-  -webkit-transform: translateY(-1px);
-          transform: translateY(-1px);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 .list {
   display: grid;
@@ -609,6 +646,16 @@ section,
 .list-container {
   position: relative;
   min-height: 100px;
+}
+.list-header {
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.list-header-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: normal;
 }
 .list .item {
   background: #fafafa;
@@ -841,7 +888,7 @@ section,
   color: #868686;
 }
 .list .item-body p {
-  max-height: 50px;
+  max-height: 56px;
   overflow: hidden;
 }
 .item-body ul {
@@ -1038,7 +1085,7 @@ section,
   fill: #fff !important;
 }
 .timeline {
-  padding: 0 100px 0 0;
+  padding: 0 80px 0 20px;
   margin: -24px 0;
 }
 .timeline-horizontal {
@@ -1058,7 +1105,7 @@ section,
 .timeline-item {
   position: absolute;
   top: 50%;
-  left: -127px;
+  left: -107px;
   margin-top: -6px;
   width: 12px;
   height: 12px;
@@ -1071,7 +1118,7 @@ section,
   position: absolute;
   left: 12px;
   top: 5px;
-  width: 116px;
+  width: 96px;
   height: 2px;
   opacity: 0.5;
   background: #dedede;

@@ -46,7 +46,9 @@
         },
         template: `
             <li class="nav-menu-item" ng-class="{ 'nav-menu-item-active': active }">
-                <a ng-if="buttonNew" class="nav-menu-item-button" href="/#{{ link }}new/" title="Add a new one">+</a>
+                <a ng-if="buttonNew" class="nav-menu-item-button" href="/#{{ link }}new/" title="Add a new one">
+                    <i class="icon icon-cross"></i>
+                </a>
                 <a class="nav-menu-item-link" ng-href="/#{{ link }}">
                     <span class="nav-menu-item-notification" ng-if="notify"></span>
                     <span class="nav-menu-item-label" ng-transclude></span>

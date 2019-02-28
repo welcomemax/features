@@ -10,22 +10,29 @@ export default /** @ngInject */ function listDirective() {
             items: '=',
             search: '=',
             type: '@',
+            title: '@',
             show: '@',
             perPage: '@',
             size: '@',
             limit: '@'
         },
-        controller: /** @ngInject */ function listController($scope) {
+        controller: /** @ngInject */ function listController($scope, $location) {
+            $scope.currentSection = !!~$location.$$url.search($scope.type);
+            
             $scope.page = 0;
             $scope.perPage = $scope.limit || $scope.perPage || 8;
             
+            if ($scope.limit && $scope.items) {
+                $scope.items = $scope.items.slice(0, $scope.limit);
+            }
+
             $scope.sortType = 'id';
             $scope.sortReverse = false;
 
             $scope.filterItems = $scope.items;
             
             $scope.paginationEnabled = () => {
-                return $scope.filterItems && $scope.filterItems.length;
+                return $scope.filterItems && $scope.filterItems.length && $scope.totalPages() > 1;
             }
 
             $scope.isFirstPage = () => {
