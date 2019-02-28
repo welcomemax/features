@@ -1,9 +1,7 @@
-export default /** @ngInject */ function (loader, $rootScope, $scope) {
-    $rootScope.$on('loader:loaded', function() {
-        setTimeout(() => {
-            $rootScope.initCounters();
-        })
-    });
+export default /** @ngInject */ function ($rootScope, $scope) {
+    setTimeout(() => {
+        $rootScope.initCounters();
+    })
 
     $rootScope.initCounters = () => {
         const easeOutQuart = (t, b, c, d) => {

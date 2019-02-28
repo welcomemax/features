@@ -1,4 +1,4 @@
-export default /** @ngInject */ function (loader, $rootScope, $scope) {
+export default /** @ngInject */ function ($rootScope, $scope) {
     $rootScope.isLoading = true;
     setTimeout(() => {
         $rootScope.loaderShow = true;

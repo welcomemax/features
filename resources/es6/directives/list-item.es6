@@ -34,7 +34,7 @@ export default /** @ngInject */ function itemDirective() {
             }
 
             scope.parts = getParts(scope.show);
-            scope.item.tags = [scope.item.type, scope.item.product];
+            scope.item.tags = [scope.item.product, scope.item.type];
             scope.icon = `/img/icons/apps/${product_alias}.svg`;
         },
         controller: ($scope) => {

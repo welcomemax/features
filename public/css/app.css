@@ -422,7 +422,6 @@ section:nth-child(even) .list-container .item {
   max-width: 960px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 .footer p {
@@ -793,15 +792,6 @@ section:nth-child(even) .list-container .item {
   display: flex;
   flex-direction: column;
   width: 100%;
-}
-.item-type-feature:after {
-  background: #0079bf;
-}
-.item-type-change:after {
-  background: #61bd4f;
-}
-.item-type-issue:after {
-  background: #eb5a46;
 }
 .item:after {
   content: "";

@@ -38022,7 +38022,7 @@ angular.module('app', ['ngRoute'])
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (loader, $rootScope, $scope) {
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function ($rootScope, $scope) {
     $rootScope.isLoading = true;
     setTimeout(() => {
         $rootScope.loaderShow = true;
@@ -38110,12 +38110,10 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (loader, $rootScope, $scope) {
-    $rootScope.$on('loader:loaded', function() {
-        setTimeout(() => {
-            $rootScope.initCounters();
-        })
-    });
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function ($rootScope, $scope) {
+    setTimeout(() => {
+        $rootScope.initCounters();
+    })
 
     $rootScope.initCounters = () => {
         const easeOutQuart = (t, b, c, d) => {
@@ -38208,7 +38206,7 @@ function itemDirective() {
             }
 
             scope.parts = getParts(scope.show);
-            scope.item.tags = [scope.item.type, scope.item.product];
+            scope.item.tags = [scope.item.product, scope.item.type];
             scope.icon = `/img/icons/apps/${product_alias}.svg`;
         },
         controller: ($scope) => {
