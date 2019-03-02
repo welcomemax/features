@@ -38007,8 +38007,15 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (detailObj, $scope) {
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (detailObj, $rootScope, $scope, $route, $filter) {
+    const section = $route.current.params.section;
+
     $scope.item = detailObj.data[0];
+
+    if (section === 'apps') {
+        $scope.featuresByProduct =  $filter('filter')($rootScope.features, {product: {name: $scope.item.name}});
+        $scope.releasesByProduct =  $filter('filter')($rootScope.releases, {product: {name: $scope.item.name}});
+    }
 });
 
 
@@ -38097,8 +38104,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function ($rootScope, $scope) {
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function ($rootScope, $scope, $route, $filter) {
+    const section = $route.current.params.section;
 
+    
+    $scope.productsWithFeatures = $filter('filter')($rootScope.products, {features_count: '!0'});
+    $scope.productsWithReleases = $filter('filter')($rootScope.products, {releases_count: '!0'});
+    $scope.typesWithFeatures = $filter('filter')($rootScope.types, {features_count: '!0'});
 });
 
 
@@ -38744,7 +38756,7 @@ __webpack_require__.r(__webpack_exports__);
             return this.$q.all([
                 this.api.call('features'),
                 this.api.call('releases'),
-                this.api.call('products'),
+                this.api.call('apps'),
                 this.api.call('types'),
                 // this.api.call('customs')
             ]).then((results) => {

@@ -21,6 +21,6 @@
 <preview app="item" show="true" title="{{ item.name }} Preview"></preview>
 
 <section class="container row">
-    <list items="features" title="{{ item.name }} features" limit="5" show="tags, !body" type="feature"></list>
-    <list items="releases" title="{{ item.name }} releases" limit="5" show="date, !body" type="release"></list>
+    <list ng-if="featuresByProduct.length" items="featuresByProduct" title="{{ item.name }} features" limit="5" show="tags, !body" type="feature"></list>
+    <list ng-if="releasesByProduct.length" items="releasesByProduct" title="{{ item.name }} releases" limit="5" show="date, !body" type="release"></list>
 </section>

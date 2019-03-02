@@ -18,14 +18,4 @@ class TypeController extends Controller
             'data' => $typesQuery->get()
         ];
     }
-
-    public function used()
-    {
-        $typesQuery = Type::withCount('features')->havingRaw('features_count')->orderBy('features_count');
-
-        return [
-            'status' => 1,
-            'data' => $typesQuery->get()
-        ];
-    }
 }

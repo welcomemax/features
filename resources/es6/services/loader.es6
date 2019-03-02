@@ -13,7 +13,7 @@ export default /** @ngInject */ function($injector) {
             return this.$q.all([
                 this.api.call('features'),
                 this.api.call('releases'),
-                this.api.call('products'),
+                this.api.call('apps'),
                 this.api.call('types'),
                 // this.api.call('customs')
             ]).then((results) => {

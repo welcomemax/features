@@ -36,11 +36,9 @@ Route::group(
 );
 
 Route::group(['prefix' => '/types'], function () {
-    Route::get('/used', 'TypeController@used');
     Route::get('/{id?}', 'TypeController@index');
 });
 
-Route::group(['prefix' => '/products'], function () {
-    Route::get('/used', 'ProductController@used');
+Route::group(['prefix' => '/apps'], function () {
     Route::get('/{id?}', 'ProductController@index');
 });

@@ -34,4 +34,7 @@ class Product extends Model
     public function features() {
         return $this->hasMany('App\Feature');
     }
+    public function releases() {
+        return $this->hasMany('App\Release');
+    }
 }

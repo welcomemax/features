@@ -543,6 +543,22 @@ section:nth-child(even) .list-container .item {
   font-size: 18px;
   font-weight: normal;
 }
+.home-cta {
+  padding: 28px 20px;
+  margin: 28px auto;
+  text-align: center;
+  font-size: 16px;
+  font-weight: normal;
+  max-width: 320px;
+  background: #fafafa;
+}
+.home-cta-button {
+  padding: 8px 16px;
+}
+.home-cta-title {
+  margin-bottom: 16px;
+  font-size: 18px;
+}
 .nav-menu {
   list-style: none;
   margin: 0;
