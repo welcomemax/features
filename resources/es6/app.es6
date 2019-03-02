@@ -51,87 +51,33 @@ angular.module('app', ['ngRoute'])
                 controller: 'homeController',
                 templateUrl: '/templates/home.html'
             })
-            .when('/features/', {
+            .when('/:section/', {
                 controller: 'listController',
-                templateUrl: '/templates/features/list.html'
+                templateUrl: params => `/templates/${params.section}/list.html`
             })
-            .when('/features/new', {
+            .when('/:section/new', {
                 controller: 'editController',
-                templateUrl: '/templates/features/edit.html',
+                templateUrl: params => `/templates/${params.section}/edit.html`
             })
-            .when('/features/:id/edit', {
+            .when('/:section/:id/edit', {
                 controller: 'editController',
-                templateUrl: '/templates/features/edit.html',
+                templateUrl: params => `/templates/${params.section}/edit.html`,
                 resolve: {
                     editObj: function ($route, api) {
-                        let id = $route.current.params.id;
-                        return id ? api.call(`features/${id}`) : null
+                        const section = $route.current.params.section;
+                        const id = $route.current.params.id;
+                        return id ? api.call(`${section}/${id}`) : null
                     }
                 }
             })
-            .when('/features/:id', {
+            .when('/:section/:id', {
                 controller: 'detailController',
-                templateUrl: '/templates/features/detail.html',
+                templateUrl: params => `/templates/${params.section}/detail.html`,
                 resolve: {
                     detailObj: function ($route, api) {
-                        let id = $route.current.params.id;
-                        return api.call(`features/${id}`);
-                    }
-                }
-            })
-            .when('/releases/', {
-                controller: 'listController',
-                templateUrl: '/templates/releases/list.html'
-            })
-            .when('/releases/:id', {
-                controller: 'detailController',
-                templateUrl: '/templates/releases/detail.html',
-                resolve: {
-                    detailObj: function ($route, api) {
-                        let id = $route.current.params.id;
-                        return api.call(`releases/${id}`);
-                    }
-                }
-            })
-            .when('/apps/', {
-                controller: 'listController',
-                templateUrl: '/templates/apps/list.html'
-            })
-            .when('/apps/:id', {
-                controller: 'detailController',
-                templateUrl: '/templates/apps/detail.html',
-                resolve: {
-                    detailObj: function ($route, api) {
-                        let id = $route.current.params.id;
-                        return api.call(`products/${id}`);
-                    }
-                }
-            })
-            .when('/customs/', {
-                controller: 'listController',
-                templateUrl: '/templates/customs/list.html'
-            })
-            .when('/customs/new', {
-                controller: 'editController',
-                templateUrl: '/templates/customs/edit.html',
-            })
-            .when('/customs/:id/edit', {
-                controller: 'editController',
-                templateUrl: '/templates/customs/edit.html',
-                resolve: {
-                    editObj: function ($route, api) {
-                        let id = $route.current.params.id;
-                        return id ? api.call(`customs/${id}`) : null
-                    }
-                }
-            })
-            .when('/customs/:id', {
-                controller: 'detailController',
-                templateUrl: '/templates/customs/detail.html',
-                resolve: {
-                    detailObj: function ($route, api) {
-                        let id = $route.current.params.id;
-                        return api.call(`customs/${id}`);
+                        const section = $route.current.params.section;
+                        const id = $route.current.params.id;
+                        return id ? api.call(`${section}/${id}`) : null
                     }
                 }
             })
