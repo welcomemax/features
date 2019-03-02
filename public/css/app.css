@@ -861,7 +861,7 @@ section:nth-child(even) .list-container .item {
   overflow: hidden;
 }
 .item-body {
-  margin: 12px 0;
+  margin-top: 12px;
   height: 100%;
   position: relative;
 }

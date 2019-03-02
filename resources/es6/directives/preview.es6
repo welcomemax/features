@@ -4,7 +4,7 @@ export default /** @ngInject */  function($httpParamSerializer) {
     return {
         scope: {
             app: '=',
-            show: '=',
+            show: '@',
             title: '@' 
         },
         template: template,

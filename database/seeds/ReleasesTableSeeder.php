@@ -19,7 +19,7 @@ class ReleasesTableSeeder extends Seeder
             [
                 'product' => 'instagram-feed',
                 'version' => '3.7.0',
-                'created_at' => Carbon::createFromDate(null, 2, 25),
+                'created_at' => Carbon::createMidnightDate(null, 2, 25),
                 'features' => [1]
             ]
         ];

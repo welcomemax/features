@@ -38302,13 +38302,16 @@ function listDirective() {
                         $scope.filterItems = $scope.items;
                     } else {
                         $scope.filterItems = $scope.items.filter((item) => {
-                            const strData = [
+                            let searchData = [
                                 item.title, 
                                 item.caption, 
-                                item.data, 
-                                item.type.name, 
-                                item.product.name
-                            ].join(' ').toLowerCase();
+                                item.data
+                            ]
+
+                            item.type && searchData.push(item.type.name);
+                            item.product && searchData.push(item.product.name);
+
+                            const strData = searchData.join(' ').toLowerCase();
 
                             if (strictSearch) {
                                 return !!~strData.indexOf(searchValue);
@@ -38437,7 +38440,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
         scope: {
             app: '=',
-            show: '=',
+            show: '@',
             title: '@' 
         },
         template: _html_directives_preview_html__WEBPACK_IMPORTED_MODULE_0___default.a,
@@ -38825,7 +38828,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"item item-type-{{item.type.alias}}\">\r\n    <a class=\"item-open\" href=\"#/{{ type }}s/{{ item.id }}\" title=\"Open detail\">\r\n        <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n    </a>\r\n\r\n    <div class=\"item-icon-container\" ng-if=\"parts.icon\">\r\n        <div class=\"item-icon\" ng-include=\"icon\"></div>\r\n    </div>\r\n\r\n    <div class=\"item-inner\">\r\n        <div class=\"item-header\">\r\n            <div ng-switch on=\"type\">\r\n                <h4 ng-switch-when=\"feature\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"custom\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"release\">{{ item.product.name + ' ' + item.version }}</h4>\r\n                <h4 ng-switch-default>{{ item.name }}</h4>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.body !== false\" class=\"item-body\" ng-transclude>\r\n            <div ng-switch on=\"type\">\r\n                <p ng-switch-when=\"feature\">{{ item.data }}</p>\r\n                <p ng-switch-when=\"custom\">{{ item.data }}</p>\r\n                <div ng-switch-when=\"release\">\r\n                    <p>Features in this release:</p>\r\n                    <ul class=\"release-features\">\r\n                        <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                            <span>{{ feature.title }}</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.timeline\" class=\"timeline-item\">\r\n            <span class=\"timeline-item-date\">{{ item.updated_at }}</span>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.tags || parts.date\" class=\"item-footer\">\r\n            <tags ng-if=\"parts.tags\" class=\"item-footer-tags\" icon=\"true\" items=\"item.tags\"></tags>\r\n            <span ng-if=\"parts.date && item.updated_at\" class=\"item-footer-date\"><b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </div>\r\n</div>";
+module.exports = "<div class=\"item item-type-{{item.type.alias}}\">\r\n    <a class=\"item-open\" href=\"#/{{ type }}s/{{ item.id }}\" title=\"Open detail\">\r\n        <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n    </a>\r\n\r\n    <div class=\"item-icon-container\" ng-if=\"parts.icon\">\r\n        <div class=\"item-icon\" ng-include=\"icon\"></div>\r\n    </div>\r\n\r\n    <div class=\"item-inner\">\r\n        <div class=\"item-header\">\r\n            <div ng-switch on=\"type\">\r\n                <h4 ng-switch-when=\"feature\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"custom\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"release\">{{ item.product.name + ' ' + item.version }}</h4>\r\n                <h4 ng-switch-default>{{ item.name }}</h4>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.body !== false\" class=\"item-body\" ng-transclude>\r\n            <div ng-switch on=\"type\">\r\n                <p ng-switch-when=\"feature\">{{ item.data }}</p>\r\n                <p ng-switch-when=\"custom\">{{ item.data }}</p>\r\n                <p ng-switch-when=\"app\">{{ item.caption }}</p>\r\n                <div ng-switch-when=\"release\">\r\n                    <p>Features in this release:</p>\r\n                    <ul class=\"release-features\">\r\n                        <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                            <span>{{ feature.title }}</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.timeline\" class=\"timeline-item\">\r\n            <span class=\"timeline-item-date\">{{ item.updated_at }}</span>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.tags || parts.date\" class=\"item-footer\">\r\n            <tags ng-if=\"parts.tags\" class=\"item-footer-tags\" icon=\"true\" items=\"item.tags\"></tags>\r\n            <span ng-if=\"parts.date && item.updated_at\" class=\"item-footer-date\"><b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </div>\r\n</div>";
 
 /***/ }),
 

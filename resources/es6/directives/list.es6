@@ -71,13 +71,16 @@ export default /** @ngInject */ function listDirective() {
                         $scope.filterItems = $scope.items;
                     } else {
                         $scope.filterItems = $scope.items.filter((item) => {
-                            const strData = [
+                            let searchData = [
                                 item.title, 
                                 item.caption, 
-                                item.data, 
-                                item.type.name, 
-                                item.product.name
-                            ].join(' ').toLowerCase();
+                                item.data
+                            ]
+
+                            item.type && searchData.push(item.type.name);
+                            item.product && searchData.push(item.product.name);
+
+                            const strData = searchData.join(' ').toLowerCase();
 
                             if (strictSearch) {
                                 return !!~strData.indexOf(searchValue);

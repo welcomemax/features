@@ -21,6 +21,7 @@
             <div ng-switch on="type">
                 <p ng-switch-when="feature">{{ item.data }}</p>
                 <p ng-switch-when="custom">{{ item.data }}</p>
+                <p ng-switch-when="app">{{ item.caption }}</p>
                 <div ng-switch-when="release">
                     <p>Features in this release:</p>
                     <ul class="release-features">
