@@ -37985,6 +37985,7 @@ __webpack_require__.r(__webpack_exports__);
     
     $rootScope.$on('$routeChangeStart', () => {
         $rootScope.toggleLoader(true);
+        $rootScope.search = '';
     });
 
     $rootScope.$on('$routeChangeSuccess', function() {
@@ -38262,9 +38263,10 @@ function listDirective() {
                         $scope.filterItems = $scope.items.filter((item) => {
                             let searchData = [
                                 item.title, 
+                                item.name,
                                 item.caption, 
                                 item.data
-                            ]
+                            ];
 
                             item.type && searchData.push(item.type.name);
                             item.product && searchData.push(item.product.name);
@@ -38282,10 +38284,6 @@ function listDirective() {
                     }
                     
                     $scope.paginationEnabled = checkPagination();
-
-                    if (!$scope.filterItems) {
-                        // @TODO empty result
-                    }
                 }
             }, true);
 
@@ -38786,7 +38784,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"item item-type-{{item.type.alias}}\">\r\n    <a class=\"item-open\" href=\"#/{{ type }}s/{{ item.id }}\" title=\"Open detail\">\r\n        <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n    </a>\r\n\r\n    <div class=\"item-icon-container\" ng-if=\"parts.icon\">\r\n        <div class=\"item-icon\" ng-include=\"icon\"></div>\r\n    </div>\r\n\r\n    <div class=\"item-inner\">\r\n        <div class=\"item-header\">\r\n            <div ng-switch on=\"type\">\r\n                <h4 ng-switch-when=\"feature\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"custom\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"release\">{{ item.product.name + ' ' + item.version }}</h4>\r\n                <h4 ng-switch-default>{{ item.name }}</h4>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.body !== false\" class=\"item-body\" ng-transclude>\r\n            <div ng-switch on=\"type\">\r\n                <p ng-switch-when=\"feature\">{{ item.data }}</p>\r\n                <p ng-switch-when=\"custom\">{{ item.data }}</p>\r\n                <p ng-switch-when=\"app\">{{ item.caption }}</p>\r\n                <div ng-switch-when=\"release\">\r\n                    <p>Features in this release:</p>\r\n                    <ul class=\"release-features\">\r\n                        <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                            <span>{{ feature.title }}</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.timeline\" class=\"timeline-item\">\r\n            <span class=\"timeline-item-date\">{{ item.updated_at }}</span>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.tags || parts.date\" class=\"item-footer\">\r\n            <tags ng-if=\"parts.tags\" class=\"item-footer-tags\" icon=\"true\" items=\"item.tags\"></tags>\r\n            <span ng-if=\"parts.date && item.updated_at\" class=\"item-footer-date\"><b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </div>\r\n</div>";
+module.exports = "<div class=\"item item-type-{{item.type.alias}}\">\r\n    <a class=\"item-open\" href=\"#/{{ type }}s/{{ item.id }}\" title=\"Open detail\">\r\n        <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n    </a>\r\n\r\n    <div class=\"item-icon-container\" ng-if=\"parts.icon\">\r\n        <div class=\"item-icon\" ng-include=\"icon\"></div>\r\n    </div>\r\n\r\n    <div class=\"item-inner\">\r\n        <div class=\"item-header\">\r\n            <div ng-switch on=\"type\">\r\n                <h4 ng-switch-when=\"feature\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"custom\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"release\">{{ item.product.name + ' ' + item.version }}</h4>\r\n                <h4 ng-switch-default>{{ item.name }}</h4>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.body !== false\" class=\"item-body\" ng-transclude>\r\n            <div ng-switch on=\"type\">\r\n                <p ng-switch-when=\"feature\">{{ item.data }}</p>\r\n                <p ng-switch-when=\"custom\">{{ item.data }}</p>\r\n                <p ng-switch-when=\"app\">{{ item.caption }}</p>\r\n                <div ng-switch-when=\"release\">\r\n                    <p>Features in this release:</p>\r\n                    <ul class=\"release-features\">\r\n                        <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                            <span>{{ feature.title }}</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.timeline\" class=\"timeline-item timeline-item-apart\">\r\n            <div class=\"timeline-item-marker\"></div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.tags || parts.date\" class=\"item-footer\">\r\n            <tags ng-if=\"parts.tags\" class=\"item-footer-tags\" icon=\"true\" items=\"item.tags\"></tags>\r\n            <span ng-if=\"parts.date && item.updated_at\" class=\"item-footer-date\"><b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </div>\r\n</div>";
 
 /***/ }),
 
@@ -38797,7 +38795,7 @@ module.exports = "<div class=\"item item-type-{{item.type.alias}}\">\r\n    <a c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"list-container\">\r\n    <div class=\"list-header\" ng-if=\"title || !currentSection\">\r\n        <h3 class=\"list-header-title\">{{ title }}</h3>\r\n\r\n        <a ng-if=\"!currentSection\" class=\"list-header-all\" href=\"#/{{ type }}s/\">\r\n            All {{ type }}s >\r\n        </a>\r\n    </div>\r\n\r\n    <div class=\"list\" ng-class=\"{\r\n            'list-half': size == 'half',\r\n            'list-third': size == 'third'\r\n        }\">\r\n        <list-item ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: perPage | filter: search | orderBy:sortType:sortReverse\"\r\n            item=\"item\" show=\"show\" type=\"type\"></item>    \r\n    </div>\r\n\r\n    <div class=\"pagination\" ng-if=\"paginationEnabled\">\r\n        <button class=\"pagination-button pagination-button-prev\" \r\n            ng-disabled=\"isFirstPage()\" ng-click=\"pageBack()\">\r\n            <i class=\"icon icon-arrow icon-arrow-left\"></i>\r\n        </button>\r\n\r\n        <span class=\"pagination-pages\">\r\n            <b>{{ page + 1 }}</b>/<b>{{ totalPages() }}</b>\r\n        </span>\r\n\r\n        <button class=\"pagination-button pagination-button-next\" \r\n            ng-disabled=\"isLastPage()\" ng-click=\"pageForward()\">\r\n            <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n        </button>\r\n    </div>\r\n\r\n    <div class=\"loader loader-small\" ng-class=\"{ 'loader-visible': !filterItems }\"><div class=\"loader-inner\"></div></div>\r\n</div>";
+module.exports = "<div class=\"list-container\">\r\n    <div class=\"list-header\" ng-if=\"title || !currentSection\">\r\n        <h3 class=\"list-header-title\">{{ title }}</h3>\r\n\r\n        <a ng-if=\"!currentSection\" class=\"list-header-all\" href=\"#/{{ type }}s/\">\r\n            All {{ type }}s >\r\n        </a>\r\n    </div>\r\n\r\n    <div class=\"list\" ng-class=\"{\r\n            'list-half': size == 'half',\r\n            'list-third': size == 'third'\r\n        }\">\r\n        <list-item ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: perPage | filter: $root.search | orderBy:sortType:sortReverse\"\r\n            item=\"item\" show=\"show\" type=\"type\"></item>\r\n    </div>\r\n\r\n    <div class=\"list-empty\" ng-show=\"filterItems && !filterItems.length\">No results</div>\r\n\r\n    <div class=\"pagination\" ng-if=\"paginationEnabled\">\r\n        <button class=\"pagination-button pagination-button-prev\" \r\n            ng-disabled=\"isFirstPage()\" ng-click=\"pageBack()\">\r\n            <i class=\"icon icon-arrow icon-arrow-left\"></i>\r\n        </button>\r\n\r\n        <span class=\"pagination-pages\">\r\n            <b>{{ page + 1 }}</b>/<b>{{ totalPages() }}</b>\r\n        </span>\r\n\r\n        <button class=\"pagination-button pagination-button-next\" \r\n            ng-disabled=\"isLastPage()\" ng-click=\"pageForward()\">\r\n            <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n        </button>\r\n    </div>\r\n\r\n    <div class=\"loader loader-small\" ng-class=\"{ 'loader-visible': !filterItems }\"><div class=\"loader-inner\"></div></div>\r\n</div>";
 
 /***/ }),
 

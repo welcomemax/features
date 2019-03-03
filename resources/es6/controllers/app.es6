@@ -15,6 +15,7 @@ export default /** @ngInject */ function ($rootScope, $scope) {
     
     $rootScope.$on('$routeChangeStart', () => {
         $rootScope.toggleLoader(true);
+        $rootScope.search = '';
     });
 
     $rootScope.$on('$routeChangeSuccess', function() {

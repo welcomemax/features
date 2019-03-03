@@ -513,12 +513,11 @@ section:nth-child(even) .list-container .item {
 .home-timeline {
   background: #fff;
   color: #111;
-  padding: 100px 20px;
+  padding: 52px 20px;
 }
 .home-timeline-title {
-  max-width: 960px;
+  max-width: 920px;
   width: 100%;
-  padding: 0 20px;
   margin: 0;
   margin-left: auto;
   margin-right: auto;
@@ -589,7 +588,7 @@ section:nth-child(even) .list-container .item {
 }
 .nav-menu-item-button {
   position: absolute;
-  right: 12px;
+  right: 16px;
   top: 12px;
   padding: 4px;
   box-sizing: border-box;
@@ -644,6 +643,18 @@ section:nth-child(even) .list-container .item {
     grid-template-columns: repeat(auto-fill, 100%);
   }
 }
+.list-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #858585;
+  font-size: 14px;
+}
 .list-container {
   position: relative;
   min-height: 100px;
@@ -663,6 +674,9 @@ section:nth-child(even) .list-container .item {
   margin: 0;
   font-size: 20px;
   font-weight: normal;
+}
+.list-header-all {
+  font-size: 14px;
 }
 .list .item {
   background: #fafafa;
@@ -897,7 +911,7 @@ section:nth-child(even) .list-container .item {
   margin: 8px 0;
   padding: 0 16px;
   font-size: 14px;
-  color: #868686;
+  color: #858585;
 }
 .item-footer {
   display: flex;
@@ -910,7 +924,7 @@ section:nth-child(even) .list-container .item {
 }
 .item-footer-date {
   font-size: 13px;
-  color: #868686;
+  color: #858585;
 }
 .item-icon {
   width: 48px;
@@ -942,7 +956,7 @@ section:nth-child(even) .list-container .item {
   margin-bottom: 8px;
 }
 .subscribe-form-header-caption {
-  color: #868686;
+  color: #858585;
   font-size: 14px;
 }
 .subscribe-form-body input {
@@ -1123,35 +1137,55 @@ section:nth-child(even) .list-container .item {
   fill: #fff !important;
 }
 .timeline {
-  padding: 0 80px 0 20px;
   margin: -24px 0;
 }
 .timeline-horizontal {
-  padding: 48px 0 24px 0;
-  margin: 0 -20px;
+  padding: 24px 0 24px 0;
+  margin: 0;
+}
+.timeline-vertical {
+  padding: 0 0 0 20px;
 }
 .timeline-bar {
-  width: 2px;
-  height: 100%;
+  border-radius: 2px;
+}
+.timeline-vertical .timeline-bar {
+  width: 4px;
+  height: calc(100% + 80px);
+  margin: -40px 0;
   background-image: linear-gradient(180deg, #ffc63f, #fd3358);
 }
 .timeline-horizontal .timeline-bar {
-  height: 2px;
-  width: 100%;
+  height: 4px;
+  width: calc(100% + 40px);
+  margin: 0 -20px;
   background-image: linear-gradient(90deg, #ffc63f, #fd3358);
 }
+.timeline-items {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 .timeline-item {
-  position: absolute;
-  top: 50%;
-  left: -107px;
-  margin-top: -6px;
-  width: 12px;
-  height: 12px;
-  background: #f93262;
-  border-radius: 50%;
   z-index: 1;
 }
-.timeline-item:after {
+.timeline-item-apart {
+  position: absolute;
+  top: 50%;
+  left: -28px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.timeline-horizontal .timeline-item {
+  position: relative;
+  margin-bottom: 12px;
+}
+.timeline-horizontal .timeline-item:nth-child(even) {
+  margin-bottom: -36px;
+}
+.timeline-item-line {
   content: "";
   position: absolute;
   left: 12px;
@@ -1161,20 +1195,42 @@ section:nth-child(even) .list-container .item {
   opacity: 0.5;
   background: #dedede;
 }
-.timeline-item-date {
+.timeline-item-marker {
   position: absolute;
-  left: 12px;
-  bottom: -16px;
-  font-size: 11px;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s;
-  padding: 2px 4px;
-  border-radius: 2px;
+  width: 12px;
+  height: 12px;
+  background: #f93262;
+  border-radius: 50%;
+  z-index: 1;
 }
-.timeline-item:hover .timeline-item-date,
-.item:hover .timeline-item-date {
-  opacity: 1;
-  visibility: visible;
+.timeline-item-marker:after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #fff;
+}
+.timeline-item-apart .timeline-item-marker {
+  left: -16px;
+  top: 50%;
+  margin-top: -6px;
+}
+.timeline-horizontal .timeline-item-marker {
+  bottom: -20px;
+  left: 50%;
+  margin-left: -6px;
+}
+.timeline-item-content {
+  font-size: 13px;
+  white-space: nowrap;
+  transition: all 0.3s;
+  padding: 8px 12px;
+  border-radius: 3px;
+  background: #fafafa;
+}
+.timeline-item-apart .timeline-item-content {
+  background: #fff;
 }

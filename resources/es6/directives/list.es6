@@ -73,9 +73,10 @@ export default /** @ngInject */ function listDirective() {
                         $scope.filterItems = $scope.items.filter((item) => {
                             let searchData = [
                                 item.title, 
+                                item.name,
                                 item.caption, 
                                 item.data
-                            ]
+                            ];
 
                             item.type && searchData.push(item.type.name);
                             item.product && searchData.push(item.product.name);
@@ -93,10 +94,6 @@ export default /** @ngInject */ function listDirective() {
                     }
                     
                     $scope.paginationEnabled = checkPagination();
-
-                    if (!$scope.filterItems) {
-                        // @TODO empty result
-                    }
                 }
             }, true);
 

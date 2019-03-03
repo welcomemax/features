@@ -38,6 +38,12 @@
 <section class="home-timeline">
     <h3 class="home-timeline-title">Releases timeline</h3>
     <div class="timeline timeline-horizontal">
+        <ul class="timeline-items">
+            <li class="timeline-item" ng-repeat="item in $root.releases | orderBy:created_at">
+                <div class="timeline-item-content">{{ item.product.name }} {{ item.version }}</div>
+                <div class="timeline-item-marker"></div>
+            </li>
+        </ul>
         <div class="timeline-bar"></div>
     </div>
 </section>

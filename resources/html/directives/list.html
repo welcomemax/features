@@ -11,9 +11,11 @@
             'list-half': size == 'half',
             'list-third': size == 'third'
         }">
-        <list-item ng-repeat="item in filterItems | startFromFilter: startingItem() | limitTo: perPage | filter: search | orderBy:sortType:sortReverse"
-            item="item" show="show" type="type"></item>    
+        <list-item ng-repeat="item in filterItems | startFromFilter: startingItem() | limitTo: perPage | filter: $root.search | orderBy:sortType:sortReverse"
+            item="item" show="show" type="type"></item>
     </div>
+
+    <div class="list-empty" ng-show="filterItems && !filterItems.length">No results</div>
 
     <div class="pagination" ng-if="paginationEnabled">
         <button class="pagination-button pagination-button-prev" 
