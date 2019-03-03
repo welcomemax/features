@@ -80,6 +80,9 @@
         margin-top 12px
         height 100%
         position relative
+
+        .item.detail & 
+            margin-top 32px
         
         p
             margin 0
@@ -102,6 +105,9 @@
         justify-content space-between
         margin-top 12px
 
+        .item.detail & 
+            margin-top 32px
+
         &-date
             font-size 13px
             color #868686
@@ -122,3 +128,29 @@
 
             .list &
                 margin-right 12px
+
+.subscribe
+    margin-top 28px
+    padding 20px
+    background #fff
+
+    &-form
+        &-header
+            margin-bottom 24px
+
+            &-title
+                font-size 18px
+                margin-bottom 8px
+
+            &-caption
+                color #868686
+                font-size 14px
+
+        &-body
+            & input
+                margin-right 12px
+                background transparent
+                border none
+                outline none
+                border-bottom 1px solid #38393a
+                padding 4px 0

@@ -17,6 +17,18 @@
             </div>
         </div>
     </div>
+
+    <div class="subscribe">
+        <div ng-if="!item.subscribed" class="subscripe-form">
+            <div class="subscribe-form-header">
+                <div class="subscribe-form-header-title">Interested in this feature?</div>
+                <div class="subscribe-form-header-caption">Subscribe and we'll mail you when {{ item.title }} feature will be implemented</div>
+            </div>
+            <div class="subscribe-form-body">
+                <input placeholder="E-Mail"><a class="button">Subscribe</a>
+            </div>
+        </div>
+    </div>
     
     <sidebar>
         <sidebar-group header="Controls">

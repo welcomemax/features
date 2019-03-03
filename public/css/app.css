@@ -1,5 +1,5 @@
 a {
-  color: #1e90ff;
+  color: #1c91ff;
   text-decoration: none;
 }
 input {
@@ -881,6 +881,9 @@ section:nth-child(even) .list-container .item {
   height: 100%;
   position: relative;
 }
+.item.detail .item-body {
+  margin-top: 32px;
+}
 .item-body p {
   margin: 0;
   font-size: 14px;
@@ -902,6 +905,9 @@ section:nth-child(even) .list-container .item {
   justify-content: space-between;
   margin-top: 12px;
 }
+.item.detail .item-footer {
+  margin-top: 32px;
+}
 .item-footer-date {
   font-size: 13px;
   color: #868686;
@@ -922,6 +928,30 @@ section:nth-child(even) .list-container .item {
 }
 .list .item-icon-container {
   margin-right: 12px;
+}
+.subscribe {
+  margin-top: 28px;
+  padding: 20px;
+  background: #fff;
+}
+.subscribe-form-header {
+  margin-bottom: 24px;
+}
+.subscribe-form-header-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.subscribe-form-header-caption {
+  color: #868686;
+  font-size: 14px;
+}
+.subscribe-form-body input {
+  margin-right: 12px;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #38393a;
+  padding: 4px 0;
 }
 .pagination {
   display: flex;
@@ -974,13 +1004,13 @@ section:nth-child(even) .list-container .item {
   transition: opacity 0.3s;
 }
 .tags-item-feature {
-  background: #0079bf;
+  background: #1c91ff;
 }
 .tags-item-change {
-  background: #61bd4f;
+  background: #4ad504;
 }
 .tags-item-issue {
-  background: #eb5a46;
+  background: #ff4734;
 }
 .tags-item-active,
 .tags-item:hover {
