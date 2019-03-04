@@ -16,20 +16,27 @@ export default /** @ngInject */ function listDirective() {
             limit: '@'
         },
         controller: /** @ngInject */ function listController($rootScope, $scope, $location) {
-            $scope.currentSection = !!~$location.$$url.search($scope.type);
             const strictSearch = true;
             
+            $scope.$watch('items', (newValue, oldValue) => {
+                if (newValue && !angular.equals(newValue, oldValue)) {
+                    $scope.items = newValue;
+
+                    if ($scope.limit && $scope.items) {
+                        $scope.items = $scope.items.slice(0, $scope.limit);
+                    }
+        
+                    $scope.filterItems = $scope.items;
+                }
+            });
+
+            $scope.currentSection = !!~$location.$$url.search($scope.type);
+        
             $scope.page = 0;
             $scope.perPage = $scope.limit || $scope.perPage || 8;
 
             $scope.sortType = 'id';
             $scope.sortReverse = false;
-            
-            if ($scope.limit && $scope.items) {
-                $scope.items = $scope.items.slice(0, $scope.limit);
-            }
-
-            $scope.filterItems = $scope.items;
 
             const checkPagination = () => {
                 return $scope.filterItems && $scope.filterItems.length && $scope.totalPages() > 1;

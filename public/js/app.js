@@ -37920,25 +37920,11 @@ angular.module('app', ['ngRoute'])
             })
             .when('/:section/:id/edit', {
                 controller: 'editController',
-                templateUrl: params => `/templates/${params.section}/edit.html`,
-                resolve: {
-                    editObj: function ($route, api) {
-                        const section = $route.current.params.section;
-                        const id = $route.current.params.id;
-                        return id ? api.call(`${section}/${id}`) : null
-                    }
-                }
+                templateUrl: params => `/templates/${params.section}/edit.html`
             })
             .when('/:section/:id', {
                 controller: 'detailController',
-                templateUrl: params => `/templates/${params.section}/detail.html`,
-                resolve: {
-                    detailObj: function ($route, api) {
-                        const section = $route.current.params.section;
-                        const id = $route.current.params.id;
-                        return id ? api.call(`${section}/${id}`) : null
-                    }
-                }
+                templateUrl: params => `/templates/${params.section}/detail.html`
             })
             .otherwise({
                 redirectTo: '/'
@@ -38008,14 +37994,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (detailObj, $rootScope, $scope, $route, $filter) {
-    const section = $route.current.params.section;
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (api, $rootScope, $scope, $routeParams, $filter) {
+    const section = $routeParams.section;
+    const id = $routeParams.id;
+    
+    $scope.item = {};
 
-    $scope.item = detailObj.data[0];
+    id && api.call(`${section}/${id}`, 'get').then((response) => {
+        $scope.item = response.data[0];
+        $scope.item.tags = [$scope.item.product, $scope.item.type];
+    });
 
     if (section === 'apps') {
-        $scope.featuresByProduct =  $filter('filter')($rootScope.features, {product: {name: $scope.item.name}});
-        $scope.releasesByProduct =  $filter('filter')($rootScope.releases, {product: {name: $scope.item.name}});
+        $scope.featuresByProduct = $filter('filter')($rootScope.features, {product: {name: $scope.item.name}});
+        $scope.releasesByProduct = $filter('filter')($rootScope.releases, {product: {name: $scope.item.name}});
     }
 });
 
@@ -38031,12 +38023,19 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (editObj, api, $scope, $routeParams, $location) {
-    $scope.id = $routeParams.id;
-    $scope.item = id ? editObj.data[0] : {};
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (api, $rootScope, $scope, $routeParams, $location) {
+    const section = $routeParams.section;
+    const id = $routeParams.id;
+    
+    $scope.item = {};
+
+    id && api.call(`${section}/${id}`, 'get').then(function(response) {
+        $scope.item = response.data[0];
+        $scope.item.tags = [$scope.item.product, $scope.item.type];
+    });
 
     $scope.save = function() {
-        api(`items/${id}`, 'post', $scope.item).then(function(response) {
+        api.call(`${section}/${id}`, 'post', $scope.item).then(function(response) {
             console.log(response);
             $location.path(`/detail/${id}`);
         });
@@ -38044,7 +38043,7 @@ __webpack_require__.r(__webpack_exports__);
 
     $scope.delete = function() {
         if (confirm('Are you sure?')) {
-            api(`items/${id}`, 'delete').then(function(response) {
+            api.call(`${section}/${id}`, 'delete').then(function(response) {
                 console.log(response);
                 $location.path('/');
             });
@@ -38105,9 +38104,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function ($rootScope, $scope, $route, $filter) {
-    const section = $route.current.params.section;
-
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function ($rootScope, $scope, $routeParams, $filter) {
+    const section = $routeParams.section;
     
     $scope.productsWithFeatures = $filter('filter')($rootScope.products, {features_count: '!0'});
     $scope.productsWithReleases = $filter('filter')($rootScope.products, {releases_count: '!0'});
@@ -38206,20 +38204,27 @@ function listDirective() {
             limit: '@'
         },
         controller: /** @ngInject */ function listController($rootScope, $scope, $location) {
-            $scope.currentSection = !!~$location.$$url.search($scope.type);
             const strictSearch = true;
             
+            $scope.$watch('items', (newValue, oldValue) => {
+                if (newValue && !angular.equals(newValue, oldValue)) {
+                    $scope.items = newValue;
+
+                    if ($scope.limit && $scope.items) {
+                        $scope.items = $scope.items.slice(0, $scope.limit);
+                    }
+        
+                    $scope.filterItems = $scope.items;
+                }
+            });
+
+            $scope.currentSection = !!~$location.$$url.search($scope.type);
+        
             $scope.page = 0;
             $scope.perPage = $scope.limit || $scope.perPage || 8;
 
             $scope.sortType = 'id';
             $scope.sortReverse = false;
-            
-            if ($scope.limit && $scope.items) {
-                $scope.items = $scope.items.slice(0, $scope.limit);
-            }
-
-            $scope.filterItems = $scope.items;
 
             const checkPagination = () => {
                 return $scope.filterItems && $scope.filterItems.length && $scope.totalPages() > 1;
@@ -38767,7 +38772,6 @@ __webpack_require__.r(__webpack_exports__);
                 });
 
                 this.$rootScope.$broadcast('loader:loaded');
-                this.$route.reload();
             });
         }
     }

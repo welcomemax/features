@@ -6,8 +6,8 @@
 <section>
     <div class="container">
         <div class="row">
-            <list items="features" title="Top features" limit="5" show="tags, !body" type="feature"></list>
-            <list items="releases" title="Latest releases" limit="5" show="date, !body" type="release"></list>
+            <list items="$root.features" title="Top features" limit="5" show="tags, !body" type="feature"></list>
+            <list items="$root.releases" title="Latest releases" limit="5" show="date, !body" type="release"></list>
         </div>
     </div>
 </section>
@@ -40,7 +40,10 @@
     <div class="timeline timeline-horizontal">
         <ul class="timeline-items">
             <li class="timeline-item" ng-repeat="item in $root.releases | orderBy:created_at">
-                <div class="timeline-item-content">{{ item.product.name }} {{ item.version }}</div>
+                <div class="timeline-item-content">
+                    <div class="timeline-item-content-title">{{ item.product.name }} {{ item.version }}</div>
+                    <div class="timeline-item-content-date">{{ item.created_at }}</div>
+                </div>
                 <div class="timeline-item-marker"></div>
             </li>
         </ul>
@@ -50,13 +53,13 @@
 
 <section>
     <div class="container">
-        <list items="customs" title="Customizations" type="custom" show="!body" size="half"></list>
+        <list items="$root.customs" title="Customizations" type="custom" show="!body" size="half"></list>
     </div>
 </section>
 
 <section>
     <div class="container">
-        <list items="products" title="Applications" per-page="30" type="app" show="icon, !body" size="third"></list>
+        <list items="$root.products" title="Applications" per-page="30" type="app" show="icon, !body" size="third"></list>
         <!-- <div class="home-cta">
             <div class="home-cta-title">Not found a needed app?</div>
             <a class="home-cta-button button">Request app</a>

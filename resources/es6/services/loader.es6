@@ -26,7 +26,6 @@ export default /** @ngInject */ function($injector) {
                 });
 
                 this.$rootScope.$broadcast('loader:loaded');
-                this.$route.reload();
             });
         }
     }

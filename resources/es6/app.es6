@@ -61,25 +61,11 @@ angular.module('app', ['ngRoute'])
             })
             .when('/:section/:id/edit', {
                 controller: 'editController',
-                templateUrl: params => `/templates/${params.section}/edit.html`,
-                resolve: {
-                    editObj: function ($route, api) {
-                        const section = $route.current.params.section;
-                        const id = $route.current.params.id;
-                        return id ? api.call(`${section}/${id}`) : null
-                    }
-                }
+                templateUrl: params => `/templates/${params.section}/edit.html`
             })
             .when('/:section/:id', {
                 controller: 'detailController',
-                templateUrl: params => `/templates/${params.section}/detail.html`,
-                resolve: {
-                    detailObj: function ($route, api) {
-                        const section = $route.current.params.section;
-                        const id = $route.current.params.id;
-                        return id ? api.call(`${section}/${id}`) : null
-                    }
-                }
+                templateUrl: params => `/templates/${params.section}/detail.html`
             })
             .otherwise({
                 redirectTo: '/'

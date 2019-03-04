@@ -154,7 +154,7 @@ input {
 .icon {
   position: relative;
   display: inline-block;
-  color: #212121;
+  color: currentColor;
 }
 .icon:before,
 .icon:after {
@@ -162,7 +162,6 @@ input {
   position: absolute;
 }
 .icon-tag {
-  color: #38393a;
   opacity: 0.8;
   margin-right: 8px;
   top: -3px;
@@ -279,7 +278,6 @@ input {
           transform: rotate(90deg);
 }
 .icon-search {
-  color: #38393a;
   width: 9px;
   height: 9px;
   border: solid 1px currentColor;
@@ -589,7 +587,7 @@ section:nth-child(even) .list-container .item {
 .nav-menu-item-button {
   position: absolute;
   right: 16px;
-  top: 12px;
+  top: 14px;
   padding: 4px;
   box-sizing: border-box;
   height: 20px;
@@ -734,6 +732,7 @@ section:nth-child(even) .list-container .item {
 .search {
   position: relative;
   transition: width 0.3s;
+  color: #565656;
 }
 .sidebar-fixed .search {
   width: 20px;
@@ -755,7 +754,7 @@ section:nth-child(even) .list-container .item {
 .search-input {
   outline: 0;
   border: 0;
-  border-bottom: 1px solid #38393a;
+  border-bottom: 1px solid #565656;
   padding: 4px 0;
   font-size: 13px;
   background: transparent;
@@ -840,7 +839,7 @@ section:nth-child(even) .list-container .item {
   height: 100%;
   position: absolute;
   z-index: 1;
-  color: #38393a;
+  color: #565656;
 }
 .item-open:hover .icon {
   -webkit-transform: translateX(2px);
@@ -863,7 +862,7 @@ section:nth-child(even) .list-container .item {
   top: 20px;
   position: absolute;
   z-index: 1;
-  color: #e91e63;
+  color: #ff4734;
 }
 .item-close:hover .icon {
   -webkit-transform: translateY(-2px);
@@ -901,7 +900,7 @@ section:nth-child(even) .list-container .item {
 .item-body p {
   margin: 0;
   font-size: 14px;
-  color: #868686;
+  color: #858585;
 }
 .list .item-body p {
   max-height: 56px;
@@ -1153,7 +1152,7 @@ section:nth-child(even) .list-container .item {
   width: 4px;
   height: calc(100% + 80px);
   margin: -40px 0;
-  background-image: linear-gradient(180deg, #ffc63f, #fd3358);
+  background-image: linear-gradient(0deg, #ffc63f, #fd3358);
 }
 .timeline-horizontal .timeline-bar {
   height: 4px;
@@ -1230,6 +1229,11 @@ section:nth-child(even) .list-container .item {
   padding: 8px 12px;
   border-radius: 3px;
   background: #fafafa;
+  text-align: center;
+}
+.timeline-item-content-date {
+  margin-top: 4px;
+  color: rgba(17,17,17,0.7);
 }
 .timeline-item-apart .timeline-item-content {
   background: #fff;

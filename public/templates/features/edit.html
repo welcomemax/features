@@ -2,29 +2,42 @@
     <div class="edit item">
         <a class="item-close" href="/#/features/{{ item.id }}"><i class="icon icon-arrow icon-arrow-up"></i></a>
 
-        <div class="item-header">
-            <div class="item-header-info">
-                <label><input ng-model="item.title" ng-model="item.title"></label>
+        <div class="item-inner">
+            <div class="item-header">
+                <div class="item-header-info">
+                    <label><input ng-model="item.title" ng-model="item.title"></label>
+                </div>
             </div>
-            <div class="item-header-tags">
-                <span ng-repeat="tag in item.tags"></span>
+
+            <div class="item-body">
+                <textarea ng-model="item.text"></textarea>
+                <div class="row">
+                    <label>
+                        Type
+                        <select>
+                            <option ng-repeat="item in types">{{ item.name }}</option>
+                        </select>
+                    </label>
+                    <label>
+                        Product
+                        <select>
+                            <option ng-repeat="item in products">{{ item.name }}</option>
+                        </select>
+                    </label>
+                </div>
             </div>
-        </div>
 
-        <div class="item-body">
-            <textarea ng-model="item.text"></textarea>
-        </div>
-
-        <div class="item-footer">
-            <tags class="item-footer-tags" icon="true" items="item.tags"></tags>
-            <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
+            <div class="item-footer">
+                <tags class="item-footer-tags" icon="true" items="item.tags"></tags>
+                <span class="item-footer-date" ng-if="item.updated_at">Last update: <b>{{ item.updated_at }}</b></span>
+            </div>
         </div>
     </div>
     
     <sidebar>
         <sidebar-group header="Controls">
-            <a class="button button-edit" href="/#/features/{{ item.id }}">Save</a>
-            <a class="button button-edit" href="/#/features/{{ item.id }}">Approve</a>
+            <a class="button button-edit" ng-click="save()">Save</a>
+            <a class="button button-edit" ng-click="approve()">Approve</a>
         </sidebar-group>
     </sidebar>
 </section>
