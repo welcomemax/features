@@ -18,15 +18,19 @@ export default /** @ngInject */ function listDirective() {
         controller: /** @ngInject */ function listController($rootScope, $scope, $location) {
             const strictSearch = true;
             
+            const setItems = (items, limit = false) => {
+                return limit ? items.slice(0, limit) : items;
+            };
+
+            const checkPagination = () => {
+                return $scope.filterItems && $scope.filterItems.length && $scope.totalPages() > 1;
+            }
+
+            $scope.filterItems = $scope.items = setItems($scope.items, $scope.limit);
+
             $scope.$watch('items', (newValue, oldValue) => {
                 if (newValue && !angular.equals(newValue, oldValue)) {
-                    $scope.items = newValue;
-
-                    if ($scope.limit && $scope.items) {
-                        $scope.items = $scope.items.slice(0, $scope.limit);
-                    }
-        
-                    $scope.filterItems = $scope.items;
+                    $scope.filterItems = $scope.items = setItems(newValue, $scope.limit);
                 }
             });
 
@@ -34,13 +38,10 @@ export default /** @ngInject */ function listDirective() {
         
             $scope.page = 0;
             $scope.perPage = $scope.limit || $scope.perPage || 8;
+            $scope.paginationEnabled = checkPagination();
 
             $scope.sortType = 'id';
             $scope.sortReverse = false;
-
-            const checkPagination = () => {
-                return $scope.filterItems && $scope.filterItems.length && $scope.totalPages() > 1;
-            }
 
             $scope.isFirstPage = () => {
                 return $scope.page == 0;
@@ -65,8 +66,6 @@ export default /** @ngInject */ function listDirective() {
             $scope.pageForward = () => {
                 $scope.page++;
             };
-
-            $scope.paginationEnabled = checkPagination();
 
             $rootScope.$watch('search', (newValue, oldValue) => {
                 if (oldValue !== newValue && $scope.items) {

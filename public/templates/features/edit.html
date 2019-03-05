@@ -5,25 +5,15 @@
         <div class="item-inner">
             <div class="item-header">
                 <div class="item-header-info">
-                    <label><input ng-model="item.title" ng-model="item.title"></label>
+                    <div control="input" ng-model="item.title" name="Title"></div>
                 </div>
             </div>
 
             <div class="item-body">
-                <textarea ng-model="item.text"></textarea>
+                <div control="textarea" ng-model="item.data" name="Text"></div>
                 <div class="row">
-                    <label>
-                        Type
-                        <select>
-                            <option ng-repeat="item in types">{{ item.name }}</option>
-                        </select>
-                    </label>
-                    <label>
-                        Product
-                        <select>
-                            <option ng-repeat="item in products">{{ item.name }}</option>
-                        </select>
-                    </label>
+                    <div control="select" ng-model="item.type" name="Type" values="types"></div>
+                    <div control="select" ng-model="item.product" name="Product" values="products"></div>
                 </div>
             </div>
 

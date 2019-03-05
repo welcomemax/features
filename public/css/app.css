@@ -676,13 +676,6 @@ section:nth-child(even) .list-container .item {
 .list-header-all {
   font-size: 14px;
 }
-.list .item {
-  background: #fafafa;
-  padding-right: 80px;
-}
-.list .item:hover {
-  background: #f7f7f7;
-}
 .sidebar {
   position: absolute;
   right: 0;
@@ -805,6 +798,16 @@ section:nth-child(even) .list-container .item {
   opacity: 1;
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
+}
+.list .item {
+  background: #fafafa;
+  padding-right: 80px;
+}
+.list .item:hover {
+  background: #f7f7f7;
+}
+.edit.item {
+  padding-right: 80px;
 }
 .item {
   position: relative;
@@ -1237,4 +1240,113 @@ section:nth-child(even) .list-container .item {
 }
 .timeline-item-apart .timeline-item-content {
   background: #fff;
+}
+.control {
+  display: block;
+  margin: 12px 0;
+  width: 100%;
+  min-height: 26px;
+}
+.control-inner {
+  min-height: 26px;
+}
+.control:first-child {
+  margin-top: 0;
+}
+.control:last-child {
+  margin-bottom: 0;
+}
+.control-label {
+  display: block;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.control-input,
+.control-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px 24px 4px 8px;
+  margin: 0;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid rgba(153,153,153,0.4);
+  line-height: 1;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.control-input:focus,
+.control-textarea:focus {
+  border-color: rgba(153,153,153,0.6);
+}
+.control-textarea {
+  height: 52px;
+}
+.control-input {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.control-dropdown {
+  position: relative;
+}
+.control-dropdown:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  right: 8px;
+  margin-top: -2px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid currentColor;
+  transition: border 0.3s;
+}
+.control-dropdown-options {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+  top: 100%;
+  margin-top: 4px;
+  left: 0;
+  background: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: none;
+  max-height: 0;
+  transition: max-height 0.3s, box-shadow 0.3s;
+}
+.control-dropdown:hover .control-dropdown-options {
+  max-height: 1000px;
+  box-shadow: 0 0 0 1px #ececec;
+}
+.control-dropdown-options-item {
+  font-size: 13px;
+  cursor: pointer;
+  padding: 4px 24px 4px 8px;
+  transition: background-color 0.3s;
+}
+.control-dropdown-options-item-selected:after {
+  content: "";
+  position: absolute;
+  right: 6px;
+  top: 8px;
+  width: 8px;
+  height: 4px;
+  opacity: 0.8;
+  border-bottom: 1px solid currentColor;
+  border-left: 1px solid currentColor;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+.control-dropdown-options-item:hover {
+  background-color: #ececec;
+}
+.control-dropdown-options-item:first-child {
+  margin-top: 0;
+}
+.control-dropdown-options-item:last-child {
+  margin-bottom: 0;
 }

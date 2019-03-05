@@ -37857,6 +37857,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./directives/list-item.es6 */ "./resources/es6/directives/list-item.es6");
 /* harmony import */ var _directives_menu_es6__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./directives/menu.es6 */ "./resources/es6/directives/menu.es6");
 /* harmony import */ var _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./directives/sidebar.es6 */ "./resources/es6/directives/sidebar.es6");
+/* harmony import */ var _directives_control_es6__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./directives/control.es6 */ "./resources/es6/directives/control.es6");
 // vendors
 
 
@@ -37885,6 +37886,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 angular.module('app', ['ngRoute'])
     .factory('api', _services_api_es6__WEBPACK_IMPORTED_MODULE_5__["default"])
     .factory('loader', _services_loader_es6__WEBPACK_IMPORTED_MODULE_6__["default"])
@@ -37901,6 +37903,10 @@ angular.module('app', ['ngRoute'])
     .directive('menuItem', _directives_menu_es6__WEBPACK_IMPORTED_MODULE_16__["menuItemDirective"])
     .directive('sidebar', _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_17__["sidebarDirective"])
     .directive('sidebarGroup', _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_17__["sidebarGroupDirective"])
+    .directive('control', _directives_control_es6__WEBPACK_IMPORTED_MODULE_18__["controlDirective"])
+    .directive('controlTextarea', _directives_control_es6__WEBPACK_IMPORTED_MODULE_18__["controlTextareaDirective"])
+    .directive('controlSelect', _directives_control_es6__WEBPACK_IMPORTED_MODULE_18__["controlSelectDirective"])
+    .directive('controlInput', _directives_control_es6__WEBPACK_IMPORTED_MODULE_18__["controlInputDirective"])
     .filter('startFromFilter', _filters_start_from_es6__WEBPACK_IMPORTED_MODULE_4__["default"])
     .filter('trustHtmlFilter', _filters_trust_html_es6__WEBPACK_IMPORTED_MODULE_2__["default"])
     .filter('trustResourceFilter', _filters_trust_resource_es6__WEBPACK_IMPORTED_MODULE_3__["default"])
@@ -37939,7 +37945,7 @@ angular.module('app', ['ngRoute'])
         }]
     )
     .run(/** @ngInject */ function(loader, $rootScope) {
-        
+
     });
 
 
@@ -38115,6 +38121,153 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/es6/directives/control.es6":
+/*!**********************************************!*\
+  !*** ./resources/es6/directives/control.es6 ***!
+  \**********************************************/
+/*! exports provided: controlDirective, controlTextareaDirective, controlInputDirective, controlSelectDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "controlDirective", function() { return controlDirective; });
+/* harmony import */ var _controls_textarea_es6__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./controls/textarea.es6 */ "./resources/es6/directives/controls/textarea.es6");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "controlTextareaDirective", function() { return _controls_textarea_es6__WEBPACK_IMPORTED_MODULE_0__["controlTextareaDirective"]; });
+
+/* harmony import */ var _controls_input_es6__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./controls/input.es6 */ "./resources/es6/directives/controls/input.es6");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "controlInputDirective", function() { return _controls_input_es6__WEBPACK_IMPORTED_MODULE_1__["controlInputDirective"]; });
+
+/* harmony import */ var _controls_select_es6__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./controls/select.es6 */ "./resources/es6/directives/controls/select.es6");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "controlSelectDirective", function() { return _controls_select_es6__WEBPACK_IMPORTED_MODULE_2__["controlSelectDirective"]; });
+
+
+
+
+
+/** @ngInject */ function controlDirective($compile) {
+    return {
+        replace: true,
+        scope: {
+            control: '@',
+            title: '@',
+            placeholder: '@',
+            ngModel: '=',
+            values: '='
+        },
+        link: function (scope, element, atts) {
+            const controlTpl = `<control-${scope.control}></control-${scope.control}>`;
+
+            const setDefaultValue = () => {
+                scope.default = scope.default || '';
+                return scope.values && scope.values[0] ? scope.values[0].value : scope.default;
+            };
+
+            scope.ngModel = scope.ngModel || setDefaultValue();
+
+            element.replaceWith($compile(angular.element(controlTpl))(scope));
+        },
+        controller: /** @ngInject */ function($scope) {
+            $scope.setValue = (value) => {
+                $scope.ngModel = angular.isObject(value) ? value.value : value;
+            };
+        }
+    }
+}
+
+
+
+/***/ }),
+
+/***/ "./resources/es6/directives/controls/input.es6":
+/*!*****************************************************!*\
+  !*** ./resources/es6/directives/controls/input.es6 ***!
+  \*****************************************************/
+/*! exports provided: controlInputDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "controlInputDirective", function() { return controlInputDirective; });
+/* harmony import */ var _html_controls_input_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../html/controls/input.html */ "./resources/html/controls/input.html");
+/* harmony import */ var _html_controls_input_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_html_controls_input_html__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function controlInputDirective() {
+    return {
+        template: _html_controls_input_html__WEBPACK_IMPORTED_MODULE_0___default.a,
+        replace: true,
+        link: function (scope) {
+            // scope.isDropdown = !!scope.param.values && !!scope.param.values.length;
+        },
+        controller: /** @ngInject */ function() {
+
+        }
+    }
+}
+
+
+/***/ }),
+
+/***/ "./resources/es6/directives/controls/select.es6":
+/*!******************************************************!*\
+  !*** ./resources/es6/directives/controls/select.es6 ***!
+  \******************************************************/
+/*! exports provided: controlSelectDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "controlSelectDirective", function() { return controlSelectDirective; });
+/* harmony import */ var _html_controls_select_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../html/controls/select.html */ "./resources/html/controls/select.html");
+/* harmony import */ var _html_controls_select_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_html_controls_select_html__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function controlSelectDirective() {
+    return {
+        template: _html_controls_select_html__WEBPACK_IMPORTED_MODULE_0___default.a,
+        replace: true,
+        link: function (scope) {
+
+        },
+        controller: /** @ngInject */ function() {
+            
+        }
+    }
+}
+
+
+/***/ }),
+
+/***/ "./resources/es6/directives/controls/textarea.es6":
+/*!********************************************************!*\
+  !*** ./resources/es6/directives/controls/textarea.es6 ***!
+  \********************************************************/
+/*! exports provided: controlTextareaDirective */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "controlTextareaDirective", function() { return controlTextareaDirective; });
+/* harmony import */ var _html_controls_textarea_html__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../html/controls/textarea.html */ "./resources/html/controls/textarea.html");
+/* harmony import */ var _html_controls_textarea_html__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_html_controls_textarea_html__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function controlTextareaDirective() {
+    return {
+        template: _html_controls_textarea_html__WEBPACK_IMPORTED_MODULE_0___default.a,
+        replace: true,
+        link: function (scope) {
+
+        },
+        controller: /** @ngInject */ function($scope) {
+
+        }
+    }
+}
+
+
+/***/ }),
+
 /***/ "./resources/es6/directives/list-item.es6":
 /*!************************************************!*\
   !*** ./resources/es6/directives/list-item.es6 ***!
@@ -38206,15 +38359,19 @@ function listDirective() {
         controller: /** @ngInject */ function listController($rootScope, $scope, $location) {
             const strictSearch = true;
             
+            const setItems = (items, limit = false) => {
+                return limit ? items.slice(0, limit) : items;
+            };
+
+            const checkPagination = () => {
+                return $scope.filterItems && $scope.filterItems.length && $scope.totalPages() > 1;
+            }
+
+            $scope.filterItems = $scope.items = setItems($scope.items, $scope.limit);
+
             $scope.$watch('items', (newValue, oldValue) => {
                 if (newValue && !angular.equals(newValue, oldValue)) {
-                    $scope.items = newValue;
-
-                    if ($scope.limit && $scope.items) {
-                        $scope.items = $scope.items.slice(0, $scope.limit);
-                    }
-        
-                    $scope.filterItems = $scope.items;
+                    $scope.filterItems = $scope.items = setItems(newValue, $scope.limit);
                 }
             });
 
@@ -38222,13 +38379,10 @@ function listDirective() {
         
             $scope.page = 0;
             $scope.perPage = $scope.limit || $scope.perPage || 8;
+            $scope.paginationEnabled = checkPagination();
 
             $scope.sortType = 'id';
             $scope.sortReverse = false;
-
-            const checkPagination = () => {
-                return $scope.filterItems && $scope.filterItems.length && $scope.totalPages() > 1;
-            }
 
             $scope.isFirstPage = () => {
                 return $scope.page == 0;
@@ -38253,8 +38407,6 @@ function listDirective() {
             $scope.pageForward = () => {
                 $scope.page++;
             };
-
-            $scope.paginationEnabled = checkPagination();
 
             $rootScope.$watch('search', (newValue, oldValue) => {
                 if (oldValue !== newValue && $scope.items) {
@@ -38778,6 +38930,39 @@ __webpack_require__.r(__webpack_exports__);
 
     return new Loader($injector);
 });
+
+/***/ }),
+
+/***/ "./resources/html/controls/input.html":
+/*!********************************************!*\
+  !*** ./resources/html/controls/input.html ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" for=\"control-{{$id}}\">\r\n        {{ name }}\r\n    </label>\r\n\r\n    <div class=\"control-inner\" ng-class=\"{'control-dropdown': !!values}\">\r\n        <input class=\"control-input\" id=\"control-{{$id}}\" ng-model=\"ngModel\" placeholder=\"{{name}}\"/>\r\n\r\n        <div class=\"control-dropdown-options\" ng-if=\"values\">\r\n            <div class=\"control-dropdown-options-item\"\r\n                 ng-repeat=\"value in values\"\r\n                 ng-class=\"{'control-dropdown-options-item-selected': ngModel === value.value}\"\r\n                 ng-click=\"setValue(value)\">\r\n                {{ value.name }}\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
+
+/***/ }),
+
+/***/ "./resources/html/controls/select.html":
+/*!*********************************************!*\
+  !*** ./resources/html/controls/select.html ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" for=\"control-{{$id}}\">\r\n        {{ name }}\r\n    </label>\r\n\r\n    <div class=\"control-inner\" ng-class=\"{'control-dropdown': !!values}\">\r\n        <div class=\"control-dropdown-options\" ng-if=\"values\">\r\n            <div class=\"control-dropdown-options-item\"\r\n                 ng-repeat=\"value in values\"\r\n                 ng-class=\"{'control-dropdown-options-item-selected': ngModel === value.value}\"\r\n                 ng-click=\"setValue(value)\">\r\n                {{ value.name }}\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
+
+/***/ }),
+
+/***/ "./resources/html/controls/textarea.html":
+/*!***********************************************!*\
+  !*** ./resources/html/controls/textarea.html ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" for=\"control-{{$id}}\">\r\n        {{ name }}\r\n    </label>\r\n\r\n    <div class=\"control-inner\">\r\n        <textarea class=\"control-textarea\" id=\"control-{{$id}}\">{{ ngModel }}</textarea>\r\n    </div>\r\n</div>\r\n";
 
 /***/ }),
 

@@ -25,6 +25,7 @@ import listDirective from './directives/list.es6';
 import listItemDirective from './directives/list-item.es6';
 import {menuDirective, menuItemDirective} from './directives/menu.es6';
 import {sidebarDirective, sidebarGroupDirective} from './directives/sidebar.es6';
+import {controlDirective, controlTextareaDirective, controlInputDirective, controlSelectDirective} from './directives/control.es6';
 
 angular.module('app', ['ngRoute'])
     .factory('api', apiService)
@@ -42,6 +43,10 @@ angular.module('app', ['ngRoute'])
     .directive('menuItem', menuItemDirective)
     .directive('sidebar', sidebarDirective)
     .directive('sidebarGroup', sidebarGroupDirective)
+    .directive('control', controlDirective)
+    .directive('controlTextarea', controlTextareaDirective)
+    .directive('controlSelect', controlSelectDirective)
+    .directive('controlInput', controlInputDirective)
     .filter('startFromFilter', startFromFilter)
     .filter('trustHtmlFilter', trustHtmlFilter)
     .filter('trustResourceFilter', trustResourceFilter)
@@ -80,5 +85,5 @@ angular.module('app', ['ngRoute'])
         }]
     )
     .run(/** @ngInject */ function(loader, $rootScope) {
-        
+
     });
