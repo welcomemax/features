@@ -2,7 +2,7 @@
     <div class="detail item">
         <a class="item-close" href="/#/features/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
 
-        <div class="item-inner">
+        <div class="item-inner" ng-show="!itemIsLoading">
             <div class="item-header">
                 <h1>{{ item.title }}</h1>
             </div>
@@ -12,14 +12,16 @@
             </div>
 
             <div class="item-footer">
-                <!-- <tags class="item-footer-tags" icon="true" items="item.tags"></tags> -->
-                <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
+                <tags ng-if="item.tags" class="item-footer-tags" icon="true" items="item.tags"></tags>
+                <span ng-if="item.updated_at" class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
             </div>
         </div>
+
+        <loader size="small" active="itemIsLoading"></loader>
     </div>
 
     <div class="subscribe">
-        <div ng-if="!item.subscribed" class="subscripe-form">
+        <div ng-if="!item.subscribed" class="subscribe-form">
             <div class="subscribe-form-header">
                 <div class="subscribe-form-header-title">Interested in this feature?</div>
                 <div class="subscribe-form-header-caption">Subscribe and we'll mail you when {{ item.title }} feature will be implemented</div>

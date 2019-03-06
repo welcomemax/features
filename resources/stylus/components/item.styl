@@ -1,13 +1,9 @@
 .list
     .item
         background #fafafa
-        padding-right 80px
 
         &:hover
             background #f7f7f7
-
-.edit.item
-    padding-right 80px
 
 .item
     position relative
@@ -19,6 +15,11 @@
     border-radius 4px
     background color_white
     transition background .3s
+    padding-right 80px
+
+    &.detail
+    &.edit
+        min-height 160px
 
     &-inner
         display flex

@@ -47,7 +47,7 @@
     <main class="main" ng-view></main>
 
     <div class="notifications"></div>
-    <div class="loader" ng-show="loaderShow" ng-class="{ 'loader-visible': isLoading }"><div class="loader-inner"></div></div>
+    <loader size="big" active="isLoading"></loader>
 
     <footer class="footer" ng-show="!isLoading">
         <div class="footer-inner">
@@ -67,7 +67,7 @@
                     <button class="button user-login-button">Login</button>
                 </div>
                 <div ng-if="user" class="user">
-                    <div class="user-avatar"><img src="{{ user.avatar }}"></div>
+                    <div class="user-avatar"><img src=""></div>
                     <div class="user-name">{{ user.name }}</div>
                 </div>
             </div>

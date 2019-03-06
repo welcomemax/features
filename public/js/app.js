@@ -37851,13 +37851,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _controllers_list_es6__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./controllers/list.es6 */ "./resources/es6/controllers/list.es6");
 /* harmony import */ var _controllers_detail_es6__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./controllers/detail.es6 */ "./resources/es6/controllers/detail.es6");
 /* harmony import */ var _controllers_edit_es6__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./controllers/edit.es6 */ "./resources/es6/controllers/edit.es6");
-/* harmony import */ var _directives_tags_es6__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./directives/tags.es6 */ "./resources/es6/directives/tags.es6");
-/* harmony import */ var _directives_preview_es6__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./directives/preview.es6 */ "./resources/es6/directives/preview.es6");
-/* harmony import */ var _directives_list_es6__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./directives/list.es6 */ "./resources/es6/directives/list.es6");
-/* harmony import */ var _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./directives/list-item.es6 */ "./resources/es6/directives/list-item.es6");
-/* harmony import */ var _directives_menu_es6__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./directives/menu.es6 */ "./resources/es6/directives/menu.es6");
-/* harmony import */ var _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./directives/sidebar.es6 */ "./resources/es6/directives/sidebar.es6");
-/* harmony import */ var _directives_control_es6__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./directives/control.es6 */ "./resources/es6/directives/control.es6");
+/* harmony import */ var _directives_loader_es6__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./directives/loader.es6 */ "./resources/es6/directives/loader.es6");
+/* harmony import */ var _directives_tags_es6__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./directives/tags.es6 */ "./resources/es6/directives/tags.es6");
+/* harmony import */ var _directives_preview_es6__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./directives/preview.es6 */ "./resources/es6/directives/preview.es6");
+/* harmony import */ var _directives_list_es6__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./directives/list.es6 */ "./resources/es6/directives/list.es6");
+/* harmony import */ var _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./directives/list-item.es6 */ "./resources/es6/directives/list-item.es6");
+/* harmony import */ var _directives_menu_es6__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./directives/menu.es6 */ "./resources/es6/directives/menu.es6");
+/* harmony import */ var _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./directives/sidebar.es6 */ "./resources/es6/directives/sidebar.es6");
+/* harmony import */ var _directives_control_es6__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./directives/control.es6 */ "./resources/es6/directives/control.es6");
 // vendors
 
 
@@ -37887,6 +37888,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 angular.module('app', ['ngRoute'])
     .factory('api', _services_api_es6__WEBPACK_IMPORTED_MODULE_5__["default"])
     .factory('loader', _services_loader_es6__WEBPACK_IMPORTED_MODULE_6__["default"])
@@ -37895,18 +37897,19 @@ angular.module('app', ['ngRoute'])
     .controller('listController', _controllers_list_es6__WEBPACK_IMPORTED_MODULE_9__["default"])
     .controller('detailController', _controllers_detail_es6__WEBPACK_IMPORTED_MODULE_10__["default"])
     .controller('editController', _controllers_edit_es6__WEBPACK_IMPORTED_MODULE_11__["default"])
-    .directive('tags', _directives_tags_es6__WEBPACK_IMPORTED_MODULE_12__["default"])
-    .directive('preview', _directives_preview_es6__WEBPACK_IMPORTED_MODULE_13__["default"])
-    .directive('list', _directives_list_es6__WEBPACK_IMPORTED_MODULE_14__["default"])
-    .directive('listItem', _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_15__["default"])
-    .directive('menu', _directives_menu_es6__WEBPACK_IMPORTED_MODULE_16__["menuDirective"])
-    .directive('menuItem', _directives_menu_es6__WEBPACK_IMPORTED_MODULE_16__["menuItemDirective"])
-    .directive('sidebar', _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_17__["sidebarDirective"])
-    .directive('sidebarGroup', _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_17__["sidebarGroupDirective"])
-    .directive('control', _directives_control_es6__WEBPACK_IMPORTED_MODULE_18__["controlDirective"])
-    .directive('controlTextarea', _directives_control_es6__WEBPACK_IMPORTED_MODULE_18__["controlTextareaDirective"])
-    .directive('controlSelect', _directives_control_es6__WEBPACK_IMPORTED_MODULE_18__["controlSelectDirective"])
-    .directive('controlInput', _directives_control_es6__WEBPACK_IMPORTED_MODULE_18__["controlInputDirective"])
+    .directive('loader', _directives_loader_es6__WEBPACK_IMPORTED_MODULE_12__["default"])
+    .directive('tags', _directives_tags_es6__WEBPACK_IMPORTED_MODULE_13__["default"])
+    .directive('preview', _directives_preview_es6__WEBPACK_IMPORTED_MODULE_14__["default"])
+    .directive('list', _directives_list_es6__WEBPACK_IMPORTED_MODULE_15__["default"])
+    .directive('listItem', _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_16__["default"])
+    .directive('menu', _directives_menu_es6__WEBPACK_IMPORTED_MODULE_17__["menuDirective"])
+    .directive('menuItem', _directives_menu_es6__WEBPACK_IMPORTED_MODULE_17__["menuItemDirective"])
+    .directive('sidebar', _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_18__["sidebarDirective"])
+    .directive('sidebarGroup', _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_18__["sidebarGroupDirective"])
+    .directive('control', _directives_control_es6__WEBPACK_IMPORTED_MODULE_19__["controlDirective"])
+    .directive('controlTextarea', _directives_control_es6__WEBPACK_IMPORTED_MODULE_19__["controlTextareaDirective"])
+    .directive('controlSelect', _directives_control_es6__WEBPACK_IMPORTED_MODULE_19__["controlSelectDirective"])
+    .directive('controlInput', _directives_control_es6__WEBPACK_IMPORTED_MODULE_19__["controlInputDirective"])
     .filter('startFromFilter', _filters_start_from_es6__WEBPACK_IMPORTED_MODULE_4__["default"])
     .filter('trustHtmlFilter', _filters_trust_html_es6__WEBPACK_IMPORTED_MODULE_2__["default"])
     .filter('trustResourceFilter', _filters_trust_resource_es6__WEBPACK_IMPORTED_MODULE_3__["default"])
@@ -37962,17 +37965,9 @@ angular.module('app', ['ngRoute'])
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function ($rootScope, $scope) {
     $rootScope.isLoading = true;
-    setTimeout(() => {
-        $rootScope.loaderShow = true;
-    }, 500)
     
     $rootScope.toggleLoader = (value) => {
         $rootScope.isLoading = value;
-        if (!value) {
-            setTimeout(() => {
-                $rootScope.loaderShow = value;
-            }, 500)
-        }
     };
     
     $rootScope.$on('$routeChangeStart', () => {
@@ -38005,8 +38000,10 @@ __webpack_require__.r(__webpack_exports__);
     const id = $routeParams.id;
     
     $scope.item = {};
+    $scope.itemIsLoading = true;
 
     id && api.call(`${section}/${id}`, 'get').then((response) => {
+        $scope.itemIsLoading = false;
         $scope.item = response.data[0];
         $scope.item.tags = [$scope.item.product, $scope.item.type];
     });
@@ -38031,27 +38028,33 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (api, $rootScope, $scope, $routeParams, $location) {
     const section = $routeParams.section;
-    const id = $routeParams.id;
+    const id = parseInt($routeParams.id);
     
     $scope.item = {};
+    $scope.itemIsLoading = true;
 
-    id && api.call(`${section}/${id}`, 'get').then(function(response) {
+    id && api.call(`${section}/${id}`, 'get').then((response) => {
+        $scope.itemIsLoading = false;
         $scope.item = response.data[0];
         $scope.item.tags = [$scope.item.product, $scope.item.type];
     });
 
-    $scope.save = function() {
-        api.call(`${section}/${id}`, 'post', $scope.item).then(function(response) {
-            console.log(response);
-            $location.path(`/detail/${id}`);
+    $scope.save = () => {
+        api.call(`${section}/${id}`, 'post', $scope.item).then((response) => {
+            for (var i in $rootScope[section]) {
+                if ($rootScope[section][i].id === id) {
+                    $rootScope[section][i] = $scope.item;
+                    break;
+                }
+            }
+            $location.path(`/${section}/${id}`);
         });
     };
 
-    $scope.delete = function() {
+    $scope.delete = () => {
         if (confirm('Are you sure?')) {
-            api.call(`${section}/${id}`, 'delete').then(function(response) {
-                console.log(response);
-                $location.path('/');
+            api.call(`${section}/${id}`, 'delete').then((response) => {
+                $location.path(`${section}/`);
             });
         }
     };
@@ -38149,7 +38152,7 @@ __webpack_require__.r(__webpack_exports__);
         replace: true,
         scope: {
             control: '@',
-            title: '@',
+            name: '@',
             placeholder: '@',
             ngModel: '=',
             values: '='
@@ -38167,9 +38170,7 @@ __webpack_require__.r(__webpack_exports__);
             element.replaceWith($compile(angular.element(controlTpl))(scope));
         },
         controller: /** @ngInject */ function($scope) {
-            $scope.setValue = (value) => {
-                $scope.ngModel = angular.isObject(value) ? value.value : value;
-            };
+            $scope.setValue = (value) => $scope.ngModel = value;
         }
     }
 }
@@ -38358,9 +38359,20 @@ function listDirective() {
         },
         controller: /** @ngInject */ function listController($rootScope, $scope, $location) {
             const strictSearch = true;
-            
+
+            $scope.itemsIsLoading = true;
+            $scope.isFirstPage = () => $scope.page == 0;
+            $scope.isLastPage = () => $scope.page == Math.ceil($scope.filterItems.length / $scope.perPage - 1);    
+            $scope.pageBack = () => $scope.page--;
+            $scope.pageForward = () => $scope.page++;
+            $scope.totalPages = () => Math.ceil($scope.filterItems.length / $scope.perPage);
+            $scope.startingItem = () => $scope.page * $scope.perPage;
+
             const setItems = (items, limit = false) => {
-                return limit ? items.slice(0, limit) : items;
+                if (items && items.length) {
+                    $scope.itemsIsLoading = false;
+                    return limit ? items.slice(0, limit) : items; 
+                }
             };
 
             const checkPagination = () => {
@@ -38383,30 +38395,6 @@ function listDirective() {
 
             $scope.sortType = 'id';
             $scope.sortReverse = false;
-
-            $scope.isFirstPage = () => {
-                return $scope.page == 0;
-            };
-        
-            $scope.isLastPage = () => {
-                return $scope.page == Math.ceil($scope.filterItems.length / $scope.perPage - 1);
-            };
-        
-            $scope.totalPages = () => {
-                return Math.ceil($scope.filterItems.length / $scope.perPage);
-            };
-        
-            $scope.startingItem = () => {
-                return $scope.page * $scope.perPage;
-            };
-        
-            $scope.pageBack = () => {
-                $scope.page--;
-            };
-        
-            $scope.pageForward = () => {
-                $scope.page++;
-            };
 
             $rootScope.$watch('search', (newValue, oldValue) => {
                 if (oldValue !== newValue && $scope.items) {
@@ -38460,6 +38448,36 @@ function listDirective() {
         }
     };
 }
+
+/***/ }),
+
+/***/ "./resources/es6/directives/loader.es6":
+/*!*********************************************!*\
+  !*** ./resources/es6/directives/loader.es6 ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function() {
+    return {
+        restrict: 'E',
+        replace: true,
+        scope: {
+            size: '@',
+            active: '='
+        },
+        controller: ($scope) => {
+            $scope.size = $scope.size || 'big';
+        },
+        template: `
+            <div class="loader loader-{{size}}" ng-class="{ 'loader-visible': !!active }">
+                <div class="loader-inner"></div>
+            </div>
+        `
+    };
+});
 
 /***/ }),
 
@@ -38940,7 +38958,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" for=\"control-{{$id}}\">\r\n        {{ name }}\r\n    </label>\r\n\r\n    <div class=\"control-inner\" ng-class=\"{'control-dropdown': !!values}\">\r\n        <input class=\"control-input\" id=\"control-{{$id}}\" ng-model=\"ngModel\" placeholder=\"{{name}}\"/>\r\n\r\n        <div class=\"control-dropdown-options\" ng-if=\"values\">\r\n            <div class=\"control-dropdown-options-item\"\r\n                 ng-repeat=\"value in values\"\r\n                 ng-class=\"{'control-dropdown-options-item-selected': ngModel === value.value}\"\r\n                 ng-click=\"setValue(value)\">\r\n                {{ value.name }}\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
+module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" ng-if=\"name\" for=\"control-{{$id}}\">\r\n        {{ name }}\r\n    </label>\r\n\r\n    <div class=\"control-inner\" ng-class=\"{'control-dropdown': !!values}\">\r\n        <input class=\"control-input\" id=\"control-{{$id}}\" ng-model=\"ngModel\" placeholder=\"{{name}}\"/>\r\n\r\n        <div class=\"control-dropdown-options\" ng-if=\"values\">\r\n            <div class=\"control-dropdown-options-item\"\r\n                 ng-repeat=\"value in values\"\r\n                 ng-class=\"{'control-dropdown-options-item-selected': ngModel === value.value}\"\r\n                 ng-click=\"setValue(value)\">\r\n                {{ value.name }}\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
 
 /***/ }),
 
@@ -38951,7 +38969,7 @@ module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" for=\"control-{{$id}}\">\r\n        {{ name }}\r\n    </label>\r\n\r\n    <div class=\"control-inner\" ng-class=\"{'control-dropdown': !!values}\">\r\n        <div class=\"control-dropdown-options\" ng-if=\"values\">\r\n            <div class=\"control-dropdown-options-item\"\r\n                 ng-repeat=\"value in values\"\r\n                 ng-class=\"{'control-dropdown-options-item-selected': ngModel === value.value}\"\r\n                 ng-click=\"setValue(value)\">\r\n                {{ value.name }}\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
+module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" ng-if=\"name\" for=\"control-{{$id}}\">\r\n        {{ name }}\r\n    </label>\r\n\r\n    <div class=\"control-inner\" ng-class=\"{'control-dropdown': !!values}\">\r\n        <div class=\"control-value\">\r\n            {{ ngModel.name }}\r\n        </div>\r\n\r\n        <div class=\"control-dropdown-options\" ng-if=\"values\">\r\n            <div class=\"control-dropdown-options-item\"\r\n                 ng-repeat=\"value in values\"\r\n                 ng-class=\"{'control-dropdown-options-item-selected': ngModel.name === value.name}\"\r\n                 ng-click=\"setValue(value)\">\r\n                {{ value.name }}\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
 
 /***/ }),
 
@@ -38962,7 +38980,7 @@ module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" for=\"control-{{$id}}\">\r\n        {{ name }}\r\n    </label>\r\n\r\n    <div class=\"control-inner\">\r\n        <textarea class=\"control-textarea\" id=\"control-{{$id}}\">{{ ngModel }}</textarea>\r\n    </div>\r\n</div>\r\n";
+module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" ng-if=\"name\" for=\"control-{{$id}}\">\r\n        {{ name }}\r\n    </label>\r\n\r\n    <div class=\"control-inner\">\r\n        <textarea class=\"control-textarea\" id=\"control-{{$id}}\">{{ ngModel }}</textarea>\r\n    </div>\r\n</div>\r\n";
 
 /***/ }),
 
@@ -38984,7 +39002,7 @@ module.exports = "<div class=\"item item-type-{{item.type.alias}}\">\r\n    <a c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"list-container\">\r\n    <div class=\"list-header\" ng-if=\"title || !currentSection\">\r\n        <h3 class=\"list-header-title\">{{ title }}</h3>\r\n\r\n        <a ng-if=\"!currentSection\" class=\"list-header-all\" href=\"#/{{ type }}s/\">\r\n            All {{ type }}s >\r\n        </a>\r\n    </div>\r\n\r\n    <div class=\"list\" ng-class=\"{\r\n            'list-half': size == 'half',\r\n            'list-third': size == 'third'\r\n        }\">\r\n        <list-item ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: perPage | filter: $root.search | orderBy:sortType:sortReverse\"\r\n            item=\"item\" show=\"show\" type=\"type\"></item>\r\n    </div>\r\n\r\n    <div class=\"list-empty\" ng-show=\"filterItems && !filterItems.length\">No results</div>\r\n\r\n    <div class=\"pagination\" ng-if=\"paginationEnabled\">\r\n        <button class=\"pagination-button pagination-button-prev\" \r\n            ng-disabled=\"isFirstPage()\" ng-click=\"pageBack()\">\r\n            <i class=\"icon icon-arrow icon-arrow-left\"></i>\r\n        </button>\r\n\r\n        <span class=\"pagination-pages\">\r\n            <b>{{ page + 1 }}</b>/<b>{{ totalPages() }}</b>\r\n        </span>\r\n\r\n        <button class=\"pagination-button pagination-button-next\" \r\n            ng-disabled=\"isLastPage()\" ng-click=\"pageForward()\">\r\n            <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n        </button>\r\n    </div>\r\n\r\n    <div class=\"loader loader-small\" ng-class=\"{ 'loader-visible': !filterItems }\"><div class=\"loader-inner\"></div></div>\r\n</div>";
+module.exports = "<div class=\"list-container\">\r\n    <div class=\"list-header\" ng-if=\"title || !currentSection\">\r\n        <h3 class=\"list-header-title\">{{ title }}</h3>\r\n\r\n        <a ng-if=\"!currentSection\" class=\"list-header-all\" href=\"#/{{ type }}s/\">\r\n            All {{ type }}s >\r\n        </a>\r\n    </div>\r\n\r\n    <div class=\"list\" ng-class=\"{\r\n            'list-half': size == 'half',\r\n            'list-third': size == 'third'\r\n        }\">\r\n        <list-item ng-repeat=\"item in filterItems | startFromFilter: startingItem() | limitTo: perPage | filter: $root.search | orderBy:sortType:sortReverse\"\r\n            item=\"item\" show=\"show\" type=\"type\"></item>\r\n    </div>\r\n\r\n    <div class=\"list-empty\" ng-show=\"filterItems && !filterItems.length\">No results</div>\r\n\r\n    <div class=\"pagination\" ng-if=\"paginationEnabled\">\r\n        <button class=\"pagination-button pagination-button-prev\" \r\n            ng-disabled=\"isFirstPage()\" ng-click=\"pageBack()\">\r\n            <i class=\"icon icon-arrow icon-arrow-left\"></i>\r\n        </button>\r\n\r\n        <span class=\"pagination-pages\">\r\n            <b>{{ page + 1 }}</b>/<b>{{ totalPages() }}</b>\r\n        </span>\r\n\r\n        <button class=\"pagination-button pagination-button-next\" \r\n            ng-disabled=\"isLastPage()\" ng-click=\"pageForward()\">\r\n            <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n        </button>\r\n    </div>\r\n\r\n    <loader size=\"small\" active=\"itemsIsLoading\"></loader></div>";
 
 /***/ }),
 

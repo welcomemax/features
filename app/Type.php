@@ -13,10 +13,6 @@ class Type extends Model
         'name'
     ];
 
-    protected $hidden = [
-        'id'
-    ];
-
     public $timestamps = false;
 
     public function features() {

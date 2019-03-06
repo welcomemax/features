@@ -19,12 +19,23 @@ class FeatureController extends Controller
         ];
     }
 
-    public function save(Request $request, $id = null)
+    public function save(Request $request, $id)
     {
         $data = $request->input();
-        $data->id = $id;
 
-        Feature::updateOrCreate($data);
+        $product_data = json_decode($data['product'], true);
+        $type_data = json_decode($data['type'], true);
+
+        $feature_data = [
+            'id' => $data['id'],
+            'title' => $data['title'],
+            'data' => $data['data'],
+            'product_id' => $product_data['id'],
+            'type_id' => $type_data['id'],
+            'private' => $data['private']
+        ];
+
+        Feature::updateOrCreate(['id' => $id], $feature_data);
 
         return [
             'status' => 1,

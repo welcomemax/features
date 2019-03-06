@@ -801,13 +801,9 @@ section:nth-child(even) .list-container .item {
 }
 .list .item {
   background: #fafafa;
-  padding-right: 80px;
 }
 .list .item:hover {
   background: #f7f7f7;
-}
-.edit.item {
-  padding-right: 80px;
 }
 .item {
   position: relative;
@@ -819,6 +815,11 @@ section:nth-child(even) .list-container .item {
   border-radius: 4px;
   background: #fff;
   transition: background 0.3s;
+  padding-right: 80px;
+}
+.item.detail,
+.item.edit {
+  min-height: 160px;
 }
 .item-inner {
   display: flex;
@@ -1263,10 +1264,11 @@ section:nth-child(even) .list-container .item {
   margin-bottom: 4px;
 }
 .control-input,
-.control-textarea {
+.control-textarea,
+.control-value {
   width: 100%;
   box-sizing: border-box;
-  padding: 4px 24px 4px 8px;
+  padding: 8px 24px 8px 8px;
   margin: 0;
   outline: none;
   border-radius: 3px;
@@ -1276,13 +1278,20 @@ section:nth-child(even) .list-container .item {
   font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 .control-input:focus,
-.control-textarea:focus {
+.control-textarea:focus,
+.control-value:focus {
   border-color: rgba(153,153,153,0.6);
 }
 .control-textarea {
-  height: 52px;
+  height: 64px;
+  resize: vertical;
 }
-.control-input {
+.control-value {
+  background: #fafafa;
+}
+.control-input,
+.control-value {
+  height: 32px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -1309,20 +1318,31 @@ section:nth-child(even) .list-container .item {
   height: auto;
   box-sizing: border-box;
   top: 100%;
-  margin-top: 4px;
   left: 0;
+  margin-top: 4px;
   background: #fff;
   border-radius: 3px;
   overflow: hidden;
   box-shadow: none;
   max-height: 0;
   transition: max-height 0.3s, box-shadow 0.3s;
+  overflow-y: auto;
+}
+.control-dropdown-options::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+.control-dropdown-options::-webkit-scrollbar {
+  width: 6px;
+}
+.control-dropdown-options::-webkit-scrollbar-thumb {
+  background-color: #888;
 }
 .control-dropdown:hover .control-dropdown-options {
-  max-height: 1000px;
+  max-height: 232px;
   box-shadow: 0 0 0 1px #ececec;
 }
 .control-dropdown-options-item {
+  position: relative;
   font-size: 13px;
   cursor: pointer;
   padding: 4px 24px 4px 8px;

@@ -19,6 +19,7 @@ import detailController from './controllers/detail.es6';
 import editController from './controllers/edit.es6';
 
 // directives
+import loaderDirective from './directives/loader.es6';
 import tagsDirective from './directives/tags.es6';
 import previewDirective from './directives/preview.es6';
 import listDirective from './directives/list.es6';
@@ -35,6 +36,7 @@ angular.module('app', ['ngRoute'])
     .controller('listController', listController)
     .controller('detailController', detailController)
     .controller('editController', editController)
+    .directive('loader', loaderDirective)
     .directive('tags', tagsDirective)
     .directive('preview', previewDirective)
     .directive('list', listDirective)

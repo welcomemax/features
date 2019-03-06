@@ -2,7 +2,7 @@
     <div class="edit item">
         <a class="item-close" href="/#/features/{{ item.id }}"><i class="icon icon-arrow icon-arrow-up"></i></a>
 
-        <div class="item-inner">
+        <div class="item-inner" ng-show="!itemIsLoading">
             <div class="item-header">
                 <div class="item-header-info">
                     <div control="input" ng-model="item.title" name="Title"></div>
@@ -10,18 +10,19 @@
             </div>
 
             <div class="item-body">
-                <div control="textarea" ng-model="item.data" name="Text"></div>
+                <div control="textarea" ng-model="item.data" name="Data"></div>
                 <div class="row">
-                    <div control="select" ng-model="item.type" name="Type" values="types"></div>
-                    <div control="select" ng-model="item.product" name="Product" values="products"></div>
+                    <div control="select" values="types" ng-model="item.type" name="Type"></div>
+                    <div control="select" values="products" ng-model="item.product" name="Product"></div>
                 </div>
             </div>
 
             <div class="item-footer">
-                <tags class="item-footer-tags" icon="true" items="item.tags"></tags>
-                <span class="item-footer-date" ng-if="item.updated_at">Last update: <b>{{ item.updated_at }}</b></span>
+                <span ng-if="item.updated_at" class="item-footer-date" ng-if="item.updated_at">Last update: <b>{{ item.updated_at }}</b></span>
             </div>
         </div>
+
+        <loader size="small" active="itemIsLoading"></loader>
     </div>
     
     <sidebar>

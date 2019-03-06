@@ -3,8 +3,10 @@ export default /** @ngInject */ function (api, $rootScope, $scope, $routeParams,
     const id = $routeParams.id;
     
     $scope.item = {};
+    $scope.itemIsLoading = true;
 
     id && api.call(`${section}/${id}`, 'get').then((response) => {
+        $scope.itemIsLoading = false;
         $scope.item = response.data[0];
         $scope.item.tags = [$scope.item.product, $scope.item.type];
     });

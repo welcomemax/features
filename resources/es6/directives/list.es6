@@ -17,9 +17,20 @@ export default /** @ngInject */ function listDirective() {
         },
         controller: /** @ngInject */ function listController($rootScope, $scope, $location) {
             const strictSearch = true;
-            
+
+            $scope.itemsIsLoading = true;
+            $scope.isFirstPage = () => $scope.page == 0;
+            $scope.isLastPage = () => $scope.page == Math.ceil($scope.filterItems.length / $scope.perPage - 1);    
+            $scope.pageBack = () => $scope.page--;
+            $scope.pageForward = () => $scope.page++;
+            $scope.totalPages = () => Math.ceil($scope.filterItems.length / $scope.perPage);
+            $scope.startingItem = () => $scope.page * $scope.perPage;
+
             const setItems = (items, limit = false) => {
-                return limit ? items.slice(0, limit) : items;
+                if (items && items.length) {
+                    $scope.itemsIsLoading = false;
+                    return limit ? items.slice(0, limit) : items; 
+                }
             };
 
             const checkPagination = () => {
@@ -42,30 +53,6 @@ export default /** @ngInject */ function listDirective() {
 
             $scope.sortType = 'id';
             $scope.sortReverse = false;
-
-            $scope.isFirstPage = () => {
-                return $scope.page == 0;
-            };
-        
-            $scope.isLastPage = () => {
-                return $scope.page == Math.ceil($scope.filterItems.length / $scope.perPage - 1);
-            };
-        
-            $scope.totalPages = () => {
-                return Math.ceil($scope.filterItems.length / $scope.perPage);
-            };
-        
-            $scope.startingItem = () => {
-                return $scope.page * $scope.perPage;
-            };
-        
-            $scope.pageBack = () => {
-                $scope.page--;
-            };
-        
-            $scope.pageForward = () => {
-                $scope.page++;
-            };
 
             $rootScope.$watch('search', (newValue, oldValue) => {
                 if (oldValue !== newValue && $scope.items) {

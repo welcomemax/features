@@ -7,7 +7,7 @@ import {controlSelectDirective} from './controls/select.es6';
         replace: true,
         scope: {
             control: '@',
-            title: '@',
+            name: '@',
             placeholder: '@',
             ngModel: '=',
             values: '='
@@ -25,9 +25,7 @@ import {controlSelectDirective} from './controls/select.es6';
             element.replaceWith($compile(angular.element(controlTpl))(scope));
         },
         controller: /** @ngInject */ function($scope) {
-            $scope.setValue = (value) => {
-                $scope.ngModel = angular.isObject(value) ? value.value : value;
-            };
+            $scope.setValue = (value) => $scope.ngModel = value;
         }
     }
 }

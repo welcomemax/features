@@ -1,13 +1,17 @@
 <div class="control">
-    <label class="control-label" for="control-{{$id}}">
+    <label class="control-label" ng-if="name" for="control-{{$id}}">
         {{ name }}
     </label>
 
     <div class="control-inner" ng-class="{'control-dropdown': !!values}">
+        <div class="control-value">
+            {{ ngModel.name }}
+        </div>
+
         <div class="control-dropdown-options" ng-if="values">
             <div class="control-dropdown-options-item"
                  ng-repeat="value in values"
-                 ng-class="{'control-dropdown-options-item-selected': ngModel === value.value}"
+                 ng-class="{'control-dropdown-options-item-selected': ngModel.name === value.name}"
                  ng-click="setValue(value)">
                 {{ value.name }}
             </div>
