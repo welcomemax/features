@@ -4,7 +4,7 @@
     </label>
 
     <div class="control-inner" ng-class="{'control-dropdown': !!values}">
-        <input class="control-input" id="control-{{$id}}" ng-model="ngModel" placeholder="{{name}}"/>
+        <input class="control-input" id="control-{{$id}}" ng-model="ngModel" placeholder="{{ placeholder || name }}"/>
 
         <div class="control-dropdown-options" ng-if="values">
             <div class="control-dropdown-options-item"

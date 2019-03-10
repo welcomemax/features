@@ -37995,22 +37995,28 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (api, $rootScope, $scope, $routeParams, $filter) {
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (loader, api, $rootScope, $scope, $routeParams, $filter) {
     const section = $routeParams.section;
-    const id = $routeParams.id;
-    
-    $scope.item = {};
-    $scope.itemIsLoading = true;
+    const id = $scope.id = parseInt($routeParams.id);
 
-    id && api.call(`${section}/${id}`, 'get').then((response) => {
-        $scope.itemIsLoading = false;
-        $scope.item = response.data[0];
-        $scope.item.tags = [$scope.item.product, $scope.item.type];
-    });
+    const loadItem = (section, id) => {
+        api.call(`${section}/${id}`, 'get').then((response) => {
+            $scope.item = response.data[0];
+            $scope.item.tags = [$scope.item.product, $scope.item.type];
+            $scope.itemIsLoading = false;
+        });
+    };
+
+    const filterByProduct = (items, product_name) => {
+        return $filter('filter')(items, {product: {name: product_name}});
+    };
+
+    [$scope.item, $scope.itemIsLoading] = loader.getItemFromRootScope(section, id);
+    angular.equals({}, $scope.item) && loadItem(section, id);
 
     if (section === 'apps') {
-        $scope.featuresByProduct = $filter('filter')($rootScope.features, {product: {name: $scope.item.name}});
-        $scope.releasesByProduct = $filter('filter')($rootScope.releases, {product: {name: $scope.item.name}});
+        $scope.featuresByProduct = filterByProduct($rootScope.features, $scope.item.name);
+        $scope.releasesByProduct = filterByProduct($rootScope.releases, $scope.item.name);
     }
 });
 
@@ -38026,28 +38032,38 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (api, $rootScope, $scope, $routeParams, $location) {
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (loader, api, $rootScope, $scope, $routeParams, $location) {
     const section = $routeParams.section;
-    const id = parseInt($routeParams.id);
-    
-    $scope.item = {};
-    $scope.itemIsLoading = true;
+    const id = parseInt($routeParams.id) || false;
 
-    id && api.call(`${section}/${id}`, 'get').then((response) => {
-        $scope.itemIsLoading = false;
-        $scope.item = response.data[0];
-        $scope.item.tags = [$scope.item.product, $scope.item.type];
-    });
+    const loadItem = (section, id) => {
+        api.call(`${section}/${id}`, 'get').then((response) => {
+            $scope.item = response.data[0];
+            $scope.item.tags = [$scope.item.product, $scope.item.type];
+            $scope.itemIsLoading = false;
+        });
+    };
+
+    const modifyRootScopeItem = (id) => {
+        for (var i in $rootScope[section]) {
+            if ($rootScope[section][i].id === id) {
+                $rootScope[section][i] = $scope.item;
+                break;
+            }
+        }
+    };
+    
+    [$scope.item, $scope.itemIsLoading] = loader.getItemFromRootScope(section, id);
+    angular.equals({}, $scope.item) && id ? loadItem(section, id) : {};
 
     $scope.save = () => {
         api.call(`${section}/${id}`, 'post', $scope.item).then((response) => {
-            for (var i in $rootScope[section]) {
-                if ($rootScope[section][i].id === id) {
-                    $rootScope[section][i] = $scope.item;
-                    break;
-                }
+            if (id) {
+                modifyRootScopeItem(id)
+            } else {
+                $rootScope[section].push($scope.item);
             }
-            $location.path(`/${section}/${id}`);
+            $location.path(`/${section}/${$scope.item.id}`);
         });
     };
 
@@ -38944,6 +38960,20 @@ __webpack_require__.r(__webpack_exports__);
                 this.$rootScope.$broadcast('loader:loaded');
             });
         }
+
+        getItemFromRootScope(section, id) {
+            if (id && section) {
+                if (this.$rootScope[section]) {
+                    const items = this.$rootScope[section];
+                    for (var i in items) {
+                        if (items[i].id == id) {
+                            return [items[i], false];
+                        }
+                    }
+                }
+            }
+            return [{}, true];
+        }
     }
 
     return new Loader($injector);
@@ -38958,7 +38988,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" ng-if=\"name\" for=\"control-{{$id}}\">\r\n        {{ name }}\r\n    </label>\r\n\r\n    <div class=\"control-inner\" ng-class=\"{'control-dropdown': !!values}\">\r\n        <input class=\"control-input\" id=\"control-{{$id}}\" ng-model=\"ngModel\" placeholder=\"{{name}}\"/>\r\n\r\n        <div class=\"control-dropdown-options\" ng-if=\"values\">\r\n            <div class=\"control-dropdown-options-item\"\r\n                 ng-repeat=\"value in values\"\r\n                 ng-class=\"{'control-dropdown-options-item-selected': ngModel === value.value}\"\r\n                 ng-click=\"setValue(value)\">\r\n                {{ value.name }}\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
+module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" ng-if=\"name\" for=\"control-{{$id}}\">\r\n        {{ name }}\r\n    </label>\r\n\r\n    <div class=\"control-inner\" ng-class=\"{'control-dropdown': !!values}\">\r\n        <input class=\"control-input\" id=\"control-{{$id}}\" ng-model=\"ngModel\" placeholder=\"{{ placeholder || name }}\"/>\r\n\r\n        <div class=\"control-dropdown-options\" ng-if=\"values\">\r\n            <div class=\"control-dropdown-options-item\"\r\n                 ng-repeat=\"value in values\"\r\n                 ng-class=\"{'control-dropdown-options-item-selected': ngModel === value.value}\"\r\n                 ng-click=\"setValue(value)\">\r\n                {{ value.name }}\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>\r\n";
 
 /***/ }),
 
@@ -38991,7 +39021,7 @@ module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"item item-type-{{item.type.alias}}\">\r\n    <a class=\"item-open\" href=\"#/{{ type }}s/{{ item.id }}\" title=\"Open detail\">\r\n        <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n    </a>\r\n\r\n    <div class=\"item-icon-container\" ng-if=\"parts.icon\">\r\n        <div class=\"item-icon\" ng-include=\"icon\"></div>\r\n    </div>\r\n\r\n    <div class=\"item-inner\">\r\n        <div class=\"item-header\">\r\n            <div ng-switch on=\"type\">\r\n                <h4 ng-switch-when=\"feature\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"custom\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"release\">{{ item.product.name + ' ' + item.version }}</h4>\r\n                <h4 ng-switch-default>{{ item.name }}</h4>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.body !== false\" class=\"item-body\" ng-transclude>\r\n            <div ng-switch on=\"type\">\r\n                <p ng-switch-when=\"feature\">{{ item.data }}</p>\r\n                <p ng-switch-when=\"custom\">{{ item.data }}</p>\r\n                <p ng-switch-when=\"app\">{{ item.caption }}</p>\r\n                <div ng-switch-when=\"release\">\r\n                    <p>Features in this release:</p>\r\n                    <ul class=\"release-features\">\r\n                        <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                            <span>{{ feature.title }}</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.timeline\" class=\"timeline-item timeline-item-apart\">\r\n            <div class=\"timeline-item-marker\"></div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.tags || parts.date\" class=\"item-footer\">\r\n            <tags ng-if=\"parts.tags\" class=\"item-footer-tags\" icon=\"true\" items=\"item.tags\"></tags>\r\n            <span ng-if=\"parts.date && item.updated_at\" class=\"item-footer-date\"><b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </div>\r\n</div>";
+module.exports = "<div class=\"item item-type-{{item.type.alias}}\">\r\n    <div class=\"item-icon-container\" ng-if=\"parts.icon\">\r\n        <div class=\"item-icon\" ng-include=\"icon\"></div>\r\n    </div>\r\n\r\n    <div class=\"item-inner\">\r\n        <div class=\"item-header\">\r\n            <div ng-switch on=\"type\">\r\n                <h4 ng-switch-when=\"feature\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"custom\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"release\">{{ item.product.name + ' ' + item.version }}</h4>\r\n                <h4 ng-switch-default>{{ item.name }}</h4>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.body !== false\" class=\"item-body\" ng-transclude>\r\n            <div ng-switch on=\"type\">\r\n                <p ng-switch-when=\"feature\">{{ item.data }}</p>\r\n                <p ng-switch-when=\"custom\">{{ item.data }}</p>\r\n                <p ng-switch-when=\"app\">{{ item.caption }}</p>\r\n                <div ng-switch-when=\"release\">\r\n                    <p>Features in this release:</p>\r\n                    <ul class=\"release-features\">\r\n                        <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                            <span>{{ feature.title }}</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.timeline\" class=\"timeline-item timeline-item-apart\">\r\n            <div class=\"timeline-item-marker\"></div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.tags || parts.date\" class=\"item-footer\">\r\n            <tags ng-if=\"parts.tags\" class=\"item-footer-tags\" icon=\"true\" items=\"item.tags\"></tags>\r\n            <span ng-if=\"parts.date && item.updated_at\" class=\"item-footer-date\"><b>{{ item.updated_at }}</b></span>\r\n        </div>\r\n    </div>\r\n    \r\n    <div class=\"item-actions\">\r\n        <a class=\"item-action item-action-open\" href=\"#/{{ type }}s/{{ item.id }}\" title=\"Open detail\">\r\n            <i class=\"icon icon-arrow icon-arrow-right\"></i>\r\n        </a>\r\n    </div>\r\n</div>";
 
 /***/ }),
 

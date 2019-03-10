@@ -28,6 +28,20 @@ export default /** @ngInject */ function($injector) {
                 this.$rootScope.$broadcast('loader:loaded');
             });
         }
+
+        getItemFromRootScope(section, id) {
+            if (id && section) {
+                if (this.$rootScope[section]) {
+                    const items = this.$rootScope[section];
+                    for (var i in items) {
+                        if (items[i].id == id) {
+                            return [items[i], false];
+                        }
+                    }
+                }
+            }
+            return [{}, true];
+        }
     }
 
     return new Loader($injector);

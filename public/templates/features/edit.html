@@ -1,7 +1,5 @@
 <section class="container container-sidebar">
     <div class="edit item">
-        <a class="item-close" href="/#/features/{{ item.id }}"><i class="icon icon-arrow icon-arrow-up"></i></a>
-
         <div class="item-inner" ng-show="!itemIsLoading">
             <div class="item-header">
                 <div class="item-header-info">
@@ -20,6 +18,10 @@
             <div class="item-footer">
                 <span ng-if="item.updated_at" class="item-footer-date" ng-if="item.updated_at">Last update: <b>{{ item.updated_at }}</b></span>
             </div>
+        </div>
+        
+        <div class="item-actions">
+            <a class="item-action item-action-close" href="/#/features/{{ item.id }}"><i class="icon icon-arrow icon-arrow-up"></i></a>
         </div>
 
         <loader size="small" active="itemIsLoading"></loader>

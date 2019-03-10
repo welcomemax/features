@@ -1,7 +1,5 @@
 <section class="container">
     <div class="detail item">
-        <a class="item-close" href="/#/apps/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
-
         <div class="item-icon-container">
             <div class="item-icon" ng-include="'/img/icons/apps/' + item.alias + '.svg'"></div>
         </div>
@@ -14,6 +12,10 @@
             <div class="item-body">
                 <p>{{ item.caption }}</h1>
             </div>
+        </div>
+
+        <div class="item-actions">
+            <a class="item-action item-action-close" href="/#/apps/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
         </div>
 
         <loader size="small" active="itemIsLoading"></loader>

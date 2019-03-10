@@ -11,10 +11,11 @@ input {
 }
 .button {
   text-decoration: none;
-  font-size: 14px;
+  display: inline-block;
+  font-size: 13px;
   color: #fff;
   background: #38393a;
-  padding: 4px 12px;
+  padding: 4px 16px;
   border-radius: 2px;
   border: 1px solid #38393a;
   outline: none;
@@ -24,8 +25,8 @@ input {
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
 .button:hover {
-  -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
+  -webkit-transform: translateY(-1px);
+          transform: translateY(-1px);
 }
 .loader {
   position: absolute;
@@ -223,6 +224,7 @@ input {
           transform: rotate(-135deg);
 }
 .icon-arrow-right:before {
+  margin-left: -40%;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
@@ -802,9 +804,6 @@ section:nth-child(even) .list-container .item {
 .list .item {
   background: #fafafa;
 }
-.list .item:hover {
-  background: #f7f7f7;
-}
 .item {
   position: relative;
   display: flex;
@@ -825,6 +824,7 @@ section:nth-child(even) .list-container .item {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-right: 20px;
 }
 .item:after {
   content: "";
@@ -835,49 +835,49 @@ section:nth-child(even) .list-container .item {
   width: 100%;
   transition: background 0.3s;
 }
-.item-open {
-  cursor: pointer;
+.item-actions {
+  position: absolute;
   right: 0;
   top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 80px;
   height: 100%;
-  position: absolute;
-  z-index: 1;
+}
+.item-action {
+  cursor: pointer;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item-action:hover {
+  background: rgba(0,0,0,0.01);
+}
+.item-action .icon {
+  width: 32px;
+  height: 32px;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+.item-action-open {
   color: #565656;
 }
-.item-open:hover .icon {
+.item-action-open:hover .icon {
   -webkit-transform: translateX(2px);
           transform: translateX(2px);
 }
-.item-open .icon {
-  width: 32px;
-  height: 32px;
-  top: 50%;
-  margin-top: -16px;
-  right: 20px;
-  position: absolute;
-  transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
-}
-.item-close {
-  cursor: pointer;
-  right: 20px;
-  top: 20px;
-  position: absolute;
-  z-index: 1;
+.item-action-close {
   color: #ff4734;
 }
-.item-close:hover .icon {
+.item-action-close:hover .icon {
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
-}
-.item-close .icon {
-  width: 32px;
-  height: 32px;
-  transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
-  transition: transform 0.3s, -webkit-transform 0.3s;
 }
 .item-header h1 {
   margin: 0;
@@ -951,8 +951,11 @@ section:nth-child(even) .list-container .item {
   padding: 20px;
   background: #fff;
 }
+.subscribe-form {
+  display: flex;
+}
 .subscribe-form-header {
-  margin-bottom: 24px;
+  margin-right: 20px;
 }
 .subscribe-form-header-title {
   font-size: 18px;
@@ -962,8 +965,17 @@ section:nth-child(even) .list-container .item {
   color: #858585;
   font-size: 14px;
 }
+.subscribe-form-body {
+  min-width: 200px;
+  text-align: right;
+}
+.subscribe-form-body label {
+  display: block;
+  margin-bottom: 12px;
+}
 .subscribe-form-body input {
-  margin-right: 12px;
+  text-align: left;
+  width: 100%;
   background: transparent;
   border: none;
   outline: none;

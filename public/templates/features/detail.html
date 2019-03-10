@@ -1,7 +1,5 @@
 <section class="container container-sidebar">
     <div class="detail item">
-        <a class="item-close" href="/#/features/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
-
         <div class="item-inner" ng-show="!itemIsLoading">
             <div class="item-header">
                 <h1>{{ item.title }}</h1>
@@ -17,6 +15,10 @@
             </div>
         </div>
 
+        <div class="item-actions">
+            <a class="item-action item-action-close" href="/#/features/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
+        </div>
+
         <loader size="small" active="itemIsLoading"></loader>
     </div>
 
@@ -27,14 +29,15 @@
                 <div class="subscribe-form-header-caption">Subscribe and we'll mail you when {{ item.title }} feature will be implemented</div>
             </div>
             <div class="subscribe-form-body">
-                <input placeholder="E-Mail"><a class="button">Subscribe</a>
+                <label><input placeholder="E-Mail"></label>
+                <a class="button">Subscribe</a>
             </div>
         </div>
     </div>
     
     <sidebar>
         <sidebar-group header="Controls">
-            <a class="button button-edit" href="/#/features/{{ item.id }}/edit">Edit</a>
+            <a class="button button-edit" href="/#/features/{{ id }}/edit">Edit</a>
         </sidebar-group>
     </sidebar>
 </section>

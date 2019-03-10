@@ -1,7 +1,5 @@
 <section class="container">
     <div class="detail item">
-        <a class="item-close" href="/#/releases/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
-
         <div class="item-inner">
             <div class="item-header">
                 <h1>{{ item.product.name }} {{ item.version }}</h1>
@@ -20,6 +18,10 @@
             <div class="item-footer">
                 <span class="item-footer-date">Released at: <b>{{ item.updated_at }}</b></span>
             </div>
+        </div>
+        
+        <div class="item-actions">
+            <a class="item-action item-action-close" href="/#/releases/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
         </div>
 
         <loader size="small" active="itemIsLoading"></loader>
