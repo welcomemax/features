@@ -854,6 +854,7 @@ section:nth-child(even) .list-container .item {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.3s;
 }
 .item-action:hover {
   background: rgba(0,0,0,0.01);
@@ -1374,7 +1375,7 @@ section:nth-child(even) .list-container .item {
           transform: rotate(-45deg);
 }
 .control-dropdown-options-item:hover {
-  background-color: #ececec;
+  background: rgba(0,0,0,0.02);
 }
 .control-dropdown-options-item:first-child {
   margin-top: 0;

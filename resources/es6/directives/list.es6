@@ -18,6 +18,7 @@ export default /** @ngInject */ function listDirective() {
         controller: /** @ngInject */ function listController($rootScope, $scope, $location) {
             const strictSearch = true;
 
+            $scope.limit = $scope.limit || false;
             $scope.itemsIsLoading = true;
             $scope.isFirstPage = () => $scope.page == 0;
             $scope.isLastPage = () => $scope.page == Math.ceil($scope.filterItems.length / $scope.perPage - 1);    
@@ -29,19 +30,19 @@ export default /** @ngInject */ function listDirective() {
             const setItems = (items, limit = false) => {
                 if (items && items.length) {
                     $scope.itemsIsLoading = false;
-                    return limit ? items.slice(0, limit) : items; 
+                    return limit ? items.slice(0, limit) : items;
                 }
             };
 
             const checkPagination = () => {
                 return $scope.filterItems && $scope.filterItems.length && $scope.totalPages() > 1;
-            }
+            };
 
-            $scope.filterItems = $scope.items = setItems($scope.items, $scope.limit);
+            $scope.filterItems = $scope.allItems = setItems($scope.items, $scope.limit);
 
             $scope.$watch('items', (newValue, oldValue) => {
                 if (newValue && !angular.equals(newValue, oldValue)) {
-                    $scope.filterItems = $scope.items = setItems(newValue, $scope.limit);
+                    $scope.filterItems = $scope.allItems = setItems(newValue, $scope.limit);
                 }
             });
 
@@ -55,15 +56,15 @@ export default /** @ngInject */ function listDirective() {
             $scope.sortReverse = false;
 
             $rootScope.$watch('search', (newValue, oldValue) => {
-                if (oldValue !== newValue && $scope.items) {
+                if (oldValue !== newValue && $scope.allItems) {
                     $scope.currentPage = 0;
 
                     const searchValue = newValue.toLowerCase();
 
                     if (searchValue === '') {
-                        $scope.filterItems = $scope.items;
+                        $scope.filterItems = $scope.allItems;
                     } else {
-                        $scope.filterItems = $scope.items.filter((item) => {
+                        $scope.filterItems = $scope.allItems.filter((item) => {
                             let searchData = [
                                 item.title, 
                                 item.name,
