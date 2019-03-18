@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container container-sidebar">
     <div class="detail item">
         <div class="item-inner">
             <div class="item-header">
@@ -26,6 +26,12 @@
 
         <loader size="small" active="itemIsLoading"></loader>
     </div>
+    
+    <sidebar>
+        <sidebar-group header="Controls">
+            <a class="button button-edit" href="/#/releases/{{ id }}/edit">Edit</a>
+        </sidebar-group>
+    </sidebar>
 </section>
 
 <preview app="item.product" show="false" title="Try a new {{ item.product.name }} features"></preview>

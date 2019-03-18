@@ -8,10 +8,11 @@
             </div>
 
             <div class="item-body">
+                <div control="textarea" ng-model="item.data" name="Data"></div>
                 <div class="row">
+                    <div control="select" values="types" ng-model="item.type" name="Type"></div>
                     <div control="select" values="products" ng-model="item.product" name="Product"></div>
                 </div>
-                <div control="select" values="features" ng-model="item.features" name="Features"></div>
             </div>
 
             <div class="item-footer">
@@ -20,7 +21,7 @@
         </div>
         
         <div class="item-actions">
-            <a class="item-action item-action-close" href="/#/features/{{ item.id }}"><i class="icon icon-arrow icon-arrow-up"></i></a>
+            <a class="item-action item-action-close" href="/#/releases/{{ item.id }}"><i class="icon icon-arrow icon-arrow-up"></i></a>
         </div>
 
         <loader size="small" active="itemIsLoading"></loader>

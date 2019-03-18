@@ -11,16 +11,8 @@ export default /** @ngInject */  function($httpParamSerializer) {
         replace: true,
         link: function(scope) {
             scope.show = false;
-            scope.params = $httpParamSerializer({
-                'product': scope.app.name,
-                'platform': 'features',
-                'templatesHide': true,
-                'installHide': true
-            });
-            scope.url = `https://apps.elfsight.com/preview/${scope.app.public_id}?${scope.params}`;
-            scope.icon = `/img/icons/apps/${scope.app.alias}.svg`;
         },
-        controller: /** @ngInject */ function($scope, $element) {
+        controller: /** @ngInject */ function($scope, $element, $rootScope) {
             $scope.previewCreate = () => {
                 let preview = document.createElement('iframe');
 
@@ -41,8 +33,28 @@ export default /** @ngInject */  function($httpParamSerializer) {
                 $scope.preview = null;
             };
 
+            const setPreview = (app) => {
+                const params = $httpParamSerializer({
+                    'product': app.name,
+                    'platform': 'features',
+                    'templatesHide': true,
+                    'installHide': true
+                });
+                $scope.url = `https://apps.elfsight.com/preview/${app.public_id}?${params}`;
+                $scope.icon = `/img/icons/apps/${app.alias}.svg`;
+            };
+
+            $scope.app && setPreview($scope.app);
+
+            $scope.$watch('app', (app) => {
+                if (app) {
+                    setPreview(app);
+                    $scope.preview = $scope.previewCreate();
+                }
+            });
+
             $scope.$watch('show', (show) => {
-                if (show) {
+                if (show && $scope.url) {
                     if (!$scope.preview) {
                         $scope.preview = $scope.previewCreate();
                     }
