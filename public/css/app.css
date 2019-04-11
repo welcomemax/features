@@ -947,34 +947,46 @@ section:nth-child(even) .list-container .item {
 .list .item-icon-container {
   margin-right: 12px;
 }
-.subscribe {
+.subscribers {
   margin-top: 28px;
-  padding: 20px;
+  border-radius: 4px;
   background: #fff;
 }
-.subscribe-form {
-  display: flex;
+.subscribers-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-.subscribe-form-header {
-  margin-right: 20px;
-}
-.subscribe-form-header-title {
+.subscribers-list-header {
+  font-weight: normal;
+  margin: 0 0 16px;
   font-size: 18px;
-  margin-bottom: 8px;
 }
-.subscribe-form-header-caption {
-  color: #858585;
+.subscribers-list-container {
+  padding: 24px 20px 12px;
+}
+.subscribers-list-item {
+  margin: 2px 0;
   font-size: 14px;
 }
-.subscribe-form-body {
+.subscribers-form-container {
+  background: rgba(0,0,0,0.01);
+  padding: 12px 20px 24px;
+}
+.subscribers-form-header {
+  margin: 0 0 16px;
+  font-size: 14px;
+}
+.subscribers-form-body {
+  display: flex;
   min-width: 200px;
   text-align: right;
 }
-.subscribe-form-body label {
+.subscribers-form-body label {
   display: block;
-  margin-bottom: 12px;
+  margin-right: 20px;
 }
-.subscribe-form-body input {
+.subscribers-form-body input {
   text-align: left;
   width: 100%;
   background: transparent;

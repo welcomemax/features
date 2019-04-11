@@ -11,7 +11,7 @@ class FeatureController extends Controller
     public function index($id = null)
     {
         $itemsQuery = $id ? Feature::where('id', $id) : Feature::orderBy('id', 'asc');
-        $items = $itemsQuery->with(['type', 'product'])->get();
+        $items = $itemsQuery->with(['type', 'product', 'subscribers'])->get();
 
         return [
             'status' => 1,

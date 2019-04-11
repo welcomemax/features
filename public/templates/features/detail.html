@@ -22,15 +22,26 @@
         <loader size="small" active="itemIsLoading"></loader>
     </div>
 
-    <div class="subscribe">
-        <div ng-if="!item.subscribed" class="subscribe-form">
-            <div class="subscribe-form-header">
-                <div class="subscribe-form-header-title">Interested in this feature?</div>
-                <div class="subscribe-form-header-caption">Subscribe and we'll mail you when {{ item.title }} feature will be implemented</div>
+    <div class="subscribers">
+        <div class="subscribers-list-container">
+            <h3 class="subscribers-list-header">Subscribers</h3>
+            <ul class="subscribers-list">
+                <li ng-repeat="subscriber in item.subscribers" class="subscribers-list-item">
+                    <span class="subscribers-list-item-name">{{ subscriber.name }}</span> 
+                    <a href="mailto:{{ subscriber.email }}" class="subscribers-list-item-email">{{ subscriber.email }}</a>
+                </li> 
+            </ul>
+        </div>
+        <div class="subscribers-form-container">
+            <div class="subscribers-form-header">
+                Subscribe to feature
             </div>
-            <div class="subscribe-form-body">
-                <label><input placeholder="E-Mail"></label>
-                <a class="button">Subscribe</a>
+            <div class="subscribers-form">
+                <div class="subscribers-form-body">
+                    <label><input placeholder="Name"></label>
+                    <label><input placeholder="E-mail"></label>
+                    <a class="button">Subscribe</a>
+                </div>
             </div>
         </div>
     </div>

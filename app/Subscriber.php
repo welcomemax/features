@@ -4,15 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Product extends Model
+class Subscriber extends Model
 {
-    protected $table = 'products';
+    protected $table = 'subscribers';
 
     protected $fillable = [
-        'alias',
         'name',
-        'caption',
-        'public_id'
+        'email'
     ];
     
     protected $dates = [
@@ -29,10 +27,5 @@ class Product extends Model
         
     ];
 
-    public function features() {
-        return $this->hasMany('App\Feature');
-    }
-    public function releases() {
-        return $this->hasMany('App\Release');
-    }
+    public $timestamps = false;
 }

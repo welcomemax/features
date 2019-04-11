@@ -37,4 +37,8 @@ class Feature extends Model
     public function release() {
         return $this->belongsTo('App\Release');
     }
+
+    public function subscribers() {
+        return $this->belongsToMany('App\Subscriber');
+    }
 }

@@ -142,32 +142,45 @@
             .list &
                 margin-right 12px
 
-.subscribe
+.subscribers
     margin-top 28px
-    padding 20px
+    border-radius 4px
     background color_white
 
+    &-list
+        margin 0
+        padding 0
+        list-style none
+
+        &-header
+            font-weight normal
+            margin 0 0 16px
+            font-size 18px
+
+        &-container
+            padding 24px 20px 12px
+
+        &-item
+            margin 2px 0
+            font-size 14px
+
     &-form
-        display flex
+        &-container
+            background rgba(0,0,0,0.01)
+            padding 12px 20px 24px
         
         &-header
-            margin-right 20px
-
-            &-title
-                font-size 18px
-                margin-bottom 8px
-
-            &-caption
-                color color_gray_50
-                font-size 14px
+            margin 0 0 16px
+            font-size 14px
 
         &-body
+            display flex
             min-width 200px
             text-align right
 
             & label
                 display block
-                margin-bottom 12px
+                margin-right 20px
 
             & input
                 text-align left
