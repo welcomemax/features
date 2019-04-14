@@ -1,4 +1,4 @@
-<section class="container container-sidebar">
+<section class="container">
     <div class="edit item">
         <div class="item-inner" ng-show="!itemIsLoading">
             <div class="item-header">
@@ -11,26 +11,34 @@
                 <div control="textarea" ng-model="item.data" name="Data"></div>
                 <div class="row">
                     <div control="select" values="types" ng-model="item.type" name="Type"></div>
-                    <div control="select" values="products" ng-model="item.product" name="Product"></div>
+                    <div control="select" values="apps" ng-model="item.product" name="Product"></div>
                 </div>
             </div>
 
             <div class="item-footer">
-                <span ng-if="item.updated_at" class="item-footer-date" ng-if="item.updated_at">Last update: <b>{{ item.updated_at }}</b></span>
+                <div class="item-footer-right">
+                    <span ng-if="item.updated_at" class="item-footer-date">
+                        <svg class="icon"><use xlink:href="./img/icons/icons.svg#date"></use></svg>
+                        <b>{{ item.updated_at }}</b>
+                    </span>
+                    <span ng-if="item.subscribers.length" class="item-footer-subscribers">
+                        <svg class="icon"><use xlink:href="./img/icons/icons.svg#people"></use></svg>
+                        <b>{{ item.subscribers.length }}</b>
+                    </span>
+                </div>
             </div>
         </div>
         
         <div class="item-actions">
-            <a class="item-action item-action-close" href="/#/releases/{{ item.id }}"><i class="icon icon-arrow icon-arrow-up"></i></a>
+            <a class="item-action item-action-close" href="/#/releases/{{item.id}}" title="Close">
+                <svg class="icon"><use xlink:href="./img/icons/icons.svg#close"></use></svg>
+            </a>
+            <a class="item-action item-action-save" title="Save" ng-click="save()">
+                <svg class="icon"><use xlink:href="./img/icons/icons.svg#save"></use></svg>
+            </a>    
         </div>
 
         <loader size="small" active="itemIsLoading"></loader>
     </div>
-    
-    <sidebar>
-        <sidebar-group header="Controls">
-            <a class="button button-edit" ng-click="save()">Save</a>
-        </sidebar-group>
-    </sidebar>
 </section>
 

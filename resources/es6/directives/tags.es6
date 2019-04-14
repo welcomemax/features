@@ -13,7 +13,7 @@ export default /** @ngInject */  function() {
             $scope.filterTag = ($event, tag) => {
                 let $tagItem = angular.element($event.currentTarget);
 
-                $rootScope.search = !$tagItem.hasClass('tags-item-active') ? tag.name : '';
+                $rootScope.search = !$tagItem.parent().hasClass('tags-item-active') ? tag.name : '';
 
                 angular.element(document.querySelectorAll('.tags-item')).removeClass('tags-item-active');
                 $tagItem.parent().toggleClass('tags-item-active');

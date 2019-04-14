@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Release;
+use App\Custom;
 use Illuminate\Http\Request;
 
-// @TODO ReleaseController extends ApiController extends Controller
-class ReleaseController extends Controller
+class CustomController extends ApiController
 {
     public function index($id = null)
     {
-        $itemsQuery = $id ? Release::where('id', $id) : Release::orderBy('id', 'asc');
-        $items = $itemsQuery->with(['features', 'product'])->get();
+        $itemsQuery = $id ? Custom::where('id', $id) : Custom::orderBy('id', 'asc');
+        $items = $itemsQuery->with(['type', 'product'])->get();
 
         return [
             'status' => 1,
@@ -24,7 +23,7 @@ class ReleaseController extends Controller
         $data = $request->input();
         $data->id = $id;
 
-        Release::updateOrCreate($data);
+        Custom::updateOrCreate($data);
 
         return [
             'status' => 1,
@@ -35,7 +34,7 @@ class ReleaseController extends Controller
     public function destroy($id)
     {
         if ($id) {
-            Item::find($id)->delete();
+            Custom::find($id)->delete();
 
             return [
                 'status' => 1,

@@ -21,6 +21,7 @@ import editController from './controllers/edit.es6';
 // directives
 import loaderDirective from './directives/loader.es6';
 import tagsDirective from './directives/tags.es6';
+import subscribersDirective from './directives/subscribers.es6';
 import previewDirective from './directives/preview.es6';
 import listDirective from './directives/list.es6';
 import listItemDirective from './directives/list-item.es6';
@@ -38,6 +39,7 @@ angular.module('app', ['ngRoute'])
     .controller('editController', editController)
     .directive('loader', loaderDirective)
     .directive('tags', tagsDirective)
+    .directive('subscribers', subscribersDirective)
     .directive('preview', previewDirective)
     .directive('list', listDirective)
     .directive('listItem', listItemDirective)
@@ -56,23 +58,38 @@ angular.module('app', ['ngRoute'])
         $routeProvider
             .when('/', {
                 controller: 'homeController',
-                templateUrl: '/templates/home.html'
+                templateUrl: '/templates/home.html',
+                resolve: {
+                    data: loader => loader.getData()
+                }
             })
             .when('/:section/', {
                 controller: 'listController',
-                templateUrl: params => `/templates/${params.section}/list.html`
+                templateUrl: params => `/templates/${params.section}/list.html`,
+                resolve: {
+                    data: loader => loader.getData()
+                }
             })
             .when('/:section/new', {
                 controller: 'editController',
-                templateUrl: params => `/templates/${params.section}/edit.html`
+                templateUrl: params => `/templates/${params.section}/edit.html`,
+                resolve: {
+                    data: loader => loader.getData()
+                }
             })
             .when('/:section/:id/edit', {
                 controller: 'editController',
-                templateUrl: params => `/templates/${params.section}/edit.html`
+                templateUrl: params => `/templates/${params.section}/edit.html`,
+                resolve: {
+                    data: loader => loader.getData()
+                }
             })
             .when('/:section/:id', {
                 controller: 'detailController',
-                templateUrl: params => `/templates/${params.section}/detail.html`
+                templateUrl: params => `/templates/${params.section}/detail.html`,
+                resolve: {
+                    data: loader => loader.getData()
+                }
             })
             .otherwise({
                 redirectTo: '/'

@@ -2,25 +2,39 @@
     list-style none
     margin 0
     padding 0
+    margin-left -4px
+
+    &-inner
+        display flex
+        align-items center
+
+    &-icon
+        margin-right 4px
+        width 16px
+        height 16px
+        color color_gray_50
 
     &-item
         display inline-block
         position relative
-        margin-right 4px
-        border-radius 2px
+        margin 2px 4px
+        border-radius 24px
         font-size 11px
-        background #38393a
-        color #fff
+        background rgba(35, 47, 52, .12)
+        color #232F34
         opacity .8
         transition opacity .3s
 
         &-feature
+            color color_white
             background color_blue
 
         &-change
+            color color_white
             background color_green
             
         &-issue
+            color color_white
             background color_red
 
         &-active
@@ -28,17 +42,17 @@
             opacity 1
 
         &-icon
-            transform rotate(-45deg)
+            transform rotate(0)
             position absolute
-            top 5px
-            right 8px
-            width 8px
-            height 8px
+            top 3px
+            right 3px
+            width 16px
+            height 16px
             color currentColor
             transition transform .3s
 
             .tags-item-active &
-                transform rotate(0)
+                transform rotate(45deg)
 
         &:last-child
             margin-right 0
@@ -49,8 +63,8 @@
             cursor default
 
         a
-            padding 4px 8px
+            padding 5px 12px
             display block
-            padding-right 24px
+            padding-right 26px
             cursor pointer
             color currentColor

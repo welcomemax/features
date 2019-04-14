@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <list items="$root.features" title="Top features" limit="5" show="tags, !body" type="feature"></list>
-            <list items="$root.releases" title="Latest releases" limit="5" show="date, !body" type="release"></list>
+            <list items="$root.releases" title="Latest releases" limit="3" show="date" type="release"></list>
         </div>
     </div>
 </section>
@@ -16,7 +16,7 @@
     <div class="container">
         <div class="row">
             <div class="counter">
-                <span data-value="{{ products.length }}" class="counter-value">0</span>
+                <span data-value="{{ apps.length }}" class="counter-value">0</span>
                 <span class="counter-label">apps</span>
             </div>
             <div class="counter">
@@ -29,7 +29,11 @@
             </div>
             <div class="counter">
                 <span data-value="{{ customs.length }}" class="counter-value">0</span>
-                <span class="counter-label">customizations</span>
+                <span class="counter-label">customs</span>
+            </div>
+            <div class="counter">
+                <span data-value="{{ subscribers.length }}" class="counter-value">0</span>
+                <span class="counter-label">subscribers</span>
             </div>
         </div>
     </div>
@@ -59,10 +63,16 @@
 
 <section>
     <div class="container">
-        <list items="$root.products" title="Applications" per-page="30" type="app" show="icon, !body" size="third"></list>
+        <list items="$root.apps" title="Applications" per-page="30" type="app" show="icon, !body" size="half"></list>
         <!-- <div class="home-cta">
             <div class="home-cta-title">Not found a needed app?</div>
             <a class="home-cta-button button">Request app</a>
         </div> -->
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <list items="$root.subscribers" title="Subscribers" size="third" per-page="18"></list>
     </div>
 </section>

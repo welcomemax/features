@@ -2,9 +2,7 @@
     <div class="list-header" ng-if="title || !currentSection">
         <h3 class="list-header-title">{{ title }}</h3>
 
-        <a ng-if="!currentSection" class="list-header-all" href="#/{{ type }}s/">
-            All {{ type }}s >
-        </a>
+        <a ng-if="!currentSection" class="button list-header-all" href="#/{{ type }}s/">See All</a>
     </div>
 
     <div class="list" ng-class="{
@@ -15,12 +13,20 @@
             item="item" show="show" type="type"></item>
     </div>
 
-    <div class="list-empty" ng-show="filterItems && !filterItems.length">No results</div>
+    <div class="list-empty" ng-show="filterItems && !filterItems.length">
+        <span class="list-empty-header">No results found</span>
+        <span class="list-empty-action">Its time to add a new one</span>
+        <a class="button list-empty-button" href="/#{{ features }}/new/">
+            Add new {{type}}
+        </a>
+    </div>
 
     <div class="pagination" ng-if="paginationEnabled">
         <button class="pagination-button pagination-button-prev" 
             ng-disabled="isFirstPage()" ng-click="pageBack()">
-            <i class="icon icon-arrow icon-arrow-left"></i>
+            <svg class="icon">
+                <use xlink:href="./img/icons/icons.svg#arrow-back"></use>
+            </svg>
         </button>
 
         <span class="pagination-pages">
@@ -29,7 +35,9 @@
 
         <button class="pagination-button pagination-button-next" 
             ng-disabled="isLastPage()" ng-click="pageForward()">
-            <i class="icon icon-arrow icon-arrow-right"></i>
+            <svg class="icon">
+                <use xlink:href="./img/icons/icons.svg#arrow-forward"></use>
+            </svg>
         </button>
     </div>
 

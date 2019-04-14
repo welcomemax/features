@@ -4,7 +4,7 @@ export default /** @ngInject */  function($httpParamSerializer) {
     return {
         scope: {
             app: '=',
-            show: '@',
+            show: '=',
             title: '@' 
         },
         template: template,
@@ -14,6 +14,10 @@ export default /** @ngInject */  function($httpParamSerializer) {
         },
         controller: /** @ngInject */ function($scope, $element, $rootScope) {
             $scope.previewCreate = () => {
+                if (!$scope.url) {
+                    return;
+                }
+
                 let preview = document.createElement('iframe');
 
                 preview.src = $scope.url;
@@ -28,33 +32,40 @@ export default /** @ngInject */  function($httpParamSerializer) {
             };
 
             $scope.previewDestroy = () => {
-                $scope.preview.detach();
+                if ($scope.preview) {
+                    $scope.preview.detach();
+                    $scope.preview = null;
+                }
+
                 $element.removeClass('preview-loaded');
-                $scope.preview = null;
             };
 
-            const setPreview = (app) => {
+            const setPreviewUrl = (app) => {
+                if (!app || !app.public_id) {
+                    return;
+                }
+
                 const params = $httpParamSerializer({
                     'product': app.name,
                     'platform': 'features',
                     'templatesHide': true,
                     'installHide': true
                 });
-                $scope.url = `https://apps.elfsight.com/preview/${app.public_id}?${params}`;
+
                 $scope.icon = `/img/icons/apps/${app.alias}.svg`;
+
+                return `https://apps.elfsight.com/preview/${app.public_id}?${params}`;
             };
 
-            $scope.app && setPreview($scope.app);
+            $scope.url = setPreviewUrl($scope.app);
 
             $scope.$watch('app', (app) => {
-                if (app) {
-                    setPreview(app);
-                    $scope.preview = $scope.previewCreate();
-                }
+                $scope.url = setPreviewUrl($scope.app);
+                $scope.preview = $scope.previewCreate();
             });
 
             $scope.$watch('show', (show) => {
-                if (show && $scope.url) {
+                if (!!show) {
                     if (!$scope.preview) {
                         $scope.preview = $scope.previewCreate();
                     }

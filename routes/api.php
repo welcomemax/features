@@ -20,25 +20,40 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(
     ['prefix' => '/features'],
     function () {
-        Route::get('/{id?}', 'FeatureController@index');
-        Route::post('/{id?}/', 'FeatureController@save');
-        Route::delete('/{id}/', 'FeatureController@destroy');
+        Route::get('/{id?}', 'Api\FeatureController@index');
+        Route::post('/{id?}/', 'Api\FeatureController@save');
     }
 );
 
 Route::group(
     ['prefix' => '/releases'],
     function () {
-        Route::get('/{id?}', 'ReleaseController@index');
-        Route::post('/{id?}/', 'ReleaseController@save');
-        Route::delete('/{id}/', 'ReleaseController@destroy');
+        Route::get('/{id?}', 'Api\ReleaseController@index');
+        Route::post('/{id?}/', 'Api\ReleaseController@save');
+    }
+);
+
+Route::group(
+    ['prefix' => '/customs'],
+    function () {
+        Route::get('/{id?}', 'Api\CustomController@index');
+        Route::post('/{id?}/', 'Api\CustomController@save');
     }
 );
 
 Route::group(['prefix' => '/types'], function () {
-    Route::get('/{id?}', 'TypeController@index');
+    Route::get('/{id?}', 'Api\TypeController@index');
 });
 
 Route::group(['prefix' => '/apps'], function () {
-    Route::get('/{id?}', 'ProductController@index');
+    Route::get('/{id?}', 'Api\ProductController@index');
 });
+
+Route::group(
+    ['prefix' => '/subscribers'], 
+    function () {
+        Route::get('/{id?}', 'Api\SubscriberController@index');
+        Route::post('/', 'Api\SubscriberController@subscribe');
+        Route::delete('/', 'Api\SubscriberController@unsubscribe');
+    }
+);

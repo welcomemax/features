@@ -1,0 +1,32 @@
+<div class="subscribers">
+    <div class="subscribers-inner" ng-show="isLoaded">
+        <div class="subscribers-list-container" ng-if="items.length">
+            <h3 class="subscribers-list-header">Subscribers [{{ items.length }}]</h3>
+            <ul class="subscribers-list">
+                <li ng-repeat="subscriber in items" class="subscribers-list-item">
+                    <span class="subscribers-list-item-name">{{ subscriber.name }}</span> 
+                    <a href="mailto:{{ subscriber.email }}" class="subscribers-list-item-email">{{ subscriber.email }}</a>
+                    <a ng-if="edit" class="subscribers-list-item-remove">
+                        <svg class="icon">
+                            <use xlink:href="./img/icons/icons.svg#remove"></use>
+                        </svg>
+                    </a>
+                </li> 
+            </ul>
+        </div> 
+        <div class="subscribers-form-container" ng-if="edit">
+            <div class="subscribers-form-header">
+                Subscribe to feature
+            </div>
+            <div class="subscribers-form">
+                <div class="subscribers-form-body">
+                    <label><input placeholder="Name"></label>
+                    <label><input placeholder="E-mail"></label>
+                    <a class="button">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <loader size="small" active="!isLoaded"></loader>
+</div>

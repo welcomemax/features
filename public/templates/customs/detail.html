@@ -10,13 +10,22 @@
             </div>
 
             <div class="item-footer">
-                <tags class="item-footer-tags" icon="true" items="item.tags"></tags>
-                <span class="item-footer-date">Last update: <b>{{ item.updated_at }}</b></span>
+                <tags class="item-footer-tags" icon="false" items="item.tags"></tags>
+                <div class="item-footer-right">
+                    <span class="item-footer-date">
+                        <svg class="icon">
+                            <use xlink:href="./img/icons/icons.svg#date"></use>
+                        </svg>
+                        <b>{{ item.updated_at }}</b>
+                    </span>
+                </div>
             </div>
         </div>
         
         <div class="item-actions">
-            <a class="item-action item-action-close" href="/#/customs/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
+            <a class="item-action item-action-close" href="/#/customs/" title="Back to list">
+                <svg class="icon"><use xlink:href="./img/icons/icons.svg#close"></use></svg>
+            </a>
         </div>
 
         <loader size="small" active="itemIsLoading"></loader>

@@ -1,16 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Product;
 use Illuminate\Http\Request;
 
-// @TODO ProductController extends ApiController extends Controller
-class ProductController extends Controller
+class ProductController extends ApiController
 {
     public function index($id = null)
     {
-        $productsQuery = Product::withCount(['features', 'releases'])->orderBy('features_count');
+        $productsQuery = Product::withCount(['features', 'releases'])->orderBy('name', 'asc');
         $id && $productsQuery = $productsQuery->where('id', $id);
 
         return [

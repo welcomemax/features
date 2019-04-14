@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Feature;
 use Illuminate\Http\Request;
 
-// @TODO FeatureController extends ApiController extends Controller
-class FeatureController extends Controller
+class FeatureController extends ApiController
 {
     public function index($id = null)
     {

@@ -1,10 +1,16 @@
-<ul class="tags">
-    <i class="icon icon-tag" ng-if="icon"></i>
-    <li class="tags-item tags-item-{{ item.alias }}" ng-repeat="item in items">
-        <span ng-if="!active">{{ item.name }}</span>
-        <a ng-if="active" ng-click="filterTag($event, item)">
-            {{ item.name }}
-            <i class="icon icon-cross tags-item-icon"></i>
-        </a>
-    </li>
-</ul>
+<div class="tags-inner">
+    <svg class="icon tags-icon" ng-if="icon">
+        <use xlink:href="./img/icons/icons.svg#label"></use>
+    </svg>
+    <ul class="tags">
+        <li class="tags-item tags-item-{{ item.alias }}" ng-repeat="item in items">
+            <span ng-if="!active">{{ item.name }}</span>
+            <a ng-if="active" ng-click="filterTag($event, item)">
+                {{ item.name }}
+                <svg class="icon tags-item-icon">
+                    <use xlink:href="./img/icons/icons.svg#add-circle"></use>
+                </svg>
+            </a>
+        </li>
+    </ul>
+</div>

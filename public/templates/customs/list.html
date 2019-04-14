@@ -5,16 +5,20 @@
         <sidebar-group header="Search">
             <div class="search">
                 <input class="search-input" ng-model="$root.search" type="text" placeholder="whatever">
-                <label class="search-icon"><i class="icon icon-search"></i></label>
+                <label class="search-icon">
+                    <svg class="icon">
+                        <use xlink:href="./img/icons/icons.svg#search"></use>
+                    </svg>
+                </label>
             </div>
         </sidebar-group>
         
         <sidebar-group header="Apps">
-            <tags icon="false" active="true" items="products"></tags> 
+            <tags icon="false" active="true" items="appsWithCustoms"></tags> 
         </sidebar-group>
 
         <sidebar-group header="Types">
-            <tags icon="false" active="true" items="types"></tags> 
+            <tags icon="false" active="true" items="typesWithCustoms"></tags> 
         </sidebar-group>
     </sidebar>
 </section>

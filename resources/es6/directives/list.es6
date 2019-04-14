@@ -90,7 +90,7 @@ export default /** @ngInject */ function listDirective() {
                     $scope.paginationEnabled = checkPagination();
                 }
             }, true);
-
+            
             // @TODO render sorter (rating, views)
             $scope.toggleSort = ($event) => {
                 $scope.sortType = angular.element($event.currentTarget).attr("data-sort");

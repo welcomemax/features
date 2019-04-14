@@ -1,4 +1,6 @@
-export default /** @ngInject */ function ($rootScope, $scope) {
+export default /** @ngInject */ function (data, $rootScope, $scope) {
+    angular.extend($rootScope, data);
+    
     setTimeout(() => {
         $rootScope.initCounters();
     })

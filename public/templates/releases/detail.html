@@ -1,4 +1,4 @@
-<section class="container container-sidebar">
+<section class="container">
     <div class="detail item">
         <div class="item-inner">
             <div class="item-header">
@@ -7,31 +7,37 @@
 
             <div class="item-body">
                 <p>Features in this release:</p>
-                <ul class="release-features">
-                    <li class="release-features-item" ng-repeat="feature in item.features">
-                        <span class="release-features-item-title">{{ feature.title }}</span>
-                        <a class="release-features-item-link" href="/#/features/{{ feature.id }}">more ></a>
-                    </li>
+                <ul class="item-body-list">
+                    <li ng-repeat="feature in item.features" class="item-body-list-item">
+                        <span class="item-body-list-item-name">{{ feature.title }}</span> 
+                        <a class="item-body-list-item-more" href="/#/features/{{ feature.id }}">
+                            <svg class="icon"><use xlink:href="./img/icons/icons.svg#arrow-forward"></use></svg>
+                        </a>
+                    </li> 
                 </ul>
             </div>
 
             <div class="item-footer">
-                <span class="item-footer-date">Released at: <b>{{ item.updated_at }}</b></span>
+                <div class="item-footer-right">
+                    <span class="item-footer-date">
+                        <svg class="icon"><use xlink:href="./img/icons/icons.svg#date"></use></svg>
+                        <b>{{ item.updated_at }}</b>
+                    </span>
+                </div>
             </div>
         </div>
         
         <div class="item-actions">
-            <a class="item-action item-action-close" href="/#/releases/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
+            <a class="item-action item-action-close" href="/#/releases/" title="Back to list">
+                <svg class="icon"><use xlink:href="./img/icons/icons.svg#close"></use></svg>
+            </a>
+            <a class="item-action item-action-edit" href="/#/releases/{{id}}/edit" title="Edit">
+                <svg class="icon"><use xlink:href="./img/icons/icons.svg#edit"></use></svg>
+            </a>
         </div>
 
         <loader size="small" active="itemIsLoading"></loader>
     </div>
-    
-    <sidebar>
-        <sidebar-group header="Controls">
-            <a class="button button-edit" href="/#/releases/{{ id }}/edit">Edit</a>
-        </sidebar-group>
-    </sidebar>
 </section>
 
-<preview app="item.product" show="false" title="Try a new {{ item.product.name }} features"></preview>
+<!-- <preview app="item.product" show="false" title="Try a new {{ item.product.name }} features"></preview> -->

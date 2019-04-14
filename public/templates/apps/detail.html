@@ -15,16 +15,18 @@
         </div>
 
         <div class="item-actions">
-            <a class="item-action item-action-close" href="/#/apps/" title="Back to list"><i class="icon icon-arrow icon-arrow-up"></i></a>
+            <a class="item-action item-action-close" href="/#/customs/" title="Back to list">
+                <svg class="icon"><use xlink:href="./img/icons/icons.svg#close"></use></svg>
+            </a>
         </div>
 
         <loader size="small" active="itemIsLoading"></loader>
     </div>
 </section>
 
-<preview app="item" show="true" title="{{ item.name }} Preview"></preview>
+<preview app="item" show="false" title="{{ item.name }} Preview"></preview>
 
-<section class="container row">
+<section class="container row" ng-if="featuresByProduct.length || releasesByProduct.length">
     <list ng-if="featuresByProduct.length" items="featuresByProduct" title="{{ item.name }} features" limit="5" show="tags, !body" type="feature"></list>
     <list ng-if="releasesByProduct.length" items="releasesByProduct" title="{{ item.name }} releases" limit="5" show="date, !body" type="release"></list>
 </section>

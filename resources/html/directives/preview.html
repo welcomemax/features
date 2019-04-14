@@ -2,7 +2,11 @@
     <div class="preview-button"
          ng-click="show = !show">
         <span class="preview-button-open" ng-if="!show">{{ title }}</span>
-        <span ng-if="show">X</span>
+        <span ng-if="show">
+            <svg class="icon">
+                <use xlink:href="./img/icons/icons.svg#close"></use>
+            </svg>
+        </span>
     </div>
 
     <div class="preview-icon" ng-include="icon"></div>

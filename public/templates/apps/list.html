@@ -1,11 +1,15 @@
 <section class="container">
-    <list items="products" show="icon, !body" type="app" per-page="30" size="third"></list>
+    <list items="apps" show="icon, !body" type="app" per-page="30" size="third"></list>
 
     <sidebar class="sidebar-fixed">
         <sidebar-group>
             <div class="search">
                 <input class="search-input" ng-model="$root.search" type="text" placeholder="Application">
-                <label class="search-icon"><i class="icon icon-search"></i></label>
+                <label class="search-icon">
+                    <svg class="icon">
+                        <use xlink:href="./img/icons/icons.svg#search"></use>
+                    </svg>
+                </label>
             </div>
         </sidebar-group>
     </sidebar>
