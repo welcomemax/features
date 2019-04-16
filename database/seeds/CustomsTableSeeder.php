@@ -100,8 +100,8 @@ class CustomsTableSeeder extends Seeder
                 'data' => $data['data']
             ];
 
-            $type = Type::where('alias', $data['type'])->first();
-            !empty($type) && $item_data['type_id'] = $type->id;
+            // $type = Type::where('alias', $data['type'])->first();
+            // !empty($type) && $item_data['type_id'] = $type->id;
 
             $product = Product::where('alias', $data['product'])->first();
             !empty($product) && $item_data['product_id'] = $product->id;

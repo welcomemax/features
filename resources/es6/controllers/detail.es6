@@ -17,9 +17,6 @@ export default /** @ngInject */ function (data, loader, api, $rootScope, $scope,
     };
 
     [$scope.item, $scope.itemIsLoading] = loader.getItemFromRootScope(section, id);
-    // angular.equals({}, $scope.item) && loadItem(section, id);
-
-    // debugger
 
     if (section === 'apps') {
         $scope.featuresByProduct = filterByProduct($rootScope.features, $scope.item.name);

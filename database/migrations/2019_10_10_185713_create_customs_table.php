@@ -18,7 +18,6 @@ class CreateCustomsTable extends Migration
 
             $table->string('title')->nullable();
             $table->mediumText('data')->nullable();
-            $table->integer('type_id')->unsigned();
             $table->integer('product_id')->unsigned();
 
             $table->timestamps();

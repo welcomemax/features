@@ -1,21 +1,23 @@
-<section class="container container-sidebar">
+<section class="container">
     <div class="detail item">
         <div class="item-inner">
             <div class="item-header">
                 <h1>{{ item.title }}</h1>
             </div>
 
-            <div class="item-body">
-                <p>{{ item.data }}</p>
+            <div class="item-body" ng-click="clipboardCopy(item.data)">
+                <pre>{{ item.data }}</pre>
+                <span class="clipboard">
+                    <span ng-show="!clipboardCopied">copy</span>
+                    <span ng-show="clipboardCopied">copied</span>
+                </span>
             </div>
 
             <div class="item-footer">
                 <tags class="item-footer-tags" icon="false" items="item.tags"></tags>
                 <div class="item-footer-right">
                     <span class="item-footer-date">
-                        <svg class="icon">
-                            <use xlink:href="./img/icons/icons.svg#date"></use>
-                        </svg>
+                        <svg class="icon"><use xlink:href="./img/icons/icons.svg#date"></use></svg>
                         <b>{{ item.updated_at }}</b>
                     </span>
                 </div>
@@ -26,15 +28,12 @@
             <a class="item-action item-action-close" href="/#/customs/" title="Back to list">
                 <svg class="icon"><use xlink:href="./img/icons/icons.svg#close"></use></svg>
             </a>
+            <a class="item-action item-action-edit" href="/#/customs/{{id}}/edit" title="Edit">
+                <svg class="icon"><use xlink:href="./img/icons/icons.svg#edit"></use></svg>
+            </a>
         </div>
 
         <loader size="small" active="itemIsLoading"></loader>
     </div>
-    
-    <sidebar>
-        <sidebar-group header="Controls">
-            <a class="button button-edit" href="/#/customs/{{ item.id }}/edit">Edit</a>
-        </sidebar-group>
-    </sidebar>
 </section>
 

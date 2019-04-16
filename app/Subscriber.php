@@ -24,7 +24,7 @@ class Subscriber extends Model
     ];
 
     protected $hidden = [
-        
+        'pivot'
     ];
 
     public $timestamps = false;

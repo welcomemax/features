@@ -32,4 +32,16 @@ class Custom extends Model
     public function product() {
         return $this->belongsTo('App\Product');
     }
+
+    public static $requireRelations = ['product'];
+    public static $requireCountRelations = [];
+
+    public static $defaultOrder = ['id', 'asc'];
+
+    public static $hasTags = true;
+    public function getTags($model) {
+        return [
+            $model->product
+        ];
+    }
 }

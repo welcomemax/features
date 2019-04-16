@@ -10,7 +10,6 @@
             <div class="item-body">
                 <div control="textarea" ng-model="item.data" name="Data"></div>
                 <div class="row">
-                    <div control="select" values="types" ng-model="item.type" name="Type"></div>
                     <div control="select" values="apps" ng-model="item.product" name="Product"></div>
                 </div>
             </div>
@@ -21,16 +20,12 @@
                         <svg class="icon"><use xlink:href="./img/icons/icons.svg#date"></use></svg>
                         <b>{{ item.updated_at }}</b>
                     </span>
-                    <span ng-if="item.subscribers.length" class="item-footer-subscribers">
-                        <svg class="icon"><use xlink:href="./img/icons/icons.svg#people"></use></svg>
-                        <b>{{ item.subscribers.length }}</b>
-                    </span>
                 </div>
             </div>
         </div>
         
         <div class="item-actions">
-            <a class="item-action item-action-close" href="/#/features/{{item.id}}" title="Close">
+            <a class="item-action item-action-close" href="/#/customs/{{item.id}}" title="Close">
                 <svg class="icon"><use xlink:href="./img/icons/icons.svg#close"></use></svg>
             </a>
             <a class="item-action item-action-save" title="Save" ng-click="save()">
@@ -40,7 +35,5 @@
 
         <loader size="small" active="itemIsLoading"></loader>
     </div>
-    
-    <subscribers items="item.subscribers" edit="true"></subscribers>
 </section>
 

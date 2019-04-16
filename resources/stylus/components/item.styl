@@ -2,10 +2,13 @@
     .item
         background #fafafa
         box-shadow 0 1px 3px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.06)
-        padding-right 60px
+        padding-right 80px
 
         &-actions 
             width 60px
+
+        pre
+            max-height 100px
 
 .item
     position relative
@@ -16,7 +19,7 @@
     background color_white
     transition background .3s
     padding 20px
-    padding-right 80px
+    padding-right 100px
 
     &.detail
     &.edit
@@ -27,7 +30,6 @@
         display flex
         flex-direction column
         width 100%
-        margin-right 20px
 
     &:after
         content ""
@@ -160,6 +162,31 @@
                         width 16px
                         height 16px
 
+        pre
+            font 12px/normal monospace
+            border-radius 3px
+            padding 12px
+            background #38393a
+            color #fff
+            width 100%
+            border none
+            outline none
+            margin 0
+            box-sizing border-box
+            overflow-y auto
+
+            &::-webkit-scrollbar-track
+                background-color #f0f0f0
+
+            &::-webkit-scrollbar
+                width 6px
+                height 6px
+
+            &::-webkit-scrollbar-thumb
+                background-color #888
+
+            .item-body:hover &
+                box-shadow 0 0 1px 1px rgba(0,0,0,.15)
 
     &-footer
         display flex

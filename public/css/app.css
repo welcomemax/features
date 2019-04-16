@@ -33,6 +33,79 @@ input {
   height: 24px;
   width: 24px;
 }
+.clipboard {
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #38393a;
+  background: #fff;
+  padding: 2px 6px;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0.4;
+  transition: all 0.3s;
+}
+.clipboard:hover {
+  opacity: 1 !important;
+}
+.notifications {
+  position: fixed;
+  bottom: 0;
+  right: 40px;
+  z-index: 999999;
+  width: 300px;
+}
+.notifications-item {
+  font-size: 14px;
+  position: relative;
+  padding: 12px 12px 12px 12px;
+  margin-bottom: 20px;
+  background: #111;
+  color: #fff;
+  border-radius: 5px;
+  opacity: 0;
+  -webkit-animation: fadein 1s, fadeout 1s 8s;
+          animation: fadein 1s, fadeout 1s 8s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 .loader {
   position: absolute;
   z-index: 1;
@@ -681,10 +754,13 @@ section:nth-child(even) .list-container .item {
 .list .item {
   background: #fafafa;
   box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.06);
-  padding-right: 60px;
+  padding-right: 80px;
 }
 .list .item-actions {
   width: 60px;
+}
+.list .item pre {
+  max-height: 100px;
 }
 .item {
   position: relative;
@@ -695,7 +771,7 @@ section:nth-child(even) .list-container .item {
   background: #fff;
   transition: background 0.3s;
   padding: 20px;
-  padding-right: 80px;
+  padding-right: 100px;
 }
 .item.detail,
 .item.edit {
@@ -706,7 +782,6 @@ section:nth-child(even) .list-container .item {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-right: 20px;
 }
 .item:after {
   content: "";
@@ -840,6 +915,32 @@ ul.item-body-list {
 .item-body-list-item-more .icon {
   width: 16px;
   height: 16px;
+}
+.item-body pre {
+  font: 12px/normal monospace;
+  border-radius: 3px;
+  padding: 12px;
+  background: #38393a;
+  color: #fff;
+  width: 100%;
+  border: none;
+  outline: none;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+.item-body pre::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+}
+.item-body pre::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+.item-body pre::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+.item-body:hover .item-body pre {
+  box-shadow: 0 0 1px 1px rgba(0,0,0,0.15);
 }
 .item-footer {
   display: flex;
@@ -1286,7 +1387,7 @@ ul.item-body-list {
   outline: none;
   border-radius: 3px;
   border: 1px solid rgba(153,153,153,0.4);
-  line-height: 1;
+  line-height: 1.2;
   font-size: 13px;
   font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
@@ -1310,6 +1411,7 @@ ul.item-body-list {
 }
 .control-dropdown {
   position: relative;
+  max-width: 370px;
 }
 .control-dropdown:after {
   content: "";
@@ -1382,4 +1484,31 @@ ul.item-body-list {
 }
 .control-dropdown-options-item:last-child {
   margin-bottom: 0;
+}
+.control-clipboard {
+  text-decoration: none;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #38393a;
+  background: #fff;
+  padding: 2px 6px;
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0.4;
+  transition: opacity 0.3s, -webkit-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s, -webkit-transform 0.3s;
+}
+.control:hover .control-clipboard {
+  opacity: 0.7;
+}
+.control-clipboard:hover {
+  opacity: 1 !important;
 }

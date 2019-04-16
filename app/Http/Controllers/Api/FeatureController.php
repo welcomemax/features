@@ -9,13 +9,7 @@ class FeatureController extends ApiController
 {
     public function index($id = null)
     {
-        $itemsQuery = $id ? Feature::where('id', $id) : Feature::orderBy('id', 'asc');
-        $items = $itemsQuery->with(['type', 'product', 'subscribers'])->get();
-
-        return [
-            'status' => 1,
-            'data' => $items
-        ];
+        return $this->get('App\Feature', $id);
     }
 
     public function save(Request $request, $id)

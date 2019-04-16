@@ -1,4 +1,4 @@
-export default /** @ngInject */ function (data, loader, api, $rootScope, $scope, $routeParams, $location) {
+export default /** @ngInject */ function (data, loader, api, notification, $rootScope, $scope, $routeParams, $location) {
     angular.extend($rootScope, data);
     
     const section = $routeParams.section;
@@ -22,7 +22,6 @@ export default /** @ngInject */ function (data, loader, api, $rootScope, $scope,
     };
     
     [$scope.item, $scope.itemIsLoading] = loader.getItemFromRootScope(section, id);
-    // angular.equals({}, $scope.item) && id ? loadItem(section, id) : {};
 
     $scope.save = () => {
         api.call(`${section}/${id}`, 'post', $scope.item).then((response) => {
@@ -31,6 +30,7 @@ export default /** @ngInject */ function (data, loader, api, $rootScope, $scope,
             } else {
                 $rootScope[section].push($scope.item);
             }
+            notification.show(`Saved ${section.substring(0, section.length-1)} #${$scope.item.id}`);
             $location.path(`/${section}/${$scope.item.id}`);
         });
     };

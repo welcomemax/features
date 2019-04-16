@@ -8,8 +8,10 @@ import trustResourceFilter from './filters/trust-resource.es6';
 import startFromFilter from './filters/start-from.es6';
 
 // services
+import clipboardService from './services/clipboard.es6';
 import apiService from './services/api.es6';
 import loaderService from './services/loader.es6';
+import notificationService from './services/notification.es6';
 
 // controllers
 import appController from './controllers/app.es6';
@@ -19,6 +21,7 @@ import detailController from './controllers/detail.es6';
 import editController from './controllers/edit.es6';
 
 // directives
+import clipboardDirective from './directives/clipboard.es6';
 import loaderDirective from './directives/loader.es6';
 import tagsDirective from './directives/tags.es6';
 import subscribersDirective from './directives/subscribers.es6';
@@ -32,6 +35,8 @@ import {controlDirective, controlTextareaDirective, controlInputDirective, contr
 angular.module('app', ['ngRoute'])
     .factory('api', apiService)
     .factory('loader', loaderService)
+    .factory('notification', notificationService)
+    .factory('clipboard', clipboardService)
     .controller('appController', appController)
     .controller('homeController', homeController)
     .controller('listController', listController)

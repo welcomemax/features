@@ -16,7 +16,13 @@
         <div ng-if="parts.body !== false" class="item-body" ng-transclude>
             <div ng-switch on="type">
                 <p ng-switch-when="feature">{{ item.data }}</p>
-                <p ng-switch-when="custom">{{ item.data }}</p>
+                <div ng-switch-when="custom" ng-click="$root.clipboardCopy(item.data)">
+                    <pre>{{ item.data }}</pre>
+                    <span class="clipboard">
+                        <span ng-show="!$root.clipboardCopied">copy</span>
+                        <span ng-show="$root.clipboardCopied">copied</span>
+                    </span>
+                </div>
                 <p ng-switch-when="app">{{ item.caption }}</p>
                 <div ng-switch-when="release">
                     <p>Features in this release:</p>

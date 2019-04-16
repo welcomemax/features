@@ -41,4 +41,17 @@ class Feature extends Model
     public function subscribers() {
         return $this->belongsToMany('App\Subscriber');
     }
+
+    public static $requireRelations = ['type', 'product', 'subscribers'];
+    public static $requireCountRelations = ['subscribers'];
+
+    public static $defaultOrder = ['subscribers_count', 'desc'];
+
+    public static $hasTags = true;
+    public function getTags($model) {
+        return [
+            $model->product,
+            $model->type
+        ];
+    }
 }

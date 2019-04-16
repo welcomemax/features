@@ -37844,22 +37844,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _filters_trust_html_es6__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./filters/trust-html.es6 */ "./resources/es6/filters/trust-html.es6");
 /* harmony import */ var _filters_trust_resource_es6__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./filters/trust-resource.es6 */ "./resources/es6/filters/trust-resource.es6");
 /* harmony import */ var _filters_start_from_es6__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./filters/start-from.es6 */ "./resources/es6/filters/start-from.es6");
-/* harmony import */ var _services_api_es6__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/api.es6 */ "./resources/es6/services/api.es6");
-/* harmony import */ var _services_loader_es6__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/loader.es6 */ "./resources/es6/services/loader.es6");
-/* harmony import */ var _controllers_app_es6__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./controllers/app.es6 */ "./resources/es6/controllers/app.es6");
-/* harmony import */ var _controllers_home_es6__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./controllers/home.es6 */ "./resources/es6/controllers/home.es6");
-/* harmony import */ var _controllers_list_es6__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./controllers/list.es6 */ "./resources/es6/controllers/list.es6");
-/* harmony import */ var _controllers_detail_es6__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./controllers/detail.es6 */ "./resources/es6/controllers/detail.es6");
-/* harmony import */ var _controllers_edit_es6__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./controllers/edit.es6 */ "./resources/es6/controllers/edit.es6");
-/* harmony import */ var _directives_loader_es6__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./directives/loader.es6 */ "./resources/es6/directives/loader.es6");
-/* harmony import */ var _directives_tags_es6__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./directives/tags.es6 */ "./resources/es6/directives/tags.es6");
-/* harmony import */ var _directives_subscribers_es6__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./directives/subscribers.es6 */ "./resources/es6/directives/subscribers.es6");
-/* harmony import */ var _directives_preview_es6__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./directives/preview.es6 */ "./resources/es6/directives/preview.es6");
-/* harmony import */ var _directives_list_es6__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./directives/list.es6 */ "./resources/es6/directives/list.es6");
-/* harmony import */ var _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./directives/list-item.es6 */ "./resources/es6/directives/list-item.es6");
-/* harmony import */ var _directives_menu_es6__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./directives/menu.es6 */ "./resources/es6/directives/menu.es6");
-/* harmony import */ var _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./directives/sidebar.es6 */ "./resources/es6/directives/sidebar.es6");
-/* harmony import */ var _directives_control_es6__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./directives/control.es6 */ "./resources/es6/directives/control.es6");
+/* harmony import */ var _services_clipboard_es6__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./services/clipboard.es6 */ "./resources/es6/services/clipboard.es6");
+/* harmony import */ var _services_api_es6__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./services/api.es6 */ "./resources/es6/services/api.es6");
+/* harmony import */ var _services_loader_es6__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services/loader.es6 */ "./resources/es6/services/loader.es6");
+/* harmony import */ var _services_notification_es6__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./services/notification.es6 */ "./resources/es6/services/notification.es6");
+/* harmony import */ var _controllers_app_es6__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./controllers/app.es6 */ "./resources/es6/controllers/app.es6");
+/* harmony import */ var _controllers_home_es6__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./controllers/home.es6 */ "./resources/es6/controllers/home.es6");
+/* harmony import */ var _controllers_list_es6__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./controllers/list.es6 */ "./resources/es6/controllers/list.es6");
+/* harmony import */ var _controllers_detail_es6__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./controllers/detail.es6 */ "./resources/es6/controllers/detail.es6");
+/* harmony import */ var _controllers_edit_es6__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./controllers/edit.es6 */ "./resources/es6/controllers/edit.es6");
+/* harmony import */ var _directives_clipboard_es6__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./directives/clipboard.es6 */ "./resources/es6/directives/clipboard.es6");
+/* harmony import */ var _directives_loader_es6__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./directives/loader.es6 */ "./resources/es6/directives/loader.es6");
+/* harmony import */ var _directives_tags_es6__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./directives/tags.es6 */ "./resources/es6/directives/tags.es6");
+/* harmony import */ var _directives_subscribers_es6__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./directives/subscribers.es6 */ "./resources/es6/directives/subscribers.es6");
+/* harmony import */ var _directives_preview_es6__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./directives/preview.es6 */ "./resources/es6/directives/preview.es6");
+/* harmony import */ var _directives_list_es6__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./directives/list.es6 */ "./resources/es6/directives/list.es6");
+/* harmony import */ var _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./directives/list-item.es6 */ "./resources/es6/directives/list-item.es6");
+/* harmony import */ var _directives_menu_es6__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./directives/menu.es6 */ "./resources/es6/directives/menu.es6");
+/* harmony import */ var _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_22__ = __webpack_require__(/*! ./directives/sidebar.es6 */ "./resources/es6/directives/sidebar.es6");
+/* harmony import */ var _directives_control_es6__WEBPACK_IMPORTED_MODULE_23__ = __webpack_require__(/*! ./directives/control.es6 */ "./resources/es6/directives/control.es6");
 // vendors
 
 
@@ -37870,6 +37873,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 // services
+
+
 
 
 
@@ -37891,28 +37896,31 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 angular.module('app', ['ngRoute'])
-    .factory('api', _services_api_es6__WEBPACK_IMPORTED_MODULE_5__["default"])
-    .factory('loader', _services_loader_es6__WEBPACK_IMPORTED_MODULE_6__["default"])
-    .controller('appController', _controllers_app_es6__WEBPACK_IMPORTED_MODULE_7__["default"])
-    .controller('homeController', _controllers_home_es6__WEBPACK_IMPORTED_MODULE_8__["default"])
-    .controller('listController', _controllers_list_es6__WEBPACK_IMPORTED_MODULE_9__["default"])
-    .controller('detailController', _controllers_detail_es6__WEBPACK_IMPORTED_MODULE_10__["default"])
-    .controller('editController', _controllers_edit_es6__WEBPACK_IMPORTED_MODULE_11__["default"])
-    .directive('loader', _directives_loader_es6__WEBPACK_IMPORTED_MODULE_12__["default"])
-    .directive('tags', _directives_tags_es6__WEBPACK_IMPORTED_MODULE_13__["default"])
-    .directive('subscribers', _directives_subscribers_es6__WEBPACK_IMPORTED_MODULE_14__["default"])
-    .directive('preview', _directives_preview_es6__WEBPACK_IMPORTED_MODULE_15__["default"])
-    .directive('list', _directives_list_es6__WEBPACK_IMPORTED_MODULE_16__["default"])
-    .directive('listItem', _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_17__["default"])
-    .directive('menu', _directives_menu_es6__WEBPACK_IMPORTED_MODULE_18__["menuDirective"])
-    .directive('menuItem', _directives_menu_es6__WEBPACK_IMPORTED_MODULE_18__["menuItemDirective"])
-    .directive('sidebar', _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_19__["sidebarDirective"])
-    .directive('sidebarGroup', _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_19__["sidebarGroupDirective"])
-    .directive('control', _directives_control_es6__WEBPACK_IMPORTED_MODULE_20__["controlDirective"])
-    .directive('controlTextarea', _directives_control_es6__WEBPACK_IMPORTED_MODULE_20__["controlTextareaDirective"])
-    .directive('controlSelect', _directives_control_es6__WEBPACK_IMPORTED_MODULE_20__["controlSelectDirective"])
-    .directive('controlInput', _directives_control_es6__WEBPACK_IMPORTED_MODULE_20__["controlInputDirective"])
+    .factory('api', _services_api_es6__WEBPACK_IMPORTED_MODULE_6__["default"])
+    .factory('loader', _services_loader_es6__WEBPACK_IMPORTED_MODULE_7__["default"])
+    .factory('notification', _services_notification_es6__WEBPACK_IMPORTED_MODULE_8__["default"])
+    .factory('clipboard', _services_clipboard_es6__WEBPACK_IMPORTED_MODULE_5__["default"])
+    .controller('appController', _controllers_app_es6__WEBPACK_IMPORTED_MODULE_9__["default"])
+    .controller('homeController', _controllers_home_es6__WEBPACK_IMPORTED_MODULE_10__["default"])
+    .controller('listController', _controllers_list_es6__WEBPACK_IMPORTED_MODULE_11__["default"])
+    .controller('detailController', _controllers_detail_es6__WEBPACK_IMPORTED_MODULE_12__["default"])
+    .controller('editController', _controllers_edit_es6__WEBPACK_IMPORTED_MODULE_13__["default"])
+    .directive('loader', _directives_loader_es6__WEBPACK_IMPORTED_MODULE_15__["default"])
+    .directive('tags', _directives_tags_es6__WEBPACK_IMPORTED_MODULE_16__["default"])
+    .directive('subscribers', _directives_subscribers_es6__WEBPACK_IMPORTED_MODULE_17__["default"])
+    .directive('preview', _directives_preview_es6__WEBPACK_IMPORTED_MODULE_18__["default"])
+    .directive('list', _directives_list_es6__WEBPACK_IMPORTED_MODULE_19__["default"])
+    .directive('listItem', _directives_list_item_es6__WEBPACK_IMPORTED_MODULE_20__["default"])
+    .directive('menu', _directives_menu_es6__WEBPACK_IMPORTED_MODULE_21__["menuDirective"])
+    .directive('menuItem', _directives_menu_es6__WEBPACK_IMPORTED_MODULE_21__["menuItemDirective"])
+    .directive('sidebar', _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_22__["sidebarDirective"])
+    .directive('sidebarGroup', _directives_sidebar_es6__WEBPACK_IMPORTED_MODULE_22__["sidebarGroupDirective"])
+    .directive('control', _directives_control_es6__WEBPACK_IMPORTED_MODULE_23__["controlDirective"])
+    .directive('controlTextarea', _directives_control_es6__WEBPACK_IMPORTED_MODULE_23__["controlTextareaDirective"])
+    .directive('controlSelect', _directives_control_es6__WEBPACK_IMPORTED_MODULE_23__["controlSelectDirective"])
+    .directive('controlInput', _directives_control_es6__WEBPACK_IMPORTED_MODULE_23__["controlInputDirective"])
     .filter('startFromFilter', _filters_start_from_es6__WEBPACK_IMPORTED_MODULE_4__["default"])
     .filter('trustHtmlFilter', _filters_trust_html_es6__WEBPACK_IMPORTED_MODULE_2__["default"])
     .filter('trustResourceFilter', _filters_trust_resource_es6__WEBPACK_IMPORTED_MODULE_3__["default"])
@@ -37981,7 +37989,7 @@ angular.module('app', ['ngRoute'])
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function ($rootScope, $scope) {
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function ($rootScope, $timeout, clipboard) {
     $rootScope.isLoading = true;
     
     $rootScope.toggleLoader = (value) => {
@@ -37993,13 +38001,24 @@ __webpack_require__.r(__webpack_exports__);
         $rootScope.search = '';
     });
 
-    $rootScope.$on('$routeChangeSuccess', function() {
+    $rootScope.$on('$routeChangeSuccess', () => {
         $rootScope.toggleLoader(false);
     });
 
     $rootScope.$on('$viewContentLoaded', () => {
         $rootScope.toggleLoader(false);
     });
+
+    $rootScope.clipboardSupported = clipboard.supported;
+    $rootScope.clipboardCopy = (data) => {
+        if (clipboard.supported) {
+            clipboard.copyText(data);
+            $rootScope.clipboardCopied = true;
+            $timeout(function () {
+                $rootScope.clipboardCopied = false;
+            }, 5000);
+        }
+    };
 });
 
 /***/ }),
@@ -38032,9 +38051,6 @@ __webpack_require__.r(__webpack_exports__);
     };
 
     [$scope.item, $scope.itemIsLoading] = loader.getItemFromRootScope(section, id);
-    // angular.equals({}, $scope.item) && loadItem(section, id);
-
-    // debugger
 
     if (section === 'apps') {
         $scope.featuresByProduct = filterByProduct($rootScope.features, $scope.item.name);
@@ -38054,7 +38070,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (data, loader, api, $rootScope, $scope, $routeParams, $location) {
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function (data, loader, api, notification, $rootScope, $scope, $routeParams, $location) {
     angular.extend($rootScope, data);
     
     const section = $routeParams.section;
@@ -38078,7 +38094,6 @@ __webpack_require__.r(__webpack_exports__);
     };
     
     [$scope.item, $scope.itemIsLoading] = loader.getItemFromRootScope(section, id);
-    // angular.equals({}, $scope.item) && id ? loadItem(section, id) : {};
 
     $scope.save = () => {
         api.call(`${section}/${id}`, 'post', $scope.item).then((response) => {
@@ -38087,6 +38102,7 @@ __webpack_require__.r(__webpack_exports__);
             } else {
                 $rootScope[section].push($scope.item);
             }
+            notification.show(`Saved ${section.substring(0, section.length-1)} #${$scope.item.id}`);
             $location.path(`/${section}/${$scope.item.id}`);
         });
     };
@@ -38167,6 +38183,45 @@ __webpack_require__.r(__webpack_exports__);
     $scope.typesWithCustoms = $filter('filter')($rootScope.types, {features_count: '!0'});
 });
 
+
+/***/ }),
+
+/***/ "./resources/es6/directives/clipboard.es6":
+/*!************************************************!*\
+  !*** ./resources/es6/directives/clipboard.es6 ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function(copyToClipboardService) {
+    return {
+        restrict: 'A',
+        scope: {
+            onCopied: '&',
+            onError: '&',
+            text: '=',
+            supported: '=?'
+        },
+        link: function(scope, element) {
+            scope.supported = copyToClipboardService.supported;
+
+            element.on('click', function(event) {
+                try {
+                    copyToClipboardService.copyText(scope.text, element[0]);
+                    if (angular.isFunction(scope.onCopied)) {
+                        scope.$evalAsync(scope.onCopied());
+                    }
+                } catch (err) {
+                    if (angular.isFunction(scope.onError)) {
+                        scope.$evalAsync(scope.onError({ err: err }));
+                    }
+                }
+            });
+        }
+    };
+});
 
 /***/ }),
 
@@ -38363,11 +38418,12 @@ function itemDirective() {
             }
 
             scope.parts = getParts(scope.show);
-            scope.item.tags = [scope.item.product, scope.item.type];
-            scope.icon = `/img/icons/apps/${product_alias}.svg`;
+            if (product_alias) {
+                scope.icon = `/img/icons/apps/${product_alias}.svg`;
+            }  
         },
         controller: ($scope) => {
-           
+            
         }
     };
 }
@@ -39013,6 +39069,60 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/es6/services/clipboard.es6":
+/*!**********************************************!*\
+  !*** ./resources/es6/services/clipboard.es6 ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function($window, $document) {
+    let createNode = function(text) {
+        var node = $document[0].createElement('textarea');
+        node.style.position = 'absolute';
+        node.textContent = text;
+        node.style.left = '-10000px';
+        node.style.top = ($window.pageYOffset || $document[0].documentElement.scrollTop) + 'px';
+
+        return node;
+    };
+
+    let copyNode = function(node) {
+        try {
+            // Set inline style to override css styles
+            $document[0].body.style.webkitUserSelect = 'initial';
+
+            var selection = $document[0].getSelection();
+            selection.removeAllRanges();
+            node.select();
+
+            if (!$document[0].execCommand('copy')) {
+                throw('failure copy');
+            }
+            selection.removeAllRanges();
+        } finally {
+            // Reset inline style
+            $document[0].body.style.webkitUserSelect = '';
+        }
+    };
+
+    let copyText = function(text) {
+        var node = createNode(text);
+        $document[0].body.appendChild(node);
+        copyNode(node);
+        $document[0].body.removeChild(node);
+    };
+
+    return {
+        copyText: copyText,
+        supported: 'queryCommandSupported' in $document[0] && $document[0].queryCommandSupported('copy')
+    };
+});
+
+/***/ }),
+
 /***/ "./resources/es6/services/loader.es6":
 /*!*******************************************!*\
   !*** ./resources/es6/services/loader.es6 ***!
@@ -39084,6 +39194,37 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/es6/services/notification.es6":
+/*!*************************************************!*\
+  !*** ./resources/es6/services/notification.es6 ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (/** @ngInject */function($timeout) {
+    return {
+        show(message) {
+            if (!message) {
+                return;
+            }
+
+            let container = document.querySelector('.notifications');
+            let item = document.createElement('div');
+            
+            item.innerHTML = message;
+            item.className = 'notifications-item';
+            
+            container.appendChild(item);
+            
+            $timeout(() => container.removeChild(item), 10000);
+        }
+    };
+});;
+
+/***/ }),
+
 /***/ "./resources/html/controls/input.html":
 /*!********************************************!*\
   !*** ./resources/html/controls/input.html ***!
@@ -39124,7 +39265,7 @@ module.exports = "<div class=\"control\">\r\n    <label class=\"control-label\" 
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"item item-type-{{item.type.alias}}\">\r\n    <div class=\"item-icon-container\" ng-if=\"parts.icon\">\r\n        <div class=\"item-icon\" ng-include=\"icon\"></div>\r\n    </div>\r\n\r\n    <div class=\"item-inner\">\r\n        <div class=\"item-header\">\r\n            <div ng-switch on=\"type\">\r\n                <h4 ng-switch-when=\"feature\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"custom\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"release\">{{ item.product.name + ' ' + item.version }}</h4>\r\n                <h4 ng-switch-default>{{ item.name }}</h4>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.body !== false\" class=\"item-body\" ng-transclude>\r\n            <div ng-switch on=\"type\">\r\n                <p ng-switch-when=\"feature\">{{ item.data }}</p>\r\n                <p ng-switch-when=\"custom\">{{ item.data }}</p>\r\n                <p ng-switch-when=\"app\">{{ item.caption }}</p>\r\n                <div ng-switch-when=\"release\">\r\n                    <p>Features in this release:</p>\r\n                    <ul class=\"release-features\">\r\n                        <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                            <span>{{ feature.title }}</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <p ng-if=\"item.email\"><a href=\"mailto:{{ item.email }}\">{{ item.email }}</a></p>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.timeline\" class=\"timeline-item timeline-item-apart\">\r\n            <div class=\"timeline-item-marker\"></div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.tags || parts.date || item.subscribers\" class=\"item-footer\">\r\n            <tags ng-if=\"parts.tags\" class=\"item-footer-tags\" icon=\"false\" items=\"item.tags\"></tags>\r\n            <div class=\"item-footer-right\">\r\n                <span ng-if=\"parts.date && item.updated_at\" class=\"item-footer-date\">\r\n                    <svg class=\"icon\">\r\n                        <use xlink:href=\"./img/icons/icons.svg#date\"></use>\r\n                    </svg>\r\n                    <b>{{ item.updated_at }}</b>\r\n                </span>\r\n                <span ng-if=\"item.subscribers.length\" class=\"item-footer-subscribers\">\r\n                    <svg class=\"icon\">\r\n                        <use xlink:href=\"./img/icons/icons.svg#people\"></use>\r\n                    </svg>\r\n                    <b>{{ item.subscribers.length }}</b>\r\n                </span>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    \r\n    <div class=\"item-actions\" ng-if=\"type\">\r\n        <a class=\"item-action item-action-open\" href=\"#/{{ type }}s/{{ item.id }}\" title=\"Open detail\">\r\n            <svg class=\"icon\">\r\n                <use xlink:href=\"./img/icons/icons.svg#arrow-forward\"></use>\r\n            </svg>\r\n        </a>\r\n    </div>\r\n</div>";
+module.exports = "<div class=\"item item-type-{{item.type.alias}}\">\r\n    <div class=\"item-icon-container\" ng-if=\"parts.icon\">\r\n        <div class=\"item-icon\" ng-include=\"icon\"></div>\r\n    </div>\r\n\r\n    <div class=\"item-inner\">\r\n        <div class=\"item-header\">\r\n            <div ng-switch on=\"type\">\r\n                <h4 ng-switch-when=\"feature\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"custom\">{{ item.title }}</h4>\r\n                <h4 ng-switch-when=\"release\">{{ item.product.name + ' ' + item.version }}</h4>\r\n                <h4 ng-switch-default>{{ item.name }}</h4>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.body !== false\" class=\"item-body\" ng-transclude>\r\n            <div ng-switch on=\"type\">\r\n                <p ng-switch-when=\"feature\">{{ item.data }}</p>\r\n                <div ng-switch-when=\"custom\" ng-click=\"$root.clipboardCopy(item.data)\">\r\n                    <pre>{{ item.data }}</pre>\r\n                    <span class=\"clipboard\">\r\n                        <span ng-show=\"!$root.clipboardCopied\">copy</span>\r\n                        <span ng-show=\"$root.clipboardCopied\">copied</span>\r\n                    </span>\r\n                </div>\r\n                <p ng-switch-when=\"app\">{{ item.caption }}</p>\r\n                <div ng-switch-when=\"release\">\r\n                    <p>Features in this release:</p>\r\n                    <ul class=\"release-features\">\r\n                        <li class=\"release-features-item\" ng-repeat=\"feature in item.features\">\r\n                            <span>{{ feature.title }}</span>\r\n                        </li>\r\n                    </ul>\r\n                </div>\r\n                <p ng-if=\"item.email\"><a href=\"mailto:{{ item.email }}\">{{ item.email }}</a></p>\r\n            </div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.timeline\" class=\"timeline-item timeline-item-apart\">\r\n            <div class=\"timeline-item-marker\"></div>\r\n        </div>\r\n    \r\n        <div ng-if=\"parts.tags || parts.date || item.subscribers\" class=\"item-footer\">\r\n            <tags ng-if=\"parts.tags\" class=\"item-footer-tags\" icon=\"false\" items=\"item.tags\"></tags>\r\n            <div class=\"item-footer-right\">\r\n                <span ng-if=\"parts.date && item.updated_at\" class=\"item-footer-date\">\r\n                    <svg class=\"icon\">\r\n                        <use xlink:href=\"./img/icons/icons.svg#date\"></use>\r\n                    </svg>\r\n                    <b>{{ item.updated_at }}</b>\r\n                </span>\r\n                <span ng-if=\"item.subscribers.length\" class=\"item-footer-subscribers\">\r\n                    <svg class=\"icon\">\r\n                        <use xlink:href=\"./img/icons/icons.svg#people\"></use>\r\n                    </svg>\r\n                    <b>{{ item.subscribers.length }}</b>\r\n                </span>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    \r\n    <div class=\"item-actions\" ng-if=\"type\">\r\n        <a class=\"item-action item-action-open\" href=\"#/{{ type }}s/{{ item.id }}\" title=\"Open detail\">\r\n            <svg class=\"icon\">\r\n                <use xlink:href=\"./img/icons/icons.svg#arrow-forward\"></use>\r\n            </svg>\r\n        </a>\r\n    </div>\r\n</div>";
 
 /***/ }),
 

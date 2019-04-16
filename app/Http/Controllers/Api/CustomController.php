@@ -9,13 +9,7 @@ class CustomController extends ApiController
 {
     public function index($id = null)
     {
-        $itemsQuery = $id ? Custom::where('id', $id) : Custom::orderBy('id', 'asc');
-        $items = $itemsQuery->with(['type', 'product'])->get();
-
-        return [
-            'status' => 1,
-            'data' => $items
-        ];
+        return $this->get('App\Custom', $id);
     }
 
     public function save(Request $request, $id = null)
