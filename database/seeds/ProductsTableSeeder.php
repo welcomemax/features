@@ -1,5 +1,6 @@
 <?php
 
+use App\Release;
 use App\Product;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
@@ -155,10 +156,20 @@ class ProductsTableSeeder extends Seeder
         ];
 
         foreach ($products_data as $alias => $product_data) {
-            Product::updateOrCreate(
-				[ 'alias' => $alias ],
+            $product = Product::updateOrCreate(
+				['alias' => $alias],
 				$product_data
-			);
+            );
+
+            Release::updateOrCreate(
+                ['version' => '1.0.0', 'product_id' => $product->id],
+                [   
+                    'version' => '1.0.0', 
+                    'product_id' => $product->id,
+                    'created_at' => $product_data['created_at'],
+                    'updated_at' => $product_data['created_at']
+                ]
+            );
         }
     }
 }

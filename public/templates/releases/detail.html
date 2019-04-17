@@ -6,15 +6,20 @@
             </div>
 
             <div class="item-body">
-                <p>Features in this release:</p>
-                <ul class="item-body-list">
-                    <li ng-repeat="feature in item.features" class="item-body-list-item">
-                        <span class="item-body-list-item-name">{{ feature.title }}</span> 
-                        <a class="item-body-list-item-more" href="/#/features/{{ feature.id }}">
-                            <svg class="icon"><use xlink:href="./img/icons/icons.svg#arrow-forward"></use></svg>
-                        </a>
-                    </li> 
-                </ul>
+                <div ng-if="item.features.length">
+                    <p>Features in this release:</p>
+                    <ul class="item-body-list">
+                        <li ng-repeat="feature in item.features" class="item-body-list-item">
+                            <span class="item-body-list-item-name">{{ feature.title }}</span> 
+                            <a class="item-body-list-item-more" href="/#/features/{{ feature.id }}">
+                                <svg class="icon"><use xlink:href="./img/icons/icons.svg#arrow-forward"></use></svg>
+                            </a>
+                        </li> 
+                    </ul>
+                </div>
+                <div ng-if="item.version === '1.0.0'">
+                    <p>App just released!</p>
+                </div>
             </div>
 
             <div class="item-footer">

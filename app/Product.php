@@ -25,14 +25,15 @@ class Product extends Model
         'updated_at' => 'datetime:Y-m-d',
     ];
 
-    protected $hidden = [
-        
-    ];
-
     public function features() {
         return $this->hasMany('App\Feature');
     }
+
     public function releases() {
         return $this->hasMany('App\Release');
+    }
+    
+    public function customs() {
+        return $this->hasMany('App\Custom');
     }
 }

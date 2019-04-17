@@ -88,6 +88,10 @@ input
     &:hover
         opacity 1 !important
 
+    // & > span
+    //     animation fadein 1s, fadeout 1s 8s
+    //     animation-fill-mode forwards
+
 .notifications
     position fixed
     bottom 0
@@ -114,18 +118,6 @@ input
         //     height 8px
         //     position absolute
         //     left 20px
-
-        @keyframes fadein
-            from
-                opacity 0
-            to
-                opacity 1
-
-        @keyframes fadeout
-            from
-                opacity 1
-            to
-                opacity 0
 
 .loader
     position absolute
@@ -179,6 +171,18 @@ input
 
             .loader-small &
                 clip rect(0, 32px, 32px, 16px)
+
+@keyframes fadein
+    from
+        opacity 0
+    to
+        opacity 1
+
+@keyframes fadeout
+    from
+        opacity 1
+    to
+        opacity 0
 
 @keyframes loader-1
     0%

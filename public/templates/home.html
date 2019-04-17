@@ -39,11 +39,27 @@
     </div>
 </section>
 
+<section>
+    <div class="container">
+        <list items="$root.customs" title="Customizations" limit="4" type="custom" show="tags" size="half"></list>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <list items="$root.apps" title="Applications" limit="4" type="app" show="icon, !body" size="half"></list>
+        <!-- <div class="home-cta">
+            <div class="home-cta-title">Not found a needed app?</div>
+            <a class="home-cta-button button">Request app</a>
+        </div> -->
+    </div>
+</section>
+
 <section class="home-timeline">
     <h3 class="home-timeline-title">Releases timeline</h3>
     <div class="timeline timeline-horizontal">
         <ul class="timeline-items">
-            <li class="timeline-item" ng-repeat="item in $root.releases | orderBy:created_at">
+            <li class="timeline-item" ng-repeat="item in $root.releases | orderBy:created_at | limitTo:10">
                 <div class="timeline-item-content">
                     <div class="timeline-item-content-title">{{ item.product.name }} {{ item.version }}</div>
                     <div class="timeline-item-content-date">{{ item.created_at }}</div>
@@ -57,22 +73,6 @@
 
 <section>
     <div class="container">
-        <list items="$root.customs" title="Customizations" type="custom" show="!body" size="half"></list>
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <list items="$root.apps" title="Applications" per-page="30" type="app" show="icon, !body" size="half"></list>
-        <!-- <div class="home-cta">
-            <div class="home-cta-title">Not found a needed app?</div>
-            <a class="home-cta-button button">Request app</a>
-        </div> -->
-    </div>
-</section>
-
-<section>
-    <div class="container">
-        <list items="$root.subscribers" title="Subscribers" size="third" per-page="18"></list>
+        <list items="$root.subscribers" title="Subscribers" size="third" per-page="3"></list>
     </div>
 </section>

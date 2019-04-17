@@ -25,12 +25,18 @@
                 </div>
                 <p ng-switch-when="app">{{ item.caption }}</p>
                 <div ng-switch-when="release">
-                    <p>Features in this release:</p>
-                    <ul class="release-features">
-                        <li class="release-features-item" ng-repeat="feature in item.features">
-                            <span>{{ feature.title }}</span>
-                        </li>
-                    </ul>
+                    
+                    <div ng-if="item.features.length">
+                        <p>Features in this release:</p>
+                        <ul class="release-features">
+                            <li class="release-features-item" ng-repeat="feature in item.features">
+                                <span>{{ feature.title }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div ng-if="item.version === '1.0.0'">
+                        <p>App just released!</p>
+                    </div>
                 </div>
                 <p ng-if="item.email"><a href="mailto:{{ item.email }}">{{ item.email }}</a></p>
             </div>

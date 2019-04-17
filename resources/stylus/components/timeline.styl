@@ -2,7 +2,7 @@
     margin -24px 0
 
     &-horizontal
-        padding 24px 0 24px 0
+        padding 32px 0 100px 0
         margin 0
     
     &-vertical
@@ -41,10 +41,20 @@
 
         .timeline-horizontal &
             position relative
-            margin-bottom 12px
+            margin 0 -20px 12px
+
+            &:first-child
+                margin-left 0
+
+            &:last-child
+                margin-right 0
 
             &:nth-child(even)
-                margin-bottom -36px
+                top 80px
+
+                .timeline-item-marker
+                    top -22px
+                    bottom initial
 
         &-line
             content ""
